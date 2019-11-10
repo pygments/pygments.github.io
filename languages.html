@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Supported languages &#8212; Pygments</title>
+    <link rel="stylesheet" href="_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    
+    <li><a href="#">Languages</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="download.html">Get it</a></li>
+    <li><a href="docs/index.html">Docs</a></li>
+  </ul>
+  <div>
+    <a href="index.html">
+      <img src="_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Supported languages</a><ul>
+<li><a class="reference internal" href="#programming-languages">Programming languages</a></li>
+<li><a class="reference internal" href="#template-languages">Template languages</a></li>
+<li><a class="reference internal" href="#other-markup">Other markup</a></li>
+<li><a class="reference internal" href="#that-s-all">… that’s all?</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/languages.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="supported-languages">
+<h1>Supported languages<a class="headerlink" href="#supported-languages" title="Permalink to this headline">¶</a></h1>
+<p>Pygments supports an ever-growing range of languages. Watch this space…</p>
+<div class="section" id="programming-languages">
+<h2>Programming languages<a class="headerlink" href="#programming-languages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ActionScript</p></li>
+<li><p>Ada</p></li>
+<li><p>ANTLR</p></li>
+<li><p>AppleScript</p></li>
+<li><p>Assembly (various)</p></li>
+<li><p>Asymptote</p></li>
+<li><p><a class="reference external" href="http://augeas.net">Augeas</a></p></li>
+<li><p>Awk</p></li>
+<li><p>BBC Basic</p></li>
+<li><p>Befunge</p></li>
+<li><p><a class="reference external" href="http://boa.cs.iastate.edu/docs/index.php">Boa</a></p></li>
+<li><p>Boo</p></li>
+<li><p>BrainFuck</p></li>
+<li><p>C, C++</p></li>
+<li><p>C#</p></li>
+<li><p><a class="reference external" href="http://charmplusplus.org/">Charm++ CI</a></p></li>
+<li><p>Clojure</p></li>
+<li><p>CoffeeScript</p></li>
+<li><p>ColdFusion</p></li>
+<li><p>Common Lisp</p></li>
+<li><p>Coq</p></li>
+<li><p>Cryptol (incl. Literate Cryptol)</p></li>
+<li><p><a class="reference external" href="http://crystal-lang.org">Crystal</a></p></li>
+<li><p><a class="reference external" href="http://cython.org">Cython</a></p></li>
+<li><p><a class="reference external" href="http://dlang.org">D</a></p></li>
+<li><p>Dart</p></li>
+<li><p>DCPU-16</p></li>
+<li><p>Delphi</p></li>
+<li><p>Dylan</p></li>
+<li><p><a class="reference external" href="http://elm-lang.org/">Elm</a></p></li>
+<li><p>Erlang</p></li>
+<li><p><a class="reference external" href="http://ezhillang.org">Ezhil</a> Ezhil - A Tamil programming language</p></li>
+<li><p>Factor</p></li>
+<li><p>Fancy</p></li>
+<li><p><a class="reference external" href="https://fennel-lang.org/">Fennel</a></p></li>
+<li><p><a class="reference external" href="http://ioflo.com/">FloScript</a></p></li>
+<li><p>Fortran</p></li>
+<li><p><a class="reference external" href="https://freefem.org/">FreeFEM++</a></p></li>
+<li><p>F#</p></li>
+<li><p>GAP</p></li>
+<li><p>Gherkin (Cucumber)</p></li>
+<li><p>GL shaders</p></li>
+<li><p>Groovy</p></li>
+<li><p><a class="reference external" href="http://www.haskell.org">Haskell</a> (incl. Literate Haskell)</p></li>
+<li><p>HLSL</p></li>
+<li><p><a class="reference external" href="http://hackage.haskell.org/package/hspec">HSpec</a></p></li>
+<li><p>IDL</p></li>
+<li><p>Io</p></li>
+<li><p>Java</p></li>
+<li><p>JavaScript</p></li>
+<li><p>Lasso</p></li>
+<li><p>LLVM</p></li>
+<li><p>Logtalk</p></li>
+<li><p><a class="reference external" href="http://www.lua.org">Lua</a></p></li>
+<li><p>Matlab</p></li>
+<li><p>MiniD</p></li>
+<li><p>Modelica</p></li>
+<li><p>Modula-2</p></li>
+<li><p>MuPad</p></li>
+<li><p>Nemerle</p></li>
+<li><p>Nimrod</p></li>
+<li><p>Objective-C</p></li>
+<li><p>Objective-J</p></li>
+<li><p>Octave</p></li>
+<li><p>OCaml</p></li>
+<li><p>PHP</p></li>
+<li><p><a class="reference external" href="http://perl.org">Perl 5</a> and <a class="reference external" href="https://perl6.org">Perl 6</a></p></li>
+<li><p><a class="reference external" href="https://www.ponylang.io/">Pony</a></p></li>
+<li><p>PovRay</p></li>
+<li><p>PostScript</p></li>
+<li><p>PowerShell</p></li>
+<li><p>Prolog</p></li>
+<li><p><a class="reference external" href="http://www.python.org">Python</a> 2.x and 3.x (incl. console sessions and tracebacks)</p></li>
+<li><p><a class="reference external" href="http://www.rebol.com">REBOL</a></p></li>
+<li><p><a class="reference external" href="http://www.red-lang.org">Red</a></p></li>
+<li><p>Redcode</p></li>
+<li><p><a class="reference external" href="http://www.ruby-lang.org">Ruby</a> (incl. irb sessions)</p></li>
+<li><p>Rust</p></li>
+<li><p>S, S-Plus, R</p></li>
+<li><p>Scala</p></li>
+<li><p>Scheme</p></li>
+<li><p>Scilab</p></li>
+<li><p><a class="reference external" href="https://www.red-bean.com/sgf/">SGF</a></p></li>
+<li><p><a class="reference external" href="https://github.com/arturadib/Slash-A">Slash</a></p></li>
+<li><p><a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a></p></li>
+<li><p>Smalltalk</p></li>
+<li><p>SNOBOL</p></li>
+<li><p>Tcl</p></li>
+<li><p><a class="reference external" href="https://ttssh2.osdn.jp/">Tera Term language</a></p></li>
+<li><p><a class="reference external" href="https://github.com/toml-lang/toml">TOML</a></p></li>
+<li><p>Vala</p></li>
+<li><p>Verilog</p></li>
+<li><p>VHDL</p></li>
+<li><p>Visual Basic.NET</p></li>
+<li><p>Visual FoxPro</p></li>
+<li><p>XQuery</p></li>
+<li><p>Zephir</p></li>
+</ul>
+</div>
+<div class="section" id="template-languages">
+<h2>Template languages<a class="headerlink" href="#template-languages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cheetah templates</p></li>
+<li><p><a class="reference external" href="http://www.djangoproject.com">Django</a> / <a class="reference external" href="http://jinja.pocoo.org/jinja">Jinja</a> templates</p></li>
+<li><p>ERB (Ruby templating)</p></li>
+<li><p><a class="reference external" href="http://genshi.edgewall.org">Genshi</a> (the Trac template language)</p></li>
+<li><p>JSP (Java Server Pages)</p></li>
+<li><p><a class="reference external" href="http://www.myghty.org">Myghty</a> (the HTML::Mason based framework)</p></li>
+<li><p><a class="reference external" href="http://www.makotemplates.org">Mako</a> (the Myghty successor)</p></li>
+<li><p><a class="reference external" href="http://www.smarty.net">Smarty</a> templates (PHP templating)</p></li>
+<li><p>Tea</p></li>
+</ul>
+</div>
+<div class="section" id="other-markup">
+<h2>Other markup<a class="headerlink" href="#other-markup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Apache config files</p></li>
+<li><p>Bash shell scripts</p></li>
+<li><p>BBCode</p></li>
+<li><p>CMake</p></li>
+<li><p>CSS</p></li>
+<li><p>Debian control files</p></li>
+<li><p>Diff files</p></li>
+<li><p>DTD</p></li>
+<li><p>Gettext catalogs</p></li>
+<li><p>Gnuplot script</p></li>
+<li><p>Groff markup</p></li>
+<li><p>HTML</p></li>
+<li><p>HTTP sessions</p></li>
+<li><p>INI-style config files</p></li>
+<li><p>IRC logs (irssi style)</p></li>
+<li><p>Lighttpd config files</p></li>
+<li><p>Makefiles</p></li>
+<li><p>MoinMoin/Trac Wiki markup</p></li>
+<li><p>MySQL</p></li>
+<li><p>Nginx config files</p></li>
+<li><p>POV-Ray scenes</p></li>
+<li><p>Ragel</p></li>
+<li><p>Redcode</p></li>
+<li><p>ReST</p></li>
+<li><p>Robot Framework</p></li>
+<li><p>RPM spec files</p></li>
+<li><p>SQL, also MySQL, SQLite</p></li>
+<li><p>Squid configuration</p></li>
+<li><p>TeX</p></li>
+<li><p>tcsh</p></li>
+<li><p>Vim Script</p></li>
+<li><p>Windows batch files</p></li>
+<li><p>XML</p></li>
+<li><p>XSLT</p></li>
+<li><p>YAML</p></li>
+</ul>
+</div>
+<div class="section" id="that-s-all">
+<h2>… that’s all?<a class="headerlink" href="#that-s-all" title="Permalink to this headline">¶</a></h2>
+<p>Well, why not write your own? Contributing to Pygments is easy and fun.  Take a look at the
+<a class="reference internal" href="docs/lexerdevelopment.html"><span class="doc">docs on lexer development</span></a> and
+<a class="reference internal" href="index.html#contribute"><span class="std std-ref">contact details</span></a>.</p>
+<p>Note: the languages listed here are supported in the development version. The
+latest release may lack a few of them.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>

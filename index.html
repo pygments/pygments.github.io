@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome! &#8212; Pygments</title>
+    <link rel="stylesheet" href="_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pygments documentation" href="docs/index.html" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+      .related { display: none; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="#">Home</a></li>
+    
+    <li><a href="languages.html">Languages</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="download.html">Get it</a></li>
+    <li><a href="docs/index.html">Docs</a></li>
+  </ul>
+  <div>
+    <a href="#">
+      <img src="_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><h3>Download</h3>
+
+<p>Current version: <b>2.4.2</b></p>
+<p>Get Pygments from the <a href="http://pypi.python.org/pypi/Pygments">Python Package
+    Index</a>, or install it with:</p>
+<pre>pip install Pygments</pre>
+
+
+<h3>Questions? Suggestions?</h3>
+
+<p><img src="_static/github.png" width="24" />
+    Clone at <a href="https://github.com/pygments/pygments">GitHub</a>.</p>
+<p>You can also open an issue at the
+  <a href="https://github.com/pygments/pygments/issues">tracker</a>.</p>
+
+<p class="logo">A <a href="http://pocoo.org/">
+    <img src="_static/pocoo.png" /></a> project</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome">
+<h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+<p>This is the home of Pygments.  It is a generic syntax highlighter suitable for
+use in code hosting, forums, wikis or other applications that need to prettify
+source code.  Highlights are:</p>
+<ul class="simple">
+<li><p>a wide range of over 300 languages and other text formats is supported</p></li>
+<li><p>special attention is paid to details that increase highlighting quality</p></li>
+<li><p>support for new languages and formats are added easily; most languages use a
+simple regex-based lexing mechanism</p></li>
+<li><p>a number of output formats is available, among them HTML, RTF, LaTeX and ANSI
+sequences</p></li>
+<li><p>it is usable as a command-line tool and as a library</p></li>
+<li><p>… and it highlights even Perl 6!</p></li>
+</ul>
+<p>Read more in the <a class="reference internal" href="faq.html"><span class="doc">FAQ list</span></a> or the <a class="reference internal" href="docs/index.html"><span class="doc">documentation</span></a>,
+or <a class="reference external" href="http://pypi.python.org/pypi/Pygments">download the latest release</a>.</p>
+<div class="section" id="contribute">
+<span id="id1"></span><h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<p>Like every open-source project, we are always looking for volunteers to help us
+with programming. Python knowledge is required, but don’t fear: Python is a very
+clear and easy to learn language.</p>
+<p>Development takes place on <a class="reference external" href="https://github.com/pygments/pygments">GitHub</a>.</p>
+<p>If you found a bug, just open a ticket in the GitHub tracker. Be sure to log
+in to be notified when the issue is fixed – development is not fast-paced as
+the library is quite stable.  You can also send an e-mail to the developers, see
+below.</p>
+</div>
+<div class="section" id="the-authors">
+<h2>The authors<a class="headerlink" href="#the-authors" title="Permalink to this headline">¶</a></h2>
+<p>Pygments is maintained by <strong>Georg Brandl</strong>, e-mail address <em>georg</em><em>&#64;</em><em>python.org</em>
+and <strong>Matthäus Chajdas</strong>.</p>
+<p>Many lexers and fixes have been contributed by <strong>Armin Ronacher</strong>, the rest of
+the <a class="reference external" href="http://dev.pocoo.org/">Pocoo</a> team and <strong>Tim Hatch</strong>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>

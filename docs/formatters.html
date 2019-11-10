@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Available formatters &#8212; Pygments</title>
+    <link rel="stylesheet" href="../_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Styles" href="styles.html" />
+    <link rel="prev" title="Filters" href="filters.html" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    
+    <li><a href="../languages.html">Languages</a></li>
+    <li><a href="../faq.html">FAQ</a></li>
+    <li><a href="../download.html">Get it</a></li>
+    <li><a href="index.html">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../index.html">
+      <img src="../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Available formatters</a><ul>
+<li><a class="reference internal" href="#common-options">Common options</a></li>
+<li><a class="reference internal" href="#formatter-classes">Formatter classes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="filters.html"
+                        title="previous chapter">Filters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="styles.html"
+                        title="next chapter">Styles</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/docs/formatters.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="available-formatters">
+<h1>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this headline">¶</a></h1>
+<p>This page lists all builtin formatters.</p>
+<div class="section" id="common-options">
+<h2>Common options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>All formatters support these options:</p>
+<dl>
+<dt><cite>encoding</cite></dt><dd><p>If given, must be an encoding name (such as <code class="docutils literal notranslate"><span class="pre">&quot;utf-8&quot;</span></code>). This will
+be used to convert the token strings (which are Unicode strings)
+to byte strings in the output (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).
+It will also be written in an encoding declaration suitable for the
+document format if the <cite>full</cite> option is given (e.g. a <code class="docutils literal notranslate"><span class="pre">meta</span>
+<span class="pre">content-type</span></code> directive in HTML or an invocation of the <cite>inputenc</cite>
+package in LaTeX).</p>
+<p>If this is <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>, Unicode strings will be written
+to the output file, which most file-like objects do not support.
+For example, <cite>pygments.highlight()</cite> will return a Unicode string if
+called with no <cite>outfile</cite> argument and a formatter that has <cite>encoding</cite>
+set to <code class="docutils literal notranslate"><span class="pre">None</span></code> because it uses a <cite>StringIO.StringIO</cite> object that
+supports Unicode arguments to <cite>write()</cite>. Using a regular file object
+wouldn’t work.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.6.</span></p>
+</div>
+</dd>
+<dt><cite>outencoding</cite></dt><dd><p>When using Pygments from the command line, any <cite>encoding</cite> option given is
+passed to the lexer and the formatter. This is sometimes not desirable,
+for example if you want to set the input encoding to <code class="docutils literal notranslate"><span class="pre">&quot;guess&quot;</span></code>.
+Therefore, <cite>outencoding</cite> has been introduced which overrides <cite>encoding</cite>
+for the formatter if given.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.7.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="formatter-classes">
+<h2>Formatter classes<a class="headerlink" href="#formatter-classes" title="Permalink to this headline">¶</a></h2>
+<p>All these classes are importable from <a class="reference internal" href="api.html#module-pygments.formatters" title="pygments.formatters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.formatters</span></code></a>.</p>
+<dl class="class">
+<dt id="BBCodeFormatter">
+<em class="property">class </em><code class="descname">BBCodeFormatter</code><a class="headerlink" href="#BBCodeFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>bbcode, bb</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens with BBcodes. These formatting codes are used by many
+bulletin boards, so you can highlight your sourcecode with pygments before
+posting it there.</p>
+<p>This formatter has no support for background colors and borders, as there
+are no common BBcode tags for that.</p>
+<p>Some board systems (e.g. phpBB) don’t support colors in their [code] tag,
+so you can’t use the highlighting together with that tag.
+Text in a [code] tag usually is shown with a monospace font (which this
+formatter can do with the <code class="docutils literal notranslate"><span class="pre">monofont</span></code> option) and no spaces (which you
+need for indentation) are removed.</p>
+<p>Additional options accepted:</p>
+<dl class="simple">
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
+</dd>
+<dt><cite>codetag</cite></dt><dd><p>If set to true, put the output into <code class="docutils literal notranslate"><span class="pre">[code]</span></code> tags (default:
+<code class="docutils literal notranslate"><span class="pre">false</span></code>)</p>
+</dd>
+<dt><cite>monofont</cite></dt><dd><p>If set to true, add a tag to show the code with a monospace font
+(default: <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="BmpImageFormatter">
+<em class="property">class </em><code class="descname">BmpImageFormatter</code><a class="headerlink" href="#BmpImageFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>bmp, bitmap</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.bmp</p>
+</dd>
+</dl>
+<p>Create a bitmap image from source code. This uses the Python Imaging Library to
+generate a pixmap from the source code.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="GifImageFormatter">
+<em class="property">class </em><code class="descname">GifImageFormatter</code><a class="headerlink" href="#GifImageFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>gif</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.gif</p>
+</dd>
+</dl>
+<p>Create a GIF image from source code. This uses the Python Imaging Library to
+generate a pixmap from the source code.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="HtmlFormatter">
+<em class="property">class </em><code class="descname">HtmlFormatter</code><a class="headerlink" href="#HtmlFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>html</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.html, *.htm</p>
+</dd>
+</dl>
+<p>Format tokens as HTML 4 <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags within a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag, wrapped
+in a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag. The <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>’s CSS class can be set by the <cite>cssclass</cite>
+option.</p>
+<p>If the <cite>linenos</cite> option is set to <code class="docutils literal notranslate"><span class="pre">&quot;table&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> is
+additionally wrapped inside a <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> which has one row and two
+cells: one containing the line numbers and one containing the code.
+Example:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span> <span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;linenos&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;click to toggle&quot;</span>
+    <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;with (this.firstChild.style)</span>
+<span class="s">             { display = (display == &#39;&#39;) ? &#39;none&#39; : &#39;&#39; }&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>1
+    2<span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;code&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Ke&quot;</span><span class="p">&gt;</span>def <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;NaFu&quot;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>(bar):
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Ke&quot;</span><span class="p">&gt;</span>pass<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">table</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>(whitespace added to improve clarity).</p>
+<p>Wrapping can be disabled using the <cite>nowrap</cite> option.</p>
+<p>A list of lines can be specified using the <cite>hl_lines</cite> option to make these
+lines highlighted (as of Pygments 0.11).</p>
+<p>With the <cite>full</cite> option, a complete HTML 4 document is output, including
+the style definitions inside a <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code> tag, or in a separate file if
+the <cite>cssfile</cite> option is given.</p>
+<p>When <cite>tagsfile</cite> is set to the path of a ctags index file, it is used to
+generate hyperlinks from names to their definition.  You must enable
+<cite>lineanchors</cite> and run ctags with the <cite>-n</cite> option for this to work.  The
+<cite>python-ctags</cite> module from PyPI must be installed to use this feature;
+otherwise a <cite>RuntimeError</cite> will be raised.</p>
+<p>The <cite>get_style_defs(arg=’‘)</cite> method of a <cite>HtmlFormatter</cite> returns a string
+containing CSS rules for the CSS classes used by the formatter. The
+argument <cite>arg</cite> can be used to specify additional CSS selectors that
+are prepended to the classes. A call <cite>fmter.get_style_defs(‘td .code’)</cite>
+would result in the following CSS classes:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">td</span> <span class="p">.</span><span class="nc">code</span> <span class="p">.</span><span class="nc">kw</span> <span class="p">{</span> <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#00FF00</span> <span class="p">}</span>
+<span class="nt">td</span> <span class="p">.</span><span class="nc">code</span> <span class="p">.</span><span class="nc">cm</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#999999</span> <span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>If you have Pygments 0.6 or higher, you can also pass a list or tuple to the
+<cite>get_style_defs()</cite> method to request multiple prefixes for the tokens:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">([</span><span class="s1">&#39;div.syntax pre&#39;</span><span class="p">,</span> <span class="s1">&#39;pre.syntax&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The output would then look like this:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span> <span class="nt">pre</span> <span class="p">.</span><span class="nc">kw</span><span class="o">,</span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span> <span class="p">.</span><span class="nc">kw</span> <span class="p">{</span> <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#00FF00</span> <span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span> <span class="nt">pre</span> <span class="p">.</span><span class="nc">cm</span><span class="o">,</span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span> <span class="p">.</span><span class="nc">cm</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#999999</span> <span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Additional options accepted:</p>
+<dl>
+<dt><cite>nowrap</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, don’t wrap the tokens at all, not even inside a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code>
+tag. This disables most other options (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>full</cite></dt><dd><p>Tells the formatter to output a “full” document, i.e. a complete
+self-contained document (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>title</cite></dt><dd><p>If <cite>full</cite> is true, the title that should be used to caption the
+document (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>). This option has no effect if the <cite>cssfile</cite>
+and <cite>noclobber_cssfile</cite> option are given and the file specified in
+<cite>cssfile</cite> exists.</p>
+</dd>
+<dt><cite>noclasses</cite></dt><dd><p>If set to true, token <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags will not use CSS classes, but
+inline styles. This is not recommended for larger pieces of code since
+it increases output size by quite a bit (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>classprefix</cite></dt><dd><p>Since the token types use relatively short class names, they may clash
+with some of your own class names. In this case you can use the
+<cite>classprefix</cite> option to give a string to prepend to all Pygments-generated
+CSS class names for token types.
+Note that this option also affects the output of <cite>get_style_defs()</cite>.</p>
+</dd>
+<dt><cite>cssclass</cite></dt><dd><p>CSS class for the wrapping <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag (default: <code class="docutils literal notranslate"><span class="pre">'highlight'</span></code>).
+If you set this option, the default selector for <cite>get_style_defs()</cite>
+will be this class.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.9: </span>If you select the <code class="docutils literal notranslate"><span class="pre">'table'</span></code> line numbers, the wrapping table will
+have a CSS class of this string plus <code class="docutils literal notranslate"><span class="pre">'table'</span></code>, the default is
+accordingly <code class="docutils literal notranslate"><span class="pre">'highlighttable'</span></code>.</p>
+</div>
+</dd>
+<dt><cite>cssstyles</cite></dt><dd><p>Inline CSS styles for the wrapping <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>prestyles</cite></dt><dd><p>Inline CSS styles for the <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.11.</span></p>
+</div>
+</dd>
+<dt><cite>cssfile</cite></dt><dd><p>If the <cite>full</cite> option is true and this option is given, it must be the
+name of an external file. If the filename does not include an absolute
+path, the file’s path will be assumed to be relative to the main output
+file’s path, if the latter can be found. The stylesheet is then written
+to this file instead of the HTML file.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.6.</span></p>
+</div>
+</dd>
+<dt><cite>noclobber_cssfile</cite></dt><dd><p>If <cite>cssfile</cite> is given and the specified file exists, the css file will
+not be overwritten. This allows the use of the <cite>full</cite> option in
+combination with a user specified css file. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.1.</span></p>
+</div>
+</dd>
+<dt><cite>linenos</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'table'</span></code>, output line numbers as a table with two cells,
+one containing the line numbers, the other the whole code.  This is
+copy-and-paste-friendly, but may cause alignment problems with some
+browsers or fonts.  If set to <code class="docutils literal notranslate"><span class="pre">'inline'</span></code>, the line numbers will be
+integrated in the <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag that contains the code (that setting
+is <em>new in Pygments 0.8</em>).</p>
+<p>For compatibility with Pygments 0.7 and earlier, every true value
+except <code class="docutils literal notranslate"><span class="pre">'inline'</span></code> means the same as <code class="docutils literal notranslate"><span class="pre">'table'</span></code> (in particular, that
+means also <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">False</span></code>, which means no line numbers at all.</p>
+<p><strong>Note:</strong> with the default (“table”) line number mechanism, the line
+numbers and code can have different line heights in Internet Explorer
+unless you give the enclosing <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tags an explicit <code class="docutils literal notranslate"><span class="pre">line-height</span></code>
+CSS property (you get the default line spacing with <code class="docutils literal notranslate"><span class="pre">line-height:</span>
+<span class="pre">125%</span></code>).</p>
+</dd>
+<dt><cite>hl_lines</cite></dt><dd><p>Specify a list of lines to be highlighted.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.11.</span></p>
+</div>
+</dd>
+<dt><cite>linenostart</cite></dt><dd><p>The line number for the first line (default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+</dd>
+<dt><cite>linenostep</cite></dt><dd><p>If set to a number n &gt; 1, only every nth line number is printed.</p>
+</dd>
+<dt><cite>linenospecial</cite></dt><dd><p>If set to a number n &gt; 0, every nth line number is given the CSS
+class <code class="docutils literal notranslate"><span class="pre">&quot;special&quot;</span></code> (default: <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+</dd>
+<dt><cite>nobackground</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the formatter won’t output the background color
+for the wrapping element (this automatically defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>
+when there is no wrapping element [eg: no argument for the
+<cite>get_syntax_defs</cite> method given]) (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.6.</span></p>
+</div>
+</dd>
+<dt><cite>lineseparator</cite></dt><dd><p>This string is output between lines of code. It defaults to <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>,
+which is enough to break a line inside <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tags, but you can
+e.g. set it to <code class="docutils literal notranslate"><span class="pre">&quot;&lt;br&gt;&quot;</span></code> to get HTML line breaks.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.7.</span></p>
+</div>
+</dd>
+<dt><cite>lineanchors</cite></dt><dd><p>If set to a nonempty string, e.g. <code class="docutils literal notranslate"><span class="pre">foo</span></code>, the formatter will wrap each
+output line in an anchor tag with a <code class="docutils literal notranslate"><span class="pre">name</span></code> of <code class="docutils literal notranslate"><span class="pre">foo-linenumber</span></code>.
+This allows easy linking to certain lines.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.9.</span></p>
+</div>
+</dd>
+<dt><cite>linespans</cite></dt><dd><p>If set to a nonempty string, e.g. <code class="docutils literal notranslate"><span class="pre">foo</span></code>, the formatter will wrap each
+output line in a span tag with an <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">foo-linenumber</span></code>.
+This allows easy access to lines via javascript.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.6.</span></p>
+</div>
+</dd>
+<dt><cite>anchorlinenos</cite></dt><dd><p>If set to <cite>True</cite>, will wrap line numbers in &lt;a&gt; tags. Used in
+combination with <cite>linenos</cite> and <cite>lineanchors</cite>.</p>
+</dd>
+<dt><cite>tagsfile</cite></dt><dd><p>If set to the path of a ctags file, wrap names in anchor tags that
+link to their definitions. <cite>lineanchors</cite> should be used, and the
+tags file should specify line numbers (see the <cite>-n</cite> option to ctags).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.6.</span></p>
+</div>
+</dd>
+<dt><cite>tagurlformat</cite></dt><dd><p>A string formatting pattern used to generate links to ctags definitions.
+Available variables are <cite>%(path)s</cite>, <cite>%(fname)s</cite> and <cite>%(fext)s</cite>.
+Defaults to an empty string, resulting in just <cite>#prefix-number</cite> links.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.6.</span></p>
+</div>
+</dd>
+<dt><cite>filename</cite></dt><dd><p>A string used to generate a filename when rendering <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> blocks,
+for example if displaying source code.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.1.</span></p>
+</div>
+</dd>
+<dt><cite>wrapcode</cite></dt><dd><p>Wrap the code inside <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> blocks using <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code>, as recommended
+by the HTML5 specification.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.4.</span></p>
+</div>
+</dd>
+</dl>
+<p><strong>Subclassing the HTML formatter</strong></p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.7.</span></p>
+</div>
+<p>The HTML formatter is now built in a way that allows easy subclassing, thus
+customizing the output HTML code. The <cite>format()</cite> method calls
+<cite>self._format_lines()</cite> which returns a generator that yields tuples of <code class="docutils literal notranslate"><span class="pre">(1,</span>
+<span class="pre">line)</span></code>, where the <code class="docutils literal notranslate"><span class="pre">1</span></code> indicates that the <code class="docutils literal notranslate"><span class="pre">line</span></code> is a line of the
+formatted source code.</p>
+<p>If the <cite>nowrap</cite> option is set, the generator is the iterated over and the
+resulting HTML is output.</p>
+<p>Otherwise, <cite>format()</cite> calls <cite>self.wrap()</cite>, which wraps the generator with
+other generators. These may add some HTML code to the one generated by
+<cite>_format_lines()</cite>, either by modifying the lines generated by the latter,
+then yielding them again with <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">line)</span></code>, and/or by yielding other HTML
+code before or after the lines, with <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">html)</span></code>. The distinction between
+source lines and other code makes it possible to wrap the generator multiple
+times.</p>
+<p>The default <cite>wrap()</cite> implementation adds a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag.</p>
+<p>A custom <cite>HtmlFormatter</cite> subclass could look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CodeHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_code</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;code&gt;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># it&#39;s a line of formatted code</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="s1">&#39;&lt;br&gt;&#39;</span>
+            <span class="k">yield</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;/code&gt;&#39;</span>
+</pre></div>
+</div>
+<p>This results in wrapping the formatted lines with a <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code> tag, where the
+source lines are broken using <code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code> tags.</p>
+<p>After calling <cite>wrap()</cite>, the <cite>format()</cite> method also adds the “line numbers”
+and/or “full document” wrappers if the respective options are set. Then, all
+HTML yielded by the wrapped generator is output.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="IRCFormatter">
+<em class="property">class </em><code class="descname">IRCFormatter</code><a class="headerlink" href="#IRCFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>irc, IRC</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens with IRC color sequences</p>
+<p>The <cite>get_style_defs()</cite> method doesn’t do anything special since there is
+no support for common styles.</p>
+<p>Options accepted:</p>
+<dl class="simple">
+<dt><cite>bg</cite></dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;light&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;dark&quot;</span></code> depending on the terminal’s background
+(default: <code class="docutils literal notranslate"><span class="pre">&quot;light&quot;</span></code>).</p>
+</dd>
+<dt><cite>colorscheme</cite></dt><dd><p>A dictionary mapping token types to (lightbg, darkbg) color names or
+<code class="docutils literal notranslate"><span class="pre">None</span></code> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code> = use builtin colorscheme).</p>
+</dd>
+<dt><cite>linenos</cite></dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to have line numbers in the output as well
+(default: <code class="docutils literal notranslate"><span class="pre">False</span></code> = no line numbers).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="ImageFormatter">
+<em class="property">class </em><code class="descname">ImageFormatter</code><a class="headerlink" href="#ImageFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>img, IMG, png</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.png</p>
+</dd>
+</dl>
+<p>Create a PNG image from source code. This uses the Python Imaging Library to
+generate a pixmap from the source code.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.10.</span></p>
+</div>
+<p>Additional options accepted:</p>
+<dl>
+<dt><cite>image_format</cite></dt><dd><p>An image format to output to that is recognised by PIL, these include:</p>
+<ul class="simple">
+<li><p>“PNG” (default)</p></li>
+<li><p>“JPEG”</p></li>
+<li><p>“BMP”</p></li>
+<li><p>“GIF”</p></li>
+</ul>
+</dd>
+<dt><cite>line_pad</cite></dt><dd><p>The extra spacing (in pixels) between each line of text.</p>
+<p>Default: 2</p>
+</dd>
+<dt><cite>font_name</cite></dt><dd><p>The font name to be used as the base font from which others, such as
+bold and italic fonts will be generated.  This really should be a
+monospace font to look sane.</p>
+<p>Default: “Bitstream Vera Sans Mono” on Windows, Courier New on *nix</p>
+</dd>
+<dt><cite>font_size</cite></dt><dd><p>The font size in points to be used.</p>
+<p>Default: 14</p>
+</dd>
+<dt><cite>image_pad</cite></dt><dd><p>The padding, in pixels to be used at each edge of the resulting image.</p>
+<p>Default: 10</p>
+</dd>
+<dt><cite>line_numbers</cite></dt><dd><p>Whether line numbers should be shown: True/False</p>
+<p>Default: True</p>
+</dd>
+<dt><cite>line_number_start</cite></dt><dd><p>The line number of the first line.</p>
+<p>Default: 1</p>
+</dd>
+<dt><cite>line_number_step</cite></dt><dd><p>The step used when printing line numbers.</p>
+<p>Default: 1</p>
+</dd>
+<dt><cite>line_number_bg</cite></dt><dd><p>The background colour (in “#123456” format) of the line number bar, or
+None to use the style background color.</p>
+<p>Default: “#eed”</p>
+</dd>
+<dt><cite>line_number_fg</cite></dt><dd><p>The text color of the line numbers (in “#123456”-like format).</p>
+<p>Default: “#886”</p>
+</dd>
+<dt><cite>line_number_chars</cite></dt><dd><p>The number of columns of line numbers allowable in the line number
+margin.</p>
+<p>Default: 2</p>
+</dd>
+<dt><cite>line_number_bold</cite></dt><dd><p>Whether line numbers will be bold: True/False</p>
+<p>Default: False</p>
+</dd>
+<dt><cite>line_number_italic</cite></dt><dd><p>Whether line numbers will be italicized: True/False</p>
+<p>Default: False</p>
+</dd>
+<dt><cite>line_number_separator</cite></dt><dd><p>Whether a line will be drawn between the line number area and the
+source code area: True/False</p>
+<p>Default: True</p>
+</dd>
+<dt><cite>line_number_pad</cite></dt><dd><p>The horizontal padding (in pixels) between the line number margin, and
+the source code area.</p>
+<p>Default: 6</p>
+</dd>
+<dt><cite>hl_lines</cite></dt><dd><p>Specify a list of lines to be highlighted.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.2.</span></p>
+</div>
+<p>Default: empty list</p>
+</dd>
+<dt><cite>hl_color</cite></dt><dd><p>Specify the color for highlighting lines.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.2.</span></p>
+</div>
+<p>Default: highlight color of the selected style</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="JpgImageFormatter">
+<em class="property">class </em><code class="descname">JpgImageFormatter</code><a class="headerlink" href="#JpgImageFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>jpg, jpeg</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.jpg</p>
+</dd>
+</dl>
+<p>Create a JPEG image from source code. This uses the Python Imaging Library to
+generate a pixmap from the source code.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="LatexFormatter">
+<em class="property">class </em><code class="descname">LatexFormatter</code><a class="headerlink" href="#LatexFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>latex, tex</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.tex</p>
+</dd>
+</dl>
+<p>Format tokens as LaTeX code. This needs the <cite>fancyvrb</cite> and <cite>color</cite>
+standard packages.</p>
+<p>Without the <cite>full</cite> option, code is formatted as one <code class="docutils literal notranslate"><span class="pre">Verbatim</span></code>
+environment, like this:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>Verbatim<span class="nb">}</span>[commandchars=<span class="k">\\\{\}</span>]
+<span class="k">\PY</span><span class="nb">{</span>k<span class="nb">}{</span>def <span class="nb">}</span><span class="k">\PY</span><span class="nb">{</span>n+nf<span class="nb">}{</span>foo<span class="nb">}</span>(<span class="k">\PY</span><span class="nb">{</span>n<span class="nb">}{</span>bar<span class="nb">}</span>):
+    <span class="k">\PY</span><span class="nb">{</span>k<span class="nb">}{</span>pass<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>Verbatim<span class="nb">}</span>
+</pre></div>
+</div>
+<p>The special command used here (<code class="docutils literal notranslate"><span class="pre">\PY</span></code>) and all the other macros it needs
+are output by the <cite>get_style_defs</cite> method.</p>
+<p>With the <cite>full</cite> option, a complete LaTeX document is output, including
+the command definitions in the preamble.</p>
+<p>The <cite>get_style_defs()</cite> method of a <cite>LatexFormatter</cite> returns a string
+containing <code class="docutils literal notranslate"><span class="pre">\def</span></code> commands defining the macros needed inside the
+<code class="docutils literal notranslate"><span class="pre">Verbatim</span></code> environments.</p>
+<p>Additional options accepted:</p>
+<dl>
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
+</dd>
+<dt><cite>full</cite></dt><dd><p>Tells the formatter to output a “full” document, i.e. a complete
+self-contained document (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>title</cite></dt><dd><p>If <cite>full</cite> is true, the title that should be used to caption the
+document (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>docclass</cite></dt><dd><p>If the <cite>full</cite> option is enabled, this is the document class to use
+(default: <code class="docutils literal notranslate"><span class="pre">'article'</span></code>).</p>
+</dd>
+<dt><cite>preamble</cite></dt><dd><p>If the <cite>full</cite> option is enabled, this can be further preamble commands,
+e.g. <code class="docutils literal notranslate"><span class="pre">\usepackage</span></code> (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>linenos</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, output line numbers (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>linenostart</cite></dt><dd><p>The line number for the first line (default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+</dd>
+<dt><cite>linenostep</cite></dt><dd><p>If set to a number n &gt; 1, only every nth line number is printed.</p>
+</dd>
+<dt><cite>verboptions</cite></dt><dd><p>Additional options given to the Verbatim environment (see the <em>fancyvrb</em>
+docs for possible values) (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>commandprefix</cite></dt><dd><p>The LaTeX commands used to produce colored output are constructed
+using this prefix and some letters (default: <code class="docutils literal notranslate"><span class="pre">'PY'</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.7.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.10: </span>The default is now <code class="docutils literal notranslate"><span class="pre">'PY'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">'C'</span></code>.</p>
+</div>
+</dd>
+<dt><cite>texcomments</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, enables LaTeX comment lines.  That is, LaTex markup
+in comment tokens is not escaped so that LaTeX can render it (default:
+<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.2.</span></p>
+</div>
+</dd>
+<dt><cite>mathescape</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, enables LaTeX math mode escape in comments. That
+is, <code class="docutils literal notranslate"><span class="pre">'$...$'</span></code> inside a comment will trigger math mode (default:
+<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.2.</span></p>
+</div>
+</dd>
+<dt><cite>escapeinside</cite></dt><dd><p>If set to a string of length 2, enables escaping to LaTeX. Text
+delimited by these 2 characters is read as LaTeX code and
+typeset accordingly. It has no effect in string literals. It has
+no effect in comments if <cite>texcomments</cite> or <cite>mathescape</cite> is
+set. (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.0.</span></p>
+</div>
+</dd>
+<dt><cite>envname</cite></dt><dd><p>Allows you to pick an alternative environment name replacing Verbatim.
+The alternate environment still has to support Verbatim’s option syntax.
+(default: <code class="docutils literal notranslate"><span class="pre">'Verbatim'</span></code>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.0.</span></p>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="NullFormatter">
+<em class="property">class </em><code class="descname">NullFormatter</code><a class="headerlink" href="#NullFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>text, null</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.txt</p>
+</dd>
+</dl>
+<p>Output the text unchanged without any formatting.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="RawTokenFormatter">
+<em class="property">class </em><code class="descname">RawTokenFormatter</code><a class="headerlink" href="#RawTokenFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>raw, tokens</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.raw</p>
+</dd>
+</dl>
+<p>Format tokens as a raw representation for storing token streams.</p>
+<p>The format is <code class="docutils literal notranslate"><span class="pre">tokentype&lt;TAB&gt;repr(tokenstring)\n</span></code>. The output can later
+be converted to a token stream with the <cite>RawTokenLexer</cite>, described in the
+<a class="reference internal" href="lexers.html"><span class="doc">lexer list</span></a>.</p>
+<p>Only two options are accepted:</p>
+<dl>
+<dt><cite>compress</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'gz'</span></code> or <code class="docutils literal notranslate"><span class="pre">'bz2'</span></code>, compress the output with the given
+compression algorithm after encoding (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</dd>
+<dt><cite>error_color</cite></dt><dd><p>If set to a color name, highlight error tokens using that color.  If
+set but with no value, defaults to <code class="docutils literal notranslate"><span class="pre">'red'</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.11.</span></p>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="RtfFormatter">
+<em class="property">class </em><code class="descname">RtfFormatter</code><a class="headerlink" href="#RtfFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>rtf</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.rtf</p>
+</dd>
+</dl>
+<p>Format tokens as RTF markup. This formatter automatically outputs full RTF
+documents with color information and other useful stuff. Perfect for Copy and
+Paste into Microsoft(R) Word(R) documents.</p>
+<p>Please note that <code class="docutils literal notranslate"><span class="pre">encoding</span></code> and <code class="docutils literal notranslate"><span class="pre">outencoding</span></code> options are ignored.
+The RTF format is ASCII natively, but handles unicode characters correctly
+thanks to escape sequences.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.6.</span></p>
+</div>
+<p>Additional options accepted:</p>
+<dl>
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
+</dd>
+<dt><cite>fontface</cite></dt><dd><p>The used font family, for example <code class="docutils literal notranslate"><span class="pre">Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span></code>. Defaults to
+some generic font which is supposed to have fixed width.</p>
+</dd>
+<dt><cite>fontsize</cite></dt><dd><p>Size of the font used. Size is specified in half points. The
+default is 24 half-points, giving a size 12 font.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.0.</span></p>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="SvgFormatter">
+<em class="property">class </em><code class="descname">SvgFormatter</code><a class="headerlink" href="#SvgFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>svg</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.svg</p>
+</dd>
+</dl>
+<p>Format tokens as an SVG graphics file.  This formatter is still experimental.
+Each line of code is a <code class="docutils literal notranslate"><span class="pre">&lt;text&gt;</span></code> element with explicit <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>
+coordinates containing <code class="docutils literal notranslate"><span class="pre">&lt;tspan&gt;</span></code> elements with the individual token styles.</p>
+<p>By default, this formatter outputs a full SVG document including doctype
+declaration and the <code class="docutils literal notranslate"><span class="pre">&lt;svg&gt;</span></code> root element.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.9.</span></p>
+</div>
+<p>Additional options accepted:</p>
+<dl class="simple">
+<dt><cite>nowrap</cite></dt><dd><p>Don’t wrap the SVG <code class="docutils literal notranslate"><span class="pre">&lt;text&gt;</span></code> elements in <code class="docutils literal notranslate"><span class="pre">&lt;svg&gt;&lt;g&gt;</span></code> elements and
+don’t add a XML declaration and a doctype.  If true, the <cite>fontfamily</cite>
+and <cite>fontsize</cite> options are ignored.  Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt><cite>fontfamily</cite></dt><dd><p>The value to give the wrapping <code class="docutils literal notranslate"><span class="pre">&lt;g&gt;</span></code> element’s <code class="docutils literal notranslate"><span class="pre">font-family</span></code>
+attribute, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;monospace&quot;</span></code>.</p>
+</dd>
+<dt><cite>fontsize</cite></dt><dd><p>The value to give the wrapping <code class="docutils literal notranslate"><span class="pre">&lt;g&gt;</span></code> element’s <code class="docutils literal notranslate"><span class="pre">font-size</span></code>
+attribute, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;14px&quot;</span></code>.</p>
+</dd>
+<dt><cite>xoffset</cite></dt><dd><p>Starting offset in X direction, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd>
+<dt><cite>yoffset</cite></dt><dd><p>Starting offset in Y direction, defaults to the font size if it is given
+in pixels, or <code class="docutils literal notranslate"><span class="pre">20</span></code> else.  (This is necessary since text coordinates
+refer to the text baseline, not the top edge.)</p>
+</dd>
+<dt><cite>ystep</cite></dt><dd><p>Offset to add to the Y coordinate for each subsequent line.  This should
+roughly be the text size plus 5.  It defaults to that value if the text
+size is given in pixels, or <code class="docutils literal notranslate"><span class="pre">25</span></code> else.</p>
+</dd>
+<dt><cite>spacehack</cite></dt><dd><p>Convert spaces in the source to <code class="docutils literal notranslate"><span class="pre">&amp;#160;</span></code>, which are non-breaking
+spaces.  SVG provides the <code class="docutils literal notranslate"><span class="pre">xml:space</span></code> attribute to control how
+whitespace inside tags is handled, in theory, the <code class="docutils literal notranslate"><span class="pre">preserve</span></code> value
+could be used to keep all whitespace as-is.  However, many current SVG
+viewers don’t obey that rule, so this option is provided as a workaround
+and defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="Terminal256Formatter">
+<em class="property">class </em><code class="descname">Terminal256Formatter</code><a class="headerlink" href="#Terminal256Formatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>terminal256, console256, 256</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens with ANSI color sequences, for output in a 256-color
+terminal or console.  Like in <cite>TerminalFormatter</cite> color sequences
+are terminated at newlines, so that paging the output works correctly.</p>
+<p>The formatter takes colors from a style defined by the <cite>style</cite> option
+and converts them to nearest ANSI 256-color escape sequences. Bold and
+underline attributes from the style are preserved (and displayed).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.9.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.2: </span>If the used style defines foreground colors in the form <code class="docutils literal notranslate"><span class="pre">#ansi*</span></code>, then
+<cite>Terminal256Formatter</cite> will map these to non extended foreground color.
+See <a class="reference internal" href="styles.html#ansiterminalstyle"><span class="std std-ref">Terminal Styles</span></a> for more information.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.4: </span>The ANSI color names have been updated with names that are easier to
+understand and align with colornames of other projects and terminals.
+See <a class="reference internal" href="styles.html#new-ansi-color-names"><span class="std std-ref">this table</span></a> for more information.</p>
+</div>
+<p>Options accepted:</p>
+<dl class="simple">
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="TerminalFormatter">
+<em class="property">class </em><code class="descname">TerminalFormatter</code><a class="headerlink" href="#TerminalFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>terminal, console</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens with ANSI color sequences, for output in a text console.
+Color sequences are terminated at newlines, so that paging the output
+works correctly.</p>
+<p>The <cite>get_style_defs()</cite> method doesn’t do anything special since there is
+no support for common styles.</p>
+<p>Options accepted:</p>
+<dl class="simple">
+<dt><cite>bg</cite></dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;light&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;dark&quot;</span></code> depending on the terminal’s background
+(default: <code class="docutils literal notranslate"><span class="pre">&quot;light&quot;</span></code>).</p>
+</dd>
+<dt><cite>colorscheme</cite></dt><dd><p>A dictionary mapping token types to (lightbg, darkbg) color names or
+<code class="docutils literal notranslate"><span class="pre">None</span></code> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code> = use builtin colorscheme).</p>
+</dd>
+<dt><cite>linenos</cite></dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to have line numbers on the terminal output as well
+(default: <code class="docutils literal notranslate"><span class="pre">False</span></code> = no line numbers).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="TerminalTrueColorFormatter">
+<em class="property">class </em><code class="descname">TerminalTrueColorFormatter</code><a class="headerlink" href="#TerminalTrueColorFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>terminal16m, console16m, 16m</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens with ANSI color sequences, for output in a true-color
+terminal or console.  Like in <cite>TerminalFormatter</cite> color sequences
+are terminated at newlines, so that paging the output works correctly.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.1.</span></p>
+</div>
+<p>Options accepted:</p>
+<dl class="simple">
+<dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
+<code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="TestcaseFormatter">
+<em class="property">class </em><code class="descname">TestcaseFormatter</code><a class="headerlink" href="#TestcaseFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>testcase</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Format tokens as appropriate for a new testcase.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.0.</span></p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>
