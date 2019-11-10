@@ -96,10 +96,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -143,7 +143,7 @@ iterable for all known filters.</p>
 <h2>Builtin Filters<a class="headerlink" href="#builtin-filters" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CodeTagFilter">
-<em class="property">class </em><code class="descname">CodeTagFilter</code><a class="headerlink" href="#CodeTagFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">CodeTagFilter</code><a class="headerlink" href="#CodeTagFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>codetagify</p>
@@ -160,7 +160,7 @@ highlight <code class="docutils literal notranslate"><span class="pre">XXX</span
 
 <dl class="class">
 <dt id="KeywordCaseFilter">
-<em class="property">class </em><code class="descname">KeywordCaseFilter</code><a class="headerlink" href="#KeywordCaseFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">KeywordCaseFilter</code><a class="headerlink" href="#KeywordCaseFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>keywordcase</p>
@@ -180,7 +180,7 @@ code to your styleguide.</p>
 
 <dl class="class">
 <dt id="NameHighlightFilter">
-<em class="property">class </em><code class="descname">NameHighlightFilter</code><a class="headerlink" href="#NameHighlightFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">NameHighlightFilter</code><a class="headerlink" href="#NameHighlightFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>highlight</p>
@@ -210,7 +210,7 @@ used for highlighting the strings in <cite>names</cite>.  The default is
 
 <dl class="class">
 <dt id="RaiseOnErrorTokenFilter">
-<em class="property">class </em><code class="descname">RaiseOnErrorTokenFilter</code><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">RaiseOnErrorTokenFilter</code><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>raiseonerror</p>
@@ -230,7 +230,7 @@ The default is <cite>pygments.filters.ErrorToken</cite>.</p>
 
 <dl class="class">
 <dt id="VisibleWhitespaceFilter">
-<em class="property">class </em><code class="descname">VisibleWhitespaceFilter</code><a class="headerlink" href="#VisibleWhitespaceFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">VisibleWhitespaceFilter</code><a class="headerlink" href="#VisibleWhitespaceFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>whitespace</p>
@@ -268,7 +268,7 @@ disrupt background colors.  The default is <code class="docutils literal notrans
 
 <dl class="class">
 <dt id="GobbleFilter">
-<em class="property">class </em><code class="descname">GobbleFilter</code><a class="headerlink" href="#GobbleFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">GobbleFilter</code><a class="headerlink" href="#GobbleFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>gobble</p>
@@ -290,7 +290,7 @@ amount of space that isn’t desired in the output.</p>
 
 <dl class="class">
 <dt id="TokenMergeFilter">
-<em class="property">class </em><code class="descname">TokenMergeFilter</code><a class="headerlink" href="#TokenMergeFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">TokenMergeFilter</code><a class="headerlink" href="#TokenMergeFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>tokenmerge</p>
@@ -314,7 +314,7 @@ stream of a lexer.</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1. <br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
       Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

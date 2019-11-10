@@ -100,10 +100,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -290,7 +290,7 @@ settings.</p>
 </div>
 <p>The definition of the ANSI color names has changed.
 New names are easier to understand and align to the colors used in other projects.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 51%" />
 <col style="width: 49%" />
@@ -363,7 +363,7 @@ New names are easier to understand and align to the colors used in other project
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1. <br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
       Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
