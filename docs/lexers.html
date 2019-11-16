@@ -109,6 +109,7 @@
 <li><a class="reference internal" href="#lexers-for-the-ecl-language">Lexers for the ECL language</a></li>
 <li><a class="reference internal" href="#lexer-for-the-eiffel-language">Lexer for the Eiffel language</a></li>
 <li><a class="reference internal" href="#lexer-for-the-elm-programming-language">Lexer for the Elm programming language</a></li>
+<li><a class="reference internal" href="#lexer-for-the-raw-e-mail">Lexer for the raw E-mail</a></li>
 <li><a class="reference internal" href="#lexers-for-erlang">Lexers for Erlang</a></li>
 <li><a class="reference internal" href="#lexers-for-esoteric-languages">Lexers for esoteric languages</a></li>
 <li><a class="reference internal" href="#pygments-lexers-for-ezhil-language">Pygments lexers for Ezhil language</a></li>
@@ -143,6 +144,7 @@
 <li><a class="reference internal" href="#lexers-for-makefiles-and-similar">Lexers for Makefiles and similar</a></li>
 <li><a class="reference internal" href="#lexers-for-non-html-markup-languages">Lexers for non-HTML markup languages</a></li>
 <li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a></li>
+<li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a></li>
 <li><a class="reference internal" href="#lexers-for-ml-family-languages">Lexers for ML family languages</a></li>
 <li><a class="reference internal" href="#lexers-for-modeling-languages">Lexers for modeling languages</a></li>
 <li><a class="reference internal" href="#multi-dialect-lexer-for-modula-2">Multi-Dialect Lexer for Modula-2</a></li>
@@ -2819,6 +2821,32 @@ language.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.1.</span></p>
 </div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.email"></span></div>
+<div class="section" id="lexer-for-the-raw-e-mail">
+<h2>Lexer for the raw E-mail<a class="headerlink" href="#lexer-for-the-raw-e-mail" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pygments.lexers.email.EmailLexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.email.</code><code class="sig-name descname">EmailLexer</code><a class="headerlink" href="#pygments.lexers.email.EmailLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>email, eml</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.eml</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>message/rfc822</p>
+</dd>
+</dl>
+<p>Lexer for raw E-mail.</p>
+<p>Additional options accepted:</p>
+<dl class="simple">
+<dt><cite>highlight-X-header</cite></dt><dd><p>Highlight the fields of <code class="docutils literal notranslate"><span class="pre">X-</span></code> user-defined email header. (default:
+<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.erlang"></span></div>
@@ -5523,6 +5551,47 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.5.</span></p>
 </div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.mime"></span></div>
+<div class="section" id="lexer-for-multipurpose-internet-mail-extensions-mime-data">
+<h2>Lexer for Multipurpose Internet Mail Extensions (MIME) data<a class="headerlink" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pygments.lexers.mime.MIMELexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.mime.</code><code class="sig-name descname">MIMELexer</code><a class="headerlink" href="#pygments.lexers.mime.MIMELexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>mime</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>multipart/mixed, multipart/related, multipart/alternative</p>
+</dd>
+</dl>
+<p>Lexer for Multipurpose Internet Mail Extensions (MIME) data. This lexer is
+designed to process the nested mulitpart data.</p>
+<p>It assumes that the given data contains both header and body (and is
+splitted by empty line). If no valid header is found, then the entire data
+would be treated as body.</p>
+<p>Additional options accepted:</p>
+<dl class="simple">
+<dt><cite>MIME-max-level</cite></dt><dd><p>Max recurssion level for nested MIME structure. Any negative number
+would treated as unlimited. (default: -1)</p>
+</dd>
+<dt><cite>Content-Type</cite></dt><dd><p>Treat the data as specific content type. Useful when header is
+missing, or this lexer would try to parse from header. (default:
+<cite>text/plain</cite>)</p>
+</dd>
+<dt><cite>Multipart-Boundary</cite></dt><dd><p>Set the default multipart boundary delimiter. This option is only used
+when <cite>Content-Type</cite> is <cite>multipart</cite> and header is missing. This lexer
+would try to parse from header by default. (default: None)</p>
+</dd>
+<dt><cite>Content-Transfer-Encoding</cite></dt><dd><p>Treat the data as specific encoding. Or this lexer would try to parse
+from header by default. (default: None)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.ml"></span></div>
