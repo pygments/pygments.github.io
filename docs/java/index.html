@@ -145,19 +145,19 @@ project running Pygments:</p>
 </pre></div>
 </div>
 <p>The following Java example:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PythonInterpreter</span> <span class="n">interpreter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PythonInterpreter</span><span class="o">();</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PythonInterpreter</span> <span class="n">interpreter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PythonInterpreter</span><span class="p">();</span>
 
 <span class="c1">// Set a variable with the content you want to work with</span>
-<span class="n">interpreter</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">&quot;code&quot;</span><span class="o">,</span> <span class="n">code</span><span class="o">);</span>
+<span class="n">interpreter</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;code&quot;</span><span class="p">,</span> <span class="n">code</span><span class="p">);</span>
 
 <span class="c1">// Simple use Pygments as you would in Python</span>
-<span class="n">interpreter</span><span class="o">.</span><span class="na">exec</span><span class="o">(</span><span class="s">&quot;from pygments import highlight\n&quot;</span>
+<span class="n">interpreter</span><span class="p">.</span><span class="na">exec</span><span class="p">(</span><span class="s">&quot;from pygments import highlight\n&quot;</span>
     <span class="o">+</span> <span class="s">&quot;from pygments.lexers import PythonLexer\n&quot;</span>
     <span class="o">+</span> <span class="s">&quot;from pygments.formatters import HtmlFormatter\n&quot;</span>
-    <span class="o">+</span> <span class="s">&quot;\nresult = highlight(code, PythonLexer(), HtmlFormatter())&quot;</span><span class="o">);</span>
+    <span class="o">+</span> <span class="s">&quot;\nresult = highlight(code, PythonLexer(), HtmlFormatter())&quot;</span><span class="p">);</span>
 
 <span class="c1">// Get the result that has been set in a variable</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">interpreter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;result&quot;</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">interpreter</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;result&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
 </pre></div>
 </div>
 <p>will print something like:</p>
