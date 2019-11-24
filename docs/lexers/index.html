@@ -6893,42 +6893,48 @@ running on the CPython 3 VM.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="pygments.lexers.python.Python3Lexer">
-<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">Python3Lexer</code><a class="headerlink" href="#pygments.lexers.python.Python3Lexer" title="Permalink to this definition">¶</a></dt>
+<dt id="pygments.lexers.python.Python2Lexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">Python2Lexer</code><a class="headerlink" href="#pygments.lexers.python.Python2Lexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Short names</dt>
-<dd class="field-odd"><p>python3, py3</p>
+<dd class="field-odd"><p>python2, py2</p>
 </dd>
 <dt class="field-even">Filenames</dt>
 <dd class="field-even"><p>None</p>
 </dd>
 <dt class="field-odd">MIME types</dt>
-<dd class="field-odd"><p>text/x-python3, application/x-python3</p>
+<dd class="field-odd"><p>text/x-python2, application/x-python2</p>
 </dd>
 </dl>
-<p>For <a class="reference external" href="http://www.python.org">Python</a> source code (version 3.0).</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 0.10.</span></p>
+<p>For <a class="reference external" href="http://www.python.org">Python 2.x</a> source code.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.5: </span>This class has been renamed from <code class="docutils literal notranslate"><span class="pre">PythonLexer</span></code>.  <code class="docutils literal notranslate"><span class="pre">PythonLexer</span></code> now
+refers to the Python 3 variant.  File name patterns like <code class="docutils literal notranslate"><span class="pre">*.py</span></code> have
+been moved to Python 3 as well.</p>
 </div>
 </dd></dl>
 
 <dl class="class">
-<dt id="pygments.lexers.python.Python3TracebackLexer">
-<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">Python3TracebackLexer</code><a class="headerlink" href="#pygments.lexers.python.Python3TracebackLexer" title="Permalink to this definition">¶</a></dt>
+<dt id="pygments.lexers.python.Python2TracebackLexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">Python2TracebackLexer</code><a class="headerlink" href="#pygments.lexers.python.Python2TracebackLexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Short names</dt>
-<dd class="field-odd"><p>py3tb</p>
+<dd class="field-odd"><p>py2tb</p>
 </dd>
 <dt class="field-even">Filenames</dt>
-<dd class="field-even"><p>*.py3tb</p>
+<dd class="field-even"><p>*.py2tb</p>
 </dd>
 <dt class="field-odd">MIME types</dt>
-<dd class="field-odd"><p>text/x-python3-traceback</p>
+<dd class="field-odd"><p>text/x-python2-traceback</p>
 </dd>
 </dl>
-<p>For Python 3.0 tracebacks, with support for chained exceptions.</p>
+<p>For Python tracebacks.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.0.</span></p>
+<p><span class="versionmodified added">New in version 0.7.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.5: </span>This class has been renamed from <code class="docutils literal notranslate"><span class="pre">PythonTracebackLexer</span></code>.
+<code class="docutils literal notranslate"><span class="pre">PythonTracebackLexer</span></code> now refers to the Python 3 variant.</p>
 </div>
 </dd></dl>
 
@@ -6948,7 +6954,7 @@ running on the CPython 3 VM.</p>
 </dl>
 <p>For Python console output or doctests, such as:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">a</span>
 <span class="go">foo</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -6958,9 +6964,12 @@ running on the CPython 3 VM.</p>
 </div>
 <p>Additional options:</p>
 <dl>
-<dt><cite>python3</cite></dt><dd><p>Use Python 3 lexer for code.  Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dt><cite>python3</cite></dt><dd><p>Use Python 3 lexer for code.  Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.5: </span>Now defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </div>
 </dd>
 </dl>
@@ -6971,16 +6980,23 @@ running on the CPython 3 VM.</p>
 <em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">PythonLexer</code><a class="headerlink" href="#pygments.lexers.python.PythonLexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Short names</dt>
-<dd class="field-odd"><p>python, py, sage</p>
+<dd class="field-odd"><p>python, py, sage, python3, py3</p>
 </dd>
 <dt class="field-even">Filenames</dt>
 <dd class="field-even"><p>*.py, *.pyw, *.sage, *.sc, SConstruct, SConscript, *.bzl, BUCK, BUILD, BUILD.bazel, WORKSPACE, *.tac</p>
 </dd>
 <dt class="field-odd">MIME types</dt>
-<dd class="field-odd"><p>text/x-python, application/x-python</p>
+<dd class="field-odd"><p>text/x-python, application/x-python, text/x-python3, application/x-python3</p>
 </dd>
 </dl>
-<p>For <a class="reference external" href="http://www.python.org">Python</a> source code.</p>
+<p>For <a class="reference external" href="http://www.python.org">Python</a> source code (version 3.x).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.10.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.5: </span>This is now the default <code class="docutils literal notranslate"><span class="pre">PythonLexer</span></code>.  It is still available as the
+alias <code class="docutils literal notranslate"><span class="pre">Python3Lexer</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="class">
@@ -6988,18 +7004,22 @@ running on the CPython 3 VM.</p>
 <em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.python.</code><code class="sig-name descname">PythonTracebackLexer</code><a class="headerlink" href="#pygments.lexers.python.PythonTracebackLexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Short names</dt>
-<dd class="field-odd"><p>pytb</p>
+<dd class="field-odd"><p>pytb, py3tb</p>
 </dd>
 <dt class="field-even">Filenames</dt>
-<dd class="field-even"><p>*.pytb</p>
+<dd class="field-even"><p>*.pytb, *.py3tb</p>
 </dd>
 <dt class="field-odd">MIME types</dt>
-<dd class="field-odd"><p>text/x-python-traceback</p>
+<dd class="field-odd"><p>text/x-python-traceback, text/x-python3-traceback</p>
 </dd>
 </dl>
-<p>For Python tracebacks.</p>
+<p>For Python 3.x tracebacks, with support for chained exceptions.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.</span></p>
+<p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.5: </span>This is now the default <code class="docutils literal notranslate"><span class="pre">PythonTracebackLexer</span></code>.  It is still available
+as the alias <code class="docutils literal notranslate"><span class="pre">Python3TracebackLexer</span></code>.</p>
 </div>
 </dd></dl>
 

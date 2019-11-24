@@ -149,7 +149,7 @@ different token types. It maps them to attributes like “red and bold”.</p></
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
 
 <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print &quot;Hello World&quot;&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">HtmlFormatter</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">HtmlFormatter</span><span class="p">()))</span>
 </pre></div>
 </div>
 <p>which prints something like this:</p>
@@ -162,7 +162,7 @@ different token types. It maps them to attributes like “red and bold”.</p></
 instead of inline styles in order to avoid outputting redundant style information over
 and over. A CSS stylesheet that contains all CSS classes possibly used in the output
 can be produced by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">()</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">(</span><span class="s1">&#39;.highlight&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">()</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">(</span><span class="s1">&#39;.highlight&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">get_style_defs()</span></code> is used as an additional CSS selector:
@@ -184,8 +184,8 @@ arguments either to the class or to the lookup method:</p>
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
 
-<span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cssclass</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
+<span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cssclass</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
 </pre></div>
 </div>

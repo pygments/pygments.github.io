@@ -180,7 +180,7 @@ style this formatter isn’t in the standard library ;-)</p>
 
 <span class="k">class</span> <span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
         <span class="n">Formatter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
         <span class="c1"># create a dict of (start, end) tuples that wrap the</span>
@@ -215,7 +215,7 @@ style this formatter isn’t in the standard library ;-)</p>
         <span class="c1"># to minimize the size of the generated html markup we</span>
         <span class="c1"># try to join the values of same-type tokens here</span>
         <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="n">lasttype</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">lasttype</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># wrap the whole output with &lt;pre&gt;</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
