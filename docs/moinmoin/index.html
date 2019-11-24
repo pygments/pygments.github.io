@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Using Pygments with MoinMoin &#8212; Pygments</title>
+    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Use Pygments in Java" href="../java/" />
+    <link rel="prev" title="Using Pygments in ReST documents" href="../rstdirective/" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    
+    <li><a href="../../demo/">Demo</a></li>
+    
+    <li><a href="../../languages/">Languages</a></li>
+    <li><a href="../../faq/">FAQ</a></li>
+    <li><a href="../../download/">Get it</a></li>
+    <li><a href="../">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../rstdirective/"
+                        title="previous chapter">Using Pygments in ReST documents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../java/"
+                        title="next chapter">Use Pygments in Java</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/docs/moinmoin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-pygments-with-moinmoin">
+<h1>Using Pygments with MoinMoin<a class="headerlink" href="#using-pygments-with-moinmoin" title="Permalink to this headline">¶</a></h1>
+<p>From Pygments 0.7, the source distribution ships a <a class="reference external" href="http://moinmoin.wikiwikiweb.de/">Moin</a> parser plugin that
+can be used to get Pygments highlighting in Moin wiki pages.</p>
+<p>To use it, copy the file <cite>external/moin-parser.py</cite> from the Pygments
+distribution to the <cite>data/plugin/parser</cite> subdirectory of your Moin instance.
+Edit the options at the top of the file (currently <code class="docutils literal notranslate"><span class="pre">ATTACHMENTS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">INLINESTYLES</span></code>) and rename the file to the name that the parser directive
+should have. For example, if you name the file <code class="docutils literal notranslate"><span class="pre">code.py</span></code>, you can get a
+highlighted Python code sample with this Wiki markup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{{{</span>
+<span class="c1">#!code python</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="p">}}}</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">python</span></code> is the Pygments name of the lexer to use.</p>
+<p>Additionally, if you set the <code class="docutils literal notranslate"><span class="pre">ATTACHMENTS</span></code> option to True, Pygments will also
+be called for all attachments for whose filenames there is no other parser
+registered.</p>
+<p>You are responsible for including CSS rules that will map the Pygments CSS
+classes to colors. You can output a stylesheet file with <cite>pygmentize</cite>, put it
+into the <cite>htdocs</cite> directory of your Moin instance and then include it in the
+<cite>stylesheets</cite> configuration option in the Moin config, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stylesheets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span> <span class="s1">&#39;/htdocs/pygments.css&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>If you do not want to do that and are willing to accept larger HTML output, you
+can set the <code class="docutils literal notranslate"><span class="pre">INLINESTYLES</span></code> option to True.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>

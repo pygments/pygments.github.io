@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Write your own lexer &#8212; Pygments</title>
+    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Write your own formatter" href="../formatterdevelopment/" />
+    <link rel="prev" title="The full Pygments API" href="../api/" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    
+    <li><a href="../../demo/">Demo</a></li>
+    
+    <li><a href="../../languages/">Languages</a></li>
+    <li><a href="../../faq/">FAQ</a></li>
+    <li><a href="../../download/">Get it</a></li>
+    <li><a href="../">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Write your own lexer</a><ul>
+<li><a class="reference internal" href="#regexlexer">RegexLexer</a></li>
+<li><a class="reference internal" href="#adding-and-testing-a-new-lexer">Adding and testing a new lexer</a></li>
+<li><a class="reference internal" href="#regex-flags">Regex Flags</a></li>
+<li><a class="reference internal" href="#scanning-multiple-tokens-at-once">Scanning multiple tokens at once</a></li>
+<li><a class="reference internal" href="#changing-states">Changing states</a></li>
+<li><a class="reference internal" href="#advanced-state-tricks">Advanced state tricks</a></li>
+<li><a class="reference internal" href="#subclassing-lexers-derived-from-regexlexer">Subclassing lexers derived from RegexLexer</a></li>
+<li><a class="reference internal" href="#using-multiple-lexers">Using multiple lexers</a></li>
+<li><a class="reference internal" href="#delegating-lexer">Delegating Lexer</a></li>
+<li><a class="reference internal" href="#callbacks">Callbacks</a></li>
+<li><a class="reference internal" href="#the-extendedregexlexer-class">The ExtendedRegexLexer class</a></li>
+<li><a class="reference internal" href="#handling-lists-of-keywords">Handling Lists of Keywords</a></li>
+<li><a class="reference internal" href="#modifying-token-streams">Modifying Token Streams</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../api/"
+                        title="previous chapter">The full Pygments API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../formatterdevelopment/"
+                        title="next chapter">Write your own formatter</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/docs/lexerdevelopment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="write-your-own-lexer">
+<h1>Write your own lexer<a class="headerlink" href="#write-your-own-lexer" title="Permalink to this headline">¶</a></h1>
+<p>If a lexer for your favorite language is missing in the Pygments package, you
+can easily write your own and extend Pygments.</p>
+<p>All you need can be found inside the <a class="reference internal" href="../api/#module-pygments.lexer" title="pygments.lexer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.lexer</span></code></a> module.  As you can
+read in the <a class="reference internal" href="../api/"><span class="doc">API documentation</span></a>, a lexer is a class that is
+initialized with some keyword arguments (the lexer options) and that provides a
+<a class="reference internal" href="../api/#pygments.lexer.Lexer.get_tokens_unprocessed" title="pygments.lexer.Lexer.get_tokens_unprocessed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_tokens_unprocessed()</span></code></a> method which is given a string or unicode
+object with the data to lex.</p>
+<p>The <a class="reference internal" href="../api/#pygments.lexer.Lexer.get_tokens_unprocessed" title="pygments.lexer.Lexer.get_tokens_unprocessed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_tokens_unprocessed()</span></code></a> method must return an iterator or iterable
+containing tuples in the form <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">token,</span> <span class="pre">value)</span></code>.  Normally you don’t
+need to do this since there are base lexers that do most of the work and that
+you can subclass.</p>
+<div class="section" id="regexlexer">
+<h2>RegexLexer<a class="headerlink" href="#regexlexer" title="Permalink to this headline">¶</a></h2>
+<p>The lexer base class used by almost all of Pygments’ lexers is the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RegexLexer</span></code>.  This class allows you to define lexing rules in terms of
+<em>regular expressions</em> for different <em>states</em>.</p>
+<p>States are groups of regular expressions that are matched against the input
+string at the <em>current position</em>.  If one of these expressions matches, a
+corresponding action is performed (such as yielding a token with a specific
+type, or changing state), the current position is set to where the last match
+ended and the matching process continues with the first regex of the current
+state.</p>
+<p>Lexer states are kept on a stack: each time a new state is entered, the new
+state is pushed onto the stack.  The most basic lexers (like the <cite>DiffLexer</cite>)
+just need one state.</p>
+<p>Each state is defined as a list of tuples in the form (<cite>regex</cite>, <cite>action</cite>,
+<cite>new_state</cite>) where the last item is optional.  In the most basic form, <cite>action</cite>
+is a token type (like <cite>Name.Builtin</cite>).  That means: When <cite>regex</cite> matches, emit a
+token with the match text and type <cite>tokentype</cite> and push <cite>new_state</cite> on the state
+stack.  If the new state is <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code>, the topmost state is popped from the
+stack instead.  To pop more than one state, use <code class="docutils literal notranslate"><span class="pre">'#pop:2'</span></code> and so on.
+<code class="docutils literal notranslate"><span class="pre">'#push'</span></code> is a synonym for pushing the current state on the stack.</p>
+<p>The following example shows the <cite>DiffLexer</cite> from the builtin lexers.  Note that
+it contains some additional attributes <cite>name</cite>, <cite>aliases</cite> and <cite>filenames</cite> which
+aren’t required for a lexer.  They are used by the builtin lexer lookup
+functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">DiffLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Diff&#39;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.diff&#39;</span><span class="p">]</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39; .*\n&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\+.*\n&#39;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;-.*\n&#39;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;@.*\n&#39;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Index.*\n&#39;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;=.*\n&#39;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*\n&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>As you can see this lexer only uses one state.  When the lexer starts scanning
+the text, it first checks if the current character is a space.  If this is true
+it scans everything until newline and returns the data as a <cite>Text</cite> token (which
+is the “no special highlighting” token).</p>
+<p>If this rule doesn’t match, it checks if the current char is a plus sign.  And
+so on.</p>
+<p>If no rule matches at the current position, the current char is emitted as an
+<cite>Error</cite> token that indicates a lexing error, and the position is increased by
+one.</p>
+</div>
+<div class="section" id="adding-and-testing-a-new-lexer">
+<h2>Adding and testing a new lexer<a class="headerlink" href="#adding-and-testing-a-new-lexer" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to use a new lexer is to use Pygments’ support for loading
+the lexer from a file relative to your current directory.</p>
+<p>First, change the name of your lexer class to CustomLexer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">CustomLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;All your lexer code goes here!&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Then you can load the lexer from the command line with the additional
+flag <code class="docutils literal notranslate"><span class="pre">-x</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pygmentize -l your_lexer_file.py -x
+</pre></div>
+</div>
+<p>To specify a class name other than CustomLexer, append it with a colon:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pygmentize -l your_lexer.py:SomeLexer -x
+</pre></div>
+</div>
+<p>Or, using the Python API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a lexer named CustomLexer</span>
+<span class="n">your_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># For a lexer named MyNewLexer</span>
+<span class="n">your_named_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;MyNewLexer&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When loading custom lexers and formatters, be extremely careful to use only
+trusted files; Pygments will perform the equivalent of <code class="docutils literal notranslate"><span class="pre">eval</span></code> on them.</p>
+<p>If you only want to use your lexer with the Pygments API, you can import and
+instantiate the lexer yourself, then pass it to <a class="reference internal" href="../api/#pygments.highlight" title="pygments.highlight"><code class="xref py py-func docutils literal notranslate"><span class="pre">pygments.highlight()</span></code></a>.</p>
+<p>To prepare your new lexer for inclusion in the Pygments distribution, so that it
+will be found when passing filenames or lexer aliases from the command line, you
+have to perform the following steps.</p>
+<p>First, change to the current directory containing the Pygments source code.  You
+will need to have either an unpacked source tarball, or (preferably) a copy
+cloned from GitHub.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> .../pygments-main
+</pre></div>
+</div>
+<p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new module for
+your lexer class.</p>
+<p>Next, make sure the lexer is known from outside of the module.  All modules in
+the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">esoteric.py</span></code> sets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BrainfuckLexer&#39;</span><span class="p">,</span> <span class="s1">&#39;BefungeLexer&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Add the name of your lexer class to this list (or create the list if your lexer
+is the only class in the module).</p>
+<p>Finally the lexer can be made publicly known by rebuilding the lexer mapping:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make mapfiles
+</pre></div>
+</div>
+<p>To test the new lexer, store an example file with the proper extension in
+<code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code>.  For example, to test your <code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a
+<code class="docutils literal notranslate"><span class="pre">tests/examplefiles/example.diff</span></code> containing a sample diff output.</p>
+<p>Now you can use pygmentize to render your example to HTML:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./pygmentize -O full -f html -o /tmp/example.html tests/examplefiles/example.diff
+</pre></div>
+</div>
+<p>Note that this explicitly calls the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> in the current directory
+by preceding it with <code class="docutils literal notranslate"><span class="pre">./</span></code>. This ensures your modifications are used.
+Otherwise a possibly already installed, unmodified version without your new
+lexer would have been called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
+<p>To view the result, open <code class="docutils literal notranslate"><span class="pre">/tmp/example.html</span></code> in your browser.</p>
+<p>Once the example renders as expected, you should run the complete test suite:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make <span class="nb">test</span>
+</pre></div>
+</div>
+<p>It also tests that your lexer fulfills the lexer API and certain invariants,
+such as that the concatenation of all token text is the same as the input text.</p>
+</div>
+<div class="section" id="regex-flags">
+<h2>Regex Flags<a class="headerlink" href="#regex-flags" title="Permalink to this headline">¶</a></h2>
+<p>You can either define regex flags locally in the regex (<code class="docutils literal notranslate"><span class="pre">r'(?x)foo</span> <span class="pre">bar'</span></code>) or
+globally by adding a <cite>flags</cite> attribute to your lexer class.  If no attribute is
+defined, it defaults to <cite>re.MULTILINE</cite>.  For more information about regular
+expression flags see the page about <a class="reference external" href="http://docs.python.org/library/re.html#regular-expression-syntax">regular expressions</a> in the Python
+documentation.</p>
+</div>
+<div class="section" id="scanning-multiple-tokens-at-once">
+<h2>Scanning multiple tokens at once<a class="headerlink" href="#scanning-multiple-tokens-at-once" title="Permalink to this headline">¶</a></h2>
+<p>So far, the <cite>action</cite> element in the rule tuple of regex, action and state has
+been a single token type.  Now we look at the first of several other possible
+values.</p>
+<p>Here is a more complex lexer that highlights INI files.  INI files consist of
+sections, comments and <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">value</span></code> pairs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">IniLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;INI&#39;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ini&#39;</span><span class="p">,</span> <span class="s1">&#39;cfg&#39;</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.ini&#39;</span><span class="p">,</span> <span class="s1">&#39;*.cfg&#39;</span><span class="p">]</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;;.*?$&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[.*?\]$&#39;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.*?)(\s*)(=)(\s*)(.*?)$&#39;</span><span class="p">,</span>
+             <span class="n">bygroups</span><span class="p">(</span><span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">String</span><span class="p">))</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The lexer first looks for whitespace, comments and section names.  Later it
+looks for a line that looks like a key, value pair, separated by an <code class="docutils literal notranslate"><span class="pre">'='</span></code>
+sign, and optional whitespace.</p>
+<p>The <cite>bygroups</cite> helper yields each capturing group in the regex with a different
+token type.  First the <cite>Name.Attribute</cite> token, then a <cite>Text</cite> token for the
+optional whitespace, after that a <cite>Operator</cite> token for the equals sign. Then a
+<cite>Text</cite> token for the whitespace again.  The rest of the line is returned as
+<cite>String</cite>.</p>
+<p>Note that for this to work, every part of the match must be inside a capturing
+group (a <code class="docutils literal notranslate"><span class="pre">(...)</span></code>), and there must not be any nested capturing groups.  If you
+nevertheless need a group, use a non-capturing group defined using this syntax:
+<code class="docutils literal notranslate"><span class="pre">(?:some|words|here)</span></code> (note the <code class="docutils literal notranslate"><span class="pre">?:</span></code> after the beginning parenthesis).</p>
+<p>If you find yourself needing a capturing group inside the regex which shouldn’t
+be part of the output but is used in the regular expressions for backreferencing
+(eg: <code class="docutils literal notranslate"><span class="pre">r'(&lt;(foo|bar)&gt;)(.*?)(&lt;/\2&gt;)'</span></code>), you can pass <cite>None</cite> to the bygroups
+function and that group will be skipped in the output.</p>
+</div>
+<div class="section" id="changing-states">
+<h2>Changing states<a class="headerlink" href="#changing-states" title="Permalink to this headline">¶</a></h2>
+<p>Many lexers need multiple states to work as expected.  For example, some
+languages allow multiline comments to be nested.  Since this is a recursive
+pattern it’s impossible to lex just using regular expressions.</p>
+<p>Here is a lexer that recognizes C++ style comments (multi-line with <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code>
+and single-line with <code class="docutils literal notranslate"><span class="pre">//</span></code> until end of line):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">CppCommentLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Example Lexer with states&#39;</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^/]+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;//.*?$&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Singleline</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^*/]&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#push&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[*/]&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>This lexer starts lexing in the <code class="docutils literal notranslate"><span class="pre">'root'</span></code> state. It tries to match as much as
+possible until it finds a slash (<code class="docutils literal notranslate"><span class="pre">'/'</span></code>).  If the next character after the slash
+is an asterisk (<code class="docutils literal notranslate"><span class="pre">'*'</span></code>) the <cite>RegexLexer</cite> sends those two characters to the
+output stream marked as <cite>Comment.Multiline</cite> and continues lexing with the rules
+defined in the <code class="docutils literal notranslate"><span class="pre">'comment'</span></code> state.</p>
+<p>If there wasn’t an asterisk after the slash, the <cite>RegexLexer</cite> checks if it’s a
+Singleline comment (i.e. followed by a second slash).  If this also wasn’t the
+case it must be a single slash, which is not a comment starter (the separate
+regex for a single slash must also be given, else the slash would be marked as
+an error token).</p>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">'comment'</span></code> state, we do the same thing again.  Scan until the
+lexer finds a star or slash.  If it’s the opening of a multiline comment, push
+the <code class="docutils literal notranslate"><span class="pre">'comment'</span></code> state on the stack and continue scanning, again in the
+<code class="docutils literal notranslate"><span class="pre">'comment'</span></code> state.  Else, check if it’s the end of the multiline comment.  If
+yes, pop one state from the stack.</p>
+<p>Note: If you pop from an empty stack you’ll get an <cite>IndexError</cite>.  (There is an
+easy way to prevent this from happening: don’t <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code> in the root state).</p>
+<p>If the <cite>RegexLexer</cite> encounters a newline that is flagged as an error token, the
+stack is emptied and the lexer continues scanning in the <code class="docutils literal notranslate"><span class="pre">'root'</span></code> state.  This
+can help producing error-tolerant highlighting for erroneous input, e.g. when a
+single-line string is not closed.</p>
+</div>
+<div class="section" id="advanced-state-tricks">
+<h2>Advanced state tricks<a class="headerlink" href="#advanced-state-tricks" title="Permalink to this headline">¶</a></h2>
+<p>There are a few more things you can do with states:</p>
+<ul>
+<li><p>You can push multiple states onto the stack if you give a tuple instead of a
+simple string as the third item in a rule tuple.  For example, if you want to
+match a comment containing a directive, something like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* &lt;processing directive&gt;    rest of comment */
+</pre></div>
+</div>
+<p>you can use this rule:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\* &lt;&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;comment&#39;</span><span class="p">,</span> <span class="s1">&#39;directive&#39;</span><span class="p">)),</span>
+        <span class="o">...</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;directive&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^&gt;]*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Directive</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^*]+&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When this encounters the above sample, first <code class="docutils literal notranslate"><span class="pre">'comment'</span></code> and <code class="docutils literal notranslate"><span class="pre">'directive'</span></code>
+are pushed onto the stack, then the lexer continues in the directive state
+until it finds the closing <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, then it continues in the comment state until
+the closing <code class="docutils literal notranslate"><span class="pre">*/</span></code>.  Then, both states are popped from the stack again and
+lexing continues in the root state.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.9: </span>The tuple can contain the special <code class="docutils literal notranslate"><span class="pre">'#push'</span></code> and <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code> (but not
+<code class="docutils literal notranslate"><span class="pre">'#pop:n'</span></code>) directives.</p>
+</div>
+</li>
+<li><p>You can include the rules of a state in the definition of another.  This is
+done by using <cite>include</cite> from <cite>pygments.lexer</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*.*?\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;//.*?\n&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(function )(\w+)( {)&#39;</span><span class="p">,</span>
+             <span class="n">bygroups</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span> <span class="s1">&#39;function&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^}/]+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\}&#39;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>This is a hypothetical lexer for a language that consist of functions and
+comments.  Because comments can occur at toplevel and in functions, we need
+rules for comments in both states.  As you can see, the <cite>include</cite> helper saves
+repeating rules that occur more than once (in this example, the state
+<code class="docutils literal notranslate"><span class="pre">'comment'</span></code> will never be entered by the lexer, as it’s only there to be
+included in <code class="docutils literal notranslate"><span class="pre">'root'</span></code> and <code class="docutils literal notranslate"><span class="pre">'function'</span></code>).</p>
+</li>
+<li><p>Sometimes, you may want to “combine” a state from existing ones.  This is
+possible with the <cite>combined</cite> helper from <cite>pygments.lexer</cite>.</p>
+<p>If you, instead of a new state, write <code class="docutils literal notranslate"><span class="pre">combined('state1',</span> <span class="pre">'state2')</span></code> as the
+third item of a rule tuple, a new anonymous state will be formed from state1
+and state2 and if the rule matches, the lexer will enter this state.</p>
+<p>This is not used very often, but can be helpful in some cases, such as the
+<cite>PythonLexer</cite>’s string literal processing.</p>
+</li>
+<li><p>If you want your lexer to start lexing in a different state you can modify the
+stack by overriding the <cite>get_tokens_unprocessed()</cite> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+
+<span class="k">class</span> <span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;otherstate&#39;</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">RegexLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">item</span>
+</pre></div>
+</div>
+<p>Some lexers like the <cite>PhpLexer</cite> use this to make the leading <code class="docutils literal notranslate"><span class="pre">&lt;?php</span></code>
+preprocessor comments optional.  Note that you can crash the lexer easily by
+putting values into the stack that don’t exist in the token map.  Also
+removing <code class="docutils literal notranslate"><span class="pre">'root'</span></code> from the stack can result in strange errors!</p>
+</li>
+<li><p>In some lexers, a state should be popped if anything is encountered that isn’t
+matched by a rule in the state.  You could use an empty regex at the end of
+the state list, but Pygments provides a more obvious way of spelling that:
+<code class="docutils literal notranslate"><span class="pre">default('#pop')</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">('',</span> <span class="pre">Text,</span> <span class="pre">'#pop')</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.0.</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="subclassing-lexers-derived-from-regexlexer">
+<h2>Subclassing lexers derived from RegexLexer<a class="headerlink" href="#subclassing-lexers-derived-from-regexlexer" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.6.</span></p>
+</div>
+<p>Sometimes multiple languages are very similar, but should still be lexed by
+different lexer classes.</p>
+<p>When subclassing a lexer derived from RegexLexer, the <code class="docutils literal notranslate"><span class="pre">tokens</span></code> dictionaries
+defined in the parent and child class are merged.  For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">inherit</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">BaseLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;[a-z]+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;[^&quot;]+&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="o">...</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">DerivedLexer</span><span class="p">(</span><span class="n">BaseLexer</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;[0-9]+&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="p">),</span>
+            <span class="n">inherit</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^&quot;</span><span class="se">\\</span><span class="s1">]+&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">.&#39;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The <cite>BaseLexer</cite> defines two states, lexing names and strings.  The
+<cite>DerivedLexer</cite> defines its own tokens dictionary, which extends the definitions
+of the base lexer:</p>
+<ul class="simple">
+<li><p>The “root” state has an additional rule and then the special object <cite>inherit</cite>,
+which tells Pygments to insert the token definitions of the parent class at
+that point.</p></li>
+<li><p>The “string” state is replaced entirely, since there is not <cite>inherit</cite> rule.</p></li>
+<li><p>The “comment” state is inherited entirely.</p></li>
+</ul>
+</div>
+<div class="section" id="using-multiple-lexers">
+<h2>Using multiple lexers<a class="headerlink" href="#using-multiple-lexers" title="Permalink to this headline">¶</a></h2>
+<p>Using multiple lexers for the same input can be tricky.  One of the easiest
+combination techniques is shown here: You can replace the action entry in a rule
+tuple with a lexer class.  The matched text will then be lexed with that lexer,
+and the resulting tokens will be yielded.</p>
+<p>For example, look at this stripped-down HTML lexer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">using</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers.javascript</span> <span class="kn">import</span> <span class="n">JavascriptLexer</span>
+
+<span class="k">class</span> <span class="nc">HtmlLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;HTML&#39;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.html&#39;</span><span class="p">,</span> <span class="s1">&#39;*.htm&#39;</span><span class="p">]</span>
+
+    <span class="n">flags</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;[^&lt;&amp;]+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;&amp;.*?;&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;\s*script\s*&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;script-content&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">)),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;\s*[a-zA-Z0-9:]+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;\s*/\s*[a-zA-Z0-9:]+\s*&gt;&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;script-content&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.+?)(&lt;\s*/\s*script\s*&gt;)&#39;</span><span class="p">,</span>
+             <span class="n">bygroups</span><span class="p">(</span><span class="n">using</span><span class="p">(</span><span class="n">JavascriptLexer</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">),</span>
+             <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Here the content of a <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tag is passed to a newly created instance of
+a <cite>JavascriptLexer</cite> and not processed by the <cite>HtmlLexer</cite>.  This is done using
+the <cite>using</cite> helper that takes the other lexer class as its parameter.</p>
+<p>Note the combination of <cite>bygroups</cite> and <cite>using</cite>.  This makes sure that the
+content up to the <code class="docutils literal notranslate"><span class="pre">&lt;/script&gt;</span></code> end tag is processed by the <cite>JavascriptLexer</cite>,
+while the end tag is yielded as a normal token with the <cite>Name.Tag</cite> type.</p>
+<p>Also note the <code class="docutils literal notranslate"><span class="pre">(r'&lt;\s*script\s*',</span> <span class="pre">Name.Tag,</span> <span class="pre">('script-content',</span> <span class="pre">'tag'))</span></code> rule.
+Here, two states are pushed onto the state stack, <code class="docutils literal notranslate"><span class="pre">'script-content'</span></code> and
+<code class="docutils literal notranslate"><span class="pre">'tag'</span></code>.  That means that first <code class="docutils literal notranslate"><span class="pre">'tag'</span></code> is processed, which will lex
+attributes and the closing <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, then the <code class="docutils literal notranslate"><span class="pre">'tag'</span></code> state is popped and the
+next state on top of the stack will be <code class="docutils literal notranslate"><span class="pre">'script-content'</span></code>.</p>
+<p>Since you cannot refer to the class currently being defined, use <cite>this</cite>
+(imported from <cite>pygments.lexer</cite>) to refer to the current lexer class, i.e.
+<code class="docutils literal notranslate"><span class="pre">using(this)</span></code>.  This construct may seem unnecessary, but this is often the
+most obvious way of lexing arbitrary syntax between fixed delimiters without
+introducing deeply nested states.</p>
+<p>The <cite>using()</cite> helper has a special keyword argument, <cite>state</cite>, which works as
+follows: if given, the lexer to use initially is not in the <code class="docutils literal notranslate"><span class="pre">&quot;root&quot;</span></code> state,
+but in the state given by this argument.  This does not work with advanced
+<cite>RegexLexer</cite> subclasses such as <cite>ExtendedRegexLexer</cite> (see below).</p>
+<p>Any other keywords arguments passed to <cite>using()</cite> are added to the keyword
+arguments used to create the lexer.</p>
+</div>
+<div class="section" id="delegating-lexer">
+<h2>Delegating Lexer<a class="headerlink" href="#delegating-lexer" title="Permalink to this headline">¶</a></h2>
+<p>Another approach for nested lexers is the <cite>DelegatingLexer</cite> which is for example
+used for the template engine lexers.  It takes two lexers as arguments on
+initialisation: a <cite>root_lexer</cite> and a <cite>language_lexer</cite>.</p>
+<p>The input is processed as follows: First, the whole text is lexed with the
+<cite>language_lexer</cite>.  All tokens yielded with the special type of <code class="docutils literal notranslate"><span class="pre">Other</span></code> are
+then concatenated and given to the <cite>root_lexer</cite>.  The language tokens of the
+<cite>language_lexer</cite> are then inserted into the <cite>root_lexer</cite>’s token stream at the
+appropriate positions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">DelegatingLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers.web</span> <span class="kn">import</span> <span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span>
+
+<span class="k">class</span> <span class="nc">HtmlPhpLexer</span><span class="p">(</span><span class="n">DelegatingLexer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HtmlPhpLexer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This procedure ensures that e.g. HTML with template tags in it is highlighted
+correctly even if the template tags are put into HTML tags or attributes.</p>
+<p>If you want to change the needle token <code class="docutils literal notranslate"><span class="pre">Other</span></code> to something else, you can give
+the lexer another token type as the third parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DelegatingLexer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">MyLexer</span><span class="p">,</span> <span class="n">OtherLexer</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="callbacks">
+<h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes the grammar of a language is so complex that a lexer would be unable
+to process it just by using regular expressions and stacks.</p>
+<p>For this, the <cite>RegexLexer</cite> allows callbacks to be given in rule tuples, instead
+of token types (<cite>bygroups</cite> and <cite>using</cite> are nothing else but preimplemented
+callbacks).  The callback must be a function taking two arguments:</p>
+<ul class="simple">
+<li><p>the lexer itself</p></li>
+<li><p>the match object for the last matched rule</p></li>
+</ul>
+<p>The callback must then return an iterable of (or simply yield) <code class="docutils literal notranslate"><span class="pre">(index,</span>
+<span class="pre">tokentype,</span> <span class="pre">value)</span></code> tuples, which are then just passed through by
+<cite>get_tokens_unprocessed()</cite>.  The <code class="docutils literal notranslate"><span class="pre">index</span></code> here is the position of the token in
+the input string, <code class="docutils literal notranslate"><span class="pre">tokentype</span></code> is the normal token type (like <cite>Name.Builtin</cite>),
+and <code class="docutils literal notranslate"><span class="pre">value</span></code> the associated part of the input string.</p>
+<p>You can see an example here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Generic</span>
+
+<span class="k">class</span> <span class="nc">HypotheticLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">):</span>
+        <span class="n">equal_signs</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Headline</span><span class="p">,</span> <span class="n">equal_signs</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">equal_signs</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(=+)(.*?)(\1)&#39;</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>If the regex for the <cite>headline_callback</cite> matches, the function is called with
+the match object.  Note that after the callback is done, processing continues
+normally, that is, after the end of the previous match.  The callback has no
+possibility to influence the position.</p>
+<p>There are not really any simple examples for lexer callbacks, but you can see
+them in action e.g. in the <cite>SMLLexer</cite> class in <a class="reference external" href="https://github.com/pygments/pygments/blob/master/pygments/lexers/ml.py">ml.py</a>.</p>
+</div>
+<div class="section" id="the-extendedregexlexer-class">
+<h2>The ExtendedRegexLexer class<a class="headerlink" href="#the-extendedregexlexer-class" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>RegexLexer</cite>, even with callbacks, unfortunately isn’t powerful enough for
+the funky syntax rules of languages such as Ruby.</p>
+<p>But fear not; even then you don’t have to abandon the regular expression
+approach: Pygments has a subclass of <cite>RegexLexer</cite>, the <cite>ExtendedRegexLexer</cite>.
+All features known from RegexLexers are available here too, and the tokens are
+specified in exactly the same way, <em>except</em> for one detail:</p>
+<p>The <cite>get_tokens_unprocessed()</cite> method holds its internal state data not as local
+variables, but in an instance of the <cite>pygments.lexer.LexerContext</cite> class, and
+that instance is passed to callbacks as a third argument. This means that you
+can modify the lexer state in callbacks.</p>
+<p>The <cite>LexerContext</cite> class has the following members:</p>
+<ul class="simple">
+<li><p><cite>text</cite> – the input text</p></li>
+<li><p><cite>pos</cite> – the current starting position that is used for matching regexes</p></li>
+<li><p><cite>stack</cite> – a list containing the state stack</p></li>
+<li><p><cite>end</cite> – the maximum position to which regexes are matched, this defaults to
+the length of <cite>text</cite></p></li>
+</ul>
+<p>Additionally, the <cite>get_tokens_unprocessed()</cite> method can be given a
+<cite>LexerContext</cite> instead of a string and will then process this context instead of
+creating a new one for the string argument.</p>
+<p>Note that because you can set the current position to anything in the callback,
+it won’t be automatically be set by the caller after the callback is finished.
+For example, this is how the hypothetical lexer above would be written with the
+<cite>ExtendedRegexLexer</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">ExtendedRegexLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Generic</span>
+
+<span class="k">class</span> <span class="nc">ExHypotheticLexer</span><span class="p">(</span><span class="n">ExtendedRegexLexer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="n">equal_signs</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Headline</span><span class="p">,</span> <span class="n">equal_signs</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">equal_signs</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(=+)(.*?)(\1)&#39;</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>This might sound confusing (and it can really be). But it is needed, and for an
+example look at the Ruby lexer in <a class="reference external" href="https://github.com/pygments/pygments/blob/master/pygments/lexers/ruby.py">ruby.py</a>.</p>
+</div>
+<div class="section" id="handling-lists-of-keywords">
+<h2>Handling Lists of Keywords<a class="headerlink" href="#handling-lists-of-keywords" title="Permalink to this headline">¶</a></h2>
+<p>For a relatively short list (hundreds) you can construct an optimized regular
+expression directly using <code class="docutils literal notranslate"><span class="pre">words()</span></code> (longer lists, see next section).  This
+function handles a few things for you automatically, including escaping
+metacharacters and Python’s first-match rather than longest-match in
+alternations.  Feel free to put the lists themselves in
+<code class="docutils literal notranslate"><span class="pre">pygments/lexers/_$lang_builtins.py</span></code> (see examples there), and generated by
+code if possible.</p>
+<p>An example of using <code class="docutils literal notranslate"><span class="pre">words()</span></code> is something like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">Name</span>
+
+<span class="k">class</span> <span class="nc">MyLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">words</span><span class="p">((</span><span class="s1">&#39;else&#39;</span><span class="p">,</span> <span class="s1">&#39;elseif&#39;</span><span class="p">),</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>As you can see, you can add <code class="docutils literal notranslate"><span class="pre">prefix</span></code> and <code class="docutils literal notranslate"><span class="pre">suffix</span></code> parts to the constructed
+regex.</p>
+</div>
+<div class="section" id="modifying-token-streams">
+<h2>Modifying Token Streams<a class="headerlink" href="#modifying-token-streams" title="Permalink to this headline">¶</a></h2>
+<p>Some languages ship a lot of builtin functions (for example PHP).  The total
+amount of those functions differs from system to system because not everybody
+has every extension installed.  In the case of PHP there are over 3000 builtin
+functions.  That’s an incredibly huge amount of functions, much more than you
+want to put into a regular expression.</p>
+<p>But because only <cite>Name</cite> tokens can be function names this is solvable by
+overriding the <code class="docutils literal notranslate"><span class="pre">get_tokens_unprocessed()</span></code> method.  The following lexer
+subclasses the <cite>PythonLexer</cite> so that it highlights some additional names as
+pseudo keywords:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexers.python</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span>
+
+<span class="k">class</span> <span class="nc">MyPythonLexer</span><span class="p">(</span><span class="n">PythonLexer</span><span class="p">):</span>
+    <span class="n">EXTRA_KEYWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="s1">&#39;barfoo&#39;</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">PythonLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">is</span> <span class="n">Name</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXTRA_KEYWORDS</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">index</span><span class="p">,</span> <span class="n">Keyword</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">,</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">index</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>The <cite>PhpLexer</cite> and <cite>LuaLexer</cite> use this method to resolve builtin functions.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>

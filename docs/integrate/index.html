@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Using Pygments in various scenarios &#8212; Pygments</title>
+    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Pygments changelog" href="../changelog/" />
+    <link rel="prev" title="Use Pygments in Java" href="../java/" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    
+    <li><a href="../../demo/">Demo</a></li>
+    
+    <li><a href="../../languages/">Languages</a></li>
+    <li><a href="../../faq/">FAQ</a></li>
+    <li><a href="../../download/">Get it</a></li>
+    <li><a href="../">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Pygments in various scenarios</a><ul>
+<li><a class="reference internal" href="#markdown">Markdown</a></li>
+<li><a class="reference internal" href="#textmate">TextMate</a></li>
+<li><a class="reference internal" href="#bash-completion">Bash completion</a></li>
+<li><a class="reference internal" href="#wrappers-for-other-languages">Wrappers for other languages</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../java/"
+                        title="previous chapter">Use Pygments in Java</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../changelog/"
+                        title="next chapter">Pygments changelog</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/docs/integrate.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-pygments-in-various-scenarios">
+<h1>Using Pygments in various scenarios<a class="headerlink" href="#using-pygments-in-various-scenarios" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="markdown">
+<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>Since Pygments 0.9, the distribution ships <a class="reference external" href="http://www.freewisdom.org/projects/python-markdown/">Markdown</a> preprocessor sample code
+that uses Pygments to render source code in
+<code class="file docutils literal notranslate"><span class="pre">external/markdown-processor.py</span></code>.  You can copy and adapt it to your
+liking.</p>
+</div>
+<div class="section" id="textmate">
+<h2>TextMate<a class="headerlink" href="#textmate" title="Permalink to this headline">¶</a></h2>
+<p>Antonio Cangiano has created a Pygments bundle for TextMate that allows to
+colorize code via a simple menu option.  It can be found <a class="reference external" href="http://antoniocangiano.com/2008/10/28/pygments-textmate-bundle/">here</a>.</p>
+</div>
+<div class="section" id="bash-completion">
+<h2>Bash completion<a class="headerlink" href="#bash-completion" title="Permalink to this headline">¶</a></h2>
+<p>The source distribution contains a file <code class="docutils literal notranslate"><span class="pre">external/pygments.bashcomp</span></code> that
+sets up completion for the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> command in bash.</p>
+</div>
+<div class="section" id="wrappers-for-other-languages">
+<h2>Wrappers for other languages<a class="headerlink" href="#wrappers-for-other-languages" title="Permalink to this headline">¶</a></h2>
+<p>These libraries provide Pygments highlighting for users of other languages
+than Python:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tmm1/pygments.rb">pygments.rb</a>, a pygments wrapper for Ruby</p></li>
+<li><p><a class="reference external" href="https://github.com/bfontaine/clygments">Clygments</a>, a pygments wrapper for
+Clojure</p></li>
+<li><p><a class="reference external" href="https://github.com/capynet/PHPygments">PHPygments</a>, a pygments wrapper for PHP</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>

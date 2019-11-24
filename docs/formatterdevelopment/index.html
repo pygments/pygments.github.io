@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Write your own formatter &#8212; Pygments</title>
+    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Write your own filter" href="../filterdevelopment/" />
+    <link rel="prev" title="Write your own lexer" href="../lexerdevelopment/" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    
+    <li><a href="../../demo/">Demo</a></li>
+    
+    <li><a href="../../languages/">Languages</a></li>
+    <li><a href="../../faq/">FAQ</a></li>
+    <li><a href="../../download/">Get it</a></li>
+    <li><a href="../">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Write your own formatter</a><ul>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li><a class="reference internal" href="#styles">Styles</a></li>
+<li><a class="reference internal" href="#html-3-2-formatter">HTML 3.2 Formatter</a></li>
+<li><a class="reference internal" href="#generating-style-definitions">Generating Style Definitions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../lexerdevelopment/"
+                        title="previous chapter">Write your own lexer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../filterdevelopment/"
+                        title="next chapter">Write your own filter</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/docs/formatterdevelopment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="write-your-own-formatter">
+<h1>Write your own formatter<a class="headerlink" href="#write-your-own-formatter" title="Permalink to this headline">¶</a></h1>
+<p>As well as creating <a class="reference internal" href="../lexerdevelopment/"><span class="doc">your own lexer</span></a>, writing a new
+formatter for Pygments is easy and straightforward.</p>
+<p>A formatter is a class that is initialized with some keyword arguments (the
+formatter options) and that must provides a <cite>format()</cite> method.
+Additionally a formatter should provide a <cite>get_style_defs()</cite> method that
+returns the style definitions from the style in a form usable for the
+formatter’s output format.</p>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<p>The most basic formatter shipped with Pygments is the <cite>NullFormatter</cite>. It just
+sends the value of a token to the output stream:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
+
+<span class="k">class</span> <span class="nc">NullFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see, the <cite>format()</cite> method is passed two parameters: <cite>tokensource</cite>
+and <cite>outfile</cite>. The first is an iterable of <code class="docutils literal notranslate"><span class="pre">(token_type,</span> <span class="pre">value)</span></code> tuples,
+the latter a file like object with a <cite>write()</cite> method.</p>
+<p>Because the formatter is that basic it doesn’t overwrite the <cite>get_style_defs()</cite>
+method.</p>
+</div>
+<div class="section" id="styles">
+<h2>Styles<a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h2>
+<p>Styles aren’t instantiated but their metaclass provides some class functions
+so that you can access the style definitions easily.</p>
+<p>Styles are iterable and yield tuples in the form <code class="docutils literal notranslate"><span class="pre">(ttype,</span> <span class="pre">d)</span></code> where <cite>ttype</cite>
+is a token and <cite>d</cite> is a dict with the following keys:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">'color'</span></code></dt><dd><p>Hexadecimal color value (eg: <code class="docutils literal notranslate"><span class="pre">'ff0000'</span></code> for red) or <cite>None</cite> if not
+defined.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'bold'</span></code></dt><dd><p><cite>True</cite> if the value should be bold</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'italic'</span></code></dt><dd><p><cite>True</cite> if the value should be italic</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'underline'</span></code></dt><dd><p><cite>True</cite> if the value should be underlined</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'bgcolor'</span></code></dt><dd><p>Hexadecimal color value for the background (eg: <code class="docutils literal notranslate"><span class="pre">'eeeeeee'</span></code> for light
+gray) or <cite>None</cite> if not defined.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'border'</span></code></dt><dd><p>Hexadecimal color value for the border (eg: <code class="docutils literal notranslate"><span class="pre">'0000aa'</span></code> for a dark
+blue) or <cite>None</cite> for no border.</p>
+</dd>
+</dl>
+<p>Additional keys might appear in the future, formatters should ignore all keys
+they don’t support.</p>
+</div>
+<div class="section" id="html-3-2-formatter">
+<h2>HTML 3.2 Formatter<a class="headerlink" href="#html-3-2-formatter" title="Permalink to this headline">¶</a></h2>
+<p>For an more complex example, let’s implement a HTML 3.2 Formatter. We don’t
+use CSS but inline markup (<code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;font&gt;</span></code>, etc). Because this isn’t good
+style this formatter isn’t in the standard library ;-)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
+
+<span class="k">class</span> <span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="n">Formatter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+        <span class="c1"># create a dict of (start, end) tuples that wrap the</span>
+        <span class="c1"># value of a token so that we can use it in the format</span>
+        <span class="c1"># method later</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># we iterate over the `_styles` attribute of a style item</span>
+        <span class="c1"># that contains the parsed style values.</span>
+        <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="c1"># a style item is a tuple in the following form:</span>
+            <span class="c1"># colors are readily specified in hex: &#39;RRGGBB&#39;</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;font color=&quot;#</span><span class="si">%s</span><span class="s1">&quot;&gt;&#39;</span> <span class="o">%</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/font&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;b&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;italic&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;i&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/i&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;underline&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;u&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/u&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+        <span class="c1"># lastval is a string we use for caching</span>
+        <span class="c1"># because it&#39;s possible that an lexer yields a number</span>
+        <span class="c1"># of consecutive tokens with the same token type.</span>
+        <span class="c1"># to minimize the size of the generated html markup we</span>
+        <span class="c1"># try to join the values of same-type tokens here</span>
+        <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">lasttype</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c1"># wrap the whole output with &lt;pre&gt;</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
+            <span class="c1"># if the token type doesn&#39;t exist in the stylemap</span>
+            <span class="c1"># we try it with the parent of the token type</span>
+            <span class="c1"># eg: parent of Token.Literal.String.Double is</span>
+            <span class="c1"># Token.Literal.String</span>
+            <span class="k">while</span> <span class="n">ttype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">:</span>
+                <span class="n">ttype</span> <span class="o">=</span> <span class="n">ttype</span><span class="o">.</span><span class="n">parent</span>
+            <span class="k">if</span> <span class="n">ttype</span> <span class="o">==</span> <span class="n">lasttype</span><span class="p">:</span>
+                <span class="c1"># the current token type is the same of the last</span>
+                <span class="c1"># iteration. cache it</span>
+                <span class="n">lastval</span> <span class="o">+=</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># not the same token as last iteration, but we</span>
+                <span class="c1"># have some data in the buffer. wrap it with the</span>
+                <span class="c1"># defined style and write it to the output file</span>
+                <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span>
+                    <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span>
+                    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span>
+                <span class="c1"># set lastval/lasttype to current values</span>
+                <span class="n">lastval</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">lasttype</span> <span class="o">=</span> <span class="n">ttype</span>
+
+        <span class="c1"># if something is left in the buffer, write it to the</span>
+        <span class="c1"># output file, then close the opened &lt;pre&gt; tag</span>
+        <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span>
+            <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The comments should explain it. Again, this formatter doesn’t override the
+<cite>get_style_defs()</cite> method. If we would have used CSS classes instead of
+inline HTML markup, we would need to generate the CSS first. For that
+purpose the <cite>get_style_defs()</cite> method exists:</p>
+</div>
+<div class="section" id="generating-style-definitions">
+<h2>Generating Style Definitions<a class="headerlink" href="#generating-style-definitions" title="Permalink to this headline">¶</a></h2>
+<p>Some formatters like the <cite>LatexFormatter</cite> and the <cite>HtmlFormatter</cite> don’t
+output inline markup but reference either macros or css classes. Because
+the definitions of those are not part of the output, the <cite>get_style_defs()</cite>
+method exists. It is passed one parameter (if it’s used and how it’s used
+is up to the formatter) and has to return a string or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1. <br/>
+      Pygments logo created by <a href="http://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="http://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>
