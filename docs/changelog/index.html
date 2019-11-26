@@ -79,6 +79,7 @@
   <h3><a href="../../">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Pygments changelog</a><ul>
+<li><a class="reference internal" href="#version-2-5-1">Version 2.5.1</a></li>
 <li><a class="reference internal" href="#version-2-5-0">Version 2.5.0</a></li>
 <li><a class="reference internal" href="#version-2-4-2">Version 2.4.2</a></li>
 <li><a class="reference internal" href="#version-2-4-1">Version 2.4.1</a></li>
@@ -158,18 +159,22 @@
 &lt;<a class="reference external" href="https://github.com/pygments/pygments/issues">https://github.com/pygments/pygments/issues</a>&gt;,
 pull request numbers to the requests at
 &lt;<a class="reference external" href="https://github.com/pygments/pygments/pulls">https://github.com/pygments/pygments/pulls</a>&gt;.</p>
+<div class="section" id="version-2-5-1">
+<h2>Version 2.5.1<a class="headerlink" href="#version-2-5-1" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="version-2-5-0">
 <h2>Version 2.5.0<a class="headerlink" href="#version-2-5-0" title="Permalink to this headline">¶</a></h2>
+<p>(released November 26, 2019)</p>
 <ul class="simple">
 <li><p>Added lexers:</p>
 <ul>
 <li><p>Email (PR#1246)</p></li>
 <li><p>Erlang, Elxir shells (PR#823, #1521)</p></li>
-<li><p>Zig (PR#820)</p></li>
-<li><p>Zeek (new name for Bro) (PR#1264)</p></li>
-<li><p>Notmuch (PR#1269)</p></li>
-<li><p>Scdoc (PR#1268)</p></li>
-<li><p>Solidity</p></li>
+<li><p>Notmuch (PR#1264)</p></li>
+<li><p><a class="reference external" href="https://git.sr.ht/~sircmpwn/scdoc">Scdoc</a> (PR#1268)</p></li>
+<li><p><a class="reference external" href="https://solidity.readthedocs.io/">Solidity</a> (#1214)</p></li>
+<li><p><a class="reference external" href="https://www.zeek.org">Zeek</a> (new name for Bro) (PR#1269)</p></li>
+<li><p><a class="reference external" href="https://ziglang.org/">Zig</a> (PR#820)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
@@ -177,11 +182,18 @@ pull request numbers to the requests at
 <li><p>Apache2 Configuration (PR#1251)</p></li>
 <li><p>Bash sessions (#1253)</p></li>
 <li><p>CSound (PR#1250)</p></li>
+<li><p>Dart</p></li>
+<li><p>Dockerfile</p></li>
+<li><p>Emacs Lisp</p></li>
 <li><p>Handlebars (PR#773)</p></li>
-<li><p>Python3 (PR#1255)</p></li>
-<li><p>YAML (#1528)</p></li>
-<li><p>Matlab (PR#1271)</p></li>
+<li><p>Java (#1101, #987)</p></li>
 <li><p>Logtalk (PR#1261)</p></li>
+<li><p>Matlab (PR#1271)</p></li>
+<li><p>Praat (PR#1277)</p></li>
+<li><p>Python3 (PR#1255)</p></li>
+<li><p>Ruby</p></li>
+<li><p>YAML (#1528)</p></li>
+<li><p>Velocity</p></li>
 </ul>
 </li>
 <li><p>Added styles:</p>
@@ -200,22 +212,21 @@ the <code class="docutils literal notranslate"><span class="pre">PythonConsoleLe
 <li><p>Reduce <code class="docutils literal notranslate"><span class="pre">TeraTerm</span></code> lexer score – it used to match nearly all languages
 (#1256)</p></li>
 <li><p>Treat <code class="docutils literal notranslate"><span class="pre">Skylark</span></code>/<code class="docutils literal notranslate"><span class="pre">Starlark</span></code> files as Python files (PR#1259)</p></li>
-<li><p>Fix Matlab recognition of <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword</p></li>
-<li><p>Add LICENSE file to wheel builds</p></li>
-<li><p>Emacs Lisp: add more string functions</p></li>
-<li><p>Java: support <code class="docutils literal notranslate"><span class="pre">var</span></code> contextual keyword</p></li>
-<li><p>Java: make structural punctuation (braces, parens, colon, comma)
-<code class="docutils literal notranslate"><span class="pre">Punctuation</span></code>, not <code class="docutils literal notranslate"><span class="pre">Operator</span></code> (#987)</p></li>
-<li><p>Ruby: support squiggly heredocs</p></li>
-<li><p>Dart: support <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> annotations</p></li>
-<li><p>GAS: accept registers in directive arguments</p></li>
-<li><p>Dockerfile: accept <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">...</span> <span class="pre">AS</span></code> syntax</p></li>
-<li><p>Velocity: support silent reference syntax</p></li>
-<li><p>Agda: fix lambda highlighting</p></li>
-<li><p>Python: recognize <code class="docutils literal notranslate"><span class="pre">.jy</span></code> filenames (#976)</p></li>
-<li><p>Python: recogniez <code class="docutils literal notranslate"><span class="pre">f</span></code> string prefix (#1156)</p></li>
-<li><p>Shell sessions: recognize Virtualenv prompt (PR#1266)</p></li>
 <li><p>Image formatter: actually respect <code class="docutils literal notranslate"><span class="pre">line_number_separator</span></code> option</p></li>
+<li><p>Add LICENSE file to wheel builds</p></li>
+<li><p>Agda: fix lambda highlighting</p></li>
+<li><p>Dart: support <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> annotations</p></li>
+<li><p>Dockerfile: accept <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">...</span> <span class="pre">AS</span></code> syntax</p></li>
+<li><p>Emacs Lisp: add more string functions</p></li>
+<li><p>GAS: accept registers in directive arguments</p></li>
+<li><p>Java: make structural punctuation (braces, parens, colon, comma) <code class="docutils literal notranslate"><span class="pre">Punctuation</span></code>, not <code class="docutils literal notranslate"><span class="pre">Operator</span></code> (#987)</p></li>
+<li><p>Java: support <code class="docutils literal notranslate"><span class="pre">var</span></code> contextual keyword (#1101)</p></li>
+<li><p>Matlab: Fix recognition of <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword (PR#1271)</p></li>
+<li><p>Python: recognize <code class="docutils literal notranslate"><span class="pre">.jy</span></code> filenames (#976)</p></li>
+<li><p>Python: recognize <code class="docutils literal notranslate"><span class="pre">f</span></code> string prefix (#1156)</p></li>
+<li><p>Ruby: support squiggly heredocs</p></li>
+<li><p>Shell sessions: recognize Virtualenv prompt (PR#1266)</p></li>
+<li><p>Velocity: support silent reference syntax</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-4-2">
