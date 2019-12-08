@@ -210,11 +210,11 @@ the lexer from a file relative to your current directory.</p>
 </div>
 <p>Then you can load the lexer from the command line with the additional
 flag <code class="docutils literal notranslate"><span class="pre">-x</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pygmentize -l your_lexer_file.py -x
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -l your_lexer_file.py -x
 </pre></div>
 </div>
 <p>To specify a class name other than CustomLexer, append it with a colon:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pygmentize -l your_lexer.py:SomeLexer -x
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -l your_lexer.py:SomeLexer -x
 </pre></div>
 </div>
 <p>Or, using the Python API:</p>
@@ -235,7 +235,7 @@ have to perform the following steps.</p>
 <p>First, change to the current directory containing the Pygments source code.  You
 will need to have either an unpacked source tarball, or (preferably) a copy
 cloned from GitHub.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> .../pygments-main
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> pygments
 </pre></div>
 </div>
 <p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new module for
@@ -255,14 +255,15 @@ is the only class in the module).</p>
 <p>To test the new lexer, store an example file with the proper extension in
 <code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code>.  For example, to test your <code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a
 <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/example.diff</span></code> containing a sample diff output.</p>
-<p>Now you can use pygmentize to render your example to HTML:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./pygmentize -O full -f html -o /tmp/example.html tests/examplefiles/example.diff
+<p>Now you can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygments</span></code> from the current root of the checkout to
+render your example to HTML:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -O full -f html -o /tmp/example.html tests/examplefiles/example.diff
 </pre></div>
 </div>
-<p>Note that this explicitly calls the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> in the current directory
-by preceding it with <code class="docutils literal notranslate"><span class="pre">./</span></code>. This ensures your modifications are used.
-Otherwise a possibly already installed, unmodified version without your new
-lexer would have been called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
+<p>Note that this explicitly calls the <code class="docutils literal notranslate"><span class="pre">pygments</span></code> module in the current
+directory. This ensures your modifications are used. Otherwise a possibly
+already installed, unmodified version without your new lexer would have been
+called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
 <p>To view the result, open <code class="docutils literal notranslate"><span class="pre">/tmp/example.html</span></code> in your browser.</p>
 <p>Once the example renders as expected, you should run the complete test suite:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make <span class="nb">test</span>
