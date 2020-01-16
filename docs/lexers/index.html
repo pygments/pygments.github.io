@@ -3422,6 +3422,36 @@ grammars.</p>
 </div>
 </dd></dl>
 
+<dl class="class">
+<dt id="pygments.lexers.grammar_notation.PegLexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.grammar_notation.</code><code class="sig-name descname">PegLexer</code><a class="headerlink" href="#pygments.lexers.grammar_notation.PegLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>peg</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.peg</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>text/x-peg</p>
+</dd>
+</dl>
+<p>This lexer is for <a class="reference external" href="https://bford.info/pub/lang/peg.pdf">Parsing Expression Grammars</a> (PEG).</p>
+<p>Various implementations of PEG have made different decisions
+regarding the syntax, so let’s try to be accommodating:</p>
+<ul class="simple">
+<li><p><cite>&lt;-</cite>, <cite>←</cite>, <cite>:</cite>, and <cite>=</cite> are all accepted as rule operators.</p></li>
+<li><p>Both <cite>|</cite> and <cite>/</cite> are choice operators.</p></li>
+<li><p><cite>^</cite>, <cite>↑</cite>, and <cite>~</cite> are cut operators.</p></li>
+<li><p>A single <cite>a-z</cite> character immediately before a string, or
+multiple <cite>a-z</cite> characters following a string, are part of the
+string (e.g., <cite>r”…”</cite> or <cite>“…”ilmsuxa</cite>).</p></li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.6.</span></p>
+</div>
+</dd></dl>
+
 <span class="target" id="module-pygments.lexers.graph"></span></div>
 <div class="section" id="lexers-for-graph-query-languages">
 <h2>Lexers for graph query languages<a class="headerlink" href="#lexers-for-graph-query-languages" title="Permalink to this headline">¶</a></h2>
