@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Filters &#8212; Pygments</title>
@@ -305,6 +305,26 @@ stream of a lexer.</p>
 </div>
 </dd></dl>
 
+<dl class="py class">
+<dt id="SymbolFilter">
+<em class="property">class </em><code class="sig-name descname">SymbolFilter</code><a class="headerlink" href="#SymbolFilter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Name</dt>
+<dd class="field-odd"><p>symbols</p>
+</dd>
+</dl>
+<p>Convert mathematical symbols such as &lt;longrightarrow&gt; in Isabelle
+or longrightarrow in LaTeX into Unicode characters.</p>
+<p>This is mostly useful for HTML or console output when you want to
+approximate the source rendering you’d see in an IDE.</p>
+<p>Options accepted:</p>
+<dl class="simple">
+<dt><cite>lang</cite><span class="classifier">string</span></dt><dd><p>The symbol language. Must be one of <code class="docutils literal notranslate"><span class="pre">'isabelle'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'latex'</span></code>.  The default is <code class="docutils literal notranslate"><span class="pre">'isabelle'</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 
@@ -316,7 +336,7 @@ stream of a lexer.</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2019, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.0.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.0.1. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
