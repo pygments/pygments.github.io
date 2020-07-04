@@ -312,9 +312,10 @@ document (default: <code class="docutils literal notranslate"><span class="pre">
 and <cite>noclobber_cssfile</cite> option are given and the file specified in
 <cite>cssfile</cite> exists.</p>
 </dd>
-<dt><cite>noclasses</cite></dt><dd><p>If set to true, token <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags will not use CSS classes, but
-inline styles. This is not recommended for larger pieces of code since
-it increases output size by quite a bit (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<dt><cite>noclasses</cite></dt><dd><p>If set to true, token <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags (as well as line number elements)
+will not use CSS classes, but inline styles. This is not recommended
+for larger pieces of code since it increases output size by quite a bit
+(default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 </dd>
 <dt><cite>classprefix</cite></dt><dd><p>Since the token types use relatively short class names, they may clash
 with some of your own class names. In this case you can use the
