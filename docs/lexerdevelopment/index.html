@@ -243,6 +243,11 @@ cloned from GitHub.</p>
 </div>
 <p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new module for
 your lexer class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We encourage you to put your lexer class into its own module, unless it’s a
+very small derivative of an already existing lexer.</p>
+</div>
 <p>Next, make sure the lexer is known from outside of the module.  All modules in
 the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
 <code class="docutils literal notranslate"><span class="pre">esoteric.py</span></code> sets:</p>
