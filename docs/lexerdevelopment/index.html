@@ -209,15 +209,17 @@ the lexer from a file relative to your current directory.</p>
     <span class="sd">&quot;&quot;&quot;All your lexer code goes here!&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>Then you can load the lexer from the command line with the additional
+<p>Then you can load and test the lexer from the command line with the additional
 flag <code class="docutils literal notranslate"><span class="pre">-x</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -l your_lexer_file.py -x
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -x -l your_lexer_file.py &lt;inputfile&gt;
 </pre></div>
 </div>
 <p>To specify a class name other than CustomLexer, append it with a colon:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -l your_lexer.py:SomeLexer -x
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pygments -x -l your_lexer.py:SomeLexer &lt;inputfile&gt;
 </pre></div>
 </div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to select a different output format than terminal
+escape sequences.</p>
 <p>Or, using the Python API:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a lexer named CustomLexer</span>
 <span class="n">your_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
