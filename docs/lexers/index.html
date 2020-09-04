@@ -7037,6 +7037,34 @@ the php documentation.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="pygments.lexers.php.PsyshConsoleLexer">
+<em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.php.</code><code class="sig-name descname">PsyshConsoleLexer</code><a class="headerlink" href="#pygments.lexers.php.PsyshConsoleLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>psysh</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>For <a class="reference external" href="https://psysh.org/">PsySH</a> console output, such as:</p>
+<div class="highlight-psysh notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nv">$greeting</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="s2">&quot;Hello, </span><span class="si">{</span><span class="nv">$name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="gp">... </span><span class="p">};</span>
+<span class="go">=&gt; Closure($name): string {#2371 …3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nv">$greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
+<span class="go">=&gt; &quot;Hello, World&quot;</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.7.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="pygments.lexers.php.ZephirLexer">
 <em class="property">class </em><code class="sig-prename descclassname">pygments.lexers.php.</code><code class="sig-name descname">ZephirLexer</code><a class="headerlink" href="#pygments.lexers.php.ZephirLexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
