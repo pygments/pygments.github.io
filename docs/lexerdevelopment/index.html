@@ -613,7 +613,7 @@ appropriate positions.</p>
 
 <span class="k">class</span> <span class="nc">HtmlPhpLexer</span><span class="p">(</span><span class="n">DelegatingLexer</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">HtmlPhpLexer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This procedure ensures that e.g. HTML with template tags in it is highlighted
