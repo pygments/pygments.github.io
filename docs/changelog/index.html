@@ -173,11 +173,24 @@ pull request numbers to the requests at
 </div>
 <div class="section" id="version-2-7-2">
 <h2>Version 2.7.2<a class="headerlink" href="#version-2-7-2" title="Permalink to this headline">¶</a></h2>
-<p>(not released yet)</p>
+<p>(released October 24, 2020)</p>
 <ul class="simple">
+<li><p>Updated lexers:</p>
+<ul>
+<li><p>Latex (PR#1517, #1516)</p></li>
+<li><p>LLVM (PR#1565)</p></li>
+<li><p>SPARQL (PR#1559)</p></li>
+</ul>
+</li>
 <li><p>Fixed Python console/traceback lexer problems with
 custom exceptions without messages (#1548)</p></li>
 <li><p>Allow loading ttc fonts on Mac/image formatter (#1223)</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">analyze_text</span></code> across a variety of lexers (PR#1549)</p></li>
+<li><p>Removed CSS rule which forced the vertical padding to 0 for line numbers (PR#1583, #1579)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">TNTLexer</span></code> crashing on unexpected EOL (#1568, PR#1570)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regexlint</span></code> can be now run locally as part of <code class="docutils literal notranslate"><span class="pre">tox</span></code> tests (PR#1557)</p></li>
+<li><p>Fix typos (PR#1550, #1562)</p></li>
+<li><p>Add Python 3.9 as a supported version (PR#1554)</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-7-1">
