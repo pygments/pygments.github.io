@@ -12,7 +12,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -181,6 +180,7 @@ pull request numbers to the requests at
 <li><p>Fixed backtracking string regexes in JavaScript/TypeScript lexers (#1637)</p></li>
 <li><p>Limit recursion with nesting Ruby heredocs (#1638)</p></li>
 <li><p>Fixed a few inefficient regexes for guessing lexers</p></li>
+<li><p>Fixed the raw token lexer handling of Unicode (#1616)</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-7-3">
@@ -1553,7 +1553,7 @@ continuations.</p></li>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2020, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.3.1. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.4.1. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
