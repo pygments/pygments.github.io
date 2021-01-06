@@ -174,19 +174,34 @@ pull request numbers to the requests at
 </div>
 <div class="section" id="version-2-7-4">
 <h2>Version 2.7.4<a class="headerlink" href="#version-2-7-4" title="Permalink to this headline">¶</a></h2>
-<p>(not released yet)</p>
+<p>(released January 9, 2021)</p>
 <ul class="simple">
-<li><p>Fixed infinite loop in SML lexer (#1625)</p></li>
-<li><p>Fixed backtracking string regexes in JavaScript/TypeScript, Modula2
+<li><p>Updated lexers:</p>
+<ul>
+<li><p>Apache configurations: Improve handling of malformed tags (#1656)</p></li>
+<li><p>Crystal (#1650)</p></li>
+<li><p>Coq (#1648)</p></li>
+<li><p>Fortran: Add missing <code class="docutils literal notranslate"><span class="pre">ONLY</span></code> keyword (#1635)</p></li>
+<li><p>Ini (#1624)</p></li>
+<li><p>JavaScript and variants (#1647 – missing regex flags, #1651)</p></li>
+<li><p>Markdown (#1623)</p></li>
+<li><p>Shell</p>
+<ul>
+<li><p>Lex trailing whitespace as part of the prompt (#1645)</p></li>
+<li><p>Add missing <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword (#1652)</p></li>
+</ul>
+</li>
+<li><p>Typescript: Fix incorrect punctuation handling (#1510, #1511)</p></li>
+</ul>
+</li>
+<li><p>Fix infinite loop in SML lexer (#1625)</p></li>
+<li><p>Fix backtracking string regexes in JavaScript/TypeScript, Modula2
 and many other lexers (#1637)</p></li>
 <li><p>Limit recursion with nesting Ruby heredocs (#1638)</p></li>
-<li><p>Fixed a few inefficient regexes for guessing lexers</p></li>
-<li><p>Fixed the raw token lexer handling of Unicode (#1616)</p></li>
-<li><p>Lex trailing whitespace as part of the prompt in shell lexers (#1645)</p></li>
-<li><p>Add missing ONLY keyword to Fortran (#1635)</p></li>
-<li><p>Add missing regex flags to JS/TS/… lexers (#1647)</p></li>
-<li><p>Add missing <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword to shell (#1652)</p></li>
-<li><p>Fix incorrect punctuation handling in Typescript (#1510, PR#1511)</p></li>
+<li><p>Fix a few inefficient regexes for guessing lexers</p></li>
+<li><p>Fix the raw token lexer handling of Unicode (#1616)</p></li>
+<li><p>Revert a private API change in the HTML formatter (#1655) – please note that private APIs remain subject to change!</p></li>
+<li><p>Add Dracula theme style (#1636)</p></li>
 </ul>
 <p>Thanks to Google’s OSS-Fuzz project for finding many of these bugs.</p>
 </div>
@@ -196,24 +211,24 @@ and many other lexers (#1637)</p></li>
 <ul class="simple">
 <li><p>Updated lexers:</p>
 <ul>
-<li><p>Ada (PR#1581)</p></li>
-<li><p>HTML (PR#1615, #1614)</p></li>
-<li><p>Java (PR#1594, #1586)</p></li>
-<li><p>JavaScript (PR#1605, PR#1589, #1588)</p></li>
-<li><p>JSON (PR#1569 – this is a complete rewrite)</p></li>
-<li><p>Lean (PR#1601)</p></li>
-<li><p>LLVM (PR#1612)</p></li>
-<li><p>Mason (PR#1592)</p></li>
-<li><p>MySQL (PR#1555, #1551)</p></li>
-<li><p>Rust (PR#1608)</p></li>
-<li><p>Turtle (PR#1590, #1553)</p></li>
+<li><p>Ada (#1581)</p></li>
+<li><p>HTML (#1615, #1614)</p></li>
+<li><p>Java (#1594, #1586)</p></li>
+<li><p>JavaScript (#1605, #1589, #1588)</p></li>
+<li><p>JSON (#1569 – this is a complete rewrite)</p></li>
+<li><p>Lean (#1601)</p></li>
+<li><p>LLVM (#1612)</p></li>
+<li><p>Mason (#1592)</p></li>
+<li><p>MySQL (#1555, #1551)</p></li>
+<li><p>Rust (#1608)</p></li>
+<li><p>Turtle (#1590, #1553)</p></li>
 </ul>
 </li>
 <li><p>Deprecated JsonBareObjectLexer, which is now identical to JsonLexer (#1600)</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">ImgFormatter</span></code> now calculates the exact character width, which fixes some issues with overlapping text (#1213, PR#1611)</p></li>
-<li><p>Documentation fixes (PR#1609, #1599, #1598)</p></li>
-<li><p>Fixed duplicated Juttle language alias (#1604, PR#1606)</p></li>
-<li><p>Added support for Kotlin scripts (PR#1587)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ImgFormatter</span></code> now calculates the exact character width, which fixes some issues with overlapping text (#1213, #1611)</p></li>
+<li><p>Documentation fixes (#1609, #1599, #1598)</p></li>
+<li><p>Fixed duplicated Juttle language alias (#1604, #1606)</p></li>
+<li><p>Added support for Kotlin scripts (#1587)</p></li>
 <li><p>Removed CSS rule which forced margin to 0</p></li>
 </ul>
 </div>
@@ -223,19 +238,19 @@ and many other lexers (#1637)</p></li>
 <ul class="simple">
 <li><p>Updated lexers:</p>
 <ul>
-<li><p>Latex (PR#1517, #1516)</p></li>
-<li><p>LLVM (PR#1565)</p></li>
-<li><p>SPARQL (PR#1559)</p></li>
+<li><p>Latex (#1517, #1516)</p></li>
+<li><p>LLVM (#1565)</p></li>
+<li><p>SPARQL (#1559)</p></li>
 </ul>
 </li>
-<li><p>Fixed Python console/traceback lexer problems with custom exceptions without messages (#1548)</p></li>
+<li><p>Fix Python console/traceback lexer problems with custom exceptions without messages (#1548)</p></li>
 <li><p>Allow loading ttc fonts on Mac/image formatter (#1223)</p></li>
-<li><p>Improved <code class="docutils literal notranslate"><span class="pre">analyze_text</span></code> across a variety of lexers (PR#1549)</p></li>
-<li><p>Removed CSS rule which forced the vertical padding to 0 for line numbers (PR#1583, #1579)</p></li>
-<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TNTLexer</span></code> crashing on unexpected EOL (#1568, PR#1570)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">regexlint</span></code> can be now run locally as part of <code class="docutils literal notranslate"><span class="pre">tox</span></code> tests (PR#1557)</p></li>
-<li><p>Fixed typos (PR#1550, #1562)</p></li>
-<li><p>Added Python 3.9 as a supported version (PR#1554)</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">analyze_text</span></code> across a variety of lexers (#1549)</p></li>
+<li><p>Remove CSS rule which forced the vertical padding to 0 for line numbers (#1583, #1579)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">TNTLexer</span></code> crashing on unexpected EOL (#1568, #1570)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regexlint</span></code> can be now run locally as part of <code class="docutils literal notranslate"><span class="pre">tox</span></code> tests (#1557)</p></li>
+<li><p>Fix typos (#1550, #1562)</p></li>
+<li><p>Add Python 3.9 as a supported version (#1554)</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-7-1">
@@ -251,61 +266,61 @@ and many other lexers (#1637)</p></li>
 <ul class="simple">
 <li><p>Added lexers:</p>
 <ul>
-<li><p>Arrow (PR#1481, PR#1499)</p></li>
-<li><p>BARE (PR#1488)</p></li>
-<li><p>Devicetree (PR#1434)</p></li>
-<li><p>F* (PR#1409)</p></li>
-<li><p>GDScript (PR#1457)</p></li>
-<li><p>Pointless (PR#1494)</p></li>
-<li><p>PromQL (PR#1506)</p></li>
-<li><p>PsySH (PR#1438)</p></li>
-<li><p>Singularity (PR#1285)</p></li>
-<li><p>TiddlyWiki5 (PR#1390)</p></li>
-<li><p>TNT (PR#1414)</p></li>
-<li><p>YANG (PR#1408, PR#1428)</p></li>
+<li><p>Arrow (#1481, #1499)</p></li>
+<li><p>BARE (#1488)</p></li>
+<li><p>Devicetree (#1434)</p></li>
+<li><p>F* (#1409)</p></li>
+<li><p>GDScript (#1457)</p></li>
+<li><p>Pointless (#1494)</p></li>
+<li><p>PromQL (#1506)</p></li>
+<li><p>PsySH (#1438)</p></li>
+<li><p>Singularity (#1285)</p></li>
+<li><p>TiddlyWiki5 (#1390)</p></li>
+<li><p>TNT (#1414)</p></li>
+<li><p>YANG (#1408, #1428)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
 <ul>
-<li><p>APL (PR#1503)</p></li>
-<li><p>C++ (PR#1350, which also fixes: #1222, #996, #906, #828, #1162, #1166,
+<li><p>APL (#1503)</p></li>
+<li><p>C++ (#1350, which also fixes: #1222, #996, #906, #828, #1162, #1166,
 #1396)</p></li>
-<li><p>Chapel (PR#1423)</p></li>
+<li><p>Chapel (#1423)</p></li>
 <li><p>CMake (#1491)</p></li>
 <li><p>CSound (#1509)</p></li>
-<li><p>Cython (PR#1507)</p></li>
-<li><p>Dart (PR#1449)</p></li>
-<li><p>Fennel (PR#1535)</p></li>
-<li><p>Fortran (PR#1442)</p></li>
-<li><p>GAS (PR#1530)</p></li>
-<li><p>HTTP (PR#1432, #1520, PR#1521)</p></li>
-<li><p>Inform 6 (PR#1461)</p></li>
-<li><p>Javascript (PR#1533)</p></li>
-<li><p>JSON (#1065, PR#1528)</p></li>
-<li><p>Lean (PR#1415)</p></li>
-<li><p>Matlab (PR#1399)</p></li>
-<li><p>Markdown (#1492, PR#1495)</p></li>
-<li><p>MySQL (#975, #1063, #1453, PR#1527)</p></li>
-<li><p>NASM (PR#1465)</p></li>
-<li><p>Nim (PR#1426)</p></li>
-<li><p>PostgreSQL (PR#1513)</p></li>
-<li><p>PowerShell (PR#1398, PR#1497)</p></li>
-<li><p>Protobuf (PR#1505)</p></li>
-<li><p>Robot (PR#1480)</p></li>
-<li><p>SQL (PR#1402)</p></li>
-<li><p>SystemVerilog (PR#1436, PR#1452, PR#1454, PR#1460, PR#1462, PR#1463, PR#1464, PR#1471, #1496, PR#1504)</p></li>
-<li><p>TeraTerm (PR#1337)</p></li>
+<li><p>Cython (#1507)</p></li>
+<li><p>Dart (#1449)</p></li>
+<li><p>Fennel (#1535)</p></li>
+<li><p>Fortran (#1442)</p></li>
+<li><p>GAS (#1530)</p></li>
+<li><p>HTTP (#1432, #1520, #1521)</p></li>
+<li><p>Inform 6 (#1461)</p></li>
+<li><p>Javascript (#1533)</p></li>
+<li><p>JSON (#1065, #1528)</p></li>
+<li><p>Lean (#1415)</p></li>
+<li><p>Matlab (#1399)</p></li>
+<li><p>Markdown (#1492, #1495)</p></li>
+<li><p>MySQL (#975, #1063, #1453, #1527)</p></li>
+<li><p>NASM (#1465)</p></li>
+<li><p>Nim (#1426)</p></li>
+<li><p>PostgreSQL (#1513)</p></li>
+<li><p>PowerShell (#1398, #1497)</p></li>
+<li><p>Protobuf (#1505)</p></li>
+<li><p>Robot (#1480)</p></li>
+<li><p>SQL (#1402)</p></li>
+<li><p>SystemVerilog (#1436, #1452, #1454, #1460, #1462, #1463, #1464, #1471, #1496, #1504)</p></li>
+<li><p>TeraTerm (#1337)</p></li>
 <li><p>XML (#1502)</p></li>
 </ul>
 </li>
-<li><p>Added a new filter for math symbols (PR#1406)</p></li>
-<li><p>The Kconfig lexer will match Kconfig derivative names now (PR#1458)</p></li>
-<li><p>Improved HTML formatter output (PR#1500)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.markdown</span></code> is now recognized as an extension for Markdown files (PR#1476)</p></li>
-<li><p>Fixed line number colors for Solarized (PR#1477, #1356)</p></li>
-<li><p>Improvements to exception handling (PR#1478)</p></li>
-<li><p>Improvements to tests (PR#1532, PR#1533, PR#1539)</p></li>
-<li><p>Various code cleanups (PR#1536, PR#1537, PR#1538)</p></li>
+<li><p>Added a new filter for math symbols (#1406)</p></li>
+<li><p>The Kconfig lexer will match Kconfig derivative names now (#1458)</p></li>
+<li><p>Improved HTML formatter output (#1500)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.markdown</span></code> is now recognized as an extension for Markdown files (#1476)</p></li>
+<li><p>Fixed line number colors for Solarized (#1477, #1356)</p></li>
+<li><p>Improvements to exception handling (#1478)</p></li>
+<li><p>Improvements to tests (#1532, #1533, #1539)</p></li>
+<li><p>Various code cleanups (#1536, #1537, #1538)</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-6-1">
@@ -323,44 +338,45 @@ and many other lexers (#1637)</p></li>
 (The Python 2 lexer still exists.)</p></li>
 <li><p>Added lexers:</p>
 <ul>
-<li><p>Linux kernel logs (PR#1310)</p></li>
-<li><p>LLVM MIR (PR#1361)</p></li>
-<li><p>MiniScript (PR#1397)</p></li>
-<li><p>Mosel (PR#1287, PR#1326)</p></li>
-<li><p>Parsing Expression Grammar (PR#1336)</p></li>
-<li><p>ReasonML (PR#1386)</p></li>
-<li><p>Ride (PR#1319, PR#1321)</p></li>
-<li><p>Sieve (PR#1257)</p></li>
-<li><p>USD (PR#1290)</p></li>
-<li><p>WebIDL (PR#1309)</p></li>
+<li><p>Linux kernel logs (#1310)</p></li>
+<li><p>LLVM MIR (#1361)</p></li>
+<li><p>MiniScript (#1397)</p></li>
+<li><p>Mosel (#1287, #1326)</p></li>
+<li><p>Parsing Expression Grammar (#1336)</p></li>
+<li><p>ReasonML (#1386)</p></li>
+<li><p>Ride (#1319, #1321)</p></li>
+<li><p>Sieve (#1257)</p></li>
+<li><p>USD (#1290)</p></li>
+<li><p>WebIDL (#1309)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
 <ul>
-<li><p>Apache2 (PR#1378)</p></li>
-<li><p>Chapel (PR#1357)</p></li>
-<li><p>CSound (PR#1383)</p></li>
-<li><p>D (PR#1375, PR#1362)</p></li>
-<li><p>Idris (PR#1360)</p></li>
-<li><p>Perl6/Raku lexer (PR#1344)</p></li>
-<li><p>Python3 (PR#1382, PR#1385)</p></li>
+<li><p>Apache2 (#1378)</p></li>
+<li><p>Chapel (#1357)</p></li>
+<li><p>CSound (#1383)</p></li>
+<li><p>D (#1375, #1362)</p></li>
+<li><p>Haskell (#1347, #1177)</p></li>
+<li><p>Idris (#1360)</p></li>
+<li><p>Perl6/Raku lexer (#1344)</p></li>
+<li><p>Python3 (#1382, #1385)</p></li>
 <li><p>Rust: Updated lexer to cover more builtins (mostly macros) and miscellaneous
-new syntax (PR#1320)</p></li>
-<li><p>SQL: Add temporal support keywords (PR#1402)</p></li>
+new syntax (#1320)</p></li>
+<li><p>SQL: Add temporal support keywords (#1402)</p></li>
 </ul>
 </li>
 <li><p>The 256-color/true-color terminal formatters now support the italic attribute
-in styles (PR#1288)</p></li>
-<li><p>Support HTTP 2/3 header (PR#1308)</p></li>
-<li><p>Support missing reason in HTTP header (PR#1322)</p></li>
+in styles (#1288)</p></li>
+<li><p>Support HTTP 2/3 header (#1308)</p></li>
+<li><p>Support missing reason in HTTP header (#1322)</p></li>
 <li><p>Boogie/Silver: support line continuations and triggers, move contract keywords
-to separate category (PR#1299)</p></li>
-<li><p>GAS: support C-style comments (PR#1291)</p></li>
-<li><p>Fix names in S lexer (PR#1330, PR#1333)</p></li>
-<li><p>Fix numeric literals in Ada (PR#1334)</p></li>
-<li><p>Recognize <code class="docutils literal notranslate"><span class="pre">.mjs</span></code> files as Javascript (PR#1392)</p></li>
-<li><p>Recognize <code class="docutils literal notranslate"><span class="pre">.eex</span></code> files as Elixir (PR#1387)</p></li>
-<li><p>Fix <code class="docutils literal notranslate"><span class="pre">re.MULTILINE</span></code> usage (PR#1388)</p></li>
+to separate category (#1299)</p></li>
+<li><p>GAS: support C-style comments (#1291)</p></li>
+<li><p>Fix names in S lexer (#1330, #1333)</p></li>
+<li><p>Fix numeric literals in Ada (#1334)</p></li>
+<li><p>Recognize <code class="docutils literal notranslate"><span class="pre">.mjs</span></code> files as Javascript (#1392)</p></li>
+<li><p>Recognize <code class="docutils literal notranslate"><span class="pre">.eex</span></code> files as Elixir (#1387)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">re.MULTILINE</span></code> usage (#1388)</p></li>
 <li><p>Recognize <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> and <code class="docutils literal notranslate"><span class="pre">poetry</span></code> dependency &amp; lock files (PR#1376)</p></li>
 <li><p>Improve font search on Windows (#1247)</p></li>
 <li><p>Remove unused script block (#1401)</p></li>
