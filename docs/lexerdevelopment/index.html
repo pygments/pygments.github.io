@@ -259,11 +259,11 @@ is the only class in the module).</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make mapfiles
 </pre></div>
 </div>
-<p>To test the new lexer, store an example file with the proper extension as
-<code class="docutils literal notranslate"><span class="pre">tests/examplefiles/&lt;alias&gt;/example.*</span></code>.  For example, to test your
+<p>To test the new lexer, store an example file in
+<code class="docutils literal notranslate"><span class="pre">tests/examplefiles/&lt;alias&gt;</span></code>.  For example, to test your
 <code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/diff/example.diff</span></code> containing a
 sample diff output.  To (re)generate the lexer output which the file is checked
-against, use the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/examplefiles</span> <span class="pre">--update-goldens</span></code>.</p>
+against, use the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/examplefiles/diff</span> <span class="pre">--update-goldens</span></code>.</p>
 <p>Now you can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygments</span></code> from the current root of the checkout to
 render your example to HTML:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -O full -f html -o /tmp/example.html tests/examplefiles/diff/example.diff
