@@ -201,6 +201,24 @@ as before</p></li>
 <li><p>Changed setuptools to use a declarative config through <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.
 Building Pygments now requires setuptools 39.2+.</p></li>
 <li><p>Added markdown to MarkdownLexer aliases (#1687)</p></li>
+<li><p>Changed line number handling</p>
+<ul>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> based output, the <code class="docutils literal notranslate"><span class="pre">td.linenos</span></code> element will have either a
+<code class="docutils literal notranslate"><span class="pre">normal</span></code> or <code class="docutils literal notranslate"><span class="pre">special</span></code> class attached. Previously, only <code class="docutils literal notranslate"><span class="pre">special</span></code> line
+numbers got a class. This prevents styles from getting applied twice -
+once via <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code>, once via <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;special&quot;&gt;</span></code>. This also means
+that <code class="docutils literal notranslate"><span class="pre">td.linenos</span> <span class="pre">pre</span></code> is no longer styled, instead, use
+<code class="docutils literal notranslate"><span class="pre">td.linenos</span> <span class="pre">.normal</span></code> and <code class="docutils literal notranslate"><span class="pre">td.linenos</span> <span class="pre">.special</span></code>.</p></li>
+<li><p>In the “inline” style, the DOM element order was changed. The line number
+is added first, then the line is wrapped is wrapped by the highlighter.
+This fixes lines not being fully highlighted.</p></li>
+<li><p>The visual output for inline and non-inline line numbers &amp; highlighting,
+as well as class-based and inline styling is now consistent.</p></li>
+<li><p>Line number styles are set to <code class="docutils literal notranslate"><span class="pre">background-color:</span> <span class="pre">transparent</span></code> and
+<code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">inherit</span></code> by default. This works much better with dark styles
+which don’t have colors set for line numbers.</p></li>
+</ul>
+</li>
 <li><p>Removed “raw” alias from RawTokenLexer, so that it cannot be
 selected by alias.</p></li>
 <li><p>Added prompt colors to the Solarized theme (#1529)</p></li>
