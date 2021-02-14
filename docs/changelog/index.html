@@ -170,20 +170,37 @@ pull request numbers to the requests at
 &lt;<a class="reference external" href="https://github.com/pygments/pygments/pulls">https://github.com/pygments/pygments/pulls</a>&gt;.</p>
 <div class="section" id="version-2-8-0">
 <h2>Version 2.8.0<a class="headerlink" href="#version-2-8-0" title="Permalink to this headline">¶</a></h2>
-<p>(not released yet)</p>
+<p>(released February 14, 2021)</p>
 <ul class="simple">
 <li><p>Added lexers:</p>
 <ul>
 <li><p>AMDGPU (#1626)</p></li>
-<li><p>Graphviz/DOT (#1657)</p></li>
+<li><p>CDDL (#1379, #1239)</p></li>
+<li><p>Futhark (#1691)</p></li>
+<li><p>Graphviz/DOT (#1657, #731)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
 <ul>
+<li><p>AutoIt: Support single quoted strings (#1667, #1663)</p></li>
 <li><p>C/C++ &amp; related: Fix mishandling ‘<a href="#id1"><span class="problematic" id="id2">*</span></a>/’ (#1695)</p></li>
+<li><p>Cocoa: Add builtin types (#1703)</p></li>
 <li><p>Console (#1672)</p></li>
+<li><p>Eiffel: Fix performance issues (#1658)</p></li>
+<li><p>Fortran: Improve combined keyword detection (#1677, #1188)</p></li>
+<li><p>J: Fix operator <code class="docutils literal notranslate"><span class="pre">?</span></code> lexing (#1700, #1149)</p></li>
 <li><p>JavaScript/TypeScript: Fix escapes in backtick strings (#1679, #1686)</p></li>
+<li><p>Kotlin: Improve string interpolation, modifier keyword handling, and various small issues (#1699)</p></li>
 <li><p>LESS: Support single-line comments (#1046)</p></li>
+<li><p>Matlab:</p>
+<ul>
+<li><p>Add support for class properties (#1466)</p></li>
+<li><p>Update builtin functions (#1705)</p></li>
+<li><p>Various cleanups (#1673)</p></li>
+</ul>
+</li>
+<li><p>Python: Improve handling of raw f-strings (#1681, #1683)</p></li>
+<li><p>Ruby: Better method name handling (#1531)</p></li>
 <li><p>Stata: Updated keywords (#1470)</p></li>
 </ul>
 </li>
@@ -195,13 +212,17 @@ pull request numbers to the requests at
 </li>
 <li><p>The <cite>pygmentize</cite> script now uses <cite>argparse</cite>, all options should work
 as before</p></li>
-<li><p>Added <cite>pygmentize -C</cite> option to guess a lexer from content</p></li>
+<li><p>Add <cite>pygmentize -C</cite> option to guess a lexer from content</p></li>
+<li><p>With this release, Pygments moves to a new internal testing system (#1649.)
+See <code class="docutils literal notranslate"><span class="pre">Contributing.md</span></code> for details. The main advantage of this new change
+is a much better test coverage of all existing example lexers. It also makes
+it much easier to add new test snippets.</p></li>
 <li><p>Make guessing prefer Python 3 lexer</p></li>
 <li><p>Do not guess MIME or SQL without reason</p></li>
 <li><p>Changed setuptools to use a declarative config through <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.
 Building Pygments now requires setuptools 39.2+.</p></li>
-<li><p>Added markdown to MarkdownLexer aliases (#1687)</p></li>
-<li><p>Changed line number handling</p>
+<li><p>Add markdown to MarkdownLexer aliases (#1687)</p></li>
+<li><p>Change line number handling</p>
 <ul>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> based output, the <code class="docutils literal notranslate"><span class="pre">td.linenos</span></code> element will have either a
 <code class="docutils literal notranslate"><span class="pre">normal</span></code> or <code class="docutils literal notranslate"><span class="pre">special</span></code> class attached. Previously, only <code class="docutils literal notranslate"><span class="pre">special</span></code> line
@@ -219,10 +240,17 @@ as well as class-based and inline styling is now consistent.</p></li>
 which don’t have colors set for line numbers.</p></li>
 </ul>
 </li>
-<li><p>Removed “raw” alias from RawTokenLexer, so that it cannot be
+<li><p>Remove “raw” alias from RawTokenLexer, so that it cannot be
 selected by alias.</p></li>
-<li><p>Fixed RawTokenLexer to work in Python 3 and handle exceptions.</p></li>
-<li><p>Added prompt colors to the Solarized theme (#1529)</p></li>
+<li><p>Fix RawTokenLexer to work in Python 3 and handle exceptions.</p></li>
+<li><p>Add prompt colors to the Solarized theme (#1529)</p></li>
+<li><p>Image formatter supports background colors now (#1374)</p></li>
+<li><p>Add support for anchors in conjunction with inline line numbers (#1591)</p></li>
+<li><p>Modernize the codebase using <code class="docutils literal notranslate"><span class="pre">pyupgrade</span></code> (#1622)</p></li>
+<li><p>Add support for line numbers to the <code class="docutils literal notranslate"><span class="pre">terminal256</span></code> formatter (#1674, #1653)</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">analyze_text</span></code> logic for <code class="docutils literal notranslate"><span class="pre">ECL</span></code> (#1610)</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">analyze_text</span></code> logic for <code class="docutils literal notranslate"><span class="pre">CBM</span> <span class="pre">Basic</span> <span class="pre">V2</span></code> (#1607)</p></li>
+<li><p>Improve LaTeX formatter (#1708, #1709)</p></li>
 </ul>
 </div>
 <div class="section" id="version-2-7-4">
