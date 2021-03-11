@@ -150,7 +150,7 @@ If no output file name is given and <code class="docutils literal notranslate"><
 </div>
 <p>To create a full HTML document, including line numbers and stylesheet (using the
 “emacs” style), highlighting the Python file <code class="docutils literal notranslate"><span class="pre">test.py</span></code> to <code class="docutils literal notranslate"><span class="pre">test.html</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -O full,style=emacs -o test.html test.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -O full,style=emacs,linenos=1 -o test.html test.py
 </pre></div>
 </div>
 <div class="section" id="options-and-filters">
@@ -275,7 +275,7 @@ formatter is the terminal encoding (<code class="docutils literal notranslate"><
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.1. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
