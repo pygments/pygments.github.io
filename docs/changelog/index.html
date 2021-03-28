@@ -198,6 +198,23 @@ pull request numbers to the requests at
 <li><p>Add Pango formatter (#1727)</p></li>
 <li><p>Fix links (#1716)</p></li>
 <li><p>Fix issue with LaTeX formatter and <code class="docutils literal notranslate"><span class="pre">minted</span></code> (#1734, #1735, #1736, #1737)</p></li>
+<li><p>Updated <cite>filename</cite> handling in HTML formatter if <cite>linenos=’table’</cite> (#1757)</p>
+<ul>
+<li><p>Previously the filename would be emitted within the <cite>&lt;td&gt;</cite> holding the
+code, but outside the <cite>&lt;pre&gt;</cite>. This would invariably break the alignment
+with line numbers.</p></li>
+<li><p>Now if <cite>filename</cite> is specified, a separate <cite>&lt;tr&gt;</cite> is emitted before the
+table content which contains a single <cite>&lt;th&gt;</cite> with <cite>colspan=2</cite> so it
+spans both the line number and code columns. The filename is still
+within <cite>&lt;span class=”filename”&gt;…&lt;/span&gt;</cite> so any existing styles
+should still apply, although the CSS path may need to change.</p></li>
+<li><p>For an example of the new output format see
+<cite>table_cls_step_1_start_1_special_0_noanchor_filename.html</cite>
+in the <cite>tests/html_linenos_expected_output/</cite> directory.</p></li>
+<li><p>For more details and discussion see the issue
+<a class="reference external" href="https://github.com/pygments/pygments/issues/1757">https://github.com/pygments/pygments/issues/1757</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="version-2-8-0">
