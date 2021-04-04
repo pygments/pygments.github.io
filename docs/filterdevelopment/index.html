@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Write your own filter &#8212; Pygments</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
@@ -116,7 +117,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="write-your-own-filter">
+  <section id="write-your-own-filter">
 <h1>Write your own filter<a class="headerlink" href="#write-your-own-filter" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
@@ -125,7 +126,7 @@
 the <cite>Filter</cite> class and override the <cite>filter</cite> method. Additionally a
 filter is instantiated with some keyword arguments you can use to
 adjust the behavior of your filter.</p>
-<div class="section" id="subclassing-filters">
+<section id="subclassing-filters">
 <h2>Subclassing Filters<a class="headerlink" href="#subclassing-filters" title="Permalink to this headline">¶</a></h2>
 <p>As an example, we write a filter that converts all <cite>Name.Function</cite> tokens
 to normal <cite>Name</cite> tokens to make the output less colorful.</p>
@@ -153,8 +154,8 @@ function of lexers, that lexer is registered for the filter. In that case
 <cite>lexer</cite> will refer to the lexer that has registered the filter. It <em>can</em> be used
 to access options passed to a lexer. Because it could be <cite>None</cite> you always have
 to check for that case if you access it.</p>
-</div>
-<div class="section" id="using-a-decorator">
+</section>
+<section id="using-a-decorator">
 <h2>Using a decorator<a class="headerlink" href="#using-a-decorator" title="Permalink to this headline">¶</a></h2>
 <p>You can also use the <cite>simplefilter</cite> decorator from the <cite>pygments.filter</cite> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.util</span> <span class="kn">import</span> <span class="n">get_bool_opt</span>
@@ -175,8 +176,8 @@ to check for that case if you access it.</p>
 <p>The decorator automatically subclasses an internal filter class and uses the
 decorated function as a method for filtering.  (That’s why there is a <cite>self</cite>
 argument that you probably won’t end up using in the method.)</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
