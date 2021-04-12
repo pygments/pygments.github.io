@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Command Line Interface &#8212; Pygments</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
@@ -121,7 +120,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="command-line-interface">
+  <div class="section" id="command-line-interface">
 <h1>Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
 <p>You can use Pygments from the shell, provided you installed the
 <strong class="program">pygmentize</strong> script:</p>
@@ -154,7 +153,7 @@ If no output file name is given and <code class="docutils literal notranslate"><
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -O full,style=emacs,linenos=1 -o test.html test.py
 </pre></div>
 </div>
-<section id="options-and-filters">
+<div class="section" id="options-and-filters">
 <h2>Options and filters<a class="headerlink" href="#options-and-filters" title="Permalink to this headline">¶</a></h2>
 <p>Lexer and formatter options can be given using the <code class="docutils literal notranslate"><span class="pre">-O</span></code> option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -f html -O style=colorful,linenos=1 -l python test.py
@@ -179,8 +178,8 @@ can then contain all characters:</p>
 <p>As you see, options for the filter are given after a colon. As for <code class="docutils literal notranslate"><span class="pre">-O</span></code>, the
 filter name and options must be one shell word, so there may not be any spaces
 around the colon.</p>
-</section>
-<section id="generating-styles">
+</div>
+<div class="section" id="generating-styles">
 <h2>Generating styles<a class="headerlink" href="#generating-styles" title="Permalink to this headline">¶</a></h2>
 <p>Formatters normally don’t output full style information.  For example, the HTML
 formatter by default only outputs <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags with <code class="docutils literal notranslate"><span class="pre">class</span></code> attributes.
@@ -193,8 +192,8 @@ Usage is as follows:</p>
 the “colorful” style prepending a “.syntax” selector to all style rules.</p>
 <p>For an explanation what <code class="docutils literal notranslate"><span class="pre">-a</span></code> means for <a class="reference internal" href="../formatters/"><span class="doc">a particular formatter</span></a>, look for the <cite>arg</cite> argument for the formatter’s
 <a class="reference internal" href="../api/#pygments.formatter.Formatter.get_style_defs" title="pygments.formatter.Formatter.get_style_defs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_style_defs()</span></code></a> method.</p>
-</section>
-<section id="getting-lexer-names">
+</div>
+<div class="section" id="getting-lexer-names">
 <h2>Getting lexer names<a class="headerlink" href="#getting-lexer-names" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.0.</span></p>
@@ -205,8 +204,8 @@ the “colorful” style prepending a “.syntax” selector to all style rules.
 </div>
 <p>will print out <code class="docutils literal notranslate"><span class="pre">python</span></code>.  It won’t highlight anything yet.  If no specific
 lexer is known for that filename, <code class="docutils literal notranslate"><span class="pre">text</span></code> is printed.</p>
-</section>
-<section id="custom-lexers-and-formatters">
+</div>
+<div class="section" id="custom-lexers-and-formatters">
 <h2>Custom Lexers and Formatters<a class="headerlink" href="#custom-lexers-and-formatters" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.2.</span></p>
@@ -222,8 +221,8 @@ CustomLexer or CustomFormatter, then specify it on the command line:</p>
 </pre></div>
 </div>
 <p>For more information, see <a class="reference internal" href="../lexerdevelopment/"><span class="doc">the Pygments documentation on Lexer development</span></a>.</p>
-</section>
-<section id="getting-help">
+</div>
+<div class="section" id="getting-help">
 <h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">-L</span></code> option lists lexers, formatters, along with their short
 names and supported file name extensions, styles and filters. If you want to see
@@ -242,8 +241,8 @@ in this documentation) about a lexer, formatter or filter. Usage is as follows:<
 </pre></div>
 </div>
 <p>will print the help for the Python lexer, etc.</p>
-</section>
-<section id="a-note-on-encodings">
+</div>
+<div class="section" id="a-note-on-encodings">
 <h2>A note on encodings<a class="headerlink" href="#a-note-on-encodings" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.9.</span></p>
@@ -264,8 +263,8 @@ will pass through all non-ASCII characters).</p></li>
 output is written to the console), the default encoding for lexer and
 formatter is the terminal encoding (<code class="docutils literal notranslate"><span class="pre">sys.stdout.encoding</span></code>).</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -276,7 +275,7 @@ formatter is the terminal encoding (<code class="docutils literal notranslate"><
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.3. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
