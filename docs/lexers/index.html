@@ -6028,16 +6028,16 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 </dd>
 </dl>
 <p>Lexer for Multipurpose Internet Mail Extensions (MIME) data. This lexer is
-designed to process the nested mulitpart data.</p>
+designed to process nested multipart data.</p>
 <p>It assumes that the given data contains both header and body (and is
-splitted by empty line). If no valid header is found, then the entire data
-would be treated as body.</p>
+split at an empty line). If no valid header is found, then the entire data
+will be treated as body.</p>
 <p>Additional options accepted:</p>
 <dl class="simple">
-<dt><cite>MIME-max-level</cite></dt><dd><p>Max recurssion level for nested MIME structure. Any negative number
+<dt><cite>MIME-max-level</cite></dt><dd><p>Max recursion level for nested MIME structure. Any negative number
 would treated as unlimited. (default: -1)</p>
 </dd>
-<dt><cite>Content-Type</cite></dt><dd><p>Treat the data as specific content type. Useful when header is
+<dt><cite>Content-Type</cite></dt><dd><p>Treat the data as a specific content type. Useful when header is
 missing, or this lexer would try to parse from header. (default:
 <cite>text/plain</cite>)</p>
 </dd>
@@ -6045,7 +6045,7 @@ missing, or this lexer would try to parse from header. (default:
 when <cite>Content-Type</cite> is <cite>multipart</cite> and header is missing. This lexer
 would try to parse from header by default. (default: None)</p>
 </dd>
-<dt><cite>Content-Transfer-Encoding</cite></dt><dd><p>Treat the data as specific encoding. Or this lexer would try to parse
+<dt><cite>Content-Transfer-Encoding</cite></dt><dd><p>Treat the data as a specific encoding. Or this lexer would try to parse
 from header by default. (default: None)</p>
 </dd>
 </dl>
