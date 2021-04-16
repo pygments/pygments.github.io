@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating Own Styles &#8212; Pygments</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Register Plugins" href="../plugins/" />
+    <link rel="prev" title="Write your own filter" href="../filterdevelopment/" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:300,400,700'
+          rel='stylesheet' type='text/css'>
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="outerwrapper">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    
+    <li><a href="../../demo/">Demo</a></li>
+    
+    <li><a href="../../languages/">Languages</a></li>
+    <li><a href="../../faq/">FAQ</a></li>
+    <li><a href="../../download/">Get it</a></li>
+    <li><a href="../">Docs</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="Pygments logo" />
+    </a>
+  </div>
+</div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating Own Styles</a></li>
+<li><a class="reference internal" href="#style-rules">Style Rules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../filterdevelopment/"
+                        title="previous chapter">Write your own filter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../plugins/"
+                        title="next chapter">Register Plugins</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/docs/styledevelopment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-own-styles">
+<span id="id1"></span><h1>Creating Own Styles<a class="headerlink" href="#creating-own-styles" title="Permalink to this headline">¶</a></h1>
+<p>So, how to create a style? All you have to do is to subclass <cite>Style</cite> and
+define some styles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Error</span><span class="p">,</span> \
+     <span class="n">Number</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Generic</span>
+
+<span class="k">class</span> <span class="nc">YourStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
+    <span class="n">default_style</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">Comment</span><span class="p">:</span>                <span class="s1">&#39;italic #888&#39;</span><span class="p">,</span>
+        <span class="n">Keyword</span><span class="p">:</span>                <span class="s1">&#39;bold #005&#39;</span><span class="p">,</span>
+        <span class="n">Name</span><span class="p">:</span>                   <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>          <span class="s1">&#39;#0f0&#39;</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>             <span class="s1">&#39;bold #0f0&#39;</span><span class="p">,</span>
+        <span class="n">String</span><span class="p">:</span>                 <span class="s1">&#39;bg:#eee #111&#39;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>That’s it. There are just a few rules. When you define a style for <cite>Name</cite>
+the style automatically also affects <cite>Name.Function</cite> and so on. If you
+defined <code class="docutils literal notranslate"><span class="pre">'bold'</span></code> and you don’t want boldface for a subtoken use <code class="docutils literal notranslate"><span class="pre">'nobold'</span></code>.</p>
+<p>(Philosophy: the styles aren’t written in CSS syntax since this way
+they can be used for a variety of formatters.)</p>
+<p><cite>default_style</cite> is the style inherited by all token types.</p>
+<p>To make the style usable for Pygments, you must</p>
+<ul class="simple">
+<li><p>either register it as a plugin (see <a class="reference internal" href="../plugins/"><span class="doc">the plugin docs</span></a>)</p></li>
+<li><p>or drop it into the <cite>styles</cite> subpackage of your Pygments distribution one style
+class per style, where the file name is the style name and the class name is
+<cite>StylenameClass</cite>. For example, if your style should be called
+<code class="docutils literal notranslate"><span class="pre">&quot;mondrian&quot;</span></code>, name the class <cite>MondrianStyle</cite>, put it into the file
+<code class="docutils literal notranslate"><span class="pre">mondrian.py</span></code> and this file into the <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> subpackage
+directory.</p></li>
+</ul>
+</div>
+<div class="section" id="style-rules">
+<h1>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h1>
+<p>Here a small overview of all allowed styles:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">bold</span></code></dt><dd><p>render text as bold</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nobold</span></code></dt><dd><p>don’t render text as bold (to prevent subtokens being highlighted bold)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">italic</span></code></dt><dd><p>render text italic</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">noitalic</span></code></dt><dd><p>don’t render text as italic</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">underline</span></code></dt><dd><p>render text underlined</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nounderline</span></code></dt><dd><p>don’t render text underlined</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bg:</span></code></dt><dd><p>transparent background</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bg:#000000</span></code></dt><dd><p>background color (black)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">border:</span></code></dt><dd><p>no border</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">border:#ffffff</span></code></dt><dd><p>border color (white)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#ff0000</span></code></dt><dd><p>text color (red)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">noinherit</span></code></dt><dd><p>don’t inherit styles from supertoken</p>
+</dd>
+</dl>
+<p>Note that there may not be a space between <code class="docutils literal notranslate"><span class="pre">bg:</span></code> and the color value
+since the style definition string is split at whitespace.
+Also, using named colors is not allowed since the supported color names
+vary for different formatters.</p>
+<p>Furthermore, not all lexers might support every style.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+      &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
+      Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
+      Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
+    </div>
+  </div> 
+
+  </body>
+</html>
