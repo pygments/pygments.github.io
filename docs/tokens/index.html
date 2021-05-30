@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Builtin Tokens &#8212; Pygments</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -121,7 +122,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-pygments.token">
+  <section id="module-pygments.token">
 <span id="builtin-tokens"></span><h1>Builtin Tokens<a class="headerlink" href="#module-pygments.token" title="Permalink to this headline">¶</a></h1>
 <p>In the <a class="reference internal" href="#module-pygments.token" title="pygments.token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.token</span></code></a> module, there is a special object called <cite>Token</cite>
 that is used to create token types.</p>
@@ -248,7 +249,7 @@ if you want to supply a token from the command line):</p>
 <span class="go">Token.Literal.String</span>
 </pre></div>
 </div>
-<div class="section" id="keyword-tokens">
+<section id="keyword-tokens">
 <h2>Keyword Tokens<a class="headerlink" href="#keyword-tokens" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt><cite>Keyword</cite></dt><dd><p>For any kind of keyword (especially if it doesn’t match any of the
@@ -271,8 +272,8 @@ versions).</p>
 <code class="docutils literal notranslate"><span class="pre">char</span></code> etc. in C).</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="name-tokens">
+</section>
+<section id="name-tokens">
 <h2>Name Tokens<a class="headerlink" href="#name-tokens" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt><cite>Name</cite></dt><dd><p>For any name (variable names, function names, classes).</p>
@@ -327,8 +328,8 @@ example).</p>
 in a language (e.g. <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> in Python).</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="literals">
+</section>
+<section id="literals">
 <h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt><cite>Literal</cite></dt><dd><p>For any literal (if not further defined).</p>
@@ -381,8 +382,8 @@ in Ruby).</p>
 <dt><cite>Number.Oct</cite></dt><dd><p>Token type for octal literals.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="operators">
+</section>
+<section id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt><cite>Operator</cite></dt><dd><p>For any punctuation operator (e.g. <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>).</p>
@@ -390,8 +391,8 @@ in Ruby).</p>
 <dt><cite>Operator.Word</cite></dt><dd><p>For any operator that is a word (e.g. <code class="docutils literal notranslate"><span class="pre">not</span></code>).</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="punctuation">
+</section>
+<section id="punctuation">
 <h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
@@ -400,8 +401,8 @@ in Ruby).</p>
 <dt><cite>Punctuation</cite></dt><dd><p>For any punctuation which is not an operator (e.g. <code class="docutils literal notranslate"><span class="pre">[</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>…)</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="comments">
+</section>
+<section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt><cite>Comment</cite></dt><dd><p>Token type for any comment.</p>
@@ -421,8 +422,8 @@ in Ruby).</p>
 information, etc.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="generic-tokens">
+</section>
+<section id="generic-tokens">
 <h2>Generic Tokens<a class="headerlink" href="#generic-tokens" title="Permalink to this headline">¶</a></h2>
 <p>Generic tokens are for special lexers like the <cite>DiffLexer</cite> that doesn’t really
 highlight a programming language but a patch file.</p>
@@ -450,8 +451,8 @@ highlight a programming language but a patch file.</p>
 <dt><cite>Generic.Traceback</cite></dt><dd><p>Marks the token value as a part of an error traceback.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -462,7 +463,7 @@ highlight a programming language but a patch file.</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.0.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

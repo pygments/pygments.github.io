@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction and Quickstart &#8212; Pygments</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -120,11 +121,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction-and-quickstart">
+  <section id="introduction-and-quickstart">
 <h1>Introduction and Quickstart<a class="headerlink" href="#introduction-and-quickstart" title="Permalink to this headline">¶</a></h1>
 <p>Welcome to Pygments! This document explains the basic concepts and terms and
 gives a few examples of how to use the library.</p>
-<div class="section" id="architecture">
+<section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
 <p>There are four types of components that work together highlighting a piece of
 code:</p>
@@ -140,8 +141,8 @@ file, in a format such as HTML, LaTeX or RTF.</p></li>
 <li><p>While writing the output, a <strong>style</strong> determines how to highlight all the
 different token types. It maps them to attributes like “red and bold”.</p></li>
 </ul>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Here is a small example for highlighting Python code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
@@ -172,8 +173,8 @@ the output may look like this:</p>
 <span class="o">...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="options">
+</section>
+<section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">highlight()</span></code> function supports a fourth argument called <em>outfile</em>, it
 must be a file object if given. The formatted output will then be written to
@@ -204,8 +205,8 @@ encoding will be used to convert to or from byte strings.</p>
 <p>For an overview of builtin lexers and formatters and their options, visit the
 <a class="reference internal" href="../lexers/"><span class="doc">lexer</span></a> and <a class="reference internal" href="../formatters/"><span class="doc">formatters</span></a> lists.</p>
 <p>For a documentation on filters, see <a class="reference internal" href="../filters/"><span class="doc">this page</span></a>.</p>
-</div>
-<div class="section" id="lexer-and-formatter-lookup">
+</section>
+<section id="lexer-and-formatter-lookup">
 <h2>Lexer and formatter lookup<a class="headerlink" href="#lexer-and-formatter-lookup" title="Permalink to this headline">¶</a></h2>
 <p>If you want to lookup a built-in lexer by its alias or a filename, you can use
 one of the following methods:</p>
@@ -227,8 +228,8 @@ as options.</p>
 <p>A similar API is available for formatters: use <a class="reference internal" href="../api/#pygments.formatters.get_formatter_by_name" title="pygments.formatters.get_formatter_by_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_formatter_by_name()</span></code></a>
 and <a class="reference internal" href="../api/#pygments.formatters.get_formatter_for_filename" title="pygments.formatters.get_formatter_for_filename"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_formatter_for_filename()</span></code></a> from the <a class="reference internal" href="../api/#module-pygments.formatters" title="pygments.formatters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.formatters</span></code></a>
 module for this purpose.</p>
-</div>
-<div class="section" id="guessing-lexers">
+</section>
+<section id="guessing-lexers">
 <h2>Guessing lexers<a class="headerlink" href="#guessing-lexers" title="Permalink to this headline">¶</a></h2>
 <p>If you don’t know the content of the file, or you want to highlight a file
 whose extension is ambiguous, such as <code class="docutils literal notranslate"><span class="pre">.html</span></code> (which could contain plain HTML
@@ -254,8 +255,8 @@ If only one lexer matches, it is returned, else the guessing mechanism of
 <a class="reference internal" href="../api/#pygments.lexers.guess_lexer" title="pygments.lexers.guess_lexer"><code class="xref py py-func docutils literal notranslate"><span class="pre">guess_lexer()</span></code></a> is used with the matching lexers.</p>
 <p>As usual, keyword arguments to these functions are given to the created lexer
 as options.</p>
-</div>
-<div class="section" id="command-line-usage">
+</section>
+<section id="command-line-usage">
 <h2>Command line usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
 <p>You can use Pygments from the command line, using the <strong class="program">pygmentize</strong>
 script:</p>
@@ -283,8 +284,8 @@ it can be created with:</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">default</span></code> is the style name.</p>
 <p>More options and tricks can be found in the <a class="reference internal" href="../cmdline/"><span class="doc">command line reference</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -295,7 +296,7 @@ it can be created with:</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.0.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Register Plugins &#8212; Pygments</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -117,7 +118,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="register-plugins">
+  <section id="register-plugins">
 <h1>Register Plugins<a class="headerlink" href="#register-plugins" title="Permalink to this headline">¶</a></h1>
 <p>If you want to extend Pygments without hacking the sources, but want to
 use the lexer/formatter/style/filter lookup functions (<cite>lexers.get_lexer_by_name</cite>
@@ -125,7 +126,7 @@ et al.), you can use <a class="reference external" href="https://pypi.org/projec
 or styles as if they were in the Pygments core.</p>
 <p>That means you can use your highlighter modules with the <cite>pygmentize</cite> script,
 which relies on the mentioned functions.</p>
-<div class="section" id="entrypoints">
+<section id="entrypoints">
 <h2>Entrypoints<a class="headerlink" href="#entrypoints" title="Permalink to this headline">¶</a></h2>
 <p>Here is a list of setuptools entrypoints that Pygments understands:</p>
 <p><cite>pygments.lexers</cite></p>
@@ -175,20 +176,20 @@ entrypoint is the name of the filter:</p>
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-<div class="section" id="how-to-use-entrypoints">
+</section>
+<section id="how-to-use-entrypoints">
 <h2>How To Use Entrypoints<a class="headerlink" href="#how-to-use-entrypoints" title="Permalink to this headline">¶</a></h2>
 <p>This documentation doesn’t explain how to use those entrypoints because this is
 covered in the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools documentation</a>. That page should cover everything
 you need to write a plugin.</p>
-</div>
-<div class="section" id="extending-the-core">
+</section>
+<section id="extending-the-core">
 <h2>Extending The Core<a class="headerlink" href="#extending-the-core" title="Permalink to this headline">¶</a></h2>
 <p>If you have written a Pygments plugin that is open source, please inform us
 about that. There is a high chance that we’ll add it to the Pygments
 distribution.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -199,7 +200,7 @@ distribution.</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.0.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

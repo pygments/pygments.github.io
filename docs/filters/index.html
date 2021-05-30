@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Filters &#8212; Pygments</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments14.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -115,7 +116,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="filters">
+  <section id="filters">
 <h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
@@ -141,11 +142,11 @@ the constructor of the filter.</p>
 <cite>get_all_filters()</cite> function from the <cite>pygments.filters</cite> module that returns an
 iterable for all known filters.</p>
 <p>If you want to write your own filter, have a look at <a class="reference internal" href="../filterdevelopment/"><span class="doc">Write your own filter</span></a>.</p>
-<div class="section" id="builtin-filters">
+<section id="builtin-filters">
 <h2>Builtin Filters<a class="headerlink" href="#builtin-filters" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="CodeTagFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CodeTagFilter</span></code><a class="headerlink" href="#CodeTagFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="CodeTagFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CodeTagFilter</span></span><a class="headerlink" href="#CodeTagFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>codetagify</p>
@@ -161,8 +162,8 @@ highlight <code class="docutils literal notranslate"><span class="pre">XXX</span
 </dd></dl>
 
 <dl class="py class">
-<dt id="KeywordCaseFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">KeywordCaseFilter</span></code><a class="headerlink" href="#KeywordCaseFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="KeywordCaseFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">KeywordCaseFilter</span></span><a class="headerlink" href="#KeywordCaseFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>keywordcase</p>
@@ -181,8 +182,8 @@ code to your styleguide.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="NameHighlightFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">NameHighlightFilter</span></code><a class="headerlink" href="#NameHighlightFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="NameHighlightFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">NameHighlightFilter</span></span><a class="headerlink" href="#NameHighlightFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>highlight</p>
@@ -211,8 +212,8 @@ used for highlighting the strings in <cite>names</cite>.  The default is
 </dd></dl>
 
 <dl class="py class">
-<dt id="RaiseOnErrorTokenFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">RaiseOnErrorTokenFilter</span></code><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RaiseOnErrorTokenFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">RaiseOnErrorTokenFilter</span></span><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>raiseonerror</p>
@@ -231,8 +232,8 @@ The default is <cite>pygments.filters.ErrorToken</cite>.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="VisibleWhitespaceFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">VisibleWhitespaceFilter</span></code><a class="headerlink" href="#VisibleWhitespaceFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="VisibleWhitespaceFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">VisibleWhitespaceFilter</span></span><a class="headerlink" href="#VisibleWhitespaceFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>whitespace</p>
@@ -269,8 +270,8 @@ disrupt background colors.  The default is <code class="docutils literal notrans
 </dd></dl>
 
 <dl class="py class">
-<dt id="GobbleFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">GobbleFilter</span></code><a class="headerlink" href="#GobbleFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="GobbleFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">GobbleFilter</span></span><a class="headerlink" href="#GobbleFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>gobble</p>
@@ -291,8 +292,8 @@ amount of space that isn’t desired in the output.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="TokenMergeFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">TokenMergeFilter</span></code><a class="headerlink" href="#TokenMergeFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TokenMergeFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">TokenMergeFilter</span></span><a class="headerlink" href="#TokenMergeFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>tokenmerge</p>
@@ -306,8 +307,8 @@ stream of a lexer.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="SymbolFilter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">SymbolFilter</span></code><a class="headerlink" href="#SymbolFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="SymbolFilter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">SymbolFilter</span></span><a class="headerlink" href="#SymbolFilter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name</dt>
 <dd class="field-odd"><p>symbols</p>
@@ -325,8 +326,8 @@ approximate the source rendering you’d see in an IDE.</p>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -337,7 +338,7 @@ approximate the source rendering you’d see in an IDE.</p>
     </div>
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 3.5.4. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.0.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
