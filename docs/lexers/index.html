@@ -158,6 +158,7 @@
 <li><a class="reference internal" href="#lexers-for-makefiles-and-similar">Lexers for Makefiles and similar</a></li>
 <li><a class="reference internal" href="#lexers-for-non-html-markup-languages">Lexers for non-HTML markup languages</a></li>
 <li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a></li>
+<li><a class="reference internal" href="#pygments-lexer-for-the-meson-build-system">Pygments lexer for the Meson build system</a></li>
 <li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a></li>
 <li><a class="reference internal" href="#lexers-for-ml-family-languages">Lexers for ML family languages</a></li>
 <li><a class="reference internal" href="#lexers-for-modeling-languages">Lexers for modeling languages</a></li>
@@ -6027,6 +6028,30 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.5.</span></p>
 </div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.meson"></span></section>
+<section id="pygments-lexer-for-the-meson-build-system">
+<h2>Pygments lexer for the Meson build system<a class="headerlink" href="#pygments-lexer-for-the-meson-build-system" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.meson.MesonLexer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.meson.</span></span><span class="sig-name descname"><span class="pre">MesonLexer</span></span><a class="headerlink" href="#pygments.lexers.meson.MesonLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>meson, meson.build</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>meson.build, mesonoptions.txt</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>text/x-meson</p>
+</dd>
+</dl>
+<p>[meson](<a class="reference external" href="https://mesonbuild.com/">https://mesonbuild.com/</a>) language lexer.
+The grammar definition use to transcribe the syntax was retrieved from
+<a class="reference external" href="https://mesonbuild.com/Syntax.html#grammar">https://mesonbuild.com/Syntax.html#grammar</a> for version 0.58
+Some of those definitions are improperly transcribed so the Meson++
+implementation was also checked: <a class="reference external" href="https://github.com/dcbaker/meson-plus-plus">https://github.com/dcbaker/meson-plus-plus</a></p>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.mime"></span></section>
