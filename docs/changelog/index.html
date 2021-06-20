@@ -175,8 +175,13 @@ pull request numbers to the requests at
 <h2>Version 2.10.0<a class="headerlink" href="#version-2-10-0" title="Permalink to this headline">¶</a></h2>
 <p>(not released yet)</p>
 <ul class="simple">
-<li><p>Fix assert statements in TNT lexer.</p></li>
+<li><p>Updated lexers:</p>
+<ul>
 <li><p>Rust: fix lexing of “break” and “continue” (#1843)</p></li>
+<li><p>Tcl: Allow <code class="docutils literal notranslate"><span class="pre">,</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> in strings (#1834, #1742)</p></li>
+</ul>
+</li>
+<li><p>Fix assert statements in TNT lexer.</p></li>
 <li><p>Token types across all lexers have been unified (using the most common token
 type name) (#1816, #1819)</p></li>
 </ul>
