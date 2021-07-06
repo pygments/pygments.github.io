@@ -1,1 +1,1 @@
-{"dependencies": {"Pygments": [], "distlib": [], "micropip": ["distlib"], "test": []}, "import_name_to_package_name": {"pygments": "Pygments", "distlib": "distlib", "micropip": "micropip"}}
+{"dependencies": {"micropip": ["distlib"], "Pygments": [], "distlib": [], "test": []}, "import_name_to_package_name": {"micropip": "micropip", "pygments": "Pygments", "distlib": "distlib"}}
