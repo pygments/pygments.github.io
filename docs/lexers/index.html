@@ -89,6 +89,7 @@
 <li><a class="reference internal" href="#lexers-for-apl">Lexers for APL</a></li>
 <li><a class="reference internal" href="#lexer-for-archetype-related-syntaxes-including">Lexer for Archetype-related syntaxes, including:</a></li>
 <li><a class="reference internal" href="#lexer-for-arrow">Lexer for Arrow</a></li>
+<li><a class="reference internal" href="#lexer-for-various-ascii-armored-files">Lexer for various ASCII armored files</a></li>
 <li><a class="reference internal" href="#lexers-for-assembly-languages">Lexers for assembly languages</a></li>
 <li><a class="reference internal" href="#lexers-for-automation-scripting-languages">Lexers for automation scripting languages</a></li>
 <li><a class="reference internal" href="#lexer-for-the-bare-schema">Lexer for the BARE schema</a></li>
@@ -653,6 +654,29 @@ Contributed by Christopher Creutzig &lt;<a class="reference external" href="mail
 <p>Lexer for Arrow: <a class="reference external" href="https://pypi.org/project/py-arrow-lang/">https://pypi.org/project/py-arrow-lang/</a></p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.7.</span></p>
+</div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.asc"></span></section>
+<section id="lexer-for-various-ascii-armored-files">
+<h2>Lexer for various ASCII armored files<a class="headerlink" href="#lexer-for-various-ascii-armored-files" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.asc.AscLexer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.asc.</span></span><span class="sig-name descname"><span class="pre">AscLexer</span></span><a class="headerlink" href="#pygments.lexers.asc.AscLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>asc, pem</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.asc, *.pem, iddsa, idecdsa, idecdsask, ided25519, ided25519sk, idrsa</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>application/pgp-keys, application/pgp-encrypted, application/pgp-signature</p>
+</dd>
+</dl>
+<p>Lexer for ASCII armored files, containing <cite>—–BEGIN/END …—–</cite> wrapped base64 data.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.10.</span></p>
 </div>
 </dd></dl>
 
