@@ -278,9 +278,9 @@ containing CSS rules for the CSS classes used by the formatter. The
 argument <cite>arg</cite> can be used to specify additional CSS selectors that
 are prepended to the classes. A call <cite>fmter.get_style_defs(‘td .code’)</cite>
 would result in the following CSS classes:</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">td</span> <span class="p">.</span><span class="nc">code</span> <span class="p">.</span><span class="nc">kw</span> <span class="p">{</span> <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#00FF00</span> <span class="p">}</span>
-<span class="nt">td</span> <span class="p">.</span><span class="nc">code</span> <span class="p">.</span><span class="nc">cm</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#999999</span> <span class="p">}</span>
-<span class="o">...</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="o">...</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If you have Pygments 0.6 or higher, you can also pass a list or tuple to the
@@ -289,11 +289,11 @@ would result in the following CSS classes:</p>
 </pre></div>
 </div>
 <p>The output would then look like this:</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span> <span class="nt">pre</span> <span class="p">.</span><span class="nc">kw</span><span class="o">,</span>
-<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span> <span class="p">.</span><span class="nc">kw</span> <span class="p">{</span> <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#00FF00</span> <span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span> <span class="nt">pre</span> <span class="p">.</span><span class="nc">cm</span><span class="o">,</span>
-<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span> <span class="p">.</span><span class="nc">cm</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#999999</span> <span class="p">}</span>
-<span class="o">...</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="o">,</span><span class="w"></span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="o">,</span><span class="w"></span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="o">...</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Additional options accepted:</p>

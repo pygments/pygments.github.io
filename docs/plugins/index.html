@@ -134,8 +134,8 @@ which relies on the mentioned functions.</p>
 <div><p>This entrypoint is used for adding new lexers to the Pygments core.
 The name of the entrypoint values doesn’t really matter, Pygments extracts
 required metadata from the class definition:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.lexers]</span>
-<span class="na">yourlexer</span> <span class="o">=</span> <span class="s">yourmodule:YourLexer</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.lexers]</span><span class="w"></span>
+<span class="na">yourlexer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourLexer</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that you have to define <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">aliases</span></code> and <code class="docutils literal notranslate"><span class="pre">filename</span></code>
@@ -152,9 +152,9 @@ attributes so that you can use the highlighter from the command line:</p>
 <div><p>You can use this entrypoint to add new formatters to Pygments. The
 name of an entrypoint item is the name of the formatter. If you
 prefix the name with a slash it’s used as a filename pattern:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.formatters]</span>
-<span class="na">yourformatter</span> <span class="o">=</span> <span class="s">yourmodule:YourFormatter</span>
-<span class="na">/.ext</span> <span class="o">=</span> <span class="s">yourmodule:YourFormatter</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.formatters]</span><span class="w"></span>
+<span class="na">yourformatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFormatter</span><span class="w"></span>
+<span class="na">/.ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFormatter</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -162,8 +162,8 @@ prefix the name with a slash it’s used as a filename pattern:</p>
 <blockquote>
 <div><p>To add a new style you can use this entrypoint. The name of the entrypoint
 is the name of the style:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.styles]</span>
-<span class="na">yourstyle</span> <span class="o">=</span> <span class="s">yourmodule:YourStyle</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.styles]</span><span class="w"></span>
+<span class="na">yourstyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourStyle</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -171,8 +171,8 @@ is the name of the style:</p>
 <blockquote>
 <div><p>Use this entrypoint to register a new filter. The name of the
 entrypoint is the name of the filter:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.filters]</span>
-<span class="na">yourfilter</span> <span class="o">=</span> <span class="s">yourmodule:YourFilter</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.filters]</span><span class="w"></span>
+<span class="na">yourfilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFilter</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
