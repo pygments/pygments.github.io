@@ -311,7 +311,7 @@ found.</p>
 <p>The base lexer class from which all lexers are derived is:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">Lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">Lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The constructor takes a **keywords dictionary of options.
 Every subclass must first process its own options and then call
 the <cite>Lexer</cite> constructor, since it processes the <cite>stripnl</cite>,
@@ -348,7 +348,7 @@ position of the token within the input text.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.analyse_text">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">analyse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.analyse_text" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analyse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.analyse_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>A static method which is called for lexer guessing. It should analyse
 the text and return a float in the range from <code class="docutils literal notranslate"><span class="pre">0.0</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.
 If it returns <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, the lexer will not be selected as the most
@@ -410,7 +410,7 @@ lexer.</p>
 <p>A formatter is derived from this class:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pygments.formatter.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.formatter.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>As with lexers, this constructor processes options and then must call the
 base class <code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code>.</p>
 <p>The <a class="reference internal" href="#pygments.formatter.Formatter" title="pygments.formatter.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> class recognizes the options <cite>style</cite>, <cite>full</cite> and
@@ -470,7 +470,7 @@ among all formatters.</p>
 processing:</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="pygments.util.OptionError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">OptionError</span></span><a class="headerlink" href="#pygments.util.OptionError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">OptionError</span></span><a class="headerlink" href="#pygments.util.OptionError" title="Permalink to this definition">¶</a></dt>
 <dd><p>This exception will be raised by all option processing functions if
 the type or value of the argument is not correct.</p>
 </dd></dl>
@@ -522,7 +522,7 @@ or a tuple, it is returned as a list.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2021, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.2.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.3.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
