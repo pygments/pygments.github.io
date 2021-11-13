@@ -191,12 +191,26 @@ pull request numbers to the requests at
 </li>
 <li><p>Updated lexers:</p>
 <ul>
+<li><p>Bibtex: Distinguish between <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">commentary</span></code> (#1899, #1806)</p></li>
+<li><p>C family: Support unicode identifiers (#1848)</p></li>
+<li><p>Debian control: Add missing fields (#1946)</p></li>
+<li><p>HTML, XML: Improve comment handling (#1896)</p></li>
+<li><p>Java: Add <code class="docutils literal notranslate"><span class="pre">yield</span></code> (#1941)</p></li>
+<li><p>RobotFramework: Improve empty brace handling (#1921, #1922)</p></li>
 <li><p>Terraform: Support heredocs (#1909)</p></li>
 <li><p>Terraform: Add the ‘set’ type</p></li>
-<li><p>Debian control: Add missing fields (#1946)</p></li>
 </ul>
 </li>
+<li><p>Added styles:</p>
+<ul>
+<li><p>Dracula (#1796)</p></li>
+</ul>
+</li>
+<li><p>There is new infrastructure in place to improve style accessibility. The default style has been updated to conform to WCAG recommendations. All styles are now checked for sufficient contrast by default to prevent regressions. (#1919, #1937, #1938, #1940)</p></li>
 <li><p>Clean up unused imports (#1887)</p></li>
+<li><p>Fix multiple lexers producing repeated single-character tokens</p></li>
+<li><p>Fix multiple lexers marking whitespace as <code class="docutils literal notranslate"><span class="pre">Text</span></code> (#1905, #1914, #1911, #1923)</p></li>
+<li><p>Remove duplicated assignments in the Paraiso style (#1934)</p></li>
 </ul>
 </section>
 <section id="version-2-10-0">
