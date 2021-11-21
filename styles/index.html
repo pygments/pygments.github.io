@@ -391,6 +391,26 @@ print(<span style="color: #009C00">&quot;The answer is {}&quot;</span>.format(re
     </div>
     
     <div>
+    <h3 id="lilypond">lilypond</h3>
+    <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="font-weight: bold">from</span> typing <span style="font-weight: bold">import</span> Iterator
+
+<span style="color: #A3AAB2; font-style: italic"># This is an example</span>
+<span style="font-weight: bold">class</span> Math:
+    @staticmethod
+    <span style="font-weight: bold">def</span> fib(n: int) -&gt; Iterator[int]:
+        <span style="color: #AB0909">&quot;&quot;&quot; Fibonacci series up to n &quot;&quot;&quot;</span>
+        a, b = <span style="color: #976806">0</span>, <span style="color: #976806">1</span>
+        <span style="font-weight: bold">while</span> a &lt; n:
+            <span style="font-weight: bold">yield</span> a
+            a, b = b, a + b
+
+result = sum(Math.fib(<span style="color: #976806">42</span>))
+print(<span style="color: #AB0909">&quot;The answer is {}&quot;</span>.format(result))
+</pre></div>
+
+    </div>
+    
+    <div>
     <h3 id="lovelace">lovelace</h3>
     <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #2838b0">from</span> <span style="color: #289870">typing</span> <span style="color: #2838b0">import</span> Iterator
 
