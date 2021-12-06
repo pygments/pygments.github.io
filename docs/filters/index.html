@@ -129,10 +129,16 @@
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
 </div>
-<p>You can filter token streams coming from lexers to improve or annotate the
-output. For example, you can highlight special words in comments, convert
-keywords to upper or lowercase to enforce a style guide etc.</p>
-<p>To apply a filter, you can use the <cite>add_filter()</cite> method of a lexer:</p>
+<p>Transforming a stream of tokens into another stream is called “filtering” and is
+done by filters. The most common example of filters transform each token by
+applying a simple rules such as highlighting the token if it is a TODO or
+another special word, or converting keywords to uppercase to enforce a style
+guide. More complex filters can transform the stream of tokens, such as removing
+the line identation or merging tokens together. It should be noted that pygments
+filters are entirely unrelated to Python’s <a class="reference external" href="https://docs.python.org/3/library/functions.html#filter">filter</a>.</p>
+<p>An arbitrary number of filters can be applied to token streams coming from
+lexers to improve or annotate the output. To apply a filter, you can use the
+<cite>add_filter()</cite> method of a lexer:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">PythonLexer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># add a filter given by a string and options</span>

@@ -181,9 +181,12 @@ to check for that case if you access it.</p>
         <span class="k">yield</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span>
 </pre></div>
 </div>
-<p>The decorator automatically subclasses an internal filter class and uses the
-decorated function as a method for filtering.  (That’s why there is a <cite>self</cite>
-argument that you probably won’t end up using in the method.)</p>
+<p>You can instantiate this filter by calling <cite>uncolor(classtoo=True)</cite>, the same
+way that you would have instantiated the previous filter by calling
+<cite>UncolorFilter(classtoo=True)</cite>. Indeed, The decorator automatically ensures that
+<cite>uncolor</cite> is a class which subclasses an internal filter class. The class
+<cite>uncolo</cite> uses the decorated function as a method for filtering.  (That’s why
+there is a <cite>self</cite> argument that you probably won’t end up using in the method.)</p>
 </section>
 </section>
 

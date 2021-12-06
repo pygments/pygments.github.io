@@ -466,8 +466,11 @@ among all formatters.</p>
 <span class="target" id="module-pygments.util"></span></section>
 <section id="option-processing">
 <h2>Option processing<a class="headerlink" href="#option-processing" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="#module-pygments.util" title="pygments.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.util</span></code></a> module has some utility functions usable for option
-processing:</p>
+<p>The <a class="reference internal" href="#module-pygments.util" title="pygments.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.util</span></code></a> module has some utility functions usable for processing
+command line options. All of the following functions get values from a
+dictionnary of options. If the value is already in the type expected by the
+option, it is returned as-is. Otherwise, if the value is a string, it is first
+converted to the expected type if possible.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="pygments.util.OptionError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">OptionError</span></span><a class="headerlink" href="#pygments.util.OptionError" title="Permalink to this definition">¶</a></dt>
@@ -478,8 +481,11 @@ the type or value of the argument is not correct.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.util.get_bool_opt">
 <span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_bool_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_bool_opt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpret the key <cite>optname</cite> from the dictionary <cite>options</cite> as a boolean and
-return it. Return <cite>default</cite> if <cite>optname</cite> is not in <cite>options</cite>.</p>
+<dd><p>Intuitively, this is <cite>options.get(optname, default)</cite>, but restricted to
+Boolean value. The Booleans can be represented as string, in order to accept
+Boolean value from the command line arguments. If the key <cite>optname</cite> is
+present in the dictionnary <cite>options</cite> and is not associated with a Boolean,
+raise an <cite>OptionError</cite>. If it is absent, <cite>default</cite> is returned instead.</p>
 <p>The valid string values for <code class="docutils literal notranslate"><span class="pre">True</span></code> are <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code> and
 <code class="docutils literal notranslate"><span class="pre">on</span></code>, the ones for <code class="docutils literal notranslate"><span class="pre">False</span></code> are <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> and <code class="docutils literal notranslate"><span class="pre">off</span></code>
 (matched case-insensitively).</p>

@@ -169,7 +169,8 @@ is a token type (like <cite>Name.Builtin</cite>).  That means: When <cite>regex<
 token with the match text and type <cite>tokentype</cite> and push <cite>new_state</cite> on the state
 stack.  If the new state is <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code>, the topmost state is popped from the
 stack instead.  To pop more than one state, use <code class="docutils literal notranslate"><span class="pre">'#pop:2'</span></code> and so on.
-<code class="docutils literal notranslate"><span class="pre">'#push'</span></code> is a synonym for pushing the current state on the stack.</p>
+<code class="docutils literal notranslate"><span class="pre">'#push'</span></code> is a synonym for pushing a second time the current state on top of
+the stack.</p>
 <p>The following example shows the <cite>DiffLexer</cite> from the builtin lexers.  Note that
 it contains some additional attributes <cite>name</cite>, <cite>aliases</cite> and <cite>filenames</cite> which
 aren’t required for a lexer.  They are used by the builtin lexer lookup
