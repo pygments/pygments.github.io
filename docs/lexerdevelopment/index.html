@@ -227,8 +227,6 @@ flag <code class="docutils literal notranslate"><span class="pre">-x</span></cod
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -x -l your_lexer.py:SomeLexer &lt;inputfile&gt;
 </pre></div>
 </div>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to select a different output format than terminal
-escape sequences.</p>
 <p>Or, using the Python API:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a lexer named CustomLexer</span>
 <span class="n">your_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
@@ -241,6 +239,14 @@ escape sequences.</p>
 trusted files; Pygments will perform the equivalent of <code class="docutils literal notranslate"><span class="pre">eval</span></code> on them.</p>
 <p>If you only want to use your lexer with the Pygments API, you can import and
 instantiate the lexer yourself, then pass it to <a class="reference internal" href="../api/#pygments.highlight" title="pygments.highlight"><code class="xref py py-func docutils literal notranslate"><span class="pre">pygments.highlight()</span></code></a>.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to select a different output format than terminal
+escape sequences. The <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.formatters.html.HtmlFormatter</span></code> helps
+you with debugging your lexer. You can use the <code class="docutils literal notranslate"><span class="pre">debug_token_types</span></code> option
+to display the token types assigned to each part of your input file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -x -f html -Ofull,debug_token_types -l your_lexer.py:SomeLexer &lt;inputfile&gt;
+</pre></div>
+</div>
+<p>Hover over each token to see the token type displayed as a tooltip.</p>
 <p>To prepare your new lexer for inclusion in the Pygments distribution, so that it
 will be found when passing filenames or lexer aliases from the command line, you
 have to perform the following steps.</p>
