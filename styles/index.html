@@ -671,6 +671,26 @@ result <span style="color: #666666">=</span> <span style="color: #007020">sum</s
     </div>
     
     <div>
+    <h3 id="friendly_grayscale">friendly_grayscale</h3>
+    <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%;"><span></span><span style="color: #575757; font-weight: bold">from</span> <span style="color: #7E7E7E; font-weight: bold">typing</span> <span style="color: #575757; font-weight: bold">import</span> Iterator
+
+<span style="color: #959595; font-style: italic"># This is an example</span>
+<span style="color: #575757; font-weight: bold">class</span> <span style="color: #7E7E7E; font-weight: bold">Math</span>:
+    <span style="color: #555555; font-weight: bold">@staticmethod</span>
+    <span style="color: #575757; font-weight: bold">def</span> <span style="color: #3F3F3F">fib</span>(n: <span style="color: #575757">int</span>) <span style="color: #666666">-&gt;</span> Iterator[<span style="color: #575757">int</span>]:
+        <span style="color: #717171; font-style: italic">&quot;&quot;&quot; Fibonacci series up to n &quot;&quot;&quot;</span>
+        a, b <span style="color: #666666">=</span> <span style="color: #888888">0</span>, <span style="color: #888888">1</span>
+        <span style="color: #575757; font-weight: bold">while</span> a <span style="color: #666666">&lt;</span> n:
+            <span style="color: #575757; font-weight: bold">yield</span> a
+            a, b <span style="color: #666666">=</span> b, a <span style="color: #666666">+</span> b
+
+result <span style="color: #666666">=</span> <span style="color: #575757">sum</span>(Math<span style="color: #666666">.</span>fib(<span style="color: #888888">42</span>))
+<span style="color: #575757">print</span>(<span style="color: #717171">&quot;The answer is </span><span style="color: #9F9F9F; font-style: italic">{}</span><span style="color: #717171">&quot;</span><span style="color: #666666">.</span>format(result))
+</pre></div>
+
+    </div>
+    
+    <div>
     <h3 id="perldoc">perldoc</h3>
     <div class="highlight" style="background: #eeeedd"><pre style="line-height: 125%;"><span></span><span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">typing</span> <span style="color: #8B008B; font-weight: bold">import</span> Iterator
 
