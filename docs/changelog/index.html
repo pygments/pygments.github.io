@@ -184,9 +184,33 @@
 <h2>Version 2.12.0<a class="headerlink" href="#version-2-12-0" title="Permalink to this headline">¶</a></h2>
 <p>(not released yet)</p>
 <ul class="simple">
+<li><p>Updated lexers:</p>
+<ul>
+<li><p>Agda: Update keyword list (<a class="reference external" href="https://github.com/pygments/pygments/issues/2017">#2017</a>)</p></li>
+<li><p>Clojure: Highlight ratios (<a class="reference external" href="https://github.com/pygments/pygments/issues/2042">#2042</a>)</p></li>
+<li><p>Csound: Update to 6.17 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2064">#2064</a>)</p></li>
+<li><p>Elpi: Fix catastropic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2053">#2053</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2061">#2061</a>)</p></li>
+<li><p>Gherkin: Add <code class="docutils literal notranslate"><span class="pre">But</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2046">#2046</a>)</p></li>
+<li><p>Inform6: Update to 6.36 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2050">#2050</a>)</p></li>
+<li><p>JSON: Support C comments in JSON (<a class="reference external" href="https://github.com/pygments/pygments/issues/2049">#2049</a>). Note: This doesn’t mean the JSON parser now supports JSONC or JSON5 proper, just that it doesn’t error out when seeing a <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code> or <code class="docutils literal notranslate"><span class="pre">//</span></code> style comment. If you need proper comment handling, consider using the <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> lexer.</p></li>
+<li><p>PHP: Update builtin function and keyword list (<a class="reference external" href="https://github.com/pygments/pygments/issues/2054">#2054</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2056">#2056</a>)</p></li>
+<li><p>Scheme: Various improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2060">#2060</a>)</p></li>
+<li><p>Spice: Update the keyword list, add new types (<a class="reference external" href="https://github.com/pygments/pygments/issues/2063">#2063</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2067">#2067</a>)</p></li>
+<li><p>Terraform: Support non-idiomatic comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/2065">#2065</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2066">#2066</a>)</p></li>
+</ul>
+</li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">plugins</span></code> argument to <code class="docutils literal notranslate"><span class="pre">get_all_lexers()</span></code>.</p></li>
 <li><p>Bump minimal Python version to 3.6 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2059">#2059</a>)</p></li>
 <li><p>Fix multiple lexers marking whitespace as <code class="docutils literal notranslate"><span class="pre">Text</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2025">#2025</a>)</p></li>
+<li><p>Remove various redundant uses of <code class="docutils literal notranslate"><span class="pre">re.UNICODE</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2058">#2058</a>)</p></li>
+<li><p>Associate <code class="docutils literal notranslate"><span class="pre">.resource</span></code> with the Robot framework (<a class="reference external" href="https://github.com/pygments/pygments/issues/2047">#2047</a>)</p></li>
+<li><p>Associate <code class="docutils literal notranslate"><span class="pre">.cljc</span></code> with Clojure (<a class="reference external" href="https://github.com/pygments/pygments/issues/2043">#2043</a>)</p></li>
+<li><p>Associate <code class="docutils literal notranslate"><span class="pre">.tpp</span></code> with C++ (<a class="reference external" href="https://github.com/pygments/pygments/issues/2031">#2031</a>)</p></li>
+<li><p>Remove traces of Python 2 from the documentation (<a class="reference external" href="https://github.com/pygments/pygments/issues/2039">#2039</a>)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">native</span></code> style was updated to meet the WCAG AAA contrast guidelines (<a class="reference external" href="https://github.com/pygments/pygments/issues/2038">#2038</a>)</p></li>
+<li><p>Fix various typos (<a class="reference external" href="https://github.com/pygments/pygments/issues/2030">#2030</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">Groff</span></code> formatter not inheriting token styles correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2024">#2024</a>)</p></li>
+<li><p>Various improvements to the CI (<a class="reference external" href="https://github.com/pygments/pygments/issues/2036">#2036</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-11-2">
@@ -196,7 +220,7 @@
 <li><p>Updated lexers:</p>
 <ul>
 <li><p>C-family: Fix incorrect handling of labels (<a class="reference external" href="https://github.com/pygments/pygments/issues/2022">#2022</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1996">#1996</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1182">#1182</a>)</p></li>
-<li><p>Java: Fixed an issue with <code class="docutils literal notranslate"><span class="pre">record</span></code> keywords result in <code class="docutils literal notranslate"><span class="pre">Error</span></code> tokens in some cases (<a class="reference external" href="https://github.com/pygments/pygments/issues/2018">#2018</a>)</p></li>
+<li><p>Java: Fixed an issue with <code class="docutils literal notranslate"><span class="pre">record</span></code> keywords result in <code class="docutils literal notranslate"><span class="pre">Error</span></code> tokens in some cases (<a class="reference external" href="https://github.com/pygments/pygments/issues/2016">#2016</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2018">#2018</a>)</p></li>
 </ul>
 </li>
 <li><p>Fix links to line numbers not working correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2014">#2014</a>)</p></li>
