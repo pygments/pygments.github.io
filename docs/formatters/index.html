@@ -691,6 +691,7 @@ environment, like this:</p>
 <span class="k">\end</span><span class="nb">{</span>Verbatim<span class="nb">}</span>
 </pre></div>
 </div>
+<p>Wrapping can be disabled using the <cite>nowrap</cite> option.</p>
 <p>The special command used here (<code class="docutils literal notranslate"><span class="pre">\PY</span></code>) and all the other macros it needs
 are output by the <cite>get_style_defs</cite> method.</p>
 <p>With the <cite>full</cite> option, a complete LaTeX document is output, including
@@ -700,6 +701,10 @@ containing <code class="docutils literal notranslate"><span class="pre">\def</sp
 <code class="docutils literal notranslate"><span class="pre">Verbatim</span></code> environments.</p>
 <p>Additional options accepted:</p>
 <dl>
+<dt><cite>nowrap</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, don’t wrap the tokens at all, not even inside a
+<code class="docutils literal notranslate"><span class="pre">\begin{Verbatim}</span></code> environment. This disables most other options
+(default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
 <dt><cite>style</cite></dt><dd><p>The style to use, can be a string or a Style subclass (default:
 <code class="docutils literal notranslate"><span class="pre">'default'</span></code>).</p>
 </dd>
