@@ -369,7 +369,7 @@ and single-line with <code class="docutils literal notranslate"><span class="pre
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">)</span>
         <span class="p">],</span>
         <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^*/]&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^*/]+&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#push&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[*/]&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">)</span>
@@ -416,7 +416,7 @@ match a comment containing a directive, something like:</p>
         <span class="o">...</span>
     <span class="p">],</span>
     <span class="s1">&#39;directive&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^&gt;]*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Directive</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^&gt;]+&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Directive</span><span class="p">),</span>
         <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
     <span class="p">],</span>
     <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
@@ -445,20 +445,20 @@ done by using <cite>include</cite> from <cite>pygments.lexer</cite>:</p>
 <span class="k">class</span> <span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*.*?\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?s)/\*.*?\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;//.*?\n&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
         <span class="p">],</span>
         <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="n">include</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(function )(\w+)( {)&#39;</span><span class="p">,</span>
-             <span class="n">bygroups</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span> <span class="s1">&#39;function&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(function)( )(\w+)( )({)&#39;</span><span class="p">,</span>
+             <span class="n">bygroups</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">),</span> <span class="s1">&#39;function&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*\n&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
         <span class="p">],</span>
         <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^}/]+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
             <span class="n">include</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\}&#39;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\}&#39;</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -523,7 +523,7 @@ defined in the parent and child class are merged.  For example:</p>
             <span class="p">(</span><span class="s1">&#39;[a-z]+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
         <span class="p">],</span>
         <span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="s1">&#39;[^&quot;]+&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
