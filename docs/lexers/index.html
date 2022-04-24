@@ -171,6 +171,7 @@
 <li><a class="reference internal" href="#lexers-for-non-html-markup-languages">Lexers for non-HTML markup languages</a></li>
 <li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a></li>
 <li><a class="reference internal" href="#lexer-for-the-computer-algebra-system-maxima">Lexer for the computer algebra system Maxima</a></li>
+<li><a class="reference internal" href="#lexers-for-mcfunction-and-related-languages">Lexers for MCFunction and related languages</a></li>
 <li><a class="reference internal" href="#pygments-lexer-for-the-meson-build-system">Pygments lexer for the Meson build system</a></li>
 <li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a></li>
 <li><a class="reference internal" href="#lexers-for-ml-family-languages">Lexers for ML family languages</a></li>
@@ -6334,6 +6335,50 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 Derived from pygments.lexers.MuPADLexer.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.11.</span></p>
+</div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.mcfunction"></span></section>
+<section id="lexers-for-mcfunction-and-related-languages">
+<h2>Lexers for MCFunction and related languages<a class="headerlink" href="#lexers-for-mcfunction-and-related-languages" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.mcfunction.MCFunctionLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.mcfunction.</span></span><span class="sig-name descname"><span class="pre">MCFunctionLexer</span></span><a class="headerlink" href="#pygments.lexers.mcfunction.MCFunctionLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>mcfunction, mcf</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.mcfunction</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>text/mcfunction</p>
+</dd>
+</dl>
+<p>Lexer for the mcfunction scripting language used in Minecraft
+Modelled somewhat after the <a class="reference external" href="https://github.com/Arcensoth/language-mcfunction">GitHub mcfunction grammar</a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.12.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.mcfunction.SNBTLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.mcfunction.</span></span><span class="sig-name descname"><span class="pre">SNBTLexer</span></span><a class="headerlink" href="#pygments.lexers.mcfunction.SNBTLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names</dt>
+<dd class="field-odd"><p>snbt</p>
+</dd>
+<dt class="field-even">Filenames</dt>
+<dd class="field-even"><p>*.snbt</p>
+</dd>
+<dt class="field-odd">MIME types</dt>
+<dd class="field-odd"><p>text/snbt</p>
+</dd>
+</dl>
+<p>Lexer for stringified NBT, a data format used in Minecraft</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.12.0.</span></p>
 </div>
 </dd></dl>
 
