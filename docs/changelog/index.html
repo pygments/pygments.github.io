@@ -182,13 +182,15 @@
 <p>Pull request numbers before 2.4.2 are not linked as they refer to the now defunct Bitbucket project.</p>
 <section id="version-2-12-0">
 <h2>Version 2.12.0<a class="headerlink" href="#version-2-12-0" title="Permalink to this headline">¶</a></h2>
-<p>(not released yet)</p>
+<p>(released April 24th, 2022)</p>
 <ul class="simple">
 <li><p>Added lexers:</p>
 <ul>
 <li><p>Cplint (<a class="reference external" href="https://github.com/pygments/pygments/issues/2045">#2045</a>)</p></li>
 <li><p>Macaulay2 (<a class="reference external" href="https://github.com/pygments/pygments/issues/1791">#1791</a>)</p></li>
+<li><p>Minecraft (<a class="reference external" href="https://github.com/pygments/pygments/issues/2107">#2107</a>)</p></li>
 <li><p>Qlik (<a class="reference external" href="https://github.com/pygments/pygments/issues/1925">#1925</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UnixConfigLexer</span></code> for “colon-separated” config files, like <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2112">#2112</a>)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
@@ -200,10 +202,11 @@
 <li><p>CSS: Update the list of properties (<a class="reference external" href="https://github.com/pygments/pygments/issues/2113">#2113</a>)</p></li>
 <li><p>Elpi:</p>
 <ul>
-<li><p>Fix catastropic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2053">#2053</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2061">#2061</a>)</p></li>
+<li><p>Fix catastrophic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2053">#2053</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2061">#2061</a>)</p></li>
 <li><p>Fix handling of <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2028">#2028</a>)</p></li>
 </ul>
 </li>
+<li><p>Futhark: Add missing tokens (<a class="reference external" href="https://github.com/pygments/pygments/issues/2118">#2118</a>)</p></li>
 <li><p>Gherkin: Add <code class="docutils literal notranslate"><span class="pre">But</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2046">#2046</a>)</p></li>
 <li><p>Inform6: Update to 6.36 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2050">#2050</a>)</p></li>
 <li><p>JSON: Support C comments in JSON (<a class="reference external" href="https://github.com/pygments/pygments/issues/2049">#2049</a>). Note: This doesn’t mean the JSON parser now supports JSONC or JSON5 proper, just that it doesn’t error out when seeing a <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code> or <code class="docutils literal notranslate"><span class="pre">//</span></code> style comment. If you need proper comment handling, consider using the <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> lexer.</p></li>
@@ -236,6 +239,7 @@
 <li><p>Fix various typos (<a class="reference external" href="https://github.com/pygments/pygments/issues/2030">#2030</a>)</p></li>
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">Groff</span></code> formatter not inheriting token styles correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2024">#2024</a>)</p></li>
 <li><p>Various improvements to the CI (<a class="reference external" href="https://github.com/pygments/pygments/issues/2036">#2036</a>)</p></li>
+<li><p>The Ada lexer has been moved to a separate file (<a class="reference external" href="https://github.com/pygments/pygments/issues/2117">#2117</a>)</p></li>
 <li><p>When <code class="docutils literal notranslate"><span class="pre">linenos=table</span></code> is used, the <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> itself is now wrapped with a <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;highlight&quot;&gt;</span></code> tag instead of placing it inside the <code class="docutils literal notranslate"><span class="pre">&lt;td</span> <span class="pre">class=&quot;code&quot;&gt;</span></code> cell (<a class="reference external" href="https://github.com/pygments/pygments/issues/632">#632</a>.) With this change, the output matches the documented behavior.</p></li>
 </ul>
 <div class="admonition note">
