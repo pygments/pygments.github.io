@@ -235,7 +235,12 @@
 <li><p>Fix various typos (<a class="reference external" href="https://github.com/pygments/pygments/issues/2030">#2030</a>)</p></li>
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">Groff</span></code> formatter not inheriting token styles correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2024">#2024</a>)</p></li>
 <li><p>Various improvements to the CI (<a class="reference external" href="https://github.com/pygments/pygments/issues/2036">#2036</a>)</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">linenos=table</span></code> is used, the <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> itself is now wrapped with a <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;highlight&quot;&gt;</span></code> tag instead of placing it inside the <code class="docutils literal notranslate"><span class="pre">&lt;td</span> <span class="pre">class=&quot;code&quot;&gt;</span></code> cell (<a class="reference external" href="https://github.com/pygments/pygments/issues/632">#632</a>.) With this change, the output matches the documented behavior.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have subclassed <code class="docutils literal notranslate"><span class="pre">HtmlFormatter.wrap</span></code>, you may have to adjust the logic.</p>
+</div>
 </section>
 <section id="version-2-11-2">
 <h2>Version 2.11.2<a class="headerlink" href="#version-2-11-2" title="Permalink to this headline">¶</a></h2>
