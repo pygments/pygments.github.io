@@ -184,6 +184,23 @@
 <section id="version-2-13-0">
 <h2>Version 2.13.0<a class="headerlink" href="#version-2-13-0" title="Permalink to this headline">¶</a></h2>
 <p>(not released yet)</p>
+<ul class="simple">
+<li><p>Updated lexers:</p>
+<ul>
+<li><p>Ada: support Ada 2022 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2121">#2121</a>)</p></li>
+<li><p>Java: support multiline strings aka. text blocks (<a class="reference external" href="https://github.com/pygments/pygments/issues/2132">#2132</a>)</p></li>
+<li><p>Kotlin: add <code class="docutils literal notranslate"><span class="pre">value</span></code> modifier (<a class="reference external" href="https://github.com/pygments/pygments/issues/2142">#2142</a>)</p></li>
+<li><p>Macaulay2: update builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2139">#2139</a>)</p></li>
+<li><p>Nim: use <code class="docutils literal notranslate"><span class="pre">Name.Builtin</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Keyword.Type</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2136">#2136</a>)</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">HtmlFormatter</span></code> now uses the <code class="docutils literal notranslate"><span class="pre">linespans</span></code> attribute for
+<code class="docutils literal notranslate"><span class="pre">anchorlinenos</span></code> if the <code class="docutils literal notranslate"><span class="pre">lineanchors</span></code> attribute is unset (<a class="reference external" href="https://github.com/pygments/pygments/issues/2026">#2026</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">highlight</span></code>, <code class="docutils literal notranslate"><span class="pre">lex</span></code> and <code class="docutils literal notranslate"><span class="pre">format</span></code> functions no longer
+wrongly report “argument must be a lexer/formatter instance, not a
+class” in some cases where this is not the actual problem (<a class="reference external" href="https://github.com/pygments/pygments/issues/2123">#2123</a>).</p></li>
+<li><p>Fixed warnings in doc build (<a class="reference external" href="https://github.com/pygments/pygments/issues/2124">#2124</a>).</p></li>
+</ul>
 </section>
 <section id="version-2-12-0">
 <h2>Version 2.12.0<a class="headerlink" href="#version-2-12-0" title="Permalink to this headline">¶</a></h2>
@@ -191,11 +208,15 @@
 <ul class="simple">
 <li><p>Added lexers:</p>
 <ul>
+<li><p>Berry (<a class="reference external" href="https://github.com/pygments/pygments/issues/2070">#2070</a>)</p></li>
 <li><p>Cplint (<a class="reference external" href="https://github.com/pygments/pygments/issues/2045">#2045</a>)</p></li>
 <li><p>Macaulay2 (<a class="reference external" href="https://github.com/pygments/pygments/issues/1791">#1791</a>)</p></li>
+<li><p>MCFunction (<a class="reference external" href="https://github.com/pygments/pygments/issues/2107">#2107</a>)</p></li>
 <li><p>Minecraft (<a class="reference external" href="https://github.com/pygments/pygments/issues/2107">#2107</a>)</p></li>
 <li><p>Qlik (<a class="reference external" href="https://github.com/pygments/pygments/issues/1925">#1925</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">UnixConfigLexer</span></code> for “colon-separated” config files, like <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2112">#2112</a>)</p></li>
+<li><p>Uxntal (<a class="reference external" href="https://github.com/pygments/pygments/issues/2086">#2086</a>)</p></li>
+<li><p>K and Q (<a class="reference external" href="https://github.com/pygments/pygments/issues/2073">#2073</a>)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
@@ -214,6 +235,8 @@
 <li><p>Futhark: Add missing tokens (<a class="reference external" href="https://github.com/pygments/pygments/issues/2118">#2118</a>)</p></li>
 <li><p>Gherkin: Add <code class="docutils literal notranslate"><span class="pre">But</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2046">#2046</a>)</p></li>
 <li><p>Inform6: Update to 6.36 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2050">#2050</a>)</p></li>
+<li><p>Jinja2: add <code class="docutils literal notranslate"><span class="pre">.xxx.j2</span></code> and <code class="docutils literal notranslate"><span class="pre">.xxx.jinja2</span></code> to relevant lexers
+(for <code class="docutils literal notranslate"><span class="pre">xxx</span></code> = <code class="docutils literal notranslate"><span class="pre">html</span></code>, <code class="docutils literal notranslate"><span class="pre">xml</span></code>, etc.) (<a class="reference external" href="https://github.com/pygments/pygments/issues/2103">#2103</a>)</p></li>
 <li><p>JSON: Support C comments in JSON (<a class="reference external" href="https://github.com/pygments/pygments/issues/2049">#2049</a>). Note: This doesn’t mean the JSON parser now supports JSONC or JSON5 proper, just that it doesn’t error out when seeing a <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code> or <code class="docutils literal notranslate"><span class="pre">//</span></code> style comment. If you need proper comment handling, consider using the <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> lexer.</p></li>
 <li><p>LilyPond:</p>
 <ul>
@@ -222,6 +245,10 @@
 </ul>
 </li>
 <li><p>PHP: Update builtin function and keyword list (<a class="reference external" href="https://github.com/pygments/pygments/issues/2054">#2054</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2056">#2056</a>)</p></li>
+<li><p>Python: highlight <code class="docutils literal notranslate"><span class="pre">EncodingWarning</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2106">#2106</a>)</p></li>
+<li><p>Savi: fix highlighting for underscore/private identifiers,
+add string interpolation (<a class="reference external" href="https://github.com/pygments/pygments/issues/2102">#2102</a>); fix nested type name highlighting
+(<a class="reference external" href="https://github.com/pygments/pygments/issues/2110">#2110</a>)</p></li>
 <li><p>Scheme: Various improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2060">#2060</a>)</p></li>
 <li><p>Spice: Update the keyword list, add new types (<a class="reference external" href="https://github.com/pygments/pygments/issues/2063">#2063</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2067">#2067</a>)</p></li>
 <li><p>Terraform:</p>
