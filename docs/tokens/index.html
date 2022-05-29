@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Builtin Tokens &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -121,7 +122,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -131,7 +132,7 @@
           <div class="body" role="main">
             
   <section id="module-pygments.token">
-<span id="builtin-tokens"></span><h1>Builtin Tokens<a class="headerlink" href="#module-pygments.token" title="Permalink to this headline">¶</a></h1>
+<span id="builtin-tokens"></span><h1>Builtin Tokens<a class="headerlink" href="#module-pygments.token" title="Permalink to this heading">¶</a></h1>
 <p>In the <a class="reference internal" href="#module-pygments.token" title="pygments.token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.token</span></code></a> module, there is a special object called <cite>Token</cite>
 that is used to create token types.</p>
 <p>You can create a new token type by accessing an attribute of <cite>Token</cite>:</p>
@@ -173,11 +174,6 @@ that, Pygments proposes some global token types defined in the
 </div>
 <p>Inside the <a class="reference internal" href="#module-pygments.token" title="pygments.token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.token</span></code></a> module the following aliases are defined:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 36%" />
-<col style="width: 47%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><cite>Text</cite></p></td>
 <td><p><cite>Token.Text</cite></p></td>
@@ -258,7 +254,7 @@ if you want to supply a token from the command line):</p>
 </pre></div>
 </div>
 <section id="keyword-tokens">
-<h2>Keyword Tokens<a class="headerlink" href="#keyword-tokens" title="Permalink to this headline">¶</a></h2>
+<h2>Keyword Tokens<a class="headerlink" href="#keyword-tokens" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><cite>Keyword</cite></dt><dd><p>For any kind of keyword (especially if it doesn’t match any of the
 subtypes of course).</p>
@@ -282,7 +278,7 @@ versions).</p>
 </dl>
 </section>
 <section id="name-tokens">
-<h2>Name Tokens<a class="headerlink" href="#name-tokens" title="Permalink to this headline">¶</a></h2>
+<h2>Name Tokens<a class="headerlink" href="#name-tokens" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><cite>Name</cite></dt><dd><p>For any name (variable names, function names, classes).</p>
 </dd>
@@ -338,7 +334,7 @@ in a language (e.g. <code class="docutils literal notranslate"><span class="pre"
 </dl>
 </section>
 <section id="literals">
-<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
+<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><cite>Literal</cite></dt><dd><p>For any literal (if not further defined).</p>
 </dd>
@@ -392,7 +388,7 @@ in Ruby).</p>
 </dl>
 </section>
 <section id="operators">
-<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><cite>Operator</cite></dt><dd><p>For any punctuation operator (e.g. <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>).</p>
 </dd>
@@ -401,7 +397,7 @@ in Ruby).</p>
 </dl>
 </section>
 <section id="punctuation">
-<h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h2>
+<h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this heading">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
 </div>
@@ -417,7 +413,7 @@ tracebacks for syntax errors).</p>
 </dl>
 </section>
 <section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt><cite>Comment</cite></dt><dd><p>Token type for any comment.</p>
 </dd>
@@ -438,7 +434,7 @@ information, etc.</p>
 </dl>
 </section>
 <section id="generic-tokens">
-<h2>Generic Tokens<a class="headerlink" href="#generic-tokens" title="Permalink to this headline">¶</a></h2>
+<h2>Generic Tokens<a class="headerlink" href="#generic-tokens" title="Permalink to this heading">¶</a></h2>
 <p>Generic tokens are for special lexers like the <cite>DiffLexer</cite> that doesn’t really
 highlight a programming language but a patch file.</p>
 <dl class="simple">
@@ -478,7 +474,7 @@ highlight a programming language but a patch file.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

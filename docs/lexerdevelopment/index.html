@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Write your own lexer &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -127,7 +128,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -137,7 +138,7 @@
           <div class="body" role="main">
             
   <section id="write-your-own-lexer">
-<h1>Write your own lexer<a class="headerlink" href="#write-your-own-lexer" title="Permalink to this headline">¶</a></h1>
+<h1>Write your own lexer<a class="headerlink" href="#write-your-own-lexer" title="Permalink to this heading">¶</a></h1>
 <p>If a lexer for your favorite language is missing in the Pygments package, you
 can easily write your own and extend Pygments.</p>
 <p>All you need can be found inside the <a class="reference internal" href="../api/#module-pygments.lexer" title="pygments.lexer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.lexer</span></code></a> module.  As you can
@@ -150,7 +151,7 @@ containing tuples in the form <code class="docutils literal notranslate"><span c
 need to do this since there are base lexers that do most of the work and that
 you can subclass.</p>
 <section id="regexlexer">
-<h2>RegexLexer<a class="headerlink" href="#regexlexer" title="Permalink to this headline">¶</a></h2>
+<h2>RegexLexer<a class="headerlink" href="#regexlexer" title="Permalink to this heading">¶</a></h2>
 <p>The lexer base class used by almost all of Pygments’ lexers is the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">RegexLexer</span></code>.  This class allows you to define lexing rules in terms of
 <em>regular expressions</em> for different <em>states</em>.</p>
@@ -207,7 +208,7 @@ so on.</p>
 one.</p>
 </section>
 <section id="adding-and-testing-a-new-lexer">
-<h2>Adding and testing a new lexer<a class="headerlink" href="#adding-and-testing-a-new-lexer" title="Permalink to this headline">¶</a></h2>
+<h2>Adding and testing a new lexer<a class="headerlink" href="#adding-and-testing-a-new-lexer" title="Permalink to this heading">¶</a></h2>
 <p>The easiest way to use a new lexer is to use Pygments’ support for loading
 the lexer from a file relative to your current directory.</p>
 <p>First, change the name of your lexer class to CustomLexer:</p>
@@ -298,7 +299,7 @@ called from the system search path (<code class="docutils literal notranslate"><
 such as that the concatenation of all token text is the same as the input text.</p>
 </section>
 <section id="regex-flags">
-<h2>Regex Flags<a class="headerlink" href="#regex-flags" title="Permalink to this headline">¶</a></h2>
+<h2>Regex Flags<a class="headerlink" href="#regex-flags" title="Permalink to this heading">¶</a></h2>
 <p>You can either define regex flags locally in the regex (<code class="docutils literal notranslate"><span class="pre">r'(?x)foo</span> <span class="pre">bar'</span></code>) or
 globally by adding a <cite>flags</cite> attribute to your lexer class.  If no attribute is
 defined, it defaults to <cite>re.MULTILINE</cite>.  For more information about regular
@@ -306,7 +307,7 @@ expression flags see the page about <a class="reference external" href="https://
 documentation.</p>
 </section>
 <section id="scanning-multiple-tokens-at-once">
-<h2>Scanning multiple tokens at once<a class="headerlink" href="#scanning-multiple-tokens-at-once" title="Permalink to this headline">¶</a></h2>
+<h2>Scanning multiple tokens at once<a class="headerlink" href="#scanning-multiple-tokens-at-once" title="Permalink to this heading">¶</a></h2>
 <p>So far, the <cite>action</cite> element in the rule tuple of regex, action and state has
 been a single token type.  Now we look at the first of several other possible
 values.</p>
@@ -349,7 +350,7 @@ be part of the output but is used in the regular expressions for backreferencing
 function and that group will be skipped in the output.</p>
 </section>
 <section id="changing-states">
-<h2>Changing states<a class="headerlink" href="#changing-states" title="Permalink to this headline">¶</a></h2>
+<h2>Changing states<a class="headerlink" href="#changing-states" title="Permalink to this heading">¶</a></h2>
 <p>Many lexers need multiple states to work as expected.  For example, some
 languages allow multiline comments to be nested.  Since this is a recursive
 pattern it’s impossible to lex just using regular expressions.</p>
@@ -400,7 +401,7 @@ can help producing error-tolerant highlighting for erroneous input, e.g. when a
 single-line string is not closed.</p>
 </section>
 <section id="advanced-state-tricks">
-<h2>Advanced state tricks<a class="headerlink" href="#advanced-state-tricks" title="Permalink to this headline">¶</a></h2>
+<h2>Advanced state tricks<a class="headerlink" href="#advanced-state-tricks" title="Permalink to this heading">¶</a></h2>
 <p>There are a few more things you can do with states:</p>
 <ul>
 <li><p>You can push multiple states onto the stack if you give a tuple instead of a
@@ -506,7 +507,7 @@ the state list, but Pygments provides a more obvious way of spelling that:
 </ul>
 </section>
 <section id="subclassing-lexers-derived-from-regexlexer">
-<h2>Subclassing lexers derived from RegexLexer<a class="headerlink" href="#subclassing-lexers-derived-from-regexlexer" title="Permalink to this headline">¶</a></h2>
+<h2>Subclassing lexers derived from RegexLexer<a class="headerlink" href="#subclassing-lexers-derived-from-regexlexer" title="Permalink to this heading">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.6.</span></p>
 </div>
@@ -560,7 +561,7 @@ that point.</p></li>
 </ul>
 </section>
 <section id="using-multiple-lexers">
-<h2>Using multiple lexers<a class="headerlink" href="#using-multiple-lexers" title="Permalink to this headline">¶</a></h2>
+<h2>Using multiple lexers<a class="headerlink" href="#using-multiple-lexers" title="Permalink to this heading">¶</a></h2>
 <p>Using multiple lexers for the same input can be tricky.  One of the easiest
 combination techniques is shown here: You can replace the action entry in a rule
 tuple with a lexer class.  The matched text will then be lexed with that lexer,
@@ -616,7 +617,7 @@ but in the state given by this argument.  This does not work with advanced
 arguments used to create the lexer.</p>
 </section>
 <section id="delegating-lexer">
-<h2>Delegating Lexer<a class="headerlink" href="#delegating-lexer" title="Permalink to this headline">¶</a></h2>
+<h2>Delegating Lexer<a class="headerlink" href="#delegating-lexer" title="Permalink to this heading">¶</a></h2>
 <p>Another approach for nested lexers is the <cite>DelegatingLexer</cite> which is for example
 used for the template engine lexers.  It takes two lexers as arguments on
 initialisation: a <cite>root_lexer</cite> and a <cite>language_lexer</cite>.</p>
@@ -642,7 +643,7 @@ the lexer another token type as the third parameter:</p>
 </div>
 </section>
 <section id="callbacks">
-<h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h2>
+<h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this heading">¶</a></h2>
 <p>Sometimes the grammar of a language is so complex that a lexer would be unable
 to process it just by using regular expressions and stacks.</p>
 <p>For this, the <cite>RegexLexer</cite> allows callbacks to be given in rule tuples, instead
@@ -683,7 +684,7 @@ possibility to influence the position.</p>
 them in action e.g. in the <cite>SMLLexer</cite> class in <a class="reference external" href="https://github.com/pygments/pygments/blob/master/pygments/lexers/ml.py">ml.py</a>.</p>
 </section>
 <section id="the-extendedregexlexer-class">
-<h2>The ExtendedRegexLexer class<a class="headerlink" href="#the-extendedregexlexer-class" title="Permalink to this headline">¶</a></h2>
+<h2>The ExtendedRegexLexer class<a class="headerlink" href="#the-extendedregexlexer-class" title="Permalink to this heading">¶</a></h2>
 <p>The <cite>RegexLexer</cite>, even with callbacks, unfortunately isn’t powerful enough for
 the funky syntax rules of languages such as Ruby.</p>
 <p>But fear not; even then you don’t have to abandon the regular expression
@@ -731,7 +732,7 @@ For example, this is how the hypothetical lexer above would be written with the
 example look at the Ruby lexer in <a class="reference external" href="https://github.com/pygments/pygments/blob/master/pygments/lexers/ruby.py">ruby.py</a>.</p>
 </section>
 <section id="handling-lists-of-keywords">
-<h2>Handling Lists of Keywords<a class="headerlink" href="#handling-lists-of-keywords" title="Permalink to this headline">¶</a></h2>
+<h2>Handling Lists of Keywords<a class="headerlink" href="#handling-lists-of-keywords" title="Permalink to this heading">¶</a></h2>
 <p>For a relatively short list (hundreds) you can construct an optimized regular
 expression directly using <code class="docutils literal notranslate"><span class="pre">words()</span></code> (longer lists, see next section).  This
 function handles a few things for you automatically, including escaping
@@ -756,7 +757,7 @@ code if possible.</p>
 regex.</p>
 </section>
 <section id="modifying-token-streams">
-<h2>Modifying Token Streams<a class="headerlink" href="#modifying-token-streams" title="Permalink to this headline">¶</a></h2>
+<h2>Modifying Token Streams<a class="headerlink" href="#modifying-token-streams" title="Permalink to this heading">¶</a></h2>
 <p>Some languages ship a lot of builtin functions (for example PHP).  The total
 amount of those functions differs from system to system because not everybody
 has every extension installed.  In the case of PHP there are over 3000 builtin
@@ -794,7 +795,7 @@ pseudo keywords:</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

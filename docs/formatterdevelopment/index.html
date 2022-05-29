@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Write your own formatter &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -118,7 +119,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -128,7 +129,7 @@
           <div class="body" role="main">
             
   <section id="write-your-own-formatter">
-<h1>Write your own formatter<a class="headerlink" href="#write-your-own-formatter" title="Permalink to this headline">¶</a></h1>
+<h1>Write your own formatter<a class="headerlink" href="#write-your-own-formatter" title="Permalink to this heading">¶</a></h1>
 <p>As well as creating <a class="reference internal" href="../lexerdevelopment/"><span class="doc">your own lexer</span></a>, writing a new
 formatter for Pygments is easy and straightforward.</p>
 <p>A formatter is a class that is initialized with some keyword arguments (the
@@ -137,7 +138,7 @@ Additionally a formatter should provide a <cite>get_style_defs()</cite> method t
 returns the style definitions from the style in a form usable for the
 formatter’s output format.</p>
 <section id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h2>
 <p>The most basic formatter shipped with Pygments is the <cite>NullFormatter</cite>. It just
 sends the value of a token to the output stream:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
@@ -155,7 +156,7 @@ the latter a file like object with a <cite>write()</cite> method.</p>
 method.</p>
 </section>
 <section id="styles">
-<h2>Styles<a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h2>
+<h2>Styles<a class="headerlink" href="#styles" title="Permalink to this heading">¶</a></h2>
 <p>Styles aren’t instantiated but their metaclass provides some class functions
 so that you can access the style definitions easily.</p>
 <p>Styles are iterable and yield tuples in the form <code class="docutils literal notranslate"><span class="pre">(ttype,</span> <span class="pre">d)</span></code> where <cite>ttype</cite>
@@ -181,7 +182,7 @@ blue) or <cite>None</cite> for no border.</p>
 they don’t support.</p>
 </section>
 <section id="html-3-2-formatter">
-<h2>HTML 3.2 Formatter<a class="headerlink" href="#html-3-2-formatter" title="Permalink to this headline">¶</a></h2>
+<h2>HTML 3.2 Formatter<a class="headerlink" href="#html-3-2-formatter" title="Permalink to this heading">¶</a></h2>
 <p>For an more complex example, let’s implement a HTML 3.2 Formatter. We don’t
 use CSS but inline markup (<code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;font&gt;</span></code>, etc). Because this isn’t good
 style this formatter isn’t in the standard library ;-)</p>
@@ -265,7 +266,7 @@ inline HTML markup, we would need to generate the CSS first. For that
 purpose the <cite>get_style_defs()</cite> method exists:</p>
 </section>
 <section id="generating-style-definitions">
-<h2>Generating Style Definitions<a class="headerlink" href="#generating-style-definitions" title="Permalink to this headline">¶</a></h2>
+<h2>Generating Style Definitions<a class="headerlink" href="#generating-style-definitions" title="Permalink to this heading">¶</a></h2>
 <p>Some formatters like the <cite>LatexFormatter</cite> and the <cite>HtmlFormatter</cite> don’t
 output inline markup but reference either macros or css classes. Because
 the definitions of those are not part of the output, the <cite>get_style_defs()</cite>
@@ -284,7 +285,7 @@ is up to the formatter) and has to return a string or <code class="docutils lite
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Using Pygments in various scenarios &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -118,7 +119,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -128,26 +129,26 @@
           <div class="body" role="main">
             
   <section id="using-pygments-in-various-scenarios">
-<h1>Using Pygments in various scenarios<a class="headerlink" href="#using-pygments-in-various-scenarios" title="Permalink to this headline">¶</a></h1>
+<h1>Using Pygments in various scenarios<a class="headerlink" href="#using-pygments-in-various-scenarios" title="Permalink to this heading">¶</a></h1>
 <section id="markdown">
-<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this heading">¶</a></h2>
 <p>Since Pygments 0.9, the distribution ships <a class="reference external" href="https://pypi.org/project/Markdown/">Markdown</a> preprocessor sample code
 that uses Pygments to render source code in
 <code class="file docutils literal notranslate"><span class="pre">external/markdown-processor.py</span></code>.  You can copy and adapt it to your
 liking.</p>
 </section>
 <section id="textmate">
-<h2>TextMate<a class="headerlink" href="#textmate" title="Permalink to this headline">¶</a></h2>
+<h2>TextMate<a class="headerlink" href="#textmate" title="Permalink to this heading">¶</a></h2>
 <p>Antonio Cangiano has created a Pygments bundle for TextMate that allows to
 colorize code via a simple menu option.  It can be found <a class="reference external" href="https://programmingzen.com/pygments-textmate-bundle/">here</a>.</p>
 </section>
 <section id="bash-completion">
-<h2>Bash completion<a class="headerlink" href="#bash-completion" title="Permalink to this headline">¶</a></h2>
+<h2>Bash completion<a class="headerlink" href="#bash-completion" title="Permalink to this heading">¶</a></h2>
 <p>The source distribution contains a file <code class="docutils literal notranslate"><span class="pre">external/pygments.bashcomp</span></code> that
 sets up completion for the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> command in bash.</p>
 </section>
 <section id="wrappers-for-other-languages">
-<h2>Wrappers for other languages<a class="headerlink" href="#wrappers-for-other-languages" title="Permalink to this headline">¶</a></h2>
+<h2>Wrappers for other languages<a class="headerlink" href="#wrappers-for-other-languages" title="Permalink to this heading">¶</a></h2>
 <p>These libraries provide Pygments highlighting for users of other languages
 than Python:</p>
 <ul class="simple">
@@ -169,7 +170,7 @@ Clojure</p></li>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

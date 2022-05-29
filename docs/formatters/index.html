@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Available formatters &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -116,7 +117,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -126,10 +127,10 @@
           <div class="body" role="main">
             
   <section id="available-formatters">
-<h1>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this headline">¶</a></h1>
+<h1>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this heading">¶</a></h1>
 <p>This page lists all builtin formatters.</p>
 <section id="common-options">
-<h2>Common options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<h2>Common options<a class="headerlink" href="#common-options" title="Permalink to this heading">¶</a></h2>
 <p>All formatters support these options:</p>
 <dl>
 <dt><cite>encoding</cite></dt><dd><p>If given, must be an encoding name (such as <code class="docutils literal notranslate"><span class="pre">&quot;utf-8&quot;</span></code>). This will
@@ -162,16 +163,16 @@ for the formatter if given.</p>
 </dl>
 </section>
 <section id="formatter-classes">
-<h2>Formatter classes<a class="headerlink" href="#formatter-classes" title="Permalink to this headline">¶</a></h2>
+<h2>Formatter classes<a class="headerlink" href="#formatter-classes" title="Permalink to this heading">¶</a></h2>
 <p>All these classes are importable from <a class="reference internal" href="../api/#module-pygments.formatters" title="pygments.formatters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.formatters</span></code></a>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BBCodeFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BBCodeFormatter</span></span><a class="headerlink" href="#BBCodeFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bbcode, bb</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -203,10 +204,10 @@ need for indentation) are removed.</p>
 <dt class="sig sig-object py" id="BmpImageFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BmpImageFormatter</span></span><a class="headerlink" href="#BmpImageFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bmp, bitmap</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.bmp</p>
 </dd>
 </dl>
@@ -221,10 +222,10 @@ generate a pixmap from the source code.</p>
 <dt class="sig sig-object py" id="GifImageFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GifImageFormatter</span></span><a class="headerlink" href="#GifImageFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gif</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.gif</p>
 </dd>
 </dl>
@@ -239,10 +240,10 @@ generate a pixmap from the source code.</p>
 <dt class="sig sig-object py" id="GroffFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GroffFormatter</span></span><a class="headerlink" href="#GroffFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>groff, troff, roff</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -269,10 +270,10 @@ generate a pixmap from the source code.</p>
 <dt class="sig sig-object py" id="HtmlFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HtmlFormatter</span></span><a class="headerlink" href="#HtmlFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>html</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.html, *.htm</p>
 </dd>
 </dl>
@@ -536,10 +537,10 @@ HTML yielded by the wrapped generator is output.</p>
 <dt class="sig sig-object py" id="IRCFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IRCFormatter</span></span><a class="headerlink" href="#IRCFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>irc, IRC</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -564,10 +565,10 @@ no support for common styles.</p>
 <dt class="sig sig-object py" id="ImageFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImageFormatter</span></span><a class="headerlink" href="#ImageFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>img, IMG, png</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.png</p>
 </dd>
 </dl>
@@ -656,10 +657,10 @@ the source code area.</p>
 <dt class="sig sig-object py" id="JpgImageFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JpgImageFormatter</span></span><a class="headerlink" href="#JpgImageFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>jpg, jpeg</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.jpg</p>
 </dd>
 </dl>
@@ -674,10 +675,10 @@ generate a pixmap from the source code.</p>
 <dt class="sig sig-object py" id="LatexFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LatexFormatter</span></span><a class="headerlink" href="#LatexFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>latex, tex</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.tex</p>
 </dd>
 </dl>
@@ -775,10 +776,10 @@ The alternate environment still has to support Verbatim’s option syntax.
 <dt class="sig sig-object py" id="NullFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NullFormatter</span></span><a class="headerlink" href="#NullFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>text, null</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.txt</p>
 </dd>
 </dl>
@@ -789,10 +790,10 @@ The alternate environment still has to support Verbatim’s option syntax.
 <dt class="sig sig-object py" id="PangoMarkupFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PangoMarkupFormatter</span></span><a class="headerlink" href="#PangoMarkupFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pango, pangomarkup</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -806,10 +807,10 @@ The alternate environment still has to support Verbatim’s option syntax.
 <dt class="sig sig-object py" id="RawTokenFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RawTokenFormatter</span></span><a class="headerlink" href="#RawTokenFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>raw, tokens</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.raw</p>
 </dd>
 </dl>
@@ -835,10 +836,10 @@ set but with no value, defaults to <code class="docutils literal notranslate"><s
 <dt class="sig sig-object py" id="RtfFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RtfFormatter</span></span><a class="headerlink" href="#RtfFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>rtf</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.rtf</p>
 </dd>
 </dl>
@@ -872,10 +873,10 @@ default is 24 half-points, giving a size 12 font.</p>
 <dt class="sig sig-object py" id="SvgFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SvgFormatter</span></span><a class="headerlink" href="#SvgFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>svg</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>*.svg</p>
 </dd>
 </dl>
@@ -932,10 +933,10 @@ and defaults to <code class="docutils literal notranslate"><span class="pre">Tru
 <dt class="sig sig-object py" id="Terminal256Formatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Terminal256Formatter</span></span><a class="headerlink" href="#Terminal256Formatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>terminal256, console256, 256</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -973,10 +974,10 @@ See <a class="reference internal" href="../styles/#new-ansi-color-names"><span c
 <dt class="sig sig-object py" id="TerminalFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TerminalFormatter</span></span><a class="headerlink" href="#TerminalFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>terminal, console</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -1003,10 +1004,10 @@ no support for common styles.</p>
 <dt class="sig sig-object py" id="TerminalTrueColorFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TerminalTrueColorFormatter</span></span><a class="headerlink" href="#TerminalTrueColorFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>terminal16m, console16m, 16m</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -1028,10 +1029,10 @@ are terminated at newlines, so that paging the output works correctly.</p>
 <dt class="sig sig-object py" id="TestcaseFormatter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TestcaseFormatter</span></span><a class="headerlink" href="#TestcaseFormatter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Short names</dt>
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
 <dd class="field-odd"><p>testcase</p>
 </dd>
-<dt class="field-even">Filenames</dt>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -1054,7 +1055,7 @@ are terminated at newlines, so that paging the output works correctly.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

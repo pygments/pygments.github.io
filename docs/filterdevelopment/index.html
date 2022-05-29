@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Write your own filter &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -116,7 +117,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -126,7 +127,7 @@
           <div class="body" role="main">
             
   <section id="write-your-own-filter">
-<h1>Write your own filter<a class="headerlink" href="#write-your-own-filter" title="Permalink to this headline">¶</a></h1>
+<h1>Write your own filter<a class="headerlink" href="#write-your-own-filter" title="Permalink to this heading">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.7.</span></p>
 </div>
@@ -135,7 +136,7 @@ the <cite>Filter</cite> class and override the <cite>filter</cite> method. Addit
 filter is instantiated with some keyword arguments you can use to
 adjust the behavior of your filter.</p>
 <section id="subclassing-filters">
-<h2>Subclassing Filters<a class="headerlink" href="#subclassing-filters" title="Permalink to this headline">¶</a></h2>
+<h2>Subclassing Filters<a class="headerlink" href="#subclassing-filters" title="Permalink to this heading">¶</a></h2>
 <p>As an example, we write a filter that converts all <cite>Name.Function</cite> tokens
 to normal <cite>Name</cite> tokens to make the output less colorful.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.util</span> <span class="kn">import</span> <span class="n">get_bool_opt</span>
@@ -164,7 +165,7 @@ to access options passed to a lexer. Because it could be <cite>None</cite> you a
 to check for that case if you access it.</p>
 </section>
 <section id="using-a-decorator">
-<h2>Using a decorator<a class="headerlink" href="#using-a-decorator" title="Permalink to this headline">¶</a></h2>
+<h2>Using a decorator<a class="headerlink" href="#using-a-decorator" title="Permalink to this heading">¶</a></h2>
 <p>You can also use the <cite>simplefilter</cite> decorator from the <cite>pygments.filter</cite> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.util</span> <span class="kn">import</span> <span class="n">get_bool_opt</span>
 <span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Name</span>
@@ -200,7 +201,7 @@ there is a <cite>self</cite> argument that you probably won’t end up using in 
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

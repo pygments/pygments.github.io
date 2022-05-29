@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Pygments FAQ &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex/" />
@@ -111,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -121,9 +122,9 @@
           <div class="body" role="main">
             
   <section id="pygments-faq">
-<h1>Pygments FAQ<a class="headerlink" href="#pygments-faq" title="Permalink to this headline">¶</a></h1>
+<h1>Pygments FAQ<a class="headerlink" href="#pygments-faq" title="Permalink to this heading">¶</a></h1>
 <section id="what-is-pygments">
-<h2>What is Pygments?<a class="headerlink" href="#what-is-pygments" title="Permalink to this headline">¶</a></h2>
+<h2>What is Pygments?<a class="headerlink" href="#what-is-pygments" title="Permalink to this heading">¶</a></h2>
 <p>Pygments is a syntax highlighting engine written in Python. That means, it will
 take source code (or other markup) in a supported language and output a
 processed version (in different formats) containing syntax highlighting markup.</p>
@@ -145,17 +146,17 @@ processed version (in different formats) containing syntax highlighting markup.<
 <p>Pygments is licensed under the BSD license.</p>
 </section>
 <section id="where-does-the-name-pygments-come-from">
-<h2>Where does the name Pygments come from?<a class="headerlink" href="#where-does-the-name-pygments-come-from" title="Permalink to this headline">¶</a></h2>
+<h2>Where does the name Pygments come from?<a class="headerlink" href="#where-does-the-name-pygments-come-from" title="Permalink to this heading">¶</a></h2>
 <p><em>Py</em> of course stands for Python, while <em>pigments</em> are used for coloring paint,
 and in this case, source code!</p>
 </section>
 <section id="what-are-the-system-requirements">
-<h2>What are the system requirements?<a class="headerlink" href="#what-are-the-system-requirements" title="Permalink to this headline">¶</a></h2>
+<h2>What are the system requirements?<a class="headerlink" href="#what-are-the-system-requirements" title="Permalink to this heading">¶</a></h2>
 <p>Pygments only needs a standard Python install, version 3.6 or higher. No
 additional libraries are needed.</p>
 </section>
 <section id="how-can-i-use-pygments">
-<h2>How can I use Pygments?<a class="headerlink" href="#how-can-i-use-pygments" title="Permalink to this headline">¶</a></h2>
+<h2>How can I use Pygments?<a class="headerlink" href="#how-can-i-use-pygments" title="Permalink to this heading">¶</a></h2>
 <p>Pygments is usable as a command-line tool as well as a library.</p>
 <p>From the command-line, usage looks like this (assuming the pygmentize script is
 properly installed):</p>
@@ -167,21 +168,21 @@ properly installed):</p>
 <p>Usage as a library is thoroughly demonstrated in the Documentation section.</p>
 </section>
 <section id="how-do-i-make-a-new-style">
-<h2>How do I make a new style?<a class="headerlink" href="#how-do-i-make-a-new-style" title="Permalink to this headline">¶</a></h2>
+<h2>How do I make a new style?<a class="headerlink" href="#how-do-i-make-a-new-style" title="Permalink to this heading">¶</a></h2>
 <p>Please see the <a class="reference internal" href="../docs/styles/"><span class="doc">documentation on styles</span></a>.</p>
 </section>
 <section id="how-can-i-report-a-bug-or-suggest-a-feature">
-<h2>How can I report a bug or suggest a feature?<a class="headerlink" href="#how-can-i-report-a-bug-or-suggest-a-feature" title="Permalink to this headline">¶</a></h2>
+<h2>How can I report a bug or suggest a feature?<a class="headerlink" href="#how-can-i-report-a-bug-or-suggest-a-feature" title="Permalink to this heading">¶</a></h2>
 <p>Please report bugs and feature wishes in the tracker at GitHub.</p>
 <p>You can also e-mail the authors, see the contact details.</p>
 </section>
 <section id="i-want-this-support-for-this-language">
-<h2>I want this support for this language!<a class="headerlink" href="#i-want-this-support-for-this-language" title="Permalink to this headline">¶</a></h2>
+<h2>I want this support for this language!<a class="headerlink" href="#i-want-this-support-for-this-language" title="Permalink to this heading">¶</a></h2>
 <p>Instead of waiting for others to include language support, why not write it
 yourself? All you have to know is <a class="reference internal" href="../docs/lexerdevelopment/"><span class="doc">outlined in the docs</span></a>.</p>
 </section>
 <section id="can-i-use-pygments-for-programming-language-processing">
-<h2>Can I use Pygments for programming language processing?<a class="headerlink" href="#can-i-use-pygments-for-programming-language-processing" title="Permalink to this headline">¶</a></h2>
+<h2>Can I use Pygments for programming language processing?<a class="headerlink" href="#can-i-use-pygments-for-programming-language-processing" title="Permalink to this heading">¶</a></h2>
 <p>The Pygments lexing machinery is quite powerful can be used to build lexers for
 basically all languages. However, parsing them is not possible, though some
 lexers go some steps in this direction in order to e.g. highlight function names
@@ -190,7 +191,7 @@ differently.</p>
 highlighting syntactically valid documents, not finding and compensating errors.</p>
 </section>
 <section id="who-uses-pygments">
-<h2>Who uses Pygments?<a class="headerlink" href="#who-uses-pygments" title="Permalink to this headline">¶</a></h2>
+<h2>Who uses Pygments?<a class="headerlink" href="#who-uses-pygments" title="Permalink to this heading">¶</a></h2>
 <p>This is an (incomplete) list of projects and sites known to use the Pygments highlighter.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/">Wikipedia</a></p></li>
@@ -255,7 +256,7 @@ Environment, uses pygments for the multi-language syntax highlighting in its
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 4.5.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
