@@ -135,8 +135,7 @@
 <span id="builtin-tokens"></span><h1>Builtin Tokens<a class="headerlink" href="#module-pygments.token" title="Permalink to this heading">¶</a></h1>
 <p>In the <a class="reference internal" href="#module-pygments.token" title="pygments.token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.token</span></code></a> module, there is a special object called <cite>Token</cite>
 that is used to create token types.</p>
-<p>You can create a new token type by accessing an attribute of <cite>Token</cite> whose
-name starts with an uppercase letter:</p>
+<p>You can create a new token type by accessing an attribute of <cite>Token</cite>:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Token</span><span class="o">.</span><span class="n">String</span>
 <span class="go">Token.String</span>
@@ -146,7 +145,7 @@ name starts with an uppercase letter:</p>
 </div>
 <p>Note that tokens are singletons so you can use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator for comparing
 token types.</p>
-<p>You can also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to perform set tests:</p>
+<p>As of Pygments 0.7 you can also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to perform set tests:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Comment</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Comment</span><span class="o">.</span><span class="n">Single</span> <span class="ow">in</span> <span class="n">Comment</span>
 <span class="go">True</span>
@@ -182,7 +181,7 @@ that, Pygments proposes some global token types defined in the
 </tr>
 <tr class="row-even"><td><p><cite>Whitespace</cite></p></td>
 <td><p><cite>Token.Text.Whitespace</cite></p></td>
-<td><p>for whitespace</p></td>
+<td><p>for specially highlighted whitespace</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>Error</cite></p></td>
 <td><p><cite>Token.Error</cite></p></td>
@@ -233,10 +232,17 @@ the explanation below)</p></td>
 </tr>
 </tbody>
 </table>
+<p>The <cite>Whitespace</cite> token type is new in Pygments 0.8. It is used only by the
+<cite>VisibleWhitespaceFilter</cite> currently.</p>
 <p>Normally you just create token types using the already defined aliases. For each
 of those token aliases, a number of subtypes exists (excluding the special tokens
 <cite>Token.Text</cite>, <cite>Token.Error</cite> and <cite>Token.Other</cite>)</p>
-<p>It’s also possible to convert strings to token types (for example
+<p>The <cite>is_token_subtype()</cite> function in the <cite>pygments.token</cite> module can be used to
+test if a token type is a subtype of another (such as <cite>Name.Tag</cite> and <cite>Name</cite>).
+(This is the same as <code class="docutils literal notranslate"><span class="pre">Name.Tag</span> <span class="pre">in</span> <span class="pre">Name</span></code>. The overloaded <cite>in</cite> operator was newly
+introduced in Pygments 0.7, the function still exists for backwards
+compatibility.)</p>
+<p>With Pygments 0.7, it’s also possible to convert strings to token types (for example
 if you want to supply a token from the command line):</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">string_to_tokentype</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">)</span>
