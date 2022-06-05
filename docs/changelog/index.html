@@ -185,9 +185,14 @@
 <section id="version-2-13-0">
 <h2>Version 2.13.0<a class="headerlink" href="#version-2-13-0" title="Permalink to this heading">¶</a></h2>
 <p>(not released yet)</p>
-<ul class="simple">
-<li><p>Updated lexers:</p>
 <ul>
+<li><p>Added lexers:</p>
+<ul class="simple">
+<li><p>Sql+Jinja (<a class="reference external" href="https://github.com/pygments/pygments/issues/2148">#2148</a>)</p></li>
+</ul>
+</li>
+<li><p>Updated lexers:</p>
+<ul class="simple">
 <li><p>Ada: support Ada 2022 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2121">#2121</a>)</p></li>
 <li><p>C family (C, C++ and many others): allow comments between
 elements of function headers, e.g. between the arguments and
@@ -199,12 +204,31 @@ the opening brace for the body (<a class="reference external" href="https://gith
 <li><p>Tcl: support <code class="docutils literal notranslate"><span class="pre">${name}</span></code> variables (<a class="reference external" href="https://github.com/pygments/pygments/issues/2145">#2145</a>)</p></li>
 </ul>
 </li>
+<li><p>Pygments now tries to use the <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> module to
+discover plugins instead of the slower <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>.  In
+particular, this largely speeds up the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> script when
+the lexer is not specified.</p>
+<p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> is only available in the Python standard
+library since Python 3.8. For older versions, there exists an
+<code class="docutils literal notranslate"><span class="pre">importlib_metadata</span></code> backport on PyPI. For this reason, Pygments
+now defines a packaging extra <code class="docutils literal notranslate"><span class="pre">plugins</span></code>, which adds a requirement
+on <code class="docutils literal notranslate"><span class="pre">importlib_metadata</span></code> if the Python version is older than
+3.8. Thus, in order to install Pygments with optimal plugin
+support even for old Python versions, you should do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pygments</span><span class="p">[</span><span class="n">plugins</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Pygments still falls back on <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> if neither
+<code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> nor <code class="docutils literal notranslate"><span class="pre">importlib_metadata</span></code> is found, but it
+will be slower.</p>
+</li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">HtmlFormatter</span></code> now uses the <code class="docutils literal notranslate"><span class="pre">linespans</span></code> attribute for
 <code class="docutils literal notranslate"><span class="pre">anchorlinenos</span></code> if the <code class="docutils literal notranslate"><span class="pre">lineanchors</span></code> attribute is unset (<a class="reference external" href="https://github.com/pygments/pygments/issues/2026">#2026</a>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">highlight</span></code>, <code class="docutils literal notranslate"><span class="pre">lex</span></code> and <code class="docutils literal notranslate"><span class="pre">format</span></code> functions no longer
 wrongly report “argument must be a lexer/formatter instance, not a
 class” in some cases where this is not the actual problem (<a class="reference external" href="https://github.com/pygments/pygments/issues/2123">#2123</a>).</p></li>
 <li><p>Fixed warnings in doc build (<a class="reference external" href="https://github.com/pygments/pygments/issues/2124">#2124</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">codetagify</span></code> filter now recognizes <code class="docutils literal notranslate"><span class="pre">FIXME</span></code> tags by default (<a class="reference external" href="https://github.com/pygments/pygments/issues/2150">#2150</a>).</p></li>
 </ul>
 </section>
 <section id="version-2-12-0">
