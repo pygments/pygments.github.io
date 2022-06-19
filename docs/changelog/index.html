@@ -211,7 +211,7 @@ delimiters (<a class="reference external" href="https://github.com/pygments/pygm
 </ul>
 </li>
 <li><p>Pygments now tries to use the <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> module to
-discover plugins instead of the slower <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>.  In
+discover plugins instead of the slower <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2155">#2155</a>).  In
 particular, this largely speeds up the <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> script when
 the lexer is not specified.</p>
 <p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> is only available in the Python standard
@@ -233,12 +233,13 @@ will be slower.</p>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">highlight</span></code>, <code class="docutils literal notranslate"><span class="pre">lex</span></code> and <code class="docutils literal notranslate"><span class="pre">format</span></code> functions no longer
 wrongly report “argument must be a lexer/formatter instance, not a
 class” in some cases where this is not the actual problem (<a class="reference external" href="https://github.com/pygments/pygments/issues/2123">#2123</a>).</p></li>
-<li><p>Fixed warnings in doc build (<a class="reference external" href="https://github.com/pygments/pygments/issues/2124">#2124</a>).</p></li>
+<li><p>Fix warnings in doc build (<a class="reference external" href="https://github.com/pygments/pygments/issues/2124">#2124</a>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">codetagify</span></code> filter now recognizes <code class="docutils literal notranslate"><span class="pre">FIXME</span></code> tags by default (<a class="reference external" href="https://github.com/pygments/pygments/issues/2150">#2150</a>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> command now recognizes if the <code class="docutils literal notranslate"><span class="pre">COLORTERM</span></code>
 environment variable is set to a value indicating that true-color
 support is available.  In that case, it uses the <code class="docutils literal notranslate"><span class="pre">TerminalTrueColorFormatter</span></code>
 by default (<a class="reference external" href="https://github.com/pygments/pygments/issues/2160">#2160</a>)</p></li>
+<li><p>Remove redundant caches for filename patterns (<a class="reference external" href="https://github.com/pygments/pygments/issues/2153">#2153</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-12-0">
