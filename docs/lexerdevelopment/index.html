@@ -274,12 +274,9 @@ the <code class="docutils literal notranslate"><span class="pre">pygments.lexers
 is the only class in the module).</p>
 <p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.
 In the root directory of the source (where the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> is located), run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">console</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make mapfiles
 </pre></div>
 </div>
-<blockquote>
-<div><p>$ make mapfiles</p>
-</div></blockquote>
 <p>To test the new lexer, store an example file in
 <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/&lt;alias&gt;</span></code>.  For example, to test your
 <code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/diff/example.diff</span></code> containing a
