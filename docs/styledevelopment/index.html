@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Creating Own Styles &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -128,36 +128,43 @@
 <p>So, how to create a style? All you have to do is to subclass <cite>Style</cite> and
 define some styles:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Error</span><span class="p">,</span> \
-     <span class="n">Number</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Generic</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> \
+     <span class="n">Error</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Number</span><span class="p">,</span> <span class="n">Operator</span>
+
 
 <span class="k">class</span> <span class="nc">YourStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
-    <span class="n">default_style</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
     <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">Token</span><span class="p">:</span>                  <span class="s1">&#39;&#39;</span><span class="p">,</span>
         <span class="n">Comment</span><span class="p">:</span>                <span class="s1">&#39;italic #888&#39;</span><span class="p">,</span>
         <span class="n">Keyword</span><span class="p">:</span>                <span class="s1">&#39;bold #005&#39;</span><span class="p">,</span>
         <span class="n">Name</span><span class="p">:</span>                   <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>          <span class="s1">&#39;#0f0&#39;</span><span class="p">,</span>
         <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>             <span class="s1">&#39;bold #0f0&#39;</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>          <span class="s1">&#39;#0f0&#39;</span><span class="p">,</span>
         <span class="n">String</span><span class="p">:</span>                 <span class="s1">&#39;bg:#eee #111&#39;</span>
     <span class="p">}</span>
 </pre></div>
 </div>
-<p>That’s it. There are just a few rules. When you define a style for <cite>Name</cite>
+<p>That’s it, save it as <code class="docutils literal notranslate"><span class="pre">your.py</span></code>. There are just a few rules. When you define a style for <cite>Name</cite>
 the style automatically also affects <cite>Name.Function</cite> and so on. If you
 defined <code class="docutils literal notranslate"><span class="pre">'bold'</span></code> and you don’t want boldface for a subtoken use <code class="docutils literal notranslate"><span class="pre">'nobold'</span></code>.</p>
 <p>(Philosophy: the styles aren’t written in CSS syntax since this way
 they can be used for a variety of formatters.)</p>
-<p><cite>default_style</cite> is the style inherited by all token types.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Token</span></code> is the default style inherited by all token types.</p>
 <p>To make the style usable for Pygments, you must</p>
-<ul class="simple">
+<ul>
 <li><p>either register it as a plugin (see <a class="reference internal" href="../plugins/"><span class="doc">the plugin docs</span></a>)</p></li>
-<li><p>or drop it into the <cite>styles</cite> subpackage of your Pygments distribution one style
-class per style, where the file name is the style name and the class name is
-<cite>StylenameClass</cite>. For example, if your style should be called
-<code class="docutils literal notranslate"><span class="pre">&quot;mondrian&quot;</span></code>, name the class <cite>MondrianStyle</cite>, put it into the file
-<code class="docutils literal notranslate"><span class="pre">mondrian.py</span></code> and this file into the <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> subpackage
-directory.</p></li>
+<li><p>or update the <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> subpackage directory. For example:</p>
+<ul class="simple">
+<li><p>add <code class="docutils literal notranslate"><span class="pre">your.py</span></code> file</p></li>
+<li><p>register the new style by adding a line to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">STYLE_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;your&#39;</span><span class="p">:</span>  <span class="s1">&#39;your::YourStyle&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </section>
 <section id="style-rules">
@@ -206,7 +213,7 @@ vary for different formatters.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.0.2. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
