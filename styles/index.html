@@ -221,6 +221,26 @@ result = <span style="color: #2c2cff">sum</span>(Math.fib(<span style="color: #2
     </div>
 
     <div>
+    <h3 id="github-dark">github-dark</h3>
+    <div class="highlight" style="background: #0d1117"><pre style="line-height: 125%;"><span></span><span style="color: #ff7b72">from</span> <span style="color: #ff7b72">typing</span> <span style="color: #ff7b72">import</span> <span style="color: #c9d1d9">Iterator</span>
+
+<span style="color: #8b949e; font-style: italic"># This is an example</span>
+<span style="color: #ff7b72">class</span> <span style="color: #f0883e; font-weight: bold">Math</span><span style="color: #c9d1d9">:</span>
+    <span style="color: #d2a8ff; font-weight: bold">@staticmethod</span>
+    <span style="color: #ff7b72">def</span> <span style="color: #d2a8ff; font-weight: bold">fib</span><span style="color: #c9d1d9">(n:</span> <span style="color: #c9d1d9">int)</span> <span style="color: #ff7b72; font-weight: bold">-&gt;</span> <span style="color: #c9d1d9">Iterator[int]:</span>
+        <span style="color: #a5d6ff">&quot;&quot;&quot; Fibonacci series up to n &quot;&quot;&quot;</span>
+        <span style="color: #c9d1d9">a,</span> <span style="color: #c9d1d9">b</span> <span style="color: #ff7b72; font-weight: bold">=</span> <span style="color: #a5d6ff">0</span><span style="color: #c9d1d9">,</span> <span style="color: #a5d6ff">1</span>
+        <span style="color: #ff7b72">while</span> <span style="color: #c9d1d9">a</span> <span style="color: #ff7b72; font-weight: bold">&lt;</span> <span style="color: #c9d1d9">n:</span>
+            <span style="color: #ff7b72">yield</span> <span style="color: #c9d1d9">a</span>
+            <span style="color: #c9d1d9">a,</span> <span style="color: #c9d1d9">b</span> <span style="color: #ff7b72; font-weight: bold">=</span> <span style="color: #c9d1d9">b,</span> <span style="color: #c9d1d9">a</span> <span style="color: #ff7b72; font-weight: bold">+</span> <span style="color: #c9d1d9">b</span>
+
+<span style="color: #c9d1d9">result</span> <span style="color: #ff7b72; font-weight: bold">=</span> <span style="color: #c9d1d9">sum(Math</span><span style="color: #ff7b72; font-weight: bold">.</span><span style="color: #c9d1d9">fib(</span><span style="color: #a5d6ff">42</span><span style="color: #c9d1d9">))</span>
+<span style="color: #c9d1d9">print(</span><span style="color: #a5d6ff">&quot;The answer is {}&quot;</span><span style="color: #ff7b72; font-weight: bold">.</span><span style="color: #c9d1d9">format(result))</span>
+</pre></div>
+
+    </div>
+
+    <div>
     <h3 id="rrt">rrt</h3>
     <div class="highlight" style="background: #000000"><pre style="line-height: 125%;"><span></span><span style="color: #ff0000">from</span> <span style="color: #dddddd">typing</span> <span style="color: #ff0000">import</span> <span style="color: #dddddd">Iterator</span>
 
@@ -1063,7 +1083,7 @@ result = <span style="color: #658b00">sum</span>(Math.fib(<span style="color: #B
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.1. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
