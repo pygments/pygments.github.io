@@ -189,7 +189,7 @@
 <li><p>Added lexers:</p>
 <ul class="simple">
 <li><p>COMAL-80 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2180">#2180</a>)</p></li>
-<li><p>JMESPath (<a class="reference external" href="https://github.com/pygments/pygments/issues/2175">#2175</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2182">#2182</a>)</p></li>
+<li><p>JMESPath (<a class="reference external" href="https://github.com/pygments/pygments/issues/2174">#2174</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2175">#2175</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2179">#2179</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2182">#2182</a>)</p></li>
 <li><p>Sql+Jinja (<a class="reference external" href="https://github.com/pygments/pygments/issues/2148">#2148</a>)</p></li>
 </ul>
 </li>
@@ -219,14 +219,16 @@ StarOffice Basic (<a class="reference external" href="https://github.com/pygment
 <li><p>Tcl: support <code class="docutils literal notranslate"><span class="pre">${name}</span></code> variables (<a class="reference external" href="https://github.com/pygments/pygments/issues/2145">#2145</a>)</p></li>
 <li><p>Terraform: accept leading whitespace for <cite>&lt;&lt;</cite> heredoc
 delimiters (<a class="reference external" href="https://github.com/pygments/pygments/issues/2162">#2162</a>)</p></li>
+<li><p>Teraterm: Various improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2165">#2165</a>)</p></li>
 <li><p>Spice: add support for the recently added features including more
 builtin functions and bin, oct, hex number formats (<a class="reference external" href="https://github.com/pygments/pygments/issues/2206">#2206</a>)</p></li>
 </ul>
 </li>
 <li><p>Added styles:</p>
 <ul class="simple">
+<li><p>GitHub dark (<a class="reference external" href="https://github.com/pygments/pygments/issues/2192">#2192</a>)</p></li>
 <li><p>StarOffice (<a class="reference external" href="https://github.com/pygments/pygments/issues/2168">#2168</a>)</p></li>
-<li><p>Nord (<cite>nord</cite> and <cite>nord-darker</cite>; <a class="reference external" href="https://github.com/pygments/pygments/issues/2189">#2189</a>)</p></li>
+<li><p>Nord (<cite>nord</cite> and <cite>nord-darker</cite>; <a class="reference external" href="https://github.com/pygments/pygments/issues/2189">#2189</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1799">#1799</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1678">#1678</a>)</p></li>
 </ul>
 </li>
 <li><p>Pygments now tries to use the <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> module to
@@ -261,6 +263,8 @@ environment variable is set to a value indicating that true-color
 support is available.  In that case, it uses the <code class="docutils literal notranslate"><span class="pre">TerminalTrueColorFormatter</span></code>
 by default (<a class="reference external" href="https://github.com/pygments/pygments/issues/2160">#2160</a>)</p></li>
 <li><p>Remove redundant caches for filename patterns (<a class="reference external" href="https://github.com/pygments/pygments/issues/2153">#2153</a>)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">default_style</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/930">#930</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2183">#2183</a>)</p></li>
+<li><p>Stop treating <code class="docutils literal notranslate"><span class="pre">DeprecationWarnings</span></code> as errors in the unit tests (<a class="reference external" href="https://github.com/pygments/pygments/issues/2196">#2196</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-12-0">
