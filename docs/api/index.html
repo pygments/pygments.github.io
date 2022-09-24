@@ -14,6 +14,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -84,10 +85,59 @@
     <h3><a href="../../">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">The full Pygments API</a><ul>
-<li><a class="reference internal" href="#module-pygments">High-level API</a></li>
-<li><a class="reference internal" href="#lexers">Lexers</a></li>
-<li><a class="reference internal" href="#formatters">Formatters</a></li>
-<li><a class="reference internal" href="#option-processing">Option processing</a></li>
+<li><a class="reference internal" href="#module-pygments">High-level API</a><ul>
+<li><a class="reference internal" href="#pygments.lex"><code class="docutils literal notranslate"><span class="pre">lex()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.format"><code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.highlight"><code class="docutils literal notranslate"><span class="pre">highlight()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.get_lexer_by_name"><code class="docutils literal notranslate"><span class="pre">get_lexer_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.get_lexer_for_filename"><code class="docutils literal notranslate"><span class="pre">get_lexer_for_filename()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.get_lexer_for_mimetype"><code class="docutils literal notranslate"><span class="pre">get_lexer_for_mimetype()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.load_lexer_from_file"><code class="docutils literal notranslate"><span class="pre">load_lexer_from_file()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.guess_lexer"><code class="docutils literal notranslate"><span class="pre">guess_lexer()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.guess_lexer_for_filename"><code class="docutils literal notranslate"><span class="pre">guess_lexer_for_filename()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.get_all_lexers"><code class="docutils literal notranslate"><span class="pre">get_all_lexers()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.find_lexer_class_by_name"><code class="docutils literal notranslate"><span class="pre">find_lexer_class_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.find_lexer_class"><code class="docutils literal notranslate"><span class="pre">find_lexer_class()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatters.get_formatter_by_name"><code class="docutils literal notranslate"><span class="pre">get_formatter_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatters.get_formatter_for_filename"><code class="docutils literal notranslate"><span class="pre">get_formatter_for_filename()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatters.load_formatter_from_file"><code class="docutils literal notranslate"><span class="pre">load_formatter_from_file()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.styles.get_style_by_name"><code class="docutils literal notranslate"><span class="pre">get_style_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.styles.get_all_styles"><code class="docutils literal notranslate"><span class="pre">get_all_styles()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers">Lexers</a><ul>
+<li><a class="reference internal" href="#pygments.lexer.Lexer"><code class="docutils literal notranslate"><span class="pre">Lexer</span></code></a><ul>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.get_tokens"><code class="docutils literal notranslate"><span class="pre">Lexer.get_tokens()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.get_tokens_unprocessed"><code class="docutils literal notranslate"><span class="pre">Lexer.get_tokens_unprocessed()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.analyse_text"><code class="docutils literal notranslate"><span class="pre">Lexer.analyse_text()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.name"><code class="docutils literal notranslate"><span class="pre">Lexer.name</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.aliases"><code class="docutils literal notranslate"><span class="pre">Lexer.aliases</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.filenames"><code class="docutils literal notranslate"><span class="pre">Lexer.filenames</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.alias_filenames"><code class="docutils literal notranslate"><span class="pre">Lexer.alias_filenames</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer.mimetypes"><code class="docutils literal notranslate"><span class="pre">Lexer.mimetypes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formatters">Formatters</a><ul>
+<li><a class="reference internal" href="#pygments.formatter.Formatter"><code class="docutils literal notranslate"><span class="pre">Formatter</span></code></a><ul>
+<li><a class="reference internal" href="#pygments.formatter.Formatter.get_style_defs"><code class="docutils literal notranslate"><span class="pre">Formatter.get_style_defs()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatter.Formatter.format"><code class="docutils literal notranslate"><span class="pre">Formatter.format()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatter.Formatter.name"><code class="docutils literal notranslate"><span class="pre">Formatter.name</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatter.Formatter.aliases"><code class="docutils literal notranslate"><span class="pre">Formatter.aliases</span></code></a></li>
+<li><a class="reference internal" href="#pygments.formatter.Formatter.filenames"><code class="docutils literal notranslate"><span class="pre">Formatter.filenames</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#option-processing">Option processing</a><ul>
+<li><a class="reference internal" href="#pygments.util.OptionError"><code class="docutils literal notranslate"><span class="pre">OptionError</span></code></a></li>
+<li><a class="reference internal" href="#pygments.util.get_bool_opt"><code class="docutils literal notranslate"><span class="pre">get_bool_opt()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.util.get_int_opt"><code class="docutils literal notranslate"><span class="pre">get_int_opt()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.util.get_list_opt"><code class="docutils literal notranslate"><span class="pre">get_list_opt()</span></code></a></li>
+<li><a class="reference internal" href="#pygments.util.get_choice_opt"><code class="docutils literal notranslate"><span class="pre">get_choice_opt()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -529,7 +579,7 @@ or a tuple, it is returned as a list.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.1. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.2.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

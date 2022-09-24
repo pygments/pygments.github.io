@@ -14,6 +14,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -84,7 +85,17 @@
     <h3><a href="../../">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Filters</a><ul>
-<li><a class="reference internal" href="#builtin-filters">Builtin Filters</a></li>
+<li><a class="reference internal" href="#builtin-filters">Builtin Filters</a><ul>
+<li><a class="reference internal" href="#CodeTagFilter"><code class="docutils literal notranslate"><span class="pre">CodeTagFilter</span></code></a></li>
+<li><a class="reference internal" href="#KeywordCaseFilter"><code class="docutils literal notranslate"><span class="pre">KeywordCaseFilter</span></code></a></li>
+<li><a class="reference internal" href="#NameHighlightFilter"><code class="docutils literal notranslate"><span class="pre">NameHighlightFilter</span></code></a></li>
+<li><a class="reference internal" href="#RaiseOnErrorTokenFilter"><code class="docutils literal notranslate"><span class="pre">RaiseOnErrorTokenFilter</span></code></a></li>
+<li><a class="reference internal" href="#VisibleWhitespaceFilter"><code class="docutils literal notranslate"><span class="pre">VisibleWhitespaceFilter</span></code></a></li>
+<li><a class="reference internal" href="#GobbleFilter"><code class="docutils literal notranslate"><span class="pre">GobbleFilter</span></code></a></li>
+<li><a class="reference internal" href="#TokenMergeFilter"><code class="docutils literal notranslate"><span class="pre">TokenMergeFilter</span></code></a></li>
+<li><a class="reference internal" href="#SymbolFilter"><code class="docutils literal notranslate"><span class="pre">SymbolFilter</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -357,7 +368,7 @@ approximate the source rendering you’d see in an IDE.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.1. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.2.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

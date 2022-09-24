@@ -14,6 +14,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -84,188 +85,1093 @@
     <h3><a href="../../">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Available lexers</a><ul>
-<li><a class="reference internal" href="#lexers-for-actionscript-and-mxml">Lexers for ActionScript and MXML</a></li>
-<li><a class="reference internal" href="#lexers-for-ada-family-languages">Lexers for Ada family languages</a></li>
-<li><a class="reference internal" href="#lexers-for-computer-algebra-systems">Lexers for computer algebra systems</a></li>
-<li><a class="reference internal" href="#lexers-for-ambienttalk-language">Lexers for AmbientTalk language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-amdgpu-isa-assembly">Lexers for the AMDGPU ISA assembly</a></li>
-<li><a class="reference internal" href="#lexers-for-the-ampl-language">Lexers for the AMPL language</a></li>
-<li><a class="reference internal" href="#lexers-for-ansys-parametric-design-language">Lexers for ANSYS Parametric Design Language</a></li>
-<li><a class="reference internal" href="#lexers-for-apl">Lexers for APL</a></li>
-<li><a class="reference internal" href="#lexer-for-archetype-related-syntaxes-including">Lexer for Archetype-related syntaxes, including:</a></li>
-<li><a class="reference internal" href="#lexer-for-arrow">Lexer for Arrow</a></li>
-<li><a class="reference internal" href="#lexer-for-various-ascii-armored-files">Lexer for various ASCII armored files</a></li>
-<li><a class="reference internal" href="#lexers-for-assembly-languages">Lexers for assembly languages</a></li>
-<li><a class="reference internal" href="#lexers-for-automation-scripting-languages">Lexers for automation scripting languages</a></li>
-<li><a class="reference internal" href="#lexer-for-the-bare-schema">Lexer for the BARE schema</a></li>
-<li><a class="reference internal" href="#lexers-for-basic-like-languages-other-than-vb-net">Lexers for BASIC like languages (other than VB.net)</a></li>
-<li><a class="reference internal" href="#lexer-for-bdd-behavior-driven-development">Lexer for BDD(Behavior-driven development)</a></li>
-<li><a class="reference internal" href="#lexer-for-berry">Lexer for Berry</a></li>
-<li><a class="reference internal" href="#lexers-for-bibtex-bibliography-data-and-styles">Lexers for BibTeX bibliography data and styles</a></li>
-<li><a class="reference internal" href="#lexers-for-the-boa-language">Lexers for the Boa language</a></li>
-<li><a class="reference internal" href="#lexers-for-business-oriented-languages">Lexers for “business-oriented” languages</a></li>
-<li><a class="reference internal" href="#lexers-for-c-c-languages">Lexers for C/C++ languages</a></li>
-<li><a class="reference internal" href="#lexers-for-other-c-like-languages">Lexers for other C-like languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-cap-n-proto-schema-language">Lexers for the Cap’n Proto schema language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-concise-data-definition-language-cddl-a-notational">Lexer for the Concise data definition language (CDDL), a notational</a></li>
-<li><a class="reference internal" href="#lexer-for-the-chapel-language">Lexer for the Chapel language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-clean-language">Lexer for the Clean language</a></li>
-<li><a class="reference internal" href="#lexer-for-comal-80">Lexer for COMAL-80</a></li>
-<li><a class="reference internal" href="#lexers-for-configuration-file-formats">Lexers for configuration file formats</a></li>
-<li><a class="reference internal" href="#lexers-for-misc-console-output">Lexers for misc console output</a></li>
-<li><a class="reference internal" href="#lexer-for-the-cplint-language">Lexer for the cplint language</a></li>
-<li><a class="reference internal" href="#lexer-for-crystal">Lexer for Crystal</a></li>
-<li><a class="reference internal" href="#lexers-for-csound-languages">Lexers for Csound languages</a></li>
-<li><a class="reference internal" href="#lexers-for-css-and-related-stylesheet-formats">Lexers for CSS and related stylesheet formats</a></li>
-<li><a class="reference internal" href="#lexers-for-d-languages">Lexers for D languages</a></li>
-<li><a class="reference internal" href="#pygments-lexers-for-dalvik-vm-related-languages">Pygments lexers for Dalvik VM-related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-data-file-format">Lexers for data file format</a></li>
-<li><a class="reference internal" href="#lexers-for-devicetree-language">Lexers for Devicetree language</a></li>
-<li><a class="reference internal" href="#lexers-for-diff-patch-formats">Lexers for diff/patch formats</a></li>
-<li><a class="reference internal" href="#lexers-for-net-languages">Lexers for .net languages</a></li>
-<li><a class="reference internal" href="#lexers-for-various-domain-specific-languages">Lexers for various domain-specific languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-dylan-language">Lexers for the Dylan language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-ecl-language">Lexers for the ECL language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-eiffel-language">Lexer for the Eiffel language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-elm-programming-language">Lexer for the Elm programming language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-elpi-programming-language">Lexer for the Elpi programming language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-raw-e-mail">Lexer for the raw E-mail</a></li>
-<li><a class="reference internal" href="#lexers-for-erlang">Lexers for Erlang</a></li>
-<li><a class="reference internal" href="#lexers-for-esoteric-languages">Lexers for esoteric languages</a></li>
-<li><a class="reference internal" href="#pygments-lexers-for-ezhil-language">Pygments lexers for Ezhil language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-factor-language">Lexers for the Factor language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-fantom-language">Lexer for the Fantom language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-felix-language">Lexer for the Felix language</a></li>
-<li><a class="reference internal" href="#lexer-for-floscript">Lexer for FloScript</a></li>
-<li><a class="reference internal" href="#lexer-for-the-forth-language">Lexer for the Forth language</a></li>
-<li><a class="reference internal" href="#lexers-for-fortran-languages">Lexers for Fortran languages</a></li>
-<li><a class="reference internal" href="#simple-lexer-for-microsoft-visual-foxpro-source-code">Simple lexer for Microsoft Visual FoxPro source code</a></li>
-<li><a class="reference internal" href="#lexer-for-freefem-language">Lexer for FreeFem++ language</a></li>
-<li><a class="reference internal" href="#lexers-for-func">Lexers for FunC</a></li>
-<li><a class="reference internal" href="#lexer-for-the-futhark-language">Lexer for the Futhark language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-g-code-language">Lexers for the G Code Language</a></li>
-<li><a class="reference internal" href="#lexer-for-gdscript">Lexer for GDScript</a></li>
-<li><a class="reference internal" href="#lexers-for-the-google-go-language">Lexers for the Google Go language</a></li>
-<li><a class="reference internal" href="#lexers-for-grammar-notations-like-bnf">Lexers for grammar notations like BNF</a></li>
-<li><a class="reference internal" href="#lexers-for-graph-query-languages">Lexers for graph query languages</a></li>
-<li><a class="reference internal" href="#lexers-for-computer-graphics-and-plotting-related-languages">Lexers for computer graphics and plotting related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-the-dot-language-graphviz">Lexer for the DOT language (graphviz)</a></li>
-<li><a class="reference internal" href="#lexers-for-tigergraph-gsql-graph-query-language">Lexers for TigerGraph GSQL graph query language</a></li>
-<li><a class="reference internal" href="#lexers-for-haskell-and-related-languages">Lexers for Haskell and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-haxe-and-related-stuff">Lexers for Haxe and related stuff</a></li>
-<li><a class="reference internal" href="#lexers-for-hardware-descriptor-languages">Lexers for hardware descriptor languages</a></li>
-<li><a class="reference internal" href="#lexers-for-hexadecimal-dumps">Lexers for hexadecimal dumps</a></li>
-<li><a class="reference internal" href="#lexers-for-html-xml-and-related-markup">Lexers for HTML, XML and related markup</a></li>
-<li><a class="reference internal" href="#lexers-for-idl">Lexers for IDL</a></li>
-<li><a class="reference internal" href="#lexers-for-igor-pro">Lexers for Igor Pro</a></li>
-<li><a class="reference internal" href="#lexers-for-inferno-os-and-all-the-related-stuff">Lexers for Inferno os and all the related stuff</a></li>
-<li><a class="reference internal" href="#lexers-for-installer-packager-dsls-and-formats">Lexers for installer/packager DSLs and formats</a></li>
-<li><a class="reference internal" href="#lexers-for-interactive-fiction-languages">Lexers for interactive fiction languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-io-language">Lexers for the Io language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-j-programming-language">Lexer for the J programming language</a></li>
-<li><a class="reference internal" href="#lexers-for-javascript-and-related-languages">Lexers for JavaScript and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-jmespath-language">Lexers for the JMESPath language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-jslt-language">Lexers for the JSLT language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-julia-language">Lexers for the Julia language</a></li>
-<li><a class="reference internal" href="#pygments-lexers-for-jvm-languages">Pygments lexers for JVM languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-kuin-language">Lexers for the Kuin language</a></li>
-<li><a class="reference internal" href="#lexer-for-lilypond">Lexer for LilyPond</a></li>
-<li><a class="reference internal" href="#lexers-for-lispy-languages">Lexers for Lispy languages</a></li>
-<li><a class="reference internal" href="#lexers-for-makefiles-and-similar">Lexers for Makefiles and similar</a></li>
-<li><a class="reference internal" href="#lexers-for-non-html-markup-languages">Lexers for non-HTML markup languages</a></li>
-<li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-the-computer-algebra-system-maxima">Lexer for the computer algebra system Maxima</a></li>
-<li><a class="reference internal" href="#lexers-for-mcfunction-and-related-languages">Lexers for MCFunction and related languages</a></li>
-<li><a class="reference internal" href="#pygments-lexer-for-the-meson-build-system">Pygments lexer for the Meson build system</a></li>
-<li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a></li>
-<li><a class="reference internal" href="#lexers-for-ml-family-languages">Lexers for ML family languages</a></li>
-<li><a class="reference internal" href="#lexers-for-modeling-languages">Lexers for modeling languages</a></li>
-<li><a class="reference internal" href="#multi-dialect-lexer-for-modula-2">Multi-Dialect Lexer for Modula-2</a></li>
-<li><a class="reference internal" href="#lexer-for-the-monte-programming-language">Lexer for the Monte programming language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-mosel-language">Lexers for the mosel language</a></li>
-<li><a class="reference internal" href="#lexers-for-ncar-command-language">Lexers for NCAR Command Language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-nim-language-formerly-known-as-nimrod">Lexer for the Nim language (formerly known as Nimrod)</a></li>
-<li><a class="reference internal" href="#lexer-for-the-nit-language">Lexer for the Nit language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-nixos-nix-language">Lexers for the NixOS Nix language</a></li>
-<li><a class="reference internal" href="#lexers-for-oberon-family-languages">Lexers for Oberon family languages</a></li>
-<li><a class="reference internal" href="#lexers-for-objective-c-family-languages">Lexers for Objective-C family languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-ooc-language">Lexers for the Ooc language</a></li>
-<li><a class="reference internal" href="#lexer-for-parasail">Lexer for ParaSail</a></li>
-<li><a class="reference internal" href="#lexers-for-parser-generators">Lexers for parser generators</a></li>
-<li><a class="reference internal" href="#lexers-for-pascal-family-languages">Lexers for Pascal family languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-pawn-languages">Lexers for the Pawn languages</a></li>
-<li><a class="reference internal" href="#lexers-for-perl-raku-and-related-languages">Lexers for Perl, Raku and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-phix">Lexers for Phix</a></li>
-<li><a class="reference internal" href="#lexers-for-php-and-related-languages">Lexers for PHP and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-pointless">Lexers for Pointless</a></li>
-<li><a class="reference internal" href="#lexers-for-pony-and-related-languages">Lexers for Pony and related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-praat">Lexer for Praat</a></li>
-<li><a class="reference internal" href="#lexer-for-procfile-file-format">Lexer for Procfile file format</a></li>
-<li><a class="reference internal" href="#lexers-for-prolog-and-prolog-like-languages">Lexers for Prolog and Prolog-like languages</a></li>
-<li><a class="reference internal" href="#lexer-for-prometheus-query-language">Lexer for Prometheus Query Language</a></li>
-<li><a class="reference internal" href="#lexers-for-python-and-related-languages">Lexers for Python and related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-the-q-programming-language">Lexer for the Q programming language</a></li>
-<li><a class="reference internal" href="#lexer-for-the-qlik-scripting-language">Lexer for the qlik scripting language</a></li>
-<li><a class="reference internal" href="#lexer-for-qvt-operational-language">Lexer for QVT Operational language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-r-s-languages">Lexers for the R/S languages</a></li>
-<li><a class="reference internal" href="#lexers-for-semantic-web-and-rdf-query-languages-and-markup">Lexers for semantic web and RDF query languages and markup</a></li>
-<li><a class="reference internal" href="#lexers-for-the-rebol-and-related-languages">Lexers for the REBOL and related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-resource-definition-files">Lexer for resource definition files</a></li>
-<li><a class="reference internal" href="#lexer-for-the-ride-programming-language">Lexer for the Ride programming language</a></li>
-<li><a class="reference internal" href="#lexers-for-rita-language">Lexers for RITA language</a></li>
-<li><a class="reference internal" href="#lexer-for-relax-ng-compact-syntax">Lexer for Relax-NG Compact syntax</a></li>
-<li><a class="reference internal" href="#lexers-for-roboconf-dsl">Lexers for Roboconf DSL</a></li>
-<li><a class="reference internal" href="#lexer-for-robot-framework">Lexer for Robot Framework</a></li>
-<li><a class="reference internal" href="#lexers-for-ruby-and-related-languages">Lexers for Ruby and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-rust-language">Lexers for the Rust language</a></li>
-<li><a class="reference internal" href="#lexer-for-sas">Lexer for SAS</a></li>
-<li><a class="reference internal" href="#lexer-for-savi">Lexer for Savi</a></li>
-<li><a class="reference internal" href="#lexer-for-scdoc-a-simple-man-page-generator">Lexer for scdoc, a simple man page generator</a></li>
-<li><a class="reference internal" href="#lexer-for-scripting-and-embedded-languages">Lexer for scripting and embedded languages</a></li>
-<li><a class="reference internal" href="#lexer-for-smart-game-format-sgf-file-format">Lexer for Smart Game Format (sgf) file format</a></li>
-<li><a class="reference internal" href="#lexers-for-various-shells">Lexers for various shells</a></li>
-<li><a class="reference internal" href="#lexer-for-sieve-file-format">Lexer for Sieve file format</a></li>
-<li><a class="reference internal" href="#lexer-for-the-slash-programming">Lexer for the Slash programming</a></li>
-<li><a class="reference internal" href="#lexers-for-smalltalk-and-related-languages">Lexers for Smalltalk and related languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-smithy-idl">Lexers for the Smithy IDL</a></li>
-<li><a class="reference internal" href="#lexers-for-the-smv-languages">Lexers for the SMV languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-snobol-language">Lexers for the SNOBOL language</a></li>
-<li><a class="reference internal" href="#lexers-for-solidity">Lexers for Solidity</a></li>
-<li><a class="reference internal" href="#lexer-for-sophia">Lexer for Sophia</a></li>
-<li><a class="reference internal" href="#special-lexers">Special lexers</a></li>
-<li><a class="reference internal" href="#lexers-for-the-spice-programming-language">Lexers for the Spice programming language</a></li>
-<li><a class="reference internal" href="#lexers-for-various-sql-dialects-and-related-interactive-sessions">Lexers for various SQL dialects and related interactive sessions</a></li>
-<li><a class="reference internal" href="#lexers-for-srcinfo-files-used-by-arch-linux-packages">Lexers for .SRCINFO files used by Arch Linux Packages</a></li>
-<li><a class="reference internal" href="#lexer-for-stata">Lexer for Stata</a></li>
-<li><a class="reference internal" href="#lexer-for-supercollider">Lexer for SuperCollider</a></li>
-<li><a class="reference internal" href="#lexer-for-uxntal">Lexer for Uxntal</a></li>
-<li><a class="reference internal" href="#lexers-for-tcl-and-related-languages">Lexers for Tcl and related languages</a></li>
-<li><a class="reference internal" href="#lexer-for-teal">Lexer for TEAL</a></li>
-<li><a class="reference internal" href="#lexers-for-various-template-engines-markup">Lexers for various template engines’ markup</a></li>
-<li><a class="reference internal" href="#lexer-for-tera-term-macro-files">Lexer for Tera Term macro files</a></li>
-<li><a class="reference internal" href="#lexers-for-testing-languages">Lexers for testing languages</a></li>
-<li><a class="reference internal" href="#lexers-for-languages-related-to-text-processing">Lexers for languages related to text processing</a></li>
-<li><a class="reference internal" href="#lexers-for-various-text-formats">Lexers for various text formats</a></li>
-<li><a class="reference internal" href="#lexers-for-theorem-proving-languages">Lexers for theorem-proving languages</a></li>
-<li><a class="reference internal" href="#lexers-for-the-thingsdb-language">Lexers for the ThingsDB language</a></li>
-<li><a class="reference internal" href="#lexer-for-typographic-number-theory">Lexer for Typographic Number Theory</a></li>
-<li><a class="reference internal" href="#lexer-for-riverbed-s-trafficscript-rts-language">Lexer for RiverBed’s TrafficScript (RTS) language</a></li>
-<li><a class="reference internal" href="#lexers-for-typoscript">Lexers for TypoScript</a></li>
-<li><a class="reference internal" href="#lexer-for-the-ul4-templating-language">Lexer for the UL4 templating language</a></li>
-<li><a class="reference internal" href="#lexers-for-the-icon-and-unicon-languages-including-ucode-vm">Lexers for the Icon and Unicon languages, including ucode VM</a></li>
-<li><a class="reference internal" href="#lexers-for-urbiscript-language">Lexers for UrbiScript language</a></li>
-<li><a class="reference internal" href="#the-module-that-parses-pixar-s-universal-scene-description-file-format">The module that parses Pixar’s Universal Scene Description file format</a></li>
-<li><a class="reference internal" href="#lexers-for-varnish-configuration">Lexers for Varnish configuration</a></li>
-<li><a class="reference internal" href="#lexer-for-intermediate-verification-languages-ivls">Lexer for Intermediate Verification Languages (IVLs)</a></li>
-<li><a class="reference internal" href="#lexers-for-the-webassembly-text-format">Lexers for the WebAssembly text format</a></li>
-<li><a class="reference internal" href="#lexers-for-web-idl-including-some-extensions">Lexers for Web IDL, including some extensions</a></li>
-<li><a class="reference internal" href="#lexers-for-misc-web-stuff">Lexers for misc. web stuff</a></li>
-<li><a class="reference internal" href="#lexers-for-the-whiley-language">Lexers for the Whiley language</a></li>
-<li><a class="reference internal" href="#lexer-for-world-of-warcraft-toc-files">Lexer for World of Warcraft TOC files</a></li>
-<li><a class="reference internal" href="#lexers-for-the-x10-programming-language">Lexers for the X10 programming language</a></li>
-<li><a class="reference internal" href="#lexers-for-xorg-configs">Lexers for Xorg configs</a></li>
-<li><a class="reference internal" href="#lexer-for-the-yang-1-1-modeling-language-see-rfc-7950">Lexer for the YANG 1.1 modeling language. See <strong>RFC 7950</strong></a></li>
-<li><a class="reference internal" href="#lexers-for-zig">Lexers for Zig</a></li>
+<li><a class="reference internal" href="#lexers-for-actionscript-and-mxml">Lexers for ActionScript and MXML</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.actionscript.ActionScript3Lexer"><code class="docutils literal notranslate"><span class="pre">ActionScript3Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.actionscript.ActionScriptLexer"><code class="docutils literal notranslate"><span class="pre">ActionScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.actionscript.MxmlLexer"><code class="docutils literal notranslate"><span class="pre">MxmlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ada-family-languages">Lexers for Ada family languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ada.AdaLexer"><code class="docutils literal notranslate"><span class="pre">AdaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-computer-algebra-systems">Lexers for computer algebra systems</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.algebra.BCLexer"><code class="docutils literal notranslate"><span class="pre">BCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.algebra.GAPConsoleLexer"><code class="docutils literal notranslate"><span class="pre">GAPConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.algebra.GAPLexer"><code class="docutils literal notranslate"><span class="pre">GAPLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.algebra.MathematicaLexer"><code class="docutils literal notranslate"><span class="pre">MathematicaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.algebra.MuPADLexer"><code class="docutils literal notranslate"><span class="pre">MuPADLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ambienttalk-language">Lexers for AmbientTalk language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ambient.AmbientTalkLexer"><code class="docutils literal notranslate"><span class="pre">AmbientTalkLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-amdgpu-isa-assembly">Lexers for the AMDGPU ISA assembly</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.amdgpu.AMDGPULexer"><code class="docutils literal notranslate"><span class="pre">AMDGPULexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-ampl-language">Lexers for the AMPL language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ampl.AmplLexer"><code class="docutils literal notranslate"><span class="pre">AmplLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ansys-parametric-design-language">Lexers for ANSYS Parametric Design Language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.apdlexer.apdlexer"><code class="docutils literal notranslate"><span class="pre">apdlexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-apl">Lexers for APL</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.apl.APLLexer"><code class="docutils literal notranslate"><span class="pre">APLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-archetype-related-syntaxes-including">Lexer for Archetype-related syntaxes, including:</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.archetype.AdlLexer"><code class="docutils literal notranslate"><span class="pre">AdlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.archetype.CadlLexer"><code class="docutils literal notranslate"><span class="pre">CadlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.archetype.OdinLexer"><code class="docutils literal notranslate"><span class="pre">OdinLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-arrow">Lexer for Arrow</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.arrow.ArrowLexer"><code class="docutils literal notranslate"><span class="pre">ArrowLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-various-ascii-armored-files">Lexer for various ASCII armored files</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.asc.AscLexer"><code class="docutils literal notranslate"><span class="pre">AscLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-assembly-languages">Lexers for assembly languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.asm.CObjdumpLexer"><code class="docutils literal notranslate"><span class="pre">CObjdumpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.Ca65Lexer"><code class="docutils literal notranslate"><span class="pre">Ca65Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.CppObjdumpLexer"><code class="docutils literal notranslate"><span class="pre">CppObjdumpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.DObjdumpLexer"><code class="docutils literal notranslate"><span class="pre">DObjdumpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.Dasm16Lexer"><code class="docutils literal notranslate"><span class="pre">Dasm16Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.GasLexer"><code class="docutils literal notranslate"><span class="pre">GasLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.HsailLexer"><code class="docutils literal notranslate"><span class="pre">HsailLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.LlvmLexer"><code class="docutils literal notranslate"><span class="pre">LlvmLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.LlvmMirBodyLexer"><code class="docutils literal notranslate"><span class="pre">LlvmMirBodyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.LlvmMirLexer"><code class="docutils literal notranslate"><span class="pre">LlvmMirLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.NasmLexer"><code class="docutils literal notranslate"><span class="pre">NasmLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.NasmObjdumpLexer"><code class="docutils literal notranslate"><span class="pre">NasmObjdumpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.ObjdumpLexer"><code class="docutils literal notranslate"><span class="pre">ObjdumpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.asm.TasmLexer"><code class="docutils literal notranslate"><span class="pre">TasmLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-automation-scripting-languages">Lexers for automation scripting languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.automation.AutoItLexer"><code class="docutils literal notranslate"><span class="pre">AutoItLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.automation.AutohotkeyLexer"><code class="docutils literal notranslate"><span class="pre">AutohotkeyLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-bare-schema">Lexer for the BARE schema</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.bare.BareLexer"><code class="docutils literal notranslate"><span class="pre">BareLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-basic-like-languages-other-than-vb-net">Lexers for BASIC like languages (other than VB.net)</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.basic.BBCBasicLexer"><code class="docutils literal notranslate"><span class="pre">BBCBasicLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.BlitzBasicLexer"><code class="docutils literal notranslate"><span class="pre">BlitzBasicLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.BlitzMaxLexer"><code class="docutils literal notranslate"><span class="pre">BlitzMaxLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.CbmBasicV2Lexer"><code class="docutils literal notranslate"><span class="pre">CbmBasicV2Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.MonkeyLexer"><code class="docutils literal notranslate"><span class="pre">MonkeyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.QBasicLexer"><code class="docutils literal notranslate"><span class="pre">QBasicLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.basic.VBScriptLexer"><code class="docutils literal notranslate"><span class="pre">VBScriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-bdd-behavior-driven-development">Lexer for BDD(Behavior-driven development)</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.bdd.BddLexer"><code class="docutils literal notranslate"><span class="pre">BddLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-berry">Lexer for Berry</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.berry.BerryLexer"><code class="docutils literal notranslate"><span class="pre">BerryLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-bibtex-bibliography-data-and-styles">Lexers for BibTeX bibliography data and styles</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.bibtex.BSTLexer"><code class="docutils literal notranslate"><span class="pre">BSTLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.bibtex.BibTeXLexer"><code class="docutils literal notranslate"><span class="pre">BibTeXLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-boa-language">Lexers for the Boa language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.boa.BoaLexer"><code class="docutils literal notranslate"><span class="pre">BoaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-business-oriented-languages">Lexers for “business-oriented” languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.business.ABAPLexer"><code class="docutils literal notranslate"><span class="pre">ABAPLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.business.CobolFreeformatLexer"><code class="docutils literal notranslate"><span class="pre">CobolFreeformatLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.business.CobolLexer"><code class="docutils literal notranslate"><span class="pre">CobolLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.business.GoodDataCLLexer"><code class="docutils literal notranslate"><span class="pre">GoodDataCLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.business.MaqlLexer"><code class="docutils literal notranslate"><span class="pre">MaqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.business.OpenEdgeLexer"><code class="docutils literal notranslate"><span class="pre">OpenEdgeLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-c-c-languages">Lexers for C/C++ languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.c_cpp.CLexer"><code class="docutils literal notranslate"><span class="pre">CLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_cpp.CppLexer"><code class="docutils literal notranslate"><span class="pre">CppLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-other-c-like-languages">Lexers for other C-like languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.c_like.ArduinoLexer"><code class="docutils literal notranslate"><span class="pre">ArduinoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.CharmciLexer"><code class="docutils literal notranslate"><span class="pre">CharmciLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.ClayLexer"><code class="docutils literal notranslate"><span class="pre">ClayLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.CudaLexer"><code class="docutils literal notranslate"><span class="pre">CudaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.ECLexer"><code class="docutils literal notranslate"><span class="pre">ECLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.MqlLexer"><code class="docutils literal notranslate"><span class="pre">MqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.NesCLexer"><code class="docutils literal notranslate"><span class="pre">NesCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.OmgIdlLexer"><code class="docutils literal notranslate"><span class="pre">OmgIdlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.PikeLexer"><code class="docutils literal notranslate"><span class="pre">PikeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.SwigLexer"><code class="docutils literal notranslate"><span class="pre">SwigLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.c_like.ValaLexer"><code class="docutils literal notranslate"><span class="pre">ValaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-cap-n-proto-schema-language">Lexers for the Cap’n Proto schema language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.capnproto.CapnProtoLexer"><code class="docutils literal notranslate"><span class="pre">CapnProtoLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-concise-data-definition-language-cddl-a-notational">Lexer for the Concise data definition language (CDDL), a notational</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.cddl.CddlLexer"><code class="docutils literal notranslate"><span class="pre">CddlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-chapel-language">Lexer for the Chapel language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.chapel.ChapelLexer"><code class="docutils literal notranslate"><span class="pre">ChapelLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-clean-language">Lexer for the Clean language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.clean.CleanLexer"><code class="docutils literal notranslate"><span class="pre">CleanLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-comal-80">Lexer for COMAL-80</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.comal.Comal80Lexer"><code class="docutils literal notranslate"><span class="pre">Comal80Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-configuration-file-formats">Lexers for configuration file formats</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.configs.ApacheConfLexer"><code class="docutils literal notranslate"><span class="pre">ApacheConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.AugeasLexer"><code class="docutils literal notranslate"><span class="pre">AugeasLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.Cfengine3Lexer"><code class="docutils literal notranslate"><span class="pre">Cfengine3Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.DockerLexer"><code class="docutils literal notranslate"><span class="pre">DockerLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.IniLexer"><code class="docutils literal notranslate"><span class="pre">IniLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.KconfigLexer"><code class="docutils literal notranslate"><span class="pre">KconfigLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.LighttpdConfLexer"><code class="docutils literal notranslate"><span class="pre">LighttpdConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.NestedTextLexer"><code class="docutils literal notranslate"><span class="pre">NestedTextLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.NginxConfLexer"><code class="docutils literal notranslate"><span class="pre">NginxConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.PacmanConfLexer"><code class="docutils literal notranslate"><span class="pre">PacmanConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.PkgConfigLexer"><code class="docutils literal notranslate"><span class="pre">PkgConfigLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.PropertiesLexer"><code class="docutils literal notranslate"><span class="pre">PropertiesLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.RegeditLexer"><code class="docutils literal notranslate"><span class="pre">RegeditLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.SingularityLexer"><code class="docutils literal notranslate"><span class="pre">SingularityLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.SquidConfLexer"><code class="docutils literal notranslate"><span class="pre">SquidConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.TOMLLexer"><code class="docutils literal notranslate"><span class="pre">TOMLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.TermcapLexer"><code class="docutils literal notranslate"><span class="pre">TermcapLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.TerminfoLexer"><code class="docutils literal notranslate"><span class="pre">TerminfoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.TerraformLexer"><code class="docutils literal notranslate"><span class="pre">TerraformLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.UnixConfigLexer"><code class="docutils literal notranslate"><span class="pre">UnixConfigLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-misc-console-output">Lexers for misc console output</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.console.PyPyLogLexer"><code class="docutils literal notranslate"><span class="pre">PyPyLogLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.console.VCTreeStatusLexer"><code class="docutils literal notranslate"><span class="pre">VCTreeStatusLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-cplint-language">Lexer for the cplint language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.cplint.CplintLexer"><code class="docutils literal notranslate"><span class="pre">CplintLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-crystal">Lexer for Crystal</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.crystal.CrystalLexer"><code class="docutils literal notranslate"><span class="pre">CrystalLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-csound-languages">Lexers for Csound languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.csound.CsoundDocumentLexer"><code class="docutils literal notranslate"><span class="pre">CsoundDocumentLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.csound.CsoundOrchestraLexer"><code class="docutils literal notranslate"><span class="pre">CsoundOrchestraLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.csound.CsoundScoreLexer"><code class="docutils literal notranslate"><span class="pre">CsoundScoreLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-css-and-related-stylesheet-formats">Lexers for CSS and related stylesheet formats</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.css.CssLexer"><code class="docutils literal notranslate"><span class="pre">CssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.css.LessCssLexer"><code class="docutils literal notranslate"><span class="pre">LessCssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.css.SassLexer"><code class="docutils literal notranslate"><span class="pre">SassLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.css.ScssLexer"><code class="docutils literal notranslate"><span class="pre">ScssLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-d-languages">Lexers for D languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.d.CrocLexer"><code class="docutils literal notranslate"><span class="pre">CrocLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.d.DLexer"><code class="docutils literal notranslate"><span class="pre">DLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.d.MiniDLexer"><code class="docutils literal notranslate"><span class="pre">MiniDLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pygments-lexers-for-dalvik-vm-related-languages">Pygments lexers for Dalvik VM-related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.dalvik.SmaliLexer"><code class="docutils literal notranslate"><span class="pre">SmaliLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-data-file-format">Lexers for data file format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.data.JsonBareObjectLexer"><code class="docutils literal notranslate"><span class="pre">JsonBareObjectLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.data.JsonLdLexer"><code class="docutils literal notranslate"><span class="pre">JsonLdLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.data.JsonLexer"><code class="docutils literal notranslate"><span class="pre">JsonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.data.YamlLexer"><code class="docutils literal notranslate"><span class="pre">YamlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-devicetree-language">Lexers for Devicetree language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.devicetree.DevicetreeLexer"><code class="docutils literal notranslate"><span class="pre">DevicetreeLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-diff-patch-formats">Lexers for diff/patch formats</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.diff.DarcsPatchLexer"><code class="docutils literal notranslate"><span class="pre">DarcsPatchLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.diff.DiffLexer"><code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.diff.WDiffLexer"><code class="docutils literal notranslate"><span class="pre">WDiffLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-net-languages">Lexers for .net languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.BooLexer"><code class="docutils literal notranslate"><span class="pre">BooLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.CSharpAspxLexer"><code class="docutils literal notranslate"><span class="pre">CSharpAspxLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.CSharpLexer"><code class="docutils literal notranslate"><span class="pre">CSharpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.FSharpLexer"><code class="docutils literal notranslate"><span class="pre">FSharpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.NemerleLexer"><code class="docutils literal notranslate"><span class="pre">NemerleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.VbNetAspxLexer"><code class="docutils literal notranslate"><span class="pre">VbNetAspxLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dotnet.VbNetLexer"><code class="docutils literal notranslate"><span class="pre">VbNetLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-various-domain-specific-languages">Lexers for various domain-specific languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.dsls.AlloyLexer"><code class="docutils literal notranslate"><span class="pre">AlloyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.CrmshLexer"><code class="docutils literal notranslate"><span class="pre">CrmshLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.FlatlineLexer"><code class="docutils literal notranslate"><span class="pre">FlatlineLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.MscgenLexer"><code class="docutils literal notranslate"><span class="pre">MscgenLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.PanLexer"><code class="docutils literal notranslate"><span class="pre">PanLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.ProtoBufLexer"><code class="docutils literal notranslate"><span class="pre">ProtoBufLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.PuppetLexer"><code class="docutils literal notranslate"><span class="pre">PuppetLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.RslLexer"><code class="docutils literal notranslate"><span class="pre">RslLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.SnowballLexer"><code class="docutils literal notranslate"><span class="pre">SnowballLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.ThriftLexer"><code class="docutils literal notranslate"><span class="pre">ThriftLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.VGLLexer"><code class="docutils literal notranslate"><span class="pre">VGLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dsls.ZeekLexer"><code class="docutils literal notranslate"><span class="pre">ZeekLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-dylan-language">Lexers for the Dylan language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.dylan.DylanConsoleLexer"><code class="docutils literal notranslate"><span class="pre">DylanConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dylan.DylanLexer"><code class="docutils literal notranslate"><span class="pre">DylanLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.dylan.DylanLidLexer"><code class="docutils literal notranslate"><span class="pre">DylanLidLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-ecl-language">Lexers for the ECL language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ecl.ECLLexer"><code class="docutils literal notranslate"><span class="pre">ECLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-eiffel-language">Lexer for the Eiffel language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.eiffel.EiffelLexer"><code class="docutils literal notranslate"><span class="pre">EiffelLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-elm-programming-language">Lexer for the Elm programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.elm.ElmLexer"><code class="docutils literal notranslate"><span class="pre">ElmLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-elpi-programming-language">Lexer for the Elpi programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.elpi.ElpiLexer"><code class="docutils literal notranslate"><span class="pre">ElpiLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-raw-e-mail">Lexer for the raw E-mail</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.email.EmailLexer"><code class="docutils literal notranslate"><span class="pre">EmailLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-erlang">Lexers for Erlang</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.erlang.ElixirConsoleLexer"><code class="docutils literal notranslate"><span class="pre">ElixirConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.erlang.ElixirLexer"><code class="docutils literal notranslate"><span class="pre">ElixirLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.erlang.ErlangLexer"><code class="docutils literal notranslate"><span class="pre">ErlangLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.erlang.ErlangShellLexer"><code class="docutils literal notranslate"><span class="pre">ErlangShellLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-esoteric-languages">Lexers for esoteric languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.AheuiLexer"><code class="docutils literal notranslate"><span class="pre">AheuiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.BefungeLexer"><code class="docutils literal notranslate"><span class="pre">BefungeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.BrainfuckLexer"><code class="docutils literal notranslate"><span class="pre">BrainfuckLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.CAmkESLexer"><code class="docutils literal notranslate"><span class="pre">CAmkESLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.CapDLLexer"><code class="docutils literal notranslate"><span class="pre">CapDLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.esoteric.RedcodeLexer"><code class="docutils literal notranslate"><span class="pre">RedcodeLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pygments-lexers-for-ezhil-language">Pygments lexers for Ezhil language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ezhil.EzhilLexer"><code class="docutils literal notranslate"><span class="pre">EzhilLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-factor-language">Lexers for the Factor language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.factor.FactorLexer"><code class="docutils literal notranslate"><span class="pre">FactorLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-fantom-language">Lexer for the Fantom language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.fantom.FantomLexer"><code class="docutils literal notranslate"><span class="pre">FantomLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-felix-language">Lexer for the Felix language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.felix.FelixLexer"><code class="docutils literal notranslate"><span class="pre">FelixLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-floscript">Lexer for FloScript</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.floscript.FloScriptLexer"><code class="docutils literal notranslate"><span class="pre">FloScriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-forth-language">Lexer for the Forth language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.forth.ForthLexer"><code class="docutils literal notranslate"><span class="pre">ForthLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-fortran-languages">Lexers for Fortran languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.fortran.FortranFixedLexer"><code class="docutils literal notranslate"><span class="pre">FortranFixedLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.fortran.FortranLexer"><code class="docutils literal notranslate"><span class="pre">FortranLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simple-lexer-for-microsoft-visual-foxpro-source-code">Simple lexer for Microsoft Visual FoxPro source code</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.foxpro.FoxProLexer"><code class="docutils literal notranslate"><span class="pre">FoxProLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-freefem-language">Lexer for FreeFem++ language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.freefem.FreeFemLexer"><code class="docutils literal notranslate"><span class="pre">FreeFemLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-func">Lexers for FunC</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.func.FuncLexer"><code class="docutils literal notranslate"><span class="pre">FuncLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-futhark-language">Lexer for the Futhark language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.futhark.FutharkLexer"><code class="docutils literal notranslate"><span class="pre">FutharkLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-g-code-language">Lexers for the G Code Language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.gcodelexer.GcodeLexer"><code class="docutils literal notranslate"><span class="pre">GcodeLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-gdscript">Lexer for GDScript</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.gdscript.GDScriptLexer"><code class="docutils literal notranslate"><span class="pre">GDScriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-google-go-language">Lexers for the Google Go language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.go.GoLexer"><code class="docutils literal notranslate"><span class="pre">GoLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-grammar-notations-like-bnf">Lexers for grammar notations like BNF</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.grammar_notation.AbnfLexer"><code class="docutils literal notranslate"><span class="pre">AbnfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.grammar_notation.BnfLexer"><code class="docutils literal notranslate"><span class="pre">BnfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.grammar_notation.JsgfLexer"><code class="docutils literal notranslate"><span class="pre">JsgfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.grammar_notation.PegLexer"><code class="docutils literal notranslate"><span class="pre">PegLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-graph-query-languages">Lexers for graph query languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.graph.CypherLexer"><code class="docutils literal notranslate"><span class="pre">CypherLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-computer-graphics-and-plotting-related-languages">Lexers for computer graphics and plotting related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.graphics.AsymptoteLexer"><code class="docutils literal notranslate"><span class="pre">AsymptoteLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.graphics.GLShaderLexer"><code class="docutils literal notranslate"><span class="pre">GLShaderLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.graphics.GnuplotLexer"><code class="docutils literal notranslate"><span class="pre">GnuplotLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.graphics.HLSLShaderLexer"><code class="docutils literal notranslate"><span class="pre">HLSLShaderLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.graphics.PostScriptLexer"><code class="docutils literal notranslate"><span class="pre">PostScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.graphics.PovrayLexer"><code class="docutils literal notranslate"><span class="pre">PovrayLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-dot-language-graphviz">Lexer for the DOT language (graphviz)</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.graphviz.GraphvizLexer"><code class="docutils literal notranslate"><span class="pre">GraphvizLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-tigergraph-gsql-graph-query-language">Lexers for TigerGraph GSQL graph query language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.gsql.GSQLLexer"><code class="docutils literal notranslate"><span class="pre">GSQLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-haskell-and-related-languages">Lexers for Haskell and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.haskell.AgdaLexer"><code class="docutils literal notranslate"><span class="pre">AgdaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.CryptolLexer"><code class="docutils literal notranslate"><span class="pre">CryptolLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.HaskellLexer"><code class="docutils literal notranslate"><span class="pre">HaskellLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.HspecLexer"><code class="docutils literal notranslate"><span class="pre">HspecLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.IdrisLexer"><code class="docutils literal notranslate"><span class="pre">IdrisLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.KokaLexer"><code class="docutils literal notranslate"><span class="pre">KokaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.LiterateAgdaLexer"><code class="docutils literal notranslate"><span class="pre">LiterateAgdaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.LiterateCryptolLexer"><code class="docutils literal notranslate"><span class="pre">LiterateCryptolLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.LiterateHaskellLexer"><code class="docutils literal notranslate"><span class="pre">LiterateHaskellLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haskell.LiterateIdrisLexer"><code class="docutils literal notranslate"><span class="pre">LiterateIdrisLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-haxe-and-related-stuff">Lexers for Haxe and related stuff</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.haxe.HaxeLexer"><code class="docutils literal notranslate"><span class="pre">HaxeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.haxe.HxmlLexer"><code class="docutils literal notranslate"><span class="pre">HxmlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-hardware-descriptor-languages">Lexers for hardware descriptor languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.hdl.SystemVerilogLexer"><code class="docutils literal notranslate"><span class="pre">SystemVerilogLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.hdl.VerilogLexer"><code class="docutils literal notranslate"><span class="pre">VerilogLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.hdl.VhdlLexer"><code class="docutils literal notranslate"><span class="pre">VhdlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-hexadecimal-dumps">Lexers for hexadecimal dumps</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.hexdump.HexdumpLexer"><code class="docutils literal notranslate"><span class="pre">HexdumpLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-html-xml-and-related-markup">Lexers for HTML, XML and related markup</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.html.DtdLexer"><code class="docutils literal notranslate"><span class="pre">DtdLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.HamlLexer"><code class="docutils literal notranslate"><span class="pre">HamlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.HtmlLexer"><code class="docutils literal notranslate"><span class="pre">HtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.PugLexer"><code class="docutils literal notranslate"><span class="pre">PugLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.ScamlLexer"><code class="docutils literal notranslate"><span class="pre">ScamlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.XmlLexer"><code class="docutils literal notranslate"><span class="pre">XmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.html.XsltLexer"><code class="docutils literal notranslate"><span class="pre">XsltLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-idl">Lexers for IDL</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.idl.IDLLexer"><code class="docutils literal notranslate"><span class="pre">IDLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-igor-pro">Lexers for Igor Pro</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.igor.IgorLexer"><code class="docutils literal notranslate"><span class="pre">IgorLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-inferno-os-and-all-the-related-stuff">Lexers for Inferno os and all the related stuff</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.inferno.LimboLexer"><code class="docutils literal notranslate"><span class="pre">LimboLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-installer-packager-dsls-and-formats">Lexers for installer/packager DSLs and formats</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.installers.DebianControlLexer"><code class="docutils literal notranslate"><span class="pre">DebianControlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.installers.NSISLexer"><code class="docutils literal notranslate"><span class="pre">NSISLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.installers.RPMSpecLexer"><code class="docutils literal notranslate"><span class="pre">RPMSpecLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.installers.SourcesListLexer"><code class="docutils literal notranslate"><span class="pre">SourcesListLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-interactive-fiction-languages">Lexers for interactive fiction languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.int_fiction.Inform6Lexer"><code class="docutils literal notranslate"><span class="pre">Inform6Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.int_fiction.Inform6TemplateLexer"><code class="docutils literal notranslate"><span class="pre">Inform6TemplateLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.int_fiction.Inform7Lexer"><code class="docutils literal notranslate"><span class="pre">Inform7Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.int_fiction.Tads3Lexer"><code class="docutils literal notranslate"><span class="pre">Tads3Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-io-language">Lexers for the Io language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.iolang.IoLexer"><code class="docutils literal notranslate"><span class="pre">IoLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-j-programming-language">Lexer for the J programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.j.JLexer"><code class="docutils literal notranslate"><span class="pre">JLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-javascript-and-related-languages">Lexers for JavaScript and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.javascript.CoffeeScriptLexer"><code class="docutils literal notranslate"><span class="pre">CoffeeScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.DartLexer"><code class="docutils literal notranslate"><span class="pre">DartLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.EarlGreyLexer"><code class="docutils literal notranslate"><span class="pre">EarlGreyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.JavascriptLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.JuttleLexer"><code class="docutils literal notranslate"><span class="pre">JuttleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.KalLexer"><code class="docutils literal notranslate"><span class="pre">KalLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.LassoLexer"><code class="docutils literal notranslate"><span class="pre">LassoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.LiveScriptLexer"><code class="docutils literal notranslate"><span class="pre">LiveScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.MaskLexer"><code class="docutils literal notranslate"><span class="pre">MaskLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.NodeConsoleLexer"><code class="docutils literal notranslate"><span class="pre">NodeConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.ObjectiveJLexer"><code class="docutils literal notranslate"><span class="pre">ObjectiveJLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.javascript.TypeScriptLexer"><code class="docutils literal notranslate"><span class="pre">TypeScriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-jmespath-language">Lexers for the JMESPath language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.jmespath.JMESPathLexer"><code class="docutils literal notranslate"><span class="pre">JMESPathLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-jslt-language">Lexers for the JSLT language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.jslt.JSLTLexer"><code class="docutils literal notranslate"><span class="pre">JSLTLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-julia-language">Lexers for the Julia language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.julia.JuliaConsoleLexer"><code class="docutils literal notranslate"><span class="pre">JuliaConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.julia.JuliaLexer"><code class="docutils literal notranslate"><span class="pre">JuliaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pygments-lexers-for-jvm-languages">Pygments lexers for JVM languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.jvm.AspectJLexer"><code class="docutils literal notranslate"><span class="pre">AspectJLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.CeylonLexer"><code class="docutils literal notranslate"><span class="pre">CeylonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.ClojureLexer"><code class="docutils literal notranslate"><span class="pre">ClojureLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.ClojureScriptLexer"><code class="docutils literal notranslate"><span class="pre">ClojureScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.GoloLexer"><code class="docutils literal notranslate"><span class="pre">GoloLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.GosuLexer"><code class="docutils literal notranslate"><span class="pre">GosuLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.GosuTemplateLexer"><code class="docutils literal notranslate"><span class="pre">GosuTemplateLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.GroovyLexer"><code class="docutils literal notranslate"><span class="pre">GroovyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.IokeLexer"><code class="docutils literal notranslate"><span class="pre">IokeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.JasminLexer"><code class="docutils literal notranslate"><span class="pre">JasminLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.JavaLexer"><code class="docutils literal notranslate"><span class="pre">JavaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.KotlinLexer"><code class="docutils literal notranslate"><span class="pre">KotlinLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.PigLexer"><code class="docutils literal notranslate"><span class="pre">PigLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.SarlLexer"><code class="docutils literal notranslate"><span class="pre">SarlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.ScalaLexer"><code class="docutils literal notranslate"><span class="pre">ScalaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jvm.XtendLexer"><code class="docutils literal notranslate"><span class="pre">XtendLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-kuin-language">Lexers for the Kuin language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.kuin.KuinLexer"><code class="docutils literal notranslate"><span class="pre">KuinLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-lilypond">Lexer for LilyPond</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.lilypond.LilyPondLexer"><code class="docutils literal notranslate"><span class="pre">LilyPondLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-lispy-languages">Lexers for Lispy languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.lisp.CPSALexer"><code class="docutils literal notranslate"><span class="pre">CPSALexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.CommonLispLexer"><code class="docutils literal notranslate"><span class="pre">CommonLispLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.EmacsLispLexer"><code class="docutils literal notranslate"><span class="pre">EmacsLispLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.FennelLexer"><code class="docutils literal notranslate"><span class="pre">FennelLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.HyLexer"><code class="docutils literal notranslate"><span class="pre">HyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.NewLispLexer"><code class="docutils literal notranslate"><span class="pre">NewLispLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.RacketLexer"><code class="docutils literal notranslate"><span class="pre">RacketLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.SchemeLexer"><code class="docutils literal notranslate"><span class="pre">SchemeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.ShenLexer"><code class="docutils literal notranslate"><span class="pre">ShenLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.lisp.XtlangLexer"><code class="docutils literal notranslate"><span class="pre">XtlangLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.macaulay2.Macaulay2Lexer"><code class="docutils literal notranslate"><span class="pre">Macaulay2Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-makefiles-and-similar">Lexers for Makefiles and similar</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.make.BaseMakefileLexer"><code class="docutils literal notranslate"><span class="pre">BaseMakefileLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.make.CMakeLexer"><code class="docutils literal notranslate"><span class="pre">CMakeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.make.MakefileLexer"><code class="docutils literal notranslate"><span class="pre">MakefileLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-non-html-markup-languages">Lexers for non-HTML markup languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.markup.BBCodeLexer"><code class="docutils literal notranslate"><span class="pre">BBCodeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.GroffLexer"><code class="docutils literal notranslate"><span class="pre">GroffLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MarkdownLexer"><code class="docutils literal notranslate"><span class="pre">MarkdownLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MoinWikiLexer"><code class="docutils literal notranslate"><span class="pre">MoinWikiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MozPreprocCssLexer"><code class="docutils literal notranslate"><span class="pre">MozPreprocCssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MozPreprocHashLexer"><code class="docutils literal notranslate"><span class="pre">MozPreprocHashLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MozPreprocJavascriptLexer"><code class="docutils literal notranslate"><span class="pre">MozPreprocJavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MozPreprocPercentLexer"><code class="docutils literal notranslate"><span class="pre">MozPreprocPercentLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.MozPreprocXulLexer"><code class="docutils literal notranslate"><span class="pre">MozPreprocXulLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.RstLexer"><code class="docutils literal notranslate"><span class="pre">RstLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.TexLexer"><code class="docutils literal notranslate"><span class="pre">TexLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.TiddlyWiki5Lexer"><code class="docutils literal notranslate"><span class="pre">TiddlyWiki5Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.matlab.MatlabLexer"><code class="docutils literal notranslate"><span class="pre">MatlabLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.matlab.MatlabSessionLexer"><code class="docutils literal notranslate"><span class="pre">MatlabSessionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.matlab.OctaveLexer"><code class="docutils literal notranslate"><span class="pre">OctaveLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.matlab.ScilabLexer"><code class="docutils literal notranslate"><span class="pre">ScilabLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-computer-algebra-system-maxima">Lexer for the computer algebra system Maxima</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.maxima.MaximaLexer"><code class="docutils literal notranslate"><span class="pre">MaximaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-mcfunction-and-related-languages">Lexers for MCFunction and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.mcfunction.MCFunctionLexer"><code class="docutils literal notranslate"><span class="pre">MCFunctionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.mcfunction.SNBTLexer"><code class="docutils literal notranslate"><span class="pre">SNBTLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pygments-lexer-for-the-meson-build-system">Pygments lexer for the Meson build system</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.meson.MesonLexer"><code class="docutils literal notranslate"><span class="pre">MesonLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.mime.MIMELexer"><code class="docutils literal notranslate"><span class="pre">MIMELexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.mips.MIPSLexer"><code class="docutils literal notranslate"><span class="pre">MIPSLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ml-family-languages">Lexers for ML family languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ml.FStarLexer"><code class="docutils literal notranslate"><span class="pre">FStarLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ml.OcamlLexer"><code class="docutils literal notranslate"><span class="pre">OcamlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ml.OpaLexer"><code class="docutils literal notranslate"><span class="pre">OpaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ml.ReasonLexer"><code class="docutils literal notranslate"><span class="pre">ReasonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ml.SMLLexer"><code class="docutils literal notranslate"><span class="pre">SMLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-modeling-languages">Lexers for modeling languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.modeling.BugsLexer"><code class="docutils literal notranslate"><span class="pre">BugsLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.modeling.JagsLexer"><code class="docutils literal notranslate"><span class="pre">JagsLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.modeling.ModelicaLexer"><code class="docutils literal notranslate"><span class="pre">ModelicaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.modeling.StanLexer"><code class="docutils literal notranslate"><span class="pre">StanLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi-dialect-lexer-for-modula-2">Multi-Dialect Lexer for Modula-2</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.modula2.Modula2Lexer"><code class="docutils literal notranslate"><span class="pre">Modula2Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-monte-programming-language">Lexer for the Monte programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.monte.MonteLexer"><code class="docutils literal notranslate"><span class="pre">MonteLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-mosel-language">Lexers for the mosel language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.mosel.MoselLexer"><code class="docutils literal notranslate"><span class="pre">MoselLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ncar-command-language">Lexers for NCAR Command Language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ncl.NCLLexer"><code class="docutils literal notranslate"><span class="pre">NCLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-nim-language-formerly-known-as-nimrod">Lexer for the Nim language (formerly known as Nimrod)</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.nimrod.NimrodLexer"><code class="docutils literal notranslate"><span class="pre">NimrodLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-nit-language">Lexer for the Nit language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.nit.NitLexer"><code class="docutils literal notranslate"><span class="pre">NitLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-nixos-nix-language">Lexers for the NixOS Nix language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.nix.NixLexer"><code class="docutils literal notranslate"><span class="pre">NixLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-oberon-family-languages">Lexers for Oberon family languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.oberon.ComponentPascalLexer"><code class="docutils literal notranslate"><span class="pre">ComponentPascalLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-objective-c-family-languages">Lexers for Objective-C family languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.objective.LogosLexer"><code class="docutils literal notranslate"><span class="pre">LogosLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.objective.ObjectiveCLexer"><code class="docutils literal notranslate"><span class="pre">ObjectiveCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.objective.ObjectiveCppLexer"><code class="docutils literal notranslate"><span class="pre">ObjectiveCppLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.objective.SwiftLexer"><code class="docutils literal notranslate"><span class="pre">SwiftLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-ooc-language">Lexers for the Ooc language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ooc.OocLexer"><code class="docutils literal notranslate"><span class="pre">OocLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-parasail">Lexer for ParaSail</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.parasail.ParaSailLexer"><code class="docutils literal notranslate"><span class="pre">ParaSailLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-parser-generators">Lexers for parser generators</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrActionScriptLexer"><code class="docutils literal notranslate"><span class="pre">AntlrActionScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrCSharpLexer"><code class="docutils literal notranslate"><span class="pre">AntlrCSharpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrCppLexer"><code class="docutils literal notranslate"><span class="pre">AntlrCppLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrJavaLexer"><code class="docutils literal notranslate"><span class="pre">AntlrJavaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrLexer"><code class="docutils literal notranslate"><span class="pre">AntlrLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrObjectiveCLexer"><code class="docutils literal notranslate"><span class="pre">AntlrObjectiveCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrPerlLexer"><code class="docutils literal notranslate"><span class="pre">AntlrPerlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrPythonLexer"><code class="docutils literal notranslate"><span class="pre">AntlrPythonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.AntlrRubyLexer"><code class="docutils literal notranslate"><span class="pre">AntlrRubyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.EbnfLexer"><code class="docutils literal notranslate"><span class="pre">EbnfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelCLexer"><code class="docutils literal notranslate"><span class="pre">RagelCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelCppLexer"><code class="docutils literal notranslate"><span class="pre">RagelCppLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelDLexer"><code class="docutils literal notranslate"><span class="pre">RagelDLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelEmbeddedLexer"><code class="docutils literal notranslate"><span class="pre">RagelEmbeddedLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelJavaLexer"><code class="docutils literal notranslate"><span class="pre">RagelJavaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelLexer"><code class="docutils literal notranslate"><span class="pre">RagelLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelObjectiveCLexer"><code class="docutils literal notranslate"><span class="pre">RagelObjectiveCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.RagelRubyLexer"><code class="docutils literal notranslate"><span class="pre">RagelRubyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.parsers.TreetopLexer"><code class="docutils literal notranslate"><span class="pre">TreetopLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-pascal-family-languages">Lexers for Pascal family languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.pascal.DelphiLexer"><code class="docutils literal notranslate"><span class="pre">DelphiLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-pawn-languages">Lexers for the Pawn languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.pawn.PawnLexer"><code class="docutils literal notranslate"><span class="pre">PawnLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.pawn.SourcePawnLexer"><code class="docutils literal notranslate"><span class="pre">SourcePawnLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-perl-raku-and-related-languages">Lexers for Perl, Raku and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.perl.Perl6Lexer"><code class="docutils literal notranslate"><span class="pre">Perl6Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.perl.PerlLexer"><code class="docutils literal notranslate"><span class="pre">PerlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-phix">Lexers for Phix</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.phix.PhixLexer"><code class="docutils literal notranslate"><span class="pre">PhixLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-php-and-related-languages">Lexers for PHP and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.php.PhpLexer"><code class="docutils literal notranslate"><span class="pre">PhpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.php.PsyshConsoleLexer"><code class="docutils literal notranslate"><span class="pre">PsyshConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.php.ZephirLexer"><code class="docutils literal notranslate"><span class="pre">ZephirLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-pointless">Lexers for Pointless</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.pointless.PointlessLexer"><code class="docutils literal notranslate"><span class="pre">PointlessLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-pony-and-related-languages">Lexers for Pony and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.pony.PonyLexer"><code class="docutils literal notranslate"><span class="pre">PonyLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-praat">Lexer for Praat</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.praat.PraatLexer"><code class="docutils literal notranslate"><span class="pre">PraatLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-procfile-file-format">Lexer for Procfile file format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.procfile.ProcfileLexer"><code class="docutils literal notranslate"><span class="pre">ProcfileLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-prolog-and-prolog-like-languages">Lexers for Prolog and Prolog-like languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.prolog.LogtalkLexer"><code class="docutils literal notranslate"><span class="pre">LogtalkLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.prolog.PrologLexer"><code class="docutils literal notranslate"><span class="pre">PrologLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-prometheus-query-language">Lexer for Prometheus Query Language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.promql.PromQLLexer"><code class="docutils literal notranslate"><span class="pre">PromQLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-python-and-related-languages">Lexers for Python and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.python.CythonLexer"><code class="docutils literal notranslate"><span class="pre">CythonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.DgLexer"><code class="docutils literal notranslate"><span class="pre">DgLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.NumPyLexer"><code class="docutils literal notranslate"><span class="pre">NumPyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.Python2Lexer"><code class="docutils literal notranslate"><span class="pre">Python2Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.Python2TracebackLexer"><code class="docutils literal notranslate"><span class="pre">Python2TracebackLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.PythonConsoleLexer"><code class="docutils literal notranslate"><span class="pre">PythonConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.PythonLexer"><code class="docutils literal notranslate"><span class="pre">PythonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.python.PythonTracebackLexer"><code class="docutils literal notranslate"><span class="pre">PythonTracebackLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-q-programming-language">Lexer for the Q programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.q.KLexer"><code class="docutils literal notranslate"><span class="pre">KLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.q.QLexer"><code class="docutils literal notranslate"><span class="pre">QLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-qlik-scripting-language">Lexer for the qlik scripting language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.qlik.QlikLexer"><code class="docutils literal notranslate"><span class="pre">QlikLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-qvt-operational-language">Lexer for QVT Operational language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.qvt.QVToLexer"><code class="docutils literal notranslate"><span class="pre">QVToLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-r-s-languages">Lexers for the R/S languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.r.RConsoleLexer"><code class="docutils literal notranslate"><span class="pre">RConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.r.RdLexer"><code class="docutils literal notranslate"><span class="pre">RdLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.r.SLexer"><code class="docutils literal notranslate"><span class="pre">SLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-semantic-web-and-rdf-query-languages-and-markup">Lexers for semantic web and RDF query languages and markup</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.rdf.ShExCLexer"><code class="docutils literal notranslate"><span class="pre">ShExCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.rdf.SparqlLexer"><code class="docutils literal notranslate"><span class="pre">SparqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.rdf.TurtleLexer"><code class="docutils literal notranslate"><span class="pre">TurtleLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-rebol-and-related-languages">Lexers for the REBOL and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.rebol.RebolLexer"><code class="docutils literal notranslate"><span class="pre">RebolLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.rebol.RedLexer"><code class="docutils literal notranslate"><span class="pre">RedLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-resource-definition-files">Lexer for resource definition files</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.resource.ResourceLexer"><code class="docutils literal notranslate"><span class="pre">ResourceLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-ride-programming-language">Lexer for the Ride programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ride.RideLexer"><code class="docutils literal notranslate"><span class="pre">RideLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-rita-language">Lexers for RITA language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.rita.RitaLexer"><code class="docutils literal notranslate"><span class="pre">RitaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-relax-ng-compact-syntax">Lexer for Relax-NG Compact syntax</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.rnc.RNCCompactLexer"><code class="docutils literal notranslate"><span class="pre">RNCCompactLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-roboconf-dsl">Lexers for Roboconf DSL</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.roboconf.RoboconfGraphLexer"><code class="docutils literal notranslate"><span class="pre">RoboconfGraphLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.roboconf.RoboconfInstancesLexer"><code class="docutils literal notranslate"><span class="pre">RoboconfInstancesLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-robot-framework">Lexer for Robot Framework</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.robotframework.RobotFrameworkLexer"><code class="docutils literal notranslate"><span class="pre">RobotFrameworkLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-ruby-and-related-languages">Lexers for Ruby and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ruby.FancyLexer"><code class="docutils literal notranslate"><span class="pre">FancyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ruby.RubyConsoleLexer"><code class="docutils literal notranslate"><span class="pre">RubyConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ruby.RubyLexer"><code class="docutils literal notranslate"><span class="pre">RubyLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-rust-language">Lexers for the Rust language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.rust.RustLexer"><code class="docutils literal notranslate"><span class="pre">RustLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-sas">Lexer for SAS</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.sas.SASLexer"><code class="docutils literal notranslate"><span class="pre">SASLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-savi">Lexer for Savi</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.savi.SaviLexer"><code class="docutils literal notranslate"><span class="pre">SaviLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-scdoc-a-simple-man-page-generator">Lexer for scdoc, a simple man page generator</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.scdoc.ScdocLexer"><code class="docutils literal notranslate"><span class="pre">ScdocLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-scripting-and-embedded-languages">Lexer for scripting and embedded languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.scripting.AppleScriptLexer"><code class="docutils literal notranslate"><span class="pre">AppleScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.ChaiscriptLexer"><code class="docutils literal notranslate"><span class="pre">ChaiscriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.EasytrieveLexer"><code class="docutils literal notranslate"><span class="pre">EasytrieveLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.HybrisLexer"><code class="docutils literal notranslate"><span class="pre">HybrisLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.JclLexer"><code class="docutils literal notranslate"><span class="pre">JclLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.LSLLexer"><code class="docutils literal notranslate"><span class="pre">LSLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.LuaLexer"><code class="docutils literal notranslate"><span class="pre">LuaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.MOOCodeLexer"><code class="docutils literal notranslate"><span class="pre">MOOCodeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.MiniScriptLexer"><code class="docutils literal notranslate"><span class="pre">MiniScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.MoonScriptLexer"><code class="docutils literal notranslate"><span class="pre">MoonScriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.RexxLexer"><code class="docutils literal notranslate"><span class="pre">RexxLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-smart-game-format-sgf-file-format">Lexer for Smart Game Format (sgf) file format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.sgf.SmartGameFormatLexer"><code class="docutils literal notranslate"><span class="pre">SmartGameFormatLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-various-shells">Lexers for various shells</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.shell.BashLexer"><code class="docutils literal notranslate"><span class="pre">BashLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.BashSessionLexer"><code class="docutils literal notranslate"><span class="pre">BashSessionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.BatchLexer"><code class="docutils literal notranslate"><span class="pre">BatchLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.ExeclineLexer"><code class="docutils literal notranslate"><span class="pre">ExeclineLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.FishShellLexer"><code class="docutils literal notranslate"><span class="pre">FishShellLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.MSDOSSessionLexer"><code class="docutils literal notranslate"><span class="pre">MSDOSSessionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.PowerShellLexer"><code class="docutils literal notranslate"><span class="pre">PowerShellLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.PowerShellSessionLexer"><code class="docutils literal notranslate"><span class="pre">PowerShellSessionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.SlurmBashLexer"><code class="docutils literal notranslate"><span class="pre">SlurmBashLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.TcshLexer"><code class="docutils literal notranslate"><span class="pre">TcshLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.shell.TcshSessionLexer"><code class="docutils literal notranslate"><span class="pre">TcshSessionLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-sieve-file-format">Lexer for Sieve file format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.sieve.SieveLexer"><code class="docutils literal notranslate"><span class="pre">SieveLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-slash-programming">Lexer for the Slash programming</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.slash.SlashLexer"><code class="docutils literal notranslate"><span class="pre">SlashLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-smalltalk-and-related-languages">Lexers for Smalltalk and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.smalltalk.NewspeakLexer"><code class="docutils literal notranslate"><span class="pre">NewspeakLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.smalltalk.SmalltalkLexer"><code class="docutils literal notranslate"><span class="pre">SmalltalkLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-smithy-idl">Lexers for the Smithy IDL</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.smithy.SmithyLexer"><code class="docutils literal notranslate"><span class="pre">SmithyLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-smv-languages">Lexers for the SMV languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.smv.NuSMVLexer"><code class="docutils literal notranslate"><span class="pre">NuSMVLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-snobol-language">Lexers for the SNOBOL language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.snobol.SnobolLexer"><code class="docutils literal notranslate"><span class="pre">SnobolLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-solidity">Lexers for Solidity</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.solidity.SolidityLexer"><code class="docutils literal notranslate"><span class="pre">SolidityLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-sophia">Lexer for Sophia</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.sophia.SophiaLexer"><code class="docutils literal notranslate"><span class="pre">SophiaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#special-lexers">Special lexers</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.special.OutputLexer"><code class="docutils literal notranslate"><span class="pre">OutputLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.special.RawTokenLexer"><code class="docutils literal notranslate"><span class="pre">RawTokenLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.special.TextLexer"><code class="docutils literal notranslate"><span class="pre">TextLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-spice-programming-language">Lexers for the Spice programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.spice.SpiceLexer"><code class="docutils literal notranslate"><span class="pre">SpiceLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-various-sql-dialects-and-related-interactive-sessions">Lexers for various SQL dialects and related interactive sessions</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.sql.MySqlLexer"><code class="docutils literal notranslate"><span class="pre">MySqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.PlPgsqlLexer"><code class="docutils literal notranslate"><span class="pre">PlPgsqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.PostgresConsoleLexer"><code class="docutils literal notranslate"><span class="pre">PostgresConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.PostgresLexer"><code class="docutils literal notranslate"><span class="pre">PostgresLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.RqlLexer"><code class="docutils literal notranslate"><span class="pre">RqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.SqlLexer"><code class="docutils literal notranslate"><span class="pre">SqlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.SqliteConsoleLexer"><code class="docutils literal notranslate"><span class="pre">SqliteConsoleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.sql.TransactSqlLexer"><code class="docutils literal notranslate"><span class="pre">TransactSqlLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-srcinfo-files-used-by-arch-linux-packages">Lexers for .SRCINFO files used by Arch Linux Packages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.srcinfo.SrcinfoLexer"><code class="docutils literal notranslate"><span class="pre">SrcinfoLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-stata">Lexer for Stata</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.stata.StataLexer"><code class="docutils literal notranslate"><span class="pre">StataLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-supercollider">Lexer for SuperCollider</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.supercollider.SuperColliderLexer"><code class="docutils literal notranslate"><span class="pre">SuperColliderLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-uxntal">Lexer for Uxntal</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.tal.TalLexer"><code class="docutils literal notranslate"><span class="pre">TalLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-tcl-and-related-languages">Lexers for Tcl and related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.tcl.TclLexer"><code class="docutils literal notranslate"><span class="pre">TclLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-teal">Lexer for TEAL</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.teal.TealLexer"><code class="docutils literal notranslate"><span class="pre">TealLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-various-template-engines-markup">Lexers for various template engines’ markup</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.templates.Angular2HtmlLexer"><code class="docutils literal notranslate"><span class="pre">Angular2HtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.Angular2Lexer"><code class="docutils literal notranslate"><span class="pre">Angular2Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CheetahHtmlLexer"><code class="docutils literal notranslate"><span class="pre">CheetahHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CheetahJavascriptLexer"><code class="docutils literal notranslate"><span class="pre">CheetahJavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CheetahLexer"><code class="docutils literal notranslate"><span class="pre">CheetahLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CheetahXmlLexer"><code class="docutils literal notranslate"><span class="pre">CheetahXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.ColdfusionCFCLexer"><code class="docutils literal notranslate"><span class="pre">ColdfusionCFCLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.ColdfusionHtmlLexer"><code class="docutils literal notranslate"><span class="pre">ColdfusionHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.ColdfusionLexer"><code class="docutils literal notranslate"><span class="pre">ColdfusionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CssDjangoLexer"><code class="docutils literal notranslate"><span class="pre">CssDjangoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CssErbLexer"><code class="docutils literal notranslate"><span class="pre">CssErbLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CssGenshiLexer"><code class="docutils literal notranslate"><span class="pre">CssGenshiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CssPhpLexer"><code class="docutils literal notranslate"><span class="pre">CssPhpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.CssSmartyLexer"><code class="docutils literal notranslate"><span class="pre">CssSmartyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.DjangoLexer"><code class="docutils literal notranslate"><span class="pre">DjangoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.ErbLexer"><code class="docutils literal notranslate"><span class="pre">ErbLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.EvoqueHtmlLexer"><code class="docutils literal notranslate"><span class="pre">EvoqueHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.EvoqueLexer"><code class="docutils literal notranslate"><span class="pre">EvoqueLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.EvoqueXmlLexer"><code class="docutils literal notranslate"><span class="pre">EvoqueXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.GenshiLexer"><code class="docutils literal notranslate"><span class="pre">GenshiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.GenshiTextLexer"><code class="docutils literal notranslate"><span class="pre">GenshiTextLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HandlebarsHtmlLexer"><code class="docutils literal notranslate"><span class="pre">HandlebarsHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HandlebarsLexer"><code class="docutils literal notranslate"><span class="pre">HandlebarsLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HtmlDjangoLexer"><code class="docutils literal notranslate"><span class="pre">HtmlDjangoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HtmlGenshiLexer"><code class="docutils literal notranslate"><span class="pre">HtmlGenshiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HtmlPhpLexer"><code class="docutils literal notranslate"><span class="pre">HtmlPhpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.HtmlSmartyLexer"><code class="docutils literal notranslate"><span class="pre">HtmlSmartyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JavascriptDjangoLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptDjangoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JavascriptErbLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptErbLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JavascriptGenshiLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptGenshiLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JavascriptPhpLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptPhpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JavascriptSmartyLexer"><code class="docutils literal notranslate"><span class="pre">JavascriptSmartyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.JspLexer"><code class="docutils literal notranslate"><span class="pre">JspLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.LassoCssLexer"><code class="docutils literal notranslate"><span class="pre">LassoCssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.LassoHtmlLexer"><code class="docutils literal notranslate"><span class="pre">LassoHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.LassoJavascriptLexer"><code class="docutils literal notranslate"><span class="pre">LassoJavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.LassoXmlLexer"><code class="docutils literal notranslate"><span class="pre">LassoXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.LiquidLexer"><code class="docutils literal notranslate"><span class="pre">LiquidLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MakoCssLexer"><code class="docutils literal notranslate"><span class="pre">MakoCssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MakoHtmlLexer"><code class="docutils literal notranslate"><span class="pre">MakoHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MakoJavascriptLexer"><code class="docutils literal notranslate"><span class="pre">MakoJavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MakoLexer"><code class="docutils literal notranslate"><span class="pre">MakoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MakoXmlLexer"><code class="docutils literal notranslate"><span class="pre">MakoXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MasonLexer"><code class="docutils literal notranslate"><span class="pre">MasonLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MyghtyCssLexer"><code class="docutils literal notranslate"><span class="pre">MyghtyCssLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MyghtyHtmlLexer"><code class="docutils literal notranslate"><span class="pre">MyghtyHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MyghtyJavascriptLexer"><code class="docutils literal notranslate"><span class="pre">MyghtyJavascriptLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MyghtyLexer"><code class="docutils literal notranslate"><span class="pre">MyghtyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.MyghtyXmlLexer"><code class="docutils literal notranslate"><span class="pre">MyghtyXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.RhtmlLexer"><code class="docutils literal notranslate"><span class="pre">RhtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.SmartyLexer"><code class="docutils literal notranslate"><span class="pre">SmartyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.SqlJinjaLexer"><code class="docutils literal notranslate"><span class="pre">SqlJinjaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.SspLexer"><code class="docutils literal notranslate"><span class="pre">SspLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.TeaTemplateLexer"><code class="docutils literal notranslate"><span class="pre">TeaTemplateLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.TwigHtmlLexer"><code class="docutils literal notranslate"><span class="pre">TwigHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.TwigLexer"><code class="docutils literal notranslate"><span class="pre">TwigLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.VelocityHtmlLexer"><code class="docutils literal notranslate"><span class="pre">VelocityHtmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.VelocityLexer"><code class="docutils literal notranslate"><span class="pre">VelocityLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.VelocityXmlLexer"><code class="docutils literal notranslate"><span class="pre">VelocityXmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.XmlDjangoLexer"><code class="docutils literal notranslate"><span class="pre">XmlDjangoLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.XmlErbLexer"><code class="docutils literal notranslate"><span class="pre">XmlErbLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.XmlPhpLexer"><code class="docutils literal notranslate"><span class="pre">XmlPhpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.XmlSmartyLexer"><code class="docutils literal notranslate"><span class="pre">XmlSmartyLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.templates.YamlJinjaLexer"><code class="docutils literal notranslate"><span class="pre">YamlJinjaLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-tera-term-macro-files">Lexer for Tera Term macro files</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.teraterm.TeraTermLexer"><code class="docutils literal notranslate"><span class="pre">TeraTermLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-testing-languages">Lexers for testing languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.testing.GherkinLexer"><code class="docutils literal notranslate"><span class="pre">GherkinLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.testing.TAPLexer"><code class="docutils literal notranslate"><span class="pre">TAPLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-languages-related-to-text-processing">Lexers for languages related to text processing</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.textedit.AwkLexer"><code class="docutils literal notranslate"><span class="pre">AwkLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textedit.SedLexer"><code class="docutils literal notranslate"><span class="pre">SedLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textedit.VimLexer"><code class="docutils literal notranslate"><span class="pre">VimLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-various-text-formats">Lexers for various text formats</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.GettextLexer"><code class="docutils literal notranslate"><span class="pre">GettextLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.HttpLexer"><code class="docutils literal notranslate"><span class="pre">HttpLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.IrcLogsLexer"><code class="docutils literal notranslate"><span class="pre">IrcLogsLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.KernelLogLexer"><code class="docutils literal notranslate"><span class="pre">KernelLogLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.NotmuchLexer"><code class="docutils literal notranslate"><span class="pre">NotmuchLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.textfmts.TodotxtLexer"><code class="docutils literal notranslate"><span class="pre">TodotxtLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-theorem-proving-languages">Lexers for theorem-proving languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.theorem.CoqLexer"><code class="docutils literal notranslate"><span class="pre">CoqLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.theorem.IsabelleLexer"><code class="docutils literal notranslate"><span class="pre">IsabelleLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.theorem.LeanLexer"><code class="docutils literal notranslate"><span class="pre">LeanLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-thingsdb-language">Lexers for the ThingsDB language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.thingsdb.ThingsDBLexer"><code class="docutils literal notranslate"><span class="pre">ThingsDBLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-typographic-number-theory">Lexer for Typographic Number Theory</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.tnt.TNTLexer"><code class="docutils literal notranslate"><span class="pre">TNTLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-riverbed-s-trafficscript-rts-language">Lexer for RiverBed’s TrafficScript (RTS) language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.trafficscript.RtsLexer"><code class="docutils literal notranslate"><span class="pre">RtsLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-typoscript">Lexers for TypoScript</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.typoscript.TypoScriptCssDataLexer"><code class="docutils literal notranslate"><span class="pre">TypoScriptCssDataLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.typoscript.TypoScriptHtmlDataLexer"><code class="docutils literal notranslate"><span class="pre">TypoScriptHtmlDataLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.typoscript.TypoScriptLexer"><code class="docutils literal notranslate"><span class="pre">TypoScriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-ul4-templating-language">Lexer for the UL4 templating language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.ul4.CSSUL4Lexer"><code class="docutils literal notranslate"><span class="pre">CSSUL4Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ul4.HTMLUL4Lexer"><code class="docutils literal notranslate"><span class="pre">HTMLUL4Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ul4.JavascriptUL4Lexer"><code class="docutils literal notranslate"><span class="pre">JavascriptUL4Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ul4.PythonUL4Lexer"><code class="docutils literal notranslate"><span class="pre">PythonUL4Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ul4.UL4Lexer"><code class="docutils literal notranslate"><span class="pre">UL4Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.ul4.XMLUL4Lexer"><code class="docutils literal notranslate"><span class="pre">XMLUL4Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-icon-and-unicon-languages-including-ucode-vm">Lexers for the Icon and Unicon languages, including ucode VM</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.unicon.IconLexer"><code class="docutils literal notranslate"><span class="pre">IconLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.unicon.UcodeLexer"><code class="docutils literal notranslate"><span class="pre">UcodeLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.unicon.UniconLexer"><code class="docutils literal notranslate"><span class="pre">UniconLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-urbiscript-language">Lexers for UrbiScript language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.urbi.UrbiscriptLexer"><code class="docutils literal notranslate"><span class="pre">UrbiscriptLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-module-that-parses-pixar-s-universal-scene-description-file-format">The module that parses Pixar’s Universal Scene Description file format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.usd.UsdLexer"><code class="docutils literal notranslate"><span class="pre">UsdLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-varnish-configuration">Lexers for Varnish configuration</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.varnish.VCLLexer"><code class="docutils literal notranslate"><span class="pre">VCLLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.varnish.VCLSnippetLexer"><code class="docutils literal notranslate"><span class="pre">VCLSnippetLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-intermediate-verification-languages-ivls">Lexer for Intermediate Verification Languages (IVLs)</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.verification.BoogieLexer"><code class="docutils literal notranslate"><span class="pre">BoogieLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.verification.SilverLexer"><code class="docutils literal notranslate"><span class="pre">SilverLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-webassembly-text-format">Lexers for the WebAssembly text format</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.webassembly.WatLexer"><code class="docutils literal notranslate"><span class="pre">WatLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-web-idl-including-some-extensions">Lexers for Web IDL, including some extensions</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.webidl.WebIDLLexer"><code class="docutils literal notranslate"><span class="pre">WebIDLLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-misc-web-stuff">Lexers for misc. web stuff</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.webmisc.CirruLexer"><code class="docutils literal notranslate"><span class="pre">CirruLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.webmisc.DuelLexer"><code class="docutils literal notranslate"><span class="pre">DuelLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.webmisc.QmlLexer"><code class="docutils literal notranslate"><span class="pre">QmlLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.webmisc.SlimLexer"><code class="docutils literal notranslate"><span class="pre">SlimLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.webmisc.XQueryLexer"><code class="docutils literal notranslate"><span class="pre">XQueryLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-whiley-language">Lexers for the Whiley language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.whiley.WhileyLexer"><code class="docutils literal notranslate"><span class="pre">WhileyLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-world-of-warcraft-toc-files">Lexer for World of Warcraft TOC files</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.wowtoc.WoWTocLexer"><code class="docutils literal notranslate"><span class="pre">WoWTocLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-the-x10-programming-language">Lexers for the X10 programming language</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.x10.X10Lexer"><code class="docutils literal notranslate"><span class="pre">X10Lexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-xorg-configs">Lexers for Xorg configs</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.xorg.XorgLexer"><code class="docutils literal notranslate"><span class="pre">XorgLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-the-yang-1-1-modeling-language-see-rfc-7950">Lexer for the YANG 1.1 modeling language. See <strong>RFC 7950</strong></a><ul>
+<li><a class="reference internal" href="#pygments.lexers.yang.YangLexer"><code class="docutils literal notranslate"><span class="pre">YangLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-zig">Lexers for Zig</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.zig.ZigLexer"><code class="docutils literal notranslate"><span class="pre">ZigLexer</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#iterating-over-all-lexers">Iterating over all lexers</a></li>
 </ul>
 </li>
@@ -12150,7 +13056,7 @@ in the form <code class="docutils literal notranslate"><span class="pre">(name,<
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.1.1. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.2.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
