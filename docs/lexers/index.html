@@ -616,6 +616,9 @@
 <li><a class="reference internal" href="#pygments.lexers.lisp.SchemeLexer"><code class="docutils literal notranslate"><span class="pre">SchemeLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.lisp.ShenLexer"><code class="docutils literal notranslate"><span class="pre">ShenLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.lisp.XtlangLexer"><code class="docutils literal notranslate"><span class="pre">XtlangLexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexer-for-macaulay2">Lexer for Macaulay2</a><ul>
 <li><a class="reference internal" href="#pygments.lexers.macaulay2.Macaulay2Lexer"><code class="docutils literal notranslate"><span class="pre">Macaulay2Lexer</span></code></a></li>
 </ul>
 </li>
@@ -1698,7 +1701,8 @@ and <a class="reference external" href="https://arturo-lang.io/">Arturo’s Webs
 <dd class="field-odd"><p>application/pgp-keys, application/pgp-encrypted, application/pgp-signature</p>
 </dd>
 </dl>
-<p>Lexer for ASCII armored files, containing <cite>—–BEGIN/END …—–</cite> wrapped base64 data.</p>
+<p>Lexer for ASCII armored files, containing <cite>—–BEGIN/END …—–</cite> wrapped
+base64 data.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.10.</span></p>
 </div>
@@ -2200,8 +2204,8 @@ source code.</p>
 <dd class="field-odd"><p>text/x-bdd</p>
 </dd>
 </dl>
-<p>Lexer for BDD(Behavior-driven development), which highlights not only keywords, 
-but also comments, punctuations, strings, numbers, and variables.</p>
+<p>Lexer for BDD(Behavior-driven development), which highlights not only
+keywords, but also comments, punctuations, strings, numbers, and variables.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.11.</span></p>
 </div>
@@ -3312,8 +3316,8 @@ status” or “svn status”.</p>
 <dd class="field-odd"><p>text/x-cplint</p>
 </dd>
 </dl>
-<p>Lexer for cplint files, including CP-logic, Logic Programs with Annotated Disjunctions, 
-Distributional Clauses syntax, ProbLog, DTProbLog</p>
+<p>Lexer for cplint files, including CP-logic, Logic Programs with Annotated
+Disjunctions, Distributional Clauses syntax, ProbLog, DTProbLog.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.12.</span></p>
 </div>
@@ -4312,6 +4316,9 @@ method.</p>
 </dd>
 </dl>
 <p>Lexer for the Elpi programming language.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.11.</span></p>
+</div>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.email"></span></section>
@@ -5219,8 +5226,10 @@ string (e.g., <cite>r”…”</cite> or <cite>“…”ilmsuxa</cite>).</p></li
 <dd class="field-odd"><p>None</p>
 </dd>
 </dl>
-<p>For GSQL queries (version 3.x).
-.. versionadded:: 2.10</p>
+<p>For GSQL queries (version 3.x).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.10.</span></p>
+</div>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.haskell"></span></section>
@@ -6725,7 +6734,7 @@ prototype based programming language) source.</p>
 <dd class="field-odd"><p>None</p>
 </dd>
 </dl>
-<p>For Kuin source code</p>
+<p>For Kuin source code.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.9.</span></p>
 </div>
@@ -6971,7 +6980,10 @@ taken from the Extempore Emacs mode
 </div>
 </dd></dl>
 
-<span class="target" id="module-pygments.lexers.macaulay2"></span><dl class="py class">
+<span class="target" id="module-pygments.lexers.macaulay2"></span></section>
+<section id="lexer-for-macaulay2">
+<h2>Lexer for Macaulay2<a class="headerlink" href="#lexer-for-macaulay2" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexers.macaulay2.Macaulay2Lexer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.macaulay2.</span></span><span class="sig-name descname"><span class="pre">Macaulay2Lexer</span></span><a class="headerlink" href="#pygments.lexers.macaulay2.Macaulay2Lexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -7455,7 +7467,7 @@ Modelled somewhat after the <a class="reference external" href="https://github.c
 </dl>
 <p>Lexer for stringified NBT, a data format used in Minecraft</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.12.0.</span></p>
+<p><span class="versionmodified added">New in version 2.12.</span></p>
 </div>
 </dd></dl>
 
@@ -9468,11 +9480,9 @@ source code.</p>
 </dd>
 </dl>
 <p>Lexer for RITA.</p>
-<blockquote>
-<div><div class="versionadded">
+<div class="versionadded">
 <p><span class="versionmodified added">New in version 2.11.</span></p>
 </div>
-</div></blockquote>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.rnc"></span></section>
@@ -10241,6 +10251,9 @@ prompt, interspersed with output.</p>
 </dd>
 </dl>
 <p>Lexer for sieve format.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.6.</span></p>
+</div>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.slash"></span></section>
@@ -13056,7 +13069,7 @@ highlight xquery code.</p>
 </dl>
 <p>For the X10 language.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.1.</span></p>
+<p><span class="versionmodified added">New in version 2.2.</span></p>
 </div>
 </dd></dl>
 
@@ -13077,7 +13090,7 @@ highlight xquery code.</p>
 <dd class="field-odd"><p>None</p>
 </dd>
 </dl>
-<p>Lexer for xorg.conf file.</p>
+<p>Lexer for xorg.conf files.</p>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.yang"></span></section>
@@ -13120,6 +13133,7 @@ highlight xquery code.</p>
 <dd class="field-odd"><p>text/zig</p>
 </dd>
 </dl>
+<p>Lexer for the Zig language.</p>
 <p>grammar: <a class="reference external" href="https://ziglang.org/documentation/master/#Grammar">https://ziglang.org/documentation/master/#Grammar</a></p>
 </dd></dl>
 
