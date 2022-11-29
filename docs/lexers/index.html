@@ -654,17 +654,18 @@
 <li><a class="reference internal" href="#pygments.lexers.maxima.MaximaLexer"><code class="docutils literal notranslate"><span class="pre">MaximaLexer</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lexers-for-mcfunction-and-related-languages">Lexers for MCFunction and related languages</a><ul>
-<li><a class="reference internal" href="#pygments.lexers.mcfunction.MCFunctionLexer"><code class="docutils literal notranslate"><span class="pre">MCFunctionLexer</span></code></a></li>
-<li><a class="reference internal" href="#pygments.lexers.mcfunction.SNBTLexer"><code class="docutils literal notranslate"><span class="pre">SNBTLexer</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#pygments-lexer-for-the-meson-build-system">Pygments lexer for the Meson build system</a><ul>
 <li><a class="reference internal" href="#pygments.lexers.meson.MesonLexer"><code class="docutils literal notranslate"><span class="pre">MesonLexer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lexer-for-multipurpose-internet-mail-extensions-mime-data">Lexer for Multipurpose Internet Mail Extensions (MIME) data</a><ul>
 <li><a class="reference internal" href="#pygments.lexers.mime.MIMELexer"><code class="docutils literal notranslate"><span class="pre">MIMELexer</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lexers-for-minecraft-related-languages">Lexers for Minecraft related languages</a><ul>
+<li><a class="reference internal" href="#pygments.lexers.minecraft.MCFunctionLexer"><code class="docutils literal notranslate"><span class="pre">MCFunctionLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.minecraft.MCSchemaLexer"><code class="docutils literal notranslate"><span class="pre">MCSchemaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.minecraft.SNBTLexer"><code class="docutils literal notranslate"><span class="pre">SNBTLexer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lexers-for-mips-assembly">Lexers for MIPS assembly</a><ul>
@@ -7427,50 +7428,6 @@ Derived from pygments.lexers.MuPADLexer.</p>
 </div>
 </dd></dl>
 
-<span class="target" id="module-pygments.lexers.mcfunction"></span></section>
-<section id="lexers-for-mcfunction-and-related-languages">
-<h2>Lexers for MCFunction and related languages<a class="headerlink" href="#lexers-for-mcfunction-and-related-languages" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pygments.lexers.mcfunction.MCFunctionLexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.mcfunction.</span></span><span class="sig-name descname"><span class="pre">MCFunctionLexer</span></span><a class="headerlink" href="#pygments.lexers.mcfunction.MCFunctionLexer" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Short names<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mcfunction, mcf</p>
-</dd>
-<dt class="field-even">Filenames<span class="colon">:</span></dt>
-<dd class="field-even"><p>*.mcfunction</p>
-</dd>
-<dt class="field-odd">MIME types<span class="colon">:</span></dt>
-<dd class="field-odd"><p>text/mcfunction</p>
-</dd>
-</dl>
-<p>Lexer for the mcfunction scripting language used in Minecraft
-Modelled somewhat after the <a class="reference external" href="https://github.com/Arcensoth/language-mcfunction">GitHub mcfunction grammar</a>.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 2.12.0.</span></p>
-</div>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pygments.lexers.mcfunction.SNBTLexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.mcfunction.</span></span><span class="sig-name descname"><span class="pre">SNBTLexer</span></span><a class="headerlink" href="#pygments.lexers.mcfunction.SNBTLexer" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Short names<span class="colon">:</span></dt>
-<dd class="field-odd"><p>snbt</p>
-</dd>
-<dt class="field-even">Filenames<span class="colon">:</span></dt>
-<dd class="field-even"><p>*.snbt</p>
-</dd>
-<dt class="field-odd">MIME types<span class="colon">:</span></dt>
-<dd class="field-odd"><p>text/snbt</p>
-</dd>
-</dl>
-<p>Lexer for stringified NBT, a data format used in Minecraft</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 2.12.</span></p>
-</div>
-</dd></dl>
-
 <span class="target" id="module-pygments.lexers.meson"></span></section>
 <section id="pygments-lexer-for-the-meson-build-system">
 <h2>Pygments lexer for the Meson build system<a class="headerlink" href="#pygments-lexer-for-the-meson-build-system" title="Permalink to this heading">¶</a></h2>
@@ -7539,6 +7496,70 @@ from header by default. (default: None)</p>
 </dl>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.5.</span></p>
+</div>
+</dd></dl>
+
+<span class="target" id="module-pygments.lexers.minecraft"></span></section>
+<section id="lexers-for-minecraft-related-languages">
+<h2>Lexers for Minecraft related languages<a class="headerlink" href="#lexers-for-minecraft-related-languages" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.minecraft.MCFunctionLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.minecraft.</span></span><span class="sig-name descname"><span class="pre">MCFunctionLexer</span></span><a class="headerlink" href="#pygments.lexers.minecraft.MCFunctionLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mcfunction, mcf</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.mcfunction</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text/mcfunction</p>
+</dd>
+</dl>
+<p>Lexer for the mcfunction scripting language used in Minecraft
+Modelled somewhat after the <a class="reference external" href="https://github.com/Arcensoth/language-mcfunction">GitHub mcfunction grammar</a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.12.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.minecraft.MCSchemaLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.minecraft.</span></span><span class="sig-name descname"><span class="pre">MCSchemaLexer</span></span><a class="headerlink" href="#pygments.lexers.minecraft.MCSchemaLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mcschema</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.mcschema</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text/mcschema</p>
+</dd>
+</dl>
+<p>Lexer for Minecraft Add-ons data Schemas, an interface structure standard used in Minecraft</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.14.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.minecraft.SNBTLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.minecraft.</span></span><span class="sig-name descname"><span class="pre">SNBTLexer</span></span><a class="headerlink" href="#pygments.lexers.minecraft.SNBTLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>snbt</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.snbt</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text/snbt</p>
+</dd>
+</dl>
+<p>Lexer for stringified NBT, a data format used in Minecraft</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.12.0.</span></p>
 </div>
 </dd></dl>
 
