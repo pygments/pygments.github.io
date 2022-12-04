@@ -222,11 +222,11 @@ the lexer from a file relative to your current directory.</p>
 </div>
 <p>Then you can load and test the lexer from the command line with the additional
 flag <code class="docutils literal notranslate"><span class="pre">-x</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -x -l your_lexer_file.py &lt;inputfile&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-x<span class="w"> </span>-l<span class="w"> </span>your_lexer_file.py<span class="w"> </span>&lt;inputfile&gt;<span class="w"></span>
 </pre></div>
 </div>
 <p>To specify a class name other than CustomLexer, append it with a colon:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -x -l your_lexer.py:SomeLexer &lt;inputfile&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-x<span class="w"> </span>-l<span class="w"> </span>your_lexer.py:SomeLexer<span class="w"> </span>&lt;inputfile&gt;<span class="w"></span>
 </pre></div>
 </div>
 <p>Or, using the Python API:</p>
@@ -245,7 +245,7 @@ instantiate the lexer yourself, then pass it to <a class="reference internal" hr
 escape sequences. The <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.formatters.html.HtmlFormatter</span></code> helps
 you with debugging your lexer. You can use the <code class="docutils literal notranslate"><span class="pre">debug_token_types</span></code> option
 to display the token types assigned to each part of your input file:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -x -f html -Ofull,debug_token_types -l your_lexer.py:SomeLexer &lt;inputfile&gt;
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-x<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-Ofull,debug_token_types<span class="w"> </span>-l<span class="w"> </span>your_lexer.py:SomeLexer<span class="w"> </span>&lt;inputfile&gt;<span class="w"></span>
 </pre></div>
 </div>
 <p>Hover over each token to see the token type displayed as a tooltip.</p>
@@ -255,7 +255,7 @@ have to perform the following steps.</p>
 <p>First, change to the current directory containing the Pygments source code.  You
 will need to have either an unpacked source tarball, or (preferably) a copy
 cloned from GitHub.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> pygments
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>pygments<span class="w"></span>
 </pre></div>
 </div>
 <p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new module for
@@ -275,7 +275,7 @@ the <code class="docutils literal notranslate"><span class="pre">pygments.lexers
 is the only class in the module).</p>
 <p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.
 In the root directory of the source (where the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> is located), run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make mapfiles
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>mapfiles<span class="w"></span>
 </pre></div>
 </div>
 <p>To test the new lexer, store an example file in
@@ -285,7 +285,7 @@ sample diff output.  To (re)generate the lexer output which the file is checked
 against, use the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/examplefiles/diff</span> <span class="pre">--update-goldens</span></code>.</p>
 <p>Now you can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygments</span></code> from the current root of the checkout to
 render your example to HTML:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pygments -O full -f html -o /tmp/example.html tests/examplefiles/diff/example.diff
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-O<span class="w"> </span>full<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>/tmp/example.html<span class="w"> </span>tests/examplefiles/diff/example.diff<span class="w"></span>
 </pre></div>
 </div>
 <p>Note that this explicitly calls the <code class="docutils literal notranslate"><span class="pre">pygments</span></code> module in the current
@@ -294,7 +294,7 @@ already installed, unmodified version without your new lexer would have been
 called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
 <p>To view the result, open <code class="docutils literal notranslate"><span class="pre">/tmp/example.html</span></code> in your browser.</p>
 <p>Once the example renders as expected, you should run the complete test suite:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make <span class="nb">test</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span><span class="nb">test</span><span class="w"></span>
 </pre></div>
 </div>
 <p>It also tests that your lexer fulfills the lexer API and certain invariants,
