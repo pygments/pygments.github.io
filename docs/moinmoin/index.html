@@ -126,10 +126,10 @@ Edit the options at the top of the file (currently <code class="docutils literal
 <code class="docutils literal notranslate"><span class="pre">INLINESTYLES</span></code>) and rename the file to the name that the parser directive
 should have. For example, if you name the file <code class="docutils literal notranslate"><span class="pre">code.py</span></code>, you can get a
 highlighted Python code sample with this Wiki markup:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{{{</span>
-<span class="c1">#!code python</span>
-<span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="p">}}}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{{{</span><span class="w"></span>
+<span class="c1">#!code python</span><span class="w"></span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="w"></span>
+<span class="p">}}}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">python</span></code> is the Pygments name of the lexer to use.</p>
@@ -140,7 +140,7 @@ registered.</p>
 classes to colors. You can output a stylesheet file with <cite>pygmentize</cite>, put it
 into the <cite>htdocs</cite> directory of your Moin instance and then include it in the
 <cite>stylesheets</cite> configuration option in the Moin config, e.g.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stylesheets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span> <span class="s1">&#39;/htdocs/pygments.css&#39;</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stylesheets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span> <span class="s1">&#39;/htdocs/pygments.css&#39;</span><span class="p">)]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If you do not want to do that and are willing to accept larger HTML output, you

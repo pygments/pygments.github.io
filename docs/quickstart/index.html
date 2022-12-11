@@ -155,12 +155,12 @@ different token types. It maps them to attributes like “red and bold”.</p></
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
 <p>Here is a small example for highlighting Python code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
-<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span><span class="w"></span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span><span class="w"></span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span><span class="w"></span>
 
-<span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print &quot;Hello World&quot;&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">HtmlFormatter</span><span class="p">()))</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print &quot;Hello World&quot;&#39;</span><span class="w"></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">HtmlFormatter</span><span class="p">()))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>which prints something like this:</p>
@@ -173,7 +173,7 @@ different token types. It maps them to attributes like “red and bold”.</p></
 instead of inline styles in order to avoid outputting redundant style information over
 and over. A CSS stylesheet that contains all CSS classes possibly used in the output
 can be produced by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">()</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">(</span><span class="s1">&#39;.highlight&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">()</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">(</span><span class="s1">&#39;.highlight&#39;</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">get_style_defs()</span></code> is used as an additional CSS selector:
@@ -191,13 +191,13 @@ must be a file object if given. The formatted output will then be written to
 this file instead of being returned as a string.</p>
 <p>Lexers and formatters both support options. They are given to them as keyword
 arguments either to the class or to the lookup method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
-<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
-<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span><span class="w"></span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span><span class="w"></span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span><span class="w"></span>
 
-<span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cssclass</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
+<span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w"></span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cssclass</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This makes the lexer strip all leading and trailing whitespace from the input
@@ -220,16 +220,16 @@ encoding will be used to convert to or from byte strings.</p>
 <h2>Lexer and formatter lookup<a class="headerlink" href="#lexer-and-formatter-lookup" title="Permalink to this heading">¶</a></h2>
 <p>If you want to lookup a built-in lexer by its alias or a filename, you can use
 one of the following methods:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_lexer_by_name</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">get_lexer_for_filename</span><span class="p">,</span> <span class="n">get_lexer_for_mimetype</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_lexer_by_name</span><span class="p">,</span><span class="w"></span>
+<span class="gp">... </span>    <span class="n">get_lexer_for_filename</span><span class="p">,</span> <span class="n">get_lexer_for_mimetype</span><span class="p">)</span><span class="w"></span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">&lt;pygments.lexers.PythonLexer&gt;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_for_filename</span><span class="p">(</span><span class="s1">&#39;spam.rb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_for_filename</span><span class="p">(</span><span class="s1">&#39;spam.rb&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">&lt;pygments.lexers.RubyLexer&gt;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_for_mimetype</span><span class="p">(</span><span class="s1">&#39;text/x-perl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_lexer_for_mimetype</span><span class="p">(</span><span class="s1">&#39;text/x-perl&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">&lt;pygments.lexers.PerlLexer&gt;</span>
 </pre></div>
 </div>
@@ -244,12 +244,12 @@ module for this purpose.</p>
 <p>If you don’t know the content of the file, or you want to highlight a file
 whose extension is ambiguous, such as <code class="docutils literal notranslate"><span class="pre">.html</span></code> (which could contain plain HTML
 or some template tags), use these functions:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">guess_lexer</span><span class="p">,</span> <span class="n">guess_lexer_for_filename</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">guess_lexer</span><span class="p">,</span> <span class="n">guess_lexer_for_filename</span><span class="w"></span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">guess_lexer</span><span class="p">(</span><span class="s1">&#39;#!/usr/bin/python</span><span class="se">\n</span><span class="s1">print &quot;Hello World!&quot;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">guess_lexer</span><span class="p">(</span><span class="s1">&#39;#!/usr/bin/python</span><span class="se">\n</span><span class="s1">print &quot;Hello World!&quot;&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">&lt;pygments.lexers.PythonLexer&gt;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">guess_lexer_for_filename</span><span class="p">(</span><span class="s1">&#39;test.py&#39;</span><span class="p">,</span> <span class="s1">&#39;print &quot;Hello World!&quot;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">guess_lexer_for_filename</span><span class="p">(</span><span class="s1">&#39;test.py&#39;</span><span class="p">,</span> <span class="s1">&#39;print &quot;Hello World!&quot;&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">&lt;pygments.lexers.PythonLexer&gt;</span>
 </pre></div>
 </div>

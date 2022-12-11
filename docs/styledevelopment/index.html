@@ -128,22 +128,22 @@
 <span id="id1"></span><h1>Creating Own Styles<a class="headerlink" href="#creating-own-styles" title="Permalink to this heading">¶</a></h1>
 <p>So, how to create a style? All you have to do is to subclass <cite>Style</cite> and
 define some styles:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span><span class="w"></span>
 <span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> \
-     <span class="n">Error</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Number</span><span class="p">,</span> <span class="n">Operator</span>
+     <span class="n">Error</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Number</span><span class="p">,</span> <span class="n">Operator</span><span class="w"></span>
 
 
-<span class="k">class</span> <span class="nc">YourStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">YourStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span><span class="w"></span>
 
-    <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">Token</span><span class="p">:</span>                  <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">Comment</span><span class="p">:</span>                <span class="s1">&#39;italic #888&#39;</span><span class="p">,</span>
-        <span class="n">Keyword</span><span class="p">:</span>                <span class="s1">&#39;bold #005&#39;</span><span class="p">,</span>
-        <span class="n">Name</span><span class="p">:</span>                   <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>             <span class="s1">&#39;bold #0f0&#39;</span><span class="p">,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>          <span class="s1">&#39;#0f0&#39;</span><span class="p">,</span>
-        <span class="n">String</span><span class="p">:</span>                 <span class="s1">&#39;bg:#eee #111&#39;</span>
-    <span class="p">}</span>
+    <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span><span class="w"></span>
+        <span class="n">Token</span><span class="p">:</span>                  <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">Comment</span><span class="p">:</span>                <span class="s1">&#39;italic #888&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">Keyword</span><span class="p">:</span>                <span class="s1">&#39;bold #005&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">Name</span><span class="p">:</span>                   <span class="s1">&#39;#f00&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>             <span class="s1">&#39;bold #0f0&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>          <span class="s1">&#39;#0f0&#39;</span><span class="p">,</span><span class="w"></span>
+        <span class="n">String</span><span class="p">:</span>                 <span class="s1">&#39;bg:#eee #111&#39;</span><span class="w"></span>
+    <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>That’s it, save it as <code class="docutils literal notranslate"><span class="pre">your.py</span></code>. There are just a few rules. When you define a style for <cite>Name</cite>
@@ -160,9 +160,9 @@ they can be used for a variety of formatters.)</p>
 <li><p>add <code class="docutils literal notranslate"><span class="pre">your.py</span></code> file</p></li>
 <li><p>register the new style by adding a line to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">STYLE_MAP</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="o">...</span>
-    <span class="s1">&#39;your&#39;</span><span class="p">:</span>  <span class="s1">&#39;your::YourStyle&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">STYLE_MAP</span> <span class="o">=</span> <span class="p">{</span><span class="w"></span>
+    <span class="o">...</span><span class="w"></span>
+    <span class="s1">&#39;your&#39;</span><span class="p">:</span>  <span class="s1">&#39;your::YourStyle&#39;</span><span class="p">,</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
