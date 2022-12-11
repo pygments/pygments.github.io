@@ -138,29 +138,29 @@
 that is used to create token types.</p>
 <p>You can create a new token type by accessing an attribute of <cite>Token</cite> whose
 name starts with an uppercase letter:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Token</span><span class="o">.</span><span class="n">String</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Token</span><span class="o">.</span><span class="n">String</span>
 <span class="go">Token.String</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Token</span><span class="o">.</span><span class="n">String</span> <span class="ow">is</span> <span class="n">Token</span><span class="o">.</span><span class="n">String</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Token</span><span class="o">.</span><span class="n">String</span> <span class="ow">is</span> <span class="n">Token</span><span class="o">.</span><span class="n">String</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>Note that tokens are singletons so you can use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator for comparing
 token types.</p>
 <p>You can also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to perform set tests:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Comment</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Comment</span><span class="o">.</span><span class="n">Single</span> <span class="ow">in</span> <span class="n">Comment</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Comment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Comment</span><span class="o">.</span><span class="n">Single</span> <span class="ow">in</span> <span class="n">Comment</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Comment</span> <span class="ow">in</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multi</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Comment</span> <span class="ow">in</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multi</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <p>This can be useful in <a class="reference internal" href="../filters/"><span class="doc">filters</span></a> and if you write lexers on your
 own without using the base lexers.</p>
 <p>You can also split a token type into a hierarchy, and get the parent of it:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">String</span><span class="o">.</span><span class="n">split</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">String</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="go">[Token, Token.Literal, Token.Literal.String]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">String</span><span class="o">.</span><span class="n">parent</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">String</span><span class="o">.</span><span class="n">parent</span>
 <span class="go">Token.Literal</span>
 </pre></div>
 </div>
@@ -169,8 +169,8 @@ guarantee that a style would define style rules for a token type. Because of
 that, Pygments proposes some global token types defined in the
 <cite>pygments.token.STANDARD_TYPES</cite> dict.</p>
 <p>For some tokens aliases are already defined:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">String</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">String</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">String</span>
 <span class="go">Token.Literal.String</span>
 </pre></div>
 </div>
@@ -239,12 +239,12 @@ of those token aliases, a number of subtypes exists (excluding the special token
 <cite>Token.Text</cite>, <cite>Token.Error</cite> and <cite>Token.Other</cite>)</p>
 <p>It’s also possible to convert strings to token types (for example
 if you want to supply a token from the command line):</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">string_to_tokentype</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">string_to_tokentype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">)</span>
 <span class="go">Token.Literal.String</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="s2">&quot;Token.Literal.String&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="s2">&quot;Token.Literal.String&quot;</span><span class="p">)</span>
 <span class="go">Token.Literal.String</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string_to_tokentype</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
 <span class="go">Token.Literal.String</span>
 </pre></div>
 </div>

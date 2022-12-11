@@ -309,7 +309,7 @@ now defines a packaging extra <code class="docutils literal notranslate"><span c
 on <code class="docutils literal notranslate"><span class="pre">importlib_metadata</span></code> if the Python version is older than
 3.8. Thus, in order to install Pygments with optimal plugin
 support even for old Python versions, you should do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pygments</span><span class="p">[</span><span class="n">plugins</span><span class="p">]</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pygments</span><span class="p">[</span><span class="n">plugins</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Pygments still falls back on <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> if neither
@@ -1810,7 +1810,7 @@ PythonConsoleLexer.</p></li>
 <li><p>Fixed PythonTracebackLexer to be able to recognize SyntaxError and
 KeyboardInterrupt (#360).</p></li>
 <li><p>Provide one formatter class per image format, so that surprises like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygmentize</span> <span class="o">-</span><span class="n">f</span> <span class="n">gif</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">gif</span> <span class="n">foo</span><span class="o">.</span><span class="n">py</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygmentize</span> <span class="o">-</span><span class="n">f</span> <span class="n">gif</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">gif</span> <span class="n">foo</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>creating a PNG file are avoided.</p>

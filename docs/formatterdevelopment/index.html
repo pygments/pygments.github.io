@@ -142,12 +142,12 @@ formatter’s output format.</p>
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h2>
 <p>The most basic formatter shipped with Pygments is the <cite>NullFormatter</cite>. It just
 sends the value of a token to the output stream:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span><span class="w"></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
 
-<span class="k">class</span> <span class="nc">NullFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span><span class="w"></span>
-    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span><span class="w"></span>
-        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span><span class="w"></span>
-            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">NullFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As you can see, the <cite>format()</cite> method is passed two parameters: <cite>tokensource</cite>
@@ -187,78 +187,78 @@ they don’t support.</p>
 <p>For an more complex example, let’s implement a HTML 3.2 Formatter. We don’t
 use CSS but inline markup (<code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;font&gt;</span></code>, etc). Because this isn’t good
 style this formatter isn’t in the standard library ;-)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span><span class="w"></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
 
-<span class="k">class</span> <span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span><span class="w"></span>
-        <span class="n">Formatter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span><span class="w"></span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="n">Formatter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
-        <span class="c1"># create a dict of (start, end) tuples that wrap the</span><span class="w"></span>
-        <span class="c1"># value of a token so that we can use it in the format</span><span class="w"></span>
-        <span class="c1"># method later</span><span class="w"></span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span> <span class="o">=</span> <span class="p">{}</span><span class="w"></span>
+        <span class="c1"># create a dict of (start, end) tuples that wrap the</span>
+        <span class="c1"># value of a token so that we can use it in the format</span>
+        <span class="c1"># method later</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="c1"># we iterate over the `_styles` attribute of a style item</span><span class="w"></span>
-        <span class="c1"># that contains the parsed style values.</span><span class="w"></span>
-        <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">:</span><span class="w"></span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="w"></span>
-            <span class="c1"># a style item is a tuple in the following form:</span><span class="w"></span>
-            <span class="c1"># colors are readily specified in hex: &#39;RRGGBB&#39;</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]:</span><span class="w"></span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;font color=&quot;#</span><span class="si">%s</span><span class="s1">&quot;&gt;&#39;</span> <span class="o">%</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="w"></span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/font&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">]:</span><span class="w"></span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;b&gt;&#39;</span><span class="w"></span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;italic&#39;</span><span class="p">]:</span><span class="w"></span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;i&gt;&#39;</span><span class="w"></span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/i&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;underline&#39;</span><span class="p">]:</span><span class="w"></span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;u&gt;&#39;</span><span class="w"></span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/u&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span><span class="w"></span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span><span class="w"></span>
+        <span class="c1"># we iterate over the `_styles` attribute of a style item</span>
+        <span class="c1"># that contains the parsed style values.</span>
+        <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="c1"># a style item is a tuple in the following form:</span>
+            <span class="c1"># colors are readily specified in hex: &#39;RRGGBB&#39;</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;font color=&quot;#</span><span class="si">%s</span><span class="s1">&quot;&gt;&#39;</span> <span class="o">%</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/font&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;b&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;italic&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;i&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/i&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;underline&#39;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;u&gt;&#39;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/u&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span><span class="w"></span>
-        <span class="c1"># lastval is a string we use for caching</span><span class="w"></span>
-        <span class="c1"># because it&#39;s possible that an lexer yields a number</span><span class="w"></span>
-        <span class="c1"># of consecutive tokens with the same token type.</span><span class="w"></span>
-        <span class="c1"># to minimize the size of the generated html markup we</span><span class="w"></span>
-        <span class="c1"># try to join the values of same-type tokens here</span><span class="w"></span>
-        <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="w"></span>
-        <span class="n">lasttype</span> <span class="o">=</span> <span class="kc">None</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+        <span class="c1"># lastval is a string we use for caching</span>
+        <span class="c1"># because it&#39;s possible that an lexer yields a number</span>
+        <span class="c1"># of consecutive tokens with the same token type.</span>
+        <span class="c1"># to minimize the size of the generated html markup we</span>
+        <span class="c1"># try to join the values of same-type tokens here</span>
+        <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">lasttype</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="c1"># wrap the whole output with &lt;pre&gt;</span><span class="w"></span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span><span class="w"></span>
+        <span class="c1"># wrap the whole output with &lt;pre&gt;</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span><span class="w"></span>
-            <span class="c1"># if the token type doesn&#39;t exist in the stylemap</span><span class="w"></span>
-            <span class="c1"># we try it with the parent of the token type</span><span class="w"></span>
-            <span class="c1"># eg: parent of Token.Literal.String.Double is</span><span class="w"></span>
-            <span class="c1"># Token.Literal.String</span><span class="w"></span>
-            <span class="k">while</span> <span class="n">ttype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">:</span><span class="w"></span>
-                <span class="n">ttype</span> <span class="o">=</span> <span class="n">ttype</span><span class="o">.</span><span class="n">parent</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">ttype</span> <span class="o">==</span> <span class="n">lasttype</span><span class="p">:</span><span class="w"></span>
-                <span class="c1"># the current token type is the same of the last</span><span class="w"></span>
-                <span class="c1"># iteration. cache it</span><span class="w"></span>
-                <span class="n">lastval</span> <span class="o">+=</span> <span class="n">value</span><span class="w"></span>
-            <span class="k">else</span><span class="p">:</span><span class="w"></span>
-                <span class="c1"># not the same token as last iteration, but we</span><span class="w"></span>
-                <span class="c1"># have some data in the buffer. wrap it with the</span><span class="w"></span>
-                <span class="c1"># defined style and write it to the output file</span><span class="w"></span>
-                <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span><span class="w"></span>
-                    <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span><span class="w"></span>
-                    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span><span class="w"></span>
-                <span class="c1"># set lastval/lasttype to current values</span><span class="w"></span>
-                <span class="n">lastval</span> <span class="o">=</span> <span class="n">value</span><span class="w"></span>
-                <span class="n">lasttype</span> <span class="o">=</span> <span class="n">ttype</span><span class="w"></span>
+        <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
+            <span class="c1"># if the token type doesn&#39;t exist in the stylemap</span>
+            <span class="c1"># we try it with the parent of the token type</span>
+            <span class="c1"># eg: parent of Token.Literal.String.Double is</span>
+            <span class="c1"># Token.Literal.String</span>
+            <span class="k">while</span> <span class="n">ttype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">:</span>
+                <span class="n">ttype</span> <span class="o">=</span> <span class="n">ttype</span><span class="o">.</span><span class="n">parent</span>
+            <span class="k">if</span> <span class="n">ttype</span> <span class="o">==</span> <span class="n">lasttype</span><span class="p">:</span>
+                <span class="c1"># the current token type is the same of the last</span>
+                <span class="c1"># iteration. cache it</span>
+                <span class="n">lastval</span> <span class="o">+=</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># not the same token as last iteration, but we</span>
+                <span class="c1"># have some data in the buffer. wrap it with the</span>
+                <span class="c1"># defined style and write it to the output file</span>
+                <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span>
+                    <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span>
+                    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span>
+                <span class="c1"># set lastval/lasttype to current values</span>
+                <span class="n">lastval</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">lasttype</span> <span class="o">=</span> <span class="n">ttype</span>
 
-        <span class="c1"># if something is left in the buffer, write it to the</span><span class="w"></span>
-        <span class="c1"># output file, then close the opened &lt;pre&gt; tag</span><span class="w"></span>
-        <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span><span class="w"></span>
-            <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span><span class="w"></span>
-            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span><span class="w"></span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="w"></span>
+        <span class="c1"># if something is left in the buffer, write it to the</span>
+        <span class="c1"># output file, then close the opened &lt;pre&gt; tag</span>
+        <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span>
+            <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The comments should explain it. Again, this formatter doesn’t override the

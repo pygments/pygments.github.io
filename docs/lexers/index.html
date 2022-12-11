@@ -4183,9 +4183,9 @@ method.</p>
 </dd>
 </dl>
 <p>For Dylan interactive console output like:</p>
-<div class="highlight-dylan-console notranslate"><div class="highlight"><pre><span></span><span class="gp">?</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-dylan-console notranslate"><div class="highlight"><pre><span></span><span class="gp">?</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="go">=&gt; 1</span>
-<span class="gp">?</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="gp">?</span><span class="w"> </span><span class="n">a</span>
 <span class="go">=&gt; 1</span>
 </pre></div>
 </div>
@@ -4374,15 +4374,15 @@ method.</p>
 </dd>
 </dl>
 <p>For Elixir interactive console (iex) output like:</p>
-<div class="highlight-iex notranslate"><div class="highlight"><pre><span></span><span class="gp">iex&gt; </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
+<div class="highlight-iex notranslate"><div class="highlight"><pre><span></span><span class="gp">iex&gt; </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="go">[1,2,3]</span>
-<span class="gp">iex&gt; </span><span class="n">head</span><span class="w"></span>
+<span class="gp">iex&gt; </span><span class="n">head</span>
 <span class="go">1</span>
-<span class="gp">iex&gt; </span><span class="n">tail</span><span class="w"></span>
+<span class="gp">iex&gt; </span><span class="n">tail</span>
 <span class="go">[2,3]</span>
-<span class="gp">iex&gt; </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span><span class="w"></span>
+<span class="gp">iex&gt; </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span>
 <span class="go">[1,2,3]</span>
-<span class="gp">iex&gt; </span><span class="n">length</span><span class="w"> </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span><span class="w"></span>
+<span class="gp">iex&gt; </span><span class="n">length</span><span class="w"> </span><span class="p">[</span><span class="n">head</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tail</span><span class="p">]</span>
 <span class="go">3</span>
 </pre></div>
 </div>
@@ -5597,8 +5597,8 @@ is a backslash or percent character, LaTeX is assumed, else Bird.</p>
 </dl>
 <p>For typical hex dump output formats by the UNIX and GNU/Linux tools <code class="docutils literal notranslate"><span class="pre">hexdump</span></code>,
 <code class="docutils literal notranslate"><span class="pre">hd</span></code>, <code class="docutils literal notranslate"><span class="pre">hexcat</span></code>, <code class="docutils literal notranslate"><span class="pre">od</span></code> and <code class="docutils literal notranslate"><span class="pre">xxd</span></code>, and the DOS tool <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>. For example:</p>
-<div class="highlight-hexdump notranslate"><div class="highlight"><pre><span></span><span class="nl">00000000</span><span class="w">  </span><span class="mh">7f</span><span class="w"> </span><span class="mh">45</span><span class="w"> </span><span class="mh">4c</span><span class="w"> </span><span class="mh">46</span><span class="w"> </span><span class="mh">02</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">.ELF............</span><span class="p">|</span><span class="w"></span>
-<span class="nl">00000010</span><span class="w">  </span><span class="mh">02</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">3e</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="mh">c5</span><span class="w"> </span><span class="mh">48</span><span class="w"> </span><span class="mh">40</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">..&gt;......H@.....</span><span class="p">|</span><span class="w"></span>
+<div class="highlight-hexdump notranslate"><div class="highlight"><pre><span></span><span class="nl">00000000</span><span class="w">  </span><span class="mh">7f</span><span class="w"> </span><span class="mh">45</span><span class="w"> </span><span class="mh">4c</span><span class="w"> </span><span class="mh">46</span><span class="w"> </span><span class="mh">02</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">.ELF............</span><span class="p">|</span>
+<span class="nl">00000010</span><span class="w">  </span><span class="mh">02</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">3e</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">01</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="mh">c5</span><span class="w"> </span><span class="mh">48</span><span class="w"> </span><span class="mh">40</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w"> </span><span class="mh">00</span><span class="w">  </span><span class="p">|</span><span class="s">..&gt;......H@.....</span><span class="p">|</span>
 </pre></div>
 </div>
 <p>The specific supported formats are the outputs of:</p>
@@ -6245,16 +6245,16 @@ members (default: <code class="docutils literal notranslate"><span class="pre">T
 </dd>
 </dl>
 <p>For parsing within an interactive Node.js REPL, such as:</p>
-<div class="highlight-nodejsrepl notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="w"></span>
-<span class="kc">undefined</span><span class="w"></span>
-<span class="gp">&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"></span>
-<span class="mf">3</span><span class="w"></span>
-<span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;4&#39;</span><span class="w"></span>
-<span class="kc">undefined</span><span class="w"></span>
-<span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"></span>
-<span class="s1">&#39;4&#39;</span><span class="w"></span>
-<span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">a</span><span class="w"></span>
-<span class="kc">false</span><span class="w"></span>
+<div class="highlight-nodejsrepl notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span>
+<span class="kc">undefined</span>
+<span class="gp">&gt;</span><span class="w"> </span><span class="nx">a</span>
+<span class="mf">3</span>
+<span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;4&#39;</span>
+<span class="kc">undefined</span>
+<span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span>
+<span class="s1">&#39;4&#39;</span>
+<span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">a</span>
+<span class="kc">false</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -7841,18 +7841,18 @@ passed, the first valid option is used, any subsequent options are ignored.</p>
 <p>A dialect option may be embedded in a source file in form of a dialect
 tag, a specially formatted comment that specifies a dialect option.</p>
 <p>Dialect Tag EBNF:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dialectTag</span> <span class="p">:</span><span class="w"></span>
-    <span class="n">OpeningCommentDelim</span> <span class="n">Prefix</span> <span class="n">dialectOption</span> <span class="n">ClosingCommentDelim</span> <span class="p">;</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dialectTag</span> <span class="p">:</span>
+    <span class="n">OpeningCommentDelim</span> <span class="n">Prefix</span> <span class="n">dialectOption</span> <span class="n">ClosingCommentDelim</span> <span class="p">;</span>
 
-<span class="n">dialectOption</span> <span class="p">:</span><span class="w"></span>
-    <span class="s1">&#39;m2pim&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2r10&#39;</span> <span class="o">|</span> <span class="s1">&#39;objm2&#39;</span> <span class="o">|</span><span class="w"></span>
-    <span class="s1">&#39;m2iso+aglet&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2pim+gm2&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+p1&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+xds&#39;</span> <span class="p">;</span><span class="w"></span>
+<span class="n">dialectOption</span> <span class="p">:</span>
+    <span class="s1">&#39;m2pim&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2r10&#39;</span> <span class="o">|</span> <span class="s1">&#39;objm2&#39;</span> <span class="o">|</span>
+    <span class="s1">&#39;m2iso+aglet&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2pim+gm2&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+p1&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+xds&#39;</span> <span class="p">;</span>
 
-<span class="n">Prefix</span> <span class="p">:</span> <span class="s1">&#39;!&#39;</span> <span class="p">;</span><span class="w"></span>
+<span class="n">Prefix</span> <span class="p">:</span> <span class="s1">&#39;!&#39;</span> <span class="p">;</span>
 
-<span class="n">OpeningCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;(*&#39;</span> <span class="p">;</span><span class="w"></span>
+<span class="n">OpeningCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;(*&#39;</span> <span class="p">;</span>
 
-<span class="n">ClosingCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;*)&#39;</span> <span class="p">;</span><span class="w"></span>
+<span class="n">ClosingCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;*)&#39;</span> <span class="p">;</span>
 </pre></div>
 </div>
 <p>No whitespace is permitted between the tokens of a dialect tag.</p>
@@ -8779,8 +8779,8 @@ except the special <code class="docutils literal notranslate"><span class="pre">
 that are known to php but are undocumented.</p>
 <p>To get a list of allowed modules have a look into the
 <cite>_php_builtins</cite> module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._php_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._php_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;PHP Options/Info&#39;, &#39;Zip&#39;, &#39;dba&#39;, ...]</span>
 </pre></div>
 </div>
@@ -9122,13 +9122,13 @@ been moved to Python 3 as well.</p>
 </dd>
 </dl>
 <p>For Python console output or doctests, such as:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">a</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">a</span>
 <span class="go">foo</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 <span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span><span class="w"></span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span><span class="w"></span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
 </pre></div>
 </div>
 <p>Additional options:</p>
@@ -9659,9 +9659,9 @@ running on Rubinius, the Ruby VM.</p>
 </dd>
 </dl>
 <p>For Ruby interactive console (<strong>irb</strong>) output like:</p>
-<div class="highlight-rbcon notranslate"><div class="highlight"><pre><span></span><span class="gp">irb(main):001:0&gt; </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-rbcon notranslate"><div class="highlight"><pre><span></span><span class="gp">irb(main):001:0&gt; </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="go">=&gt; 1</span>
-<span class="gp">irb(main):002:0&gt; </span><span class="nb">puts</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="gp">irb(main):002:0&gt; </span><span class="nb">puts</span><span class="w"> </span><span class="n">a</span>
 <span class="go">1</span>
 <span class="go">=&gt; nil</span>
 </pre></div>
@@ -9931,8 +9931,8 @@ comparable to MS DOS batch and Unix shell scripts.</p>
 should not be highlighted. By default all modules are highlighted.</p>
 <p>To get a list of allowed modules have a look into the
 <cite>_lua_builtins</cite> module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._lua_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._lua_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;string&#39;, &#39;coroutine&#39;, &#39;modules&#39;, &#39;io&#39;, &#39;basic&#39;, ...]</span>
 </pre></div>
 </div>
@@ -13212,13 +13212,13 @@ highlight xquery code.</p>
 <p>To get all lexers (both the builtin and the plugin ones), you can
 use the <cite>get_all_lexers()</cite> function from the <cite>pygments.lexers</cite>
 module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_all_lexers</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">get_all_lexers</span><span class="p">()</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_all_lexers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">get_all_lexers</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="go">(&#39;Diff&#39;, (&#39;diff&#39;,), (&#39;*.diff&#39;, &#39;*.patch&#39;), (&#39;text/x-diff&#39;, &#39;text/x-patch&#39;))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="go">(&#39;Delphi&#39;, (&#39;delphi&#39;, &#39;objectpascal&#39;, &#39;pas&#39;, &#39;pascal&#39;), (&#39;*.pas&#39;,), (&#39;text/x-pascal&#39;,))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="go">(&#39;XML+Ruby&#39;, (&#39;xml+ruby&#39;, &#39;xml+erb&#39;), (), ())</span>
 </pre></div>
 </div>

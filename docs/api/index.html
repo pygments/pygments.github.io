@@ -277,7 +277,7 @@ handle the content.</p>
 <span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_all_lexers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_all_lexers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterable over all registered lexers, yielding tuples in the
 format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">longname</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">aliases</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">filename</span> <span class="n">patterns</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">mimetypes</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">longname</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">aliases</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">filename</span> <span class="n">patterns</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">mimetypes</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="versionadded">
@@ -368,9 +368,9 @@ Every subclass must first process its own options and then call
 the <cite>Lexer</cite> constructor, since it processes the <cite>stripnl</cite>,
 <cite>stripall</cite> and <cite>tabsize</cite> options.</p>
 <p>An example looks like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span><span class="w"></span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">compress</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;compress&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
-    <span class="n">Lexer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">compress</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;compress&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">Lexer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As these options must all be specifiable as strings (due to the

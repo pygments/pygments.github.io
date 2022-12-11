@@ -134,24 +134,24 @@
 <p>Pygments comes with <a class="reference internal" href="../../styles/"><span class="doc">some builtin styles</span></a> that work for both the
 HTML and LaTeX formatter.</p>
 <p>The builtin styles can be looked up with the <cite>get_style_by_name</cite> function:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_style_by_name</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_style_by_name</span><span class="p">(</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_style_by_name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_style_by_name</span><span class="p">(</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span>
 <span class="go">&lt;class &#39;pygments.styles.colorful.ColorfulStyle&#39;&gt;</span>
 </pre></div>
 </div>
 <p>You can pass a instance of a <cite>Style</cite> class to a formatter as the <cite>style</cite>
 option in form of a string:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_style_by_name</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_style_by_name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span>
 <span class="go">&lt;class &#39;pygments.styles.colorful.ColorfulStyle&#39;&gt;</span>
 </pre></div>
 </div>
 <p>Or you can also import your own style (which must be a subclass of
 <cite>pygments.style.Style</cite>) and pass it to the formatter:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">yourapp.yourmodule</span> <span class="kn">import</span> <span class="n">YourStyle</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">YourStyle</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">yourapp.yourmodule</span> <span class="kn">import</span> <span class="n">YourStyle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">YourStyle</span><span class="p">)</span><span class="o">.</span><span class="n">style</span>
 <span class="go">&lt;class &#39;yourapp.yourmodule.YourStyle&#39;&gt;</span>
 </pre></div>
 </div>
@@ -163,8 +163,8 @@ option in form of a string:</p>
 <h2>Builtin Styles<a class="headerlink" href="#builtin-styles" title="Permalink to this heading">¶</a></h2>
 <p>Pygments ships some builtin styles which are maintained by the Pygments team.</p>
 <p>To get a list of known styles you can use this snippet:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">STYLE_MAP</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">STYLE_MAP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;default&#39;, &#39;emacs&#39;, &#39;friendly&#39;, &#39;colorful&#39;]</span>
 </pre></div>
 </div>
@@ -176,8 +176,8 @@ option in form of a string:</p>
 </div>
 <p>Because it could be that a plugin registered a style, there is
 a way to iterate over all styles:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_all_styles</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">styles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">get_all_styles</span><span class="p">())</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_all_styles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">styles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">get_all_styles</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
@@ -197,20 +197,20 @@ same shade as their dark variant.</p>
 <p>See the following example where the color of the string <code class="docutils literal notranslate"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code> is
 governed by the escape sequence <code class="docutils literal notranslate"><span class="pre">\x1b[34;01m</span></code> (Ansi bright blue, Bold, 41 being red
 background) instead of an extended foreground &amp; background color.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">Python3Lexer</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">Terminal256Formatter</span><span class="w"></span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.style</span> <span class="kn">import</span> <span class="n">Style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">Python3Lexer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">Terminal256Formatter</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
 <span class="go">        styles = {</span>
 <span class="go">            Token.String:     &#39;ansibrightblue bg:ansibrightred&#39;,</span>
 <span class="go">        }</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print(&quot;Hello World&quot;)&#39;</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">Python3Lexer</span><span class="p">(),</span> <span class="n">Terminal256Formatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">MyStyle</span><span class="p">))</span><span class="w"></span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="w"></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print(&quot;Hello World&quot;)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">Python3Lexer</span><span class="p">(),</span> <span class="n">Terminal256Formatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">MyStyle</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 <span class="go">b&#39;\x1b[34;41;01m&quot;\x1b[39;49;00m\x1b[34;41;01mHello World\x1b[39;49;00m\x1b[34;41;01m&quot;\x1b[39;49;00m&#39;</span>
 </pre></div>
 </div>

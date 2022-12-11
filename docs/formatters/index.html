@@ -338,22 +338,22 @@ containing CSS rules for the CSS classes used by the formatter. The
 argument <cite>arg</cite> can be used to specify additional CSS selectors that
 are prepended to the classes. A call <cite>fmter.get_style_defs(‘td .code’)</cite>
 would result in the following CSS classes:</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="o">...</span><span class="w"></span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">td</span><span class="w"> </span><span class="p">.</span><span class="nc">code</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span>
+<span class="o">...</span>
 </pre></div>
 </div>
 <p>If you have Pygments 0.6 or higher, you can also pass a list or tuple to the
 <cite>get_style_defs()</cite> method to request multiple prefixes for the tokens:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">([</span><span class="s1">&#39;div.syntax pre&#39;</span><span class="p">,</span> <span class="s1">&#39;pre.syntax&#39;</span><span class="p">])</span><span class="w"></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">([</span><span class="s1">&#39;div.syntax pre&#39;</span><span class="p">,</span> <span class="s1">&#39;pre.syntax&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The output would then look like this:</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="o">,</span><span class="w"></span>
-<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="o">,</span><span class="w"></span>
-<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="o">...</span><span class="w"></span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="o">,</span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">kw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#00FF00</span><span class="w"> </span><span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="nt">pre</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="o">,</span>
+<span class="nt">pre</span><span class="p">.</span><span class="nc">syntax</span><span class="w"> </span><span class="p">.</span><span class="nc">cm</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#999999</span><span class="w"> </span><span class="p">}</span>
+<span class="o">...</span>
 </pre></div>
 </div>
 <p>Additional options accepted:</p>
@@ -532,19 +532,19 @@ source lines and other code makes it possible to wrap the generator multiple
 times.</p>
 <p>The default <cite>wrap()</cite> implementation adds a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag.</p>
 <p>A custom <cite>HtmlFormatter</cite> subclass could look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CodeHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span><span class="w"></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CodeHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_div</span><span class="p">):</span><span class="w"></span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_code</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_div</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_code</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span><span class="w"></span>
-        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;code&gt;&#39;</span><span class="w"></span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span><span class="w"></span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span><span class="w"></span>
-                <span class="c1"># it&#39;s a line of formatted code</span><span class="w"></span>
-                <span class="n">t</span> <span class="o">+=</span> <span class="s1">&#39;&lt;br&gt;&#39;</span><span class="w"></span>
-            <span class="k">yield</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="w"></span>
-        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;/code&gt;&#39;</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;code&gt;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># it&#39;s a line of formatted code</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="s1">&#39;&lt;br&gt;&#39;</span>
+            <span class="k">yield</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;/code&gt;&#39;</span>
 </pre></div>
 </div>
 <p>This results in wrapping the formatted lines with a <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code> tag, where the
