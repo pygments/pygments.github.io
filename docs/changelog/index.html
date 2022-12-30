@@ -10,9 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -200,41 +197,51 @@
 <li><p>Phix (<a class="reference external" href="https://github.com/pygments/pygments/issues/2222">#2222</a>)</p></li>
 <li><p>Portugol (<a class="reference external" href="https://github.com/pygments/pygments/issues/2300">#2300</a>)</p></li>
 <li><p>TL-b (<a class="reference external" href="https://github.com/pygments/pygments/issues/2247">#2247</a>)</p></li>
-<li><p>World of Warcraft TOC format (<a class="reference external" href="https://github.com/pygments/pygments/issues/2244">#2244</a>)</p></li>
+<li><p>World of Warcraft TOC format (<a class="reference external" href="https://github.com/pygments/pygments/issues/2244">#2244</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2245">#2245</a>)</p></li>
 <li><p>Wren (<a class="reference external" href="https://github.com/pygments/pygments/issues/2271">#2271</a>)</p></li>
 </ul>
 </li>
 <li><p>Updated lexers:</p>
 <ul>
-<li><p>Hspec: add filename pattern <cite>*Spec.hs</cite> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2308">#2308</a>)</p></li>
-<li><p>Abap: update keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2281">#2281</a>)</p></li>
-<li><p>Alloy: update for Alloy 6 (<a class="reference external" href="https://github.com/pygments/pygments/issues/1963">#1963</a>)</p></li>
-<li><p>C family (C, C++ and many others): fix an issue where a chunk would
-be wrongly recognized as a function definition due to braces in
-comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/2210">#2210</a>)</p></li>
-<li><p>C#: fix number and operator recognition (<a class="reference external" href="https://github.com/pygments/pygments/issues/2257">#2257</a>)</p></li>
-<li><p>CSound: updated builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2268">#2268</a>)</p></li>
-<li><p>F#: add <cite>.fsx</cite> file extension (<a class="reference external" href="https://github.com/pygments/pygments/issues/2282">#2282</a>)</p></li>
+<li><p>Abap: Update keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2281">#2281</a>)</p></li>
+<li><p>Alloy: Update for Alloy 6 (<a class="reference external" href="https://github.com/pygments/pygments/issues/1963">#1963</a>)</p></li>
+<li><p>C family (C, C++ and many others):</p>
+<ul>
+<li><p>Fix an issue where a chunk would be wrongly recognized as a function
+definition due to braces in comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/2210">#2210</a>)</p></li>
+<li><p>Improve parantheses handling for function definitions (<a class="reference external" href="https://github.com/pygments/pygments/issues/2207">#2207</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2208">#2208</a>)</p></li>
+</ul>
+</li>
+<li><p>C#: Fix number and operator recognition (<a class="reference external" href="https://github.com/pygments/pygments/issues/2256">#2256</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2257">#2257</a>)</p></li>
+<li><p>CSound: Updated builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2268">#2268</a>)</p></li>
+<li><p>F#: Add <code class="docutils literal notranslate"><span class="pre">.fsx</span></code> file extension (<a class="reference external" href="https://github.com/pygments/pygments/issues/2282">#2282</a>)</p></li>
 <li><p>gas (GNU assembler): recognize braces as punctuation (<a class="reference external" href="https://github.com/pygments/pygments/issues/2230">#2230</a>)</p></li>
-<li><p>HTTP: add <cite>CONNECT</cite> keyword</p></li>
-<li><p>Inform 6: fix lexing of properties and doubles (<a class="reference external" href="https://github.com/pygments/pygments/issues/2214">#2214</a>)</p></li>
-<li><p>INI: allow comments that are not their own line (<a class="reference external" href="https://github.com/pygments/pygments/issues/2217">#2217</a>)</p></li>
-<li><p>Java properties: fix issue with whitespace-delimited keys, support
+<li><p>HTTP: Add <cite>CONNECT</cite> keyword</p></li>
+<li><p>Inform 6: Fix lexing of properties and doubles (<a class="reference external" href="https://github.com/pygments/pygments/issues/2214">#2214</a>)</p></li>
+<li><p>INI: Allow comments that are not their own line (<a class="reference external" href="https://github.com/pygments/pygments/issues/2217">#2217</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2161">#2161</a>)</p></li>
+<li><p>Java properties: Fix issue with whitespace-delimited keys, support
 comments starting with <cite>!</cite> and escapes, no longer support undocumented
 <cite>;</cite> and <cite>//</cite> comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/2241">#2241</a>)</p></li>
-<li><p>LilyPond: improve heuristics, add <cite>maxima</cite> duration (<a class="reference external" href="https://github.com/pygments/pygments/issues/2283">#2283</a>)</p></li>
-<li><p>Macaulay2: update keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2305">#2305</a>)</p></li>
+<li><p>LilyPond: Improve heuristics, add <code class="docutils literal notranslate"><span class="pre">\maxima</span></code> duration (<a class="reference external" href="https://github.com/pygments/pygments/issues/2283">#2283</a>)</p></li>
+<li><p>LLVM: Add opaque pointer type (<a class="reference external" href="https://github.com/pygments/pygments/issues/2269">#2269</a>)</p></li>
+<li><p>Macaulay2: Update keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2305">#2305</a>)</p></li>
 <li><p>Minecraft-related lexers (SNB and Minecraft function) moved to
-<cite>pygments.lexers.minecraft</cite> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2276">#2276</a>)</p></li>
-<li><p>Nim: general improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/1970">#1970</a>)</p></li>
-<li><p>Nix: fix single quotes inside indented strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/2289">#2289</a>)</p></li>
-<li><p>Objective J: fix catastrophic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2225">#2225</a>)</p></li>
-<li><p>NASM: add support for SSE/AVX/AVX-512 registers as well as ‘rel’
+<code class="docutils literal notranslate"><span class="pre">pygments.lexers.minecraft</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2276">#2276</a>)</p></li>
+<li><p>Nim: General improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/1970">#1970</a>)</p></li>
+<li><p>Nix: Fix single quotes inside indented strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/2289">#2289</a>)</p></li>
+<li><p>Objective J: Fix catastrophic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2225">#2225</a>)</p></li>
+<li><p>NASM: Add support for SSE/AVX/AVX-512 registers as well as ‘rel’
 and ‘abs’ address operators (<a class="reference external" href="https://github.com/pygments/pygments/issues/2212">#2212</a>)</p></li>
-<li><p>Powershell: add <cite>local:</cite> keyword (<a class="reference external" href="https://github.com/pygments/pygments/issues/2254">#2254</a>)</p></li>
-<li><p>Python: add <cite>*.pyi</cite> as filename pattern for typing stub files (<a class="reference external" href="https://github.com/pygments/pygments/issues/2231">#2231</a>)</p></li>
-<li><p>Spice: add <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword and fix a bug regarding binary,
+<li><p>Powershell:</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">local:</span></code> keyword (<a class="reference external" href="https://github.com/pygments/pygments/issues/2254">#2254</a>)</p></li>
+<li><p>Allow continuations without markers (<a class="reference external" href="https://github.com/pygments/pygments/issues/2262">#2262</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2263">#2263</a>)</p></li>
+</ul>
+</li>
+<li><p>Solidity: Add boolean operators (<a class="reference external" href="https://github.com/pygments/pygments/issues/2292">#2292</a>)</p></li>
+<li><p>Spice: Add <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword and fix a bug regarding binary,
 hexadecimal and octal number tokens (<a class="reference external" href="https://github.com/pygments/pygments/issues/2227">#2227</a>)</p></li>
+<li><p>YAML: Accept colons in key names (<a class="reference external" href="https://github.com/pygments/pygments/issues/2277">#2277</a>)</p></li>
 </ul>
 </li>
 <li><p>Fix <cite>make mapfiles</cite> when Pygments is not installed in editable mode
@@ -242,6 +249,11 @@ hexadecimal and octal number tokens (<a class="reference external" href="https:/
 <li><p>Support more filetypes and compression types in <cite>autopygmentize</cite> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2219">#2219</a>)</p></li>
 <li><p>Merge consecutive tokens in Autohotkey, Clay (<a class="reference external" href="https://github.com/pygments/pygments/issues/2248">#2248</a>)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">.nasm</span></code> as a recognized file type for NASM (<a class="reference external" href="https://github.com/pygments/pygments/issues/2280">#2280</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">*Spec.hs</span></code> as a recognized file type for <code class="docutils literal notranslate"><span class="pre">HSpec</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2308">#2308</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">*.pyi</span></code> (for typing stub files) as a recognized file type for
+Python (<a class="reference external" href="https://github.com/pygments/pygments/issues/2331">#2331</a>)</p></li>
+<li><p>The HTML lexer no longer emits empty spans for whitespace (<a class="reference external" href="https://github.com/pygments/pygments/issues/2304">#2304</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">IRCFormatter</span></code> inserting linenumbers incorrectly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2270">#2270</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-13-0">
@@ -264,29 +276,29 @@ because it disturbs lexing of aspects (<a class="reference external" href="https
 elements of function headers, e.g. between the arguments and
 the opening brace for the body (<a class="reference external" href="https://github.com/pygments/pygments/issues/1891">#1891</a>)</p></li>
 <li><p>C++: Resolve several cases of <code class="docutils literal notranslate"><span class="pre">Error</span></code> tokens (<a class="reference external" href="https://github.com/pygments/pygments/issues/2207">#2207</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2208">#2208</a>)</p></li>
-<li><p>Coq: add some common keywords, improve recognition of <code class="docutils literal notranslate"><span class="pre">Set</span></code>
+<li><p>Coq: Add some common keywords, improve recognition of <code class="docutils literal notranslate"><span class="pre">Set</span></code>
 and qualified identifiers (<a class="reference external" href="https://github.com/pygments/pygments/issues/2158">#2158</a>)</p></li>
 <li><p>F*: Allow C-style comments anywhere in a line</p></li>
-<li><p>Fortran: fix catastrophic backtracking with backslashes in strings
+<li><p>Fortran: Fix catastrophic backtracking with backslashes in strings
 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2194">#2194</a>)</p></li>
 <li><p>Go: add support for generics (<a class="reference external" href="https://github.com/pygments/pygments/issues/2167">#2167</a>)</p></li>
-<li><p>Inform: update for version 6.40 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2190">#2190</a>)</p></li>
+<li><p>Inform: Update for version 6.40 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2190">#2190</a>)</p></li>
 <li><p>Isabelle: recognize cartouches (<a class="reference external" href="https://github.com/pygments/pygments/issues/2089">#2089</a>)</p></li>
 <li><p>Java: support multiline strings aka. text blocks (<a class="reference external" href="https://github.com/pygments/pygments/issues/2132">#2132</a>)</p></li>
-<li><p>Kotlin: add <code class="docutils literal notranslate"><span class="pre">value</span></code> modifier (<a class="reference external" href="https://github.com/pygments/pygments/issues/2142">#2142</a>)</p></li>
-<li><p>LilyPond: add some missing builtins</p></li>
-<li><p>Macaulay2: update builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2139">#2139</a>)</p></li>
+<li><p>Kotlin: Add <code class="docutils literal notranslate"><span class="pre">value</span></code> modifier (<a class="reference external" href="https://github.com/pygments/pygments/issues/2142">#2142</a>)</p></li>
+<li><p>LilyPond: Add some missing builtins</p></li>
+<li><p>Macaulay2: Update builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2139">#2139</a>)</p></li>
 <li><p>Matlab session: fix traceback when a line continuation ellipsis
 appears in the output (<a class="reference external" href="https://github.com/pygments/pygments/issues/2166">#2166</a>)</p></li>
-<li><p>.NET: add aliases for LibreOffice Basic, OpenOfficeBasic and
+<li><p>.NET: Add aliases for LibreOffice Basic, OpenOfficeBasic and
 StarOffice Basic (<a class="reference external" href="https://github.com/pygments/pygments/issues/2170">#2170</a>)</p></li>
-<li><p>Nim: use <code class="docutils literal notranslate"><span class="pre">Name.Builtin</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Keyword.Type</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2136">#2136</a>)</p></li>
+<li><p>Nim: Use <code class="docutils literal notranslate"><span class="pre">Name.Builtin</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Keyword.Type</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2136">#2136</a>)</p></li>
 <li><p>PHP: fix <cite>&quot;$var&quot;</cite> inside strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/2105">#2105</a>)</p></li>
 <li><p>Python: only recognize <code class="docutils literal notranslate"><span class="pre">\N</span></code>, <code class="docutils literal notranslate"><span class="pre">\u</span></code> and <code class="docutils literal notranslate"><span class="pre">\U</span></code> escape sequences
 in string literals, but not in bytes literals where they are
 not supported (<a class="reference external" href="https://github.com/pygments/pygments/issues/2204">#2204</a>)</p></li>
 <li><p>Tcl: support <code class="docutils literal notranslate"><span class="pre">${name}</span></code> variables (<a class="reference external" href="https://github.com/pygments/pygments/issues/2145">#2145</a>)</p></li>
-<li><p>Terraform: accept leading whitespace for <cite>&lt;&lt;</cite> heredoc
+<li><p>Terraform: Accept leading whitespace for <cite>&lt;&lt;</cite> heredoc
 delimiters (<a class="reference external" href="https://github.com/pygments/pygments/issues/2162">#2162</a>)</p></li>
 <li><p>Teraterm: Various improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2165">#2165</a>)</p></li>
 <li><p>Spice: add support for the recently added features including more
@@ -2141,7 +2153,7 @@ continuations.</p></li>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 5.3.0. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 6.0.0. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
