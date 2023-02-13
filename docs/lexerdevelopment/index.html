@@ -151,7 +151,7 @@ you can subclass.</p>
 <section id="regexlexer">
 <h2>RegexLexer<a class="headerlink" href="#regexlexer" title="Permalink to this heading">¶</a></h2>
 <p>The lexer base class used by almost all of Pygments’ lexers is the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">RegexLexer</span></code>.  This class allows you to define lexing rules in terms of
+<a class="reference internal" href="../api/#pygments.lexer.RegexLexer" title="pygments.lexer.RegexLexer"><code class="xref py py-class docutils literal notranslate"><span class="pre">RegexLexer</span></code></a>.  This class allows you to define lexing rules in terms of
 <em>regular expressions</em> for different <em>states</em>.</p>
 <p>States are groups of regular expressions that are matched against the input
 string at the <em>current position</em>.  If one of these expressions matches, a
@@ -239,7 +239,7 @@ trusted files; Pygments will perform the equivalent of <code class="docutils lit
 <p>If you only want to use your lexer with the Pygments API, you can import and
 instantiate the lexer yourself, then pass it to <a class="reference internal" href="../api/#pygments.highlight" title="pygments.highlight"><code class="xref py py-func docutils literal notranslate"><span class="pre">pygments.highlight()</span></code></a>.</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to select a different output format than terminal
-escape sequences. The <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.formatters.html.HtmlFormatter</span></code> helps
+escape sequences. The <a class="reference internal" href="../formatters/#HtmlFormatter" title="HtmlFormatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HtmlFormatter</span></code></a> helps
 you with debugging your lexer. You can use the <code class="docutils literal notranslate"><span class="pre">debug_token_types</span></code> option
 to display the token types assigned to each part of your input file:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-x<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-Ofull,debug_token_types<span class="w"> </span>-l<span class="w"> </span>your_lexer.py:SomeLexer<span class="w"> </span>&lt;inputfile&gt;
