@@ -215,6 +215,9 @@ be used instead of UTF-8 (<a class="reference external" href="https://github.com
 <li><p>Groff formatter: sort color definitions for reproducibility (<a class="reference external" href="https://github.com/pygments/pygments/issues/2343">#2343</a>)</p></li>
 <li><p>Move project metadata to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, remove <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
 and <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2342">#2342</a>)</p></li>
+<li><p>The top-level <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> has been removed. Instead, all shortcuts
+for developing are now defined and run through tox.  The <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder
+still contains a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> as an alternative to <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">doc</span></code>.</p></li>
 </ul>
 </section>
 <section id="version-2-14-0">

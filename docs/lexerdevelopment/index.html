@@ -271,15 +271,15 @@ the <code class="docutils literal notranslate"><span class="pre">pygments.lexers
 <p>Add the name of your lexer class to this list (or create the list if your lexer
 is the only class in the module).</p>
 <p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.
-In the root directory of the source (where the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> is located), run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>mapfiles
+In the root directory of the source (where the <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file is located), run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>mapfiles
 </pre></div>
 </div>
 <p>To test the new lexer, store an example file in
 <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/&lt;alias&gt;</span></code>.  For example, to test your
 <code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/diff/example.diff</span></code> containing a
 sample diff output.  To (re)generate the lexer output which the file is checked
-against, use the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/examplefiles/diff</span> <span class="pre">--update-goldens</span></code>.</p>
+against, use the command <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/examplefiles/diff</span> <span class="pre">--update-goldens</span></code>.</p>
 <p>Now you can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygments</span></code> from the current root of the checkout to
 render your example to HTML:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-O<span class="w"> </span>full<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>/tmp/example.html<span class="w"> </span>tests/examplefiles/diff/example.diff
@@ -291,7 +291,7 @@ already installed, unmodified version without your new lexer would have been
 called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
 <p>To view the result, open <code class="docutils literal notranslate"><span class="pre">/tmp/example.html</span></code> in your browser.</p>
 <p>Once the example renders as expected, you should run the complete test suite:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span><span class="nb">test</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox
 </pre></div>
 </div>
 <p>It also tests that your lexer fulfills the lexer API and certain invariants,
