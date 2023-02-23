@@ -30,7 +30,7 @@ Pygments documentation
    api
    terminal-sessions
 
-**Hacking with Pygments**
+**Hacking for Pygments**
 
 .. toctree::
    :maxdepth: 1
@@ -56,7 +56,6 @@ Pygments documentation
 .. toctree::
    :maxdepth: 1
 
-   contributing
    changelog
    authors
    security

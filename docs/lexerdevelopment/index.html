@@ -83,7 +83,7 @@
     <ul>
 <li><a class="reference internal" href="#">Write your own lexer</a><ul>
 <li><a class="reference internal" href="#regexlexer">RegexLexer</a></li>
-<li><a class="reference internal" href="#using-a-lexer">Using a lexer</a></li>
+<li><a class="reference internal" href="#adding-and-testing-a-new-lexer">Adding and testing a new lexer</a></li>
 <li><a class="reference internal" href="#regex-flags">Regex Flags</a></li>
 <li><a class="reference internal" href="#scanning-multiple-tokens-at-once">Scanning multiple tokens at once</a></li>
 <li><a class="reference internal" href="#changing-states">Changing states</a></li>
@@ -95,7 +95,6 @@
 <li><a class="reference internal" href="#the-extendedregexlexer-class">The ExtendedRegexLexer class</a></li>
 <li><a class="reference internal" href="#handling-lists-of-keywords">Handling Lists of Keywords</a></li>
 <li><a class="reference internal" href="#modifying-token-streams">Modifying Token Streams</a></li>
-<li><a class="reference internal" href="#common-pitfalls-and-best-practices">Common pitfalls and best practices</a></li>
 </ul>
 </li>
 </ul>
@@ -206,8 +205,8 @@ so on.</p>
 <cite>Error</cite> token that indicates a lexing error, and the position is increased by
 one.</p>
 </section>
-<section id="using-a-lexer">
-<h2>Using a lexer<a class="headerlink" href="#using-a-lexer" title="Permalink to this heading">¶</a></h2>
+<section id="adding-and-testing-a-new-lexer">
+<h2>Adding and testing a new lexer<a class="headerlink" href="#adding-and-testing-a-new-lexer" title="Permalink to this heading">¶</a></h2>
 <p>The easiest way to use a new lexer is to use Pygments’ support for loading
 the lexer from a file relative to your current directory.</p>
 <p>First, change the name of your lexer class to CustomLexer:</p>
@@ -247,8 +246,56 @@ to display the token types assigned to each part of your input file:</p>
 </pre></div>
 </div>
 <p>Hover over each token to see the token type displayed as a tooltip.</p>
-<p>If your lexer would be useful to other people, we would love if you
-contributed it to Pygments.  See <a class="reference internal" href="../contributing/"><span class="doc">Contributing to Pygments</span></a> for advice.</p>
+<p>To prepare your new lexer for inclusion in the Pygments distribution, so that it
+will be found when passing filenames or lexer aliases from the command line, you
+have to perform the following steps.</p>
+<p>First, change to the current directory containing the Pygments source code.  You
+will need to have either an unpacked source tarball, or (preferably) a copy
+cloned from GitHub.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>pygments
+</pre></div>
+</div>
+<p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new module for
+your lexer class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We encourage you to put your lexer class into its own module, unless it’s a
+very small derivative of an already existing lexer.</p>
+</div>
+<p>Next, make sure the lexer is known from outside of the module.  All modules in
+the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">esoteric.py</span></code> sets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BrainfuckLexer&#39;</span><span class="p">,</span> <span class="s1">&#39;BefungeLexer&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Add the name of your lexer class to this list (or create the list if your lexer
+is the only class in the module).</p>
+<p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.
+In the root directory of the source (where the <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file is located), run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>mapfiles
+</pre></div>
+</div>
+<p>To test the new lexer, store an example file in
+<code class="docutils literal notranslate"><span class="pre">tests/examplefiles/&lt;alias&gt;</span></code>.  For example, to test your
+<code class="docutils literal notranslate"><span class="pre">DiffLexer</span></code>, add a <code class="docutils literal notranslate"><span class="pre">tests/examplefiles/diff/example.diff</span></code> containing a
+sample diff output.  To (re)generate the lexer output which the file is checked
+against, use the command <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/examplefiles/diff</span> <span class="pre">--update-goldens</span></code>.</p>
+<p>Now you can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygments</span></code> from the current root of the checkout to
+render your example to HTML:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pygments<span class="w"> </span>-O<span class="w"> </span>full<span class="w"> </span>-f<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>/tmp/example.html<span class="w"> </span>tests/examplefiles/diff/example.diff
+</pre></div>
+</div>
+<p>Note that this explicitly calls the <code class="docutils literal notranslate"><span class="pre">pygments</span></code> module in the current
+directory. This ensures your modifications are used. Otherwise a possibly
+already installed, unmodified version without your new lexer would have been
+called from the system search path (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>).</p>
+<p>To view the result, open <code class="docutils literal notranslate"><span class="pre">/tmp/example.html</span></code> in your browser.</p>
+<p>Once the example renders as expected, you should run the complete test suite:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox
+</pre></div>
+</div>
+<p>It also tests that your lexer fulfills the lexer API and certain invariants,
+such as that the concatenation of all token text is the same as the input text.</p>
 </section>
 <section id="regex-flags">
 <h2>Regex Flags<a class="headerlink" href="#regex-flags" title="Permalink to this heading">¶</a></h2>
@@ -734,108 +781,6 @@ pseudo keywords:</p>
 </pre></div>
 </div>
 <p>The <cite>PhpLexer</cite> and <cite>LuaLexer</cite> use this method to resolve builtin functions.</p>
-</section>
-<section id="common-pitfalls-and-best-practices">
-<span id="lexer-pitfalls"></span><h2>Common pitfalls and best practices<a class="headerlink" href="#common-pitfalls-and-best-practices" title="Permalink to this heading">¶</a></h2>
-<p>Regular expressions are ubiquitous in Pygments lexers.  We have
-written this section to warn about a few common mistakes you might do
-when using them. There are also some tips on making your lexers easier
-to read and review. You are asked to read this section if you want to
-contribute a new lexer, but you might find it useful in any case.</p>
-<ul>
-<li><p>When writing rules, try to merge simple rules. For instance, combine:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\(&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\)&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\[&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\]&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="s2">&quot;{&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="s2">&quot;}&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-</pre></div>
-</div>
-<p>into:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\(\)\[\]</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">)</span>
-</pre></div>
-</div>
-</li>
-<li><p>Be careful with <code class="docutils literal notranslate"><span class="pre">.*</span></code>. This matches greedily as much as it can. For instance,
-a rule like <code class="docutils literal notranslate"><span class="pre">&#64;.*&#64;</span></code> will match the whole string <code class="docutils literal notranslate"><span class="pre">&#64;first&#64;</span> <span class="pre">second</span> <span class="pre">&#64;third&#64;</span></code>,
-instead of matching <code class="docutils literal notranslate"><span class="pre">&#64;first&#64;</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;second&#64;</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">&#64;.*?&#64;</span></code> in
-this case to stop early. The <code class="docutils literal notranslate"><span class="pre">?</span></code> tries to match <em>as few times</em> as possible.</p></li>
-<li><p>Beware of so-called “catastrophic backtracking”.  As a first example, consider
-the regular expression <code class="docutils literal notranslate"><span class="pre">(A+)*B</span></code>.  This is equivalent to <code class="docutils literal notranslate"><span class="pre">A*B</span></code> regarding
-what it matches, but <em>non</em>-matches will take very long.  This is because
-of the way the regular expression engine works.  Suppose you feed it 50
-‘A’s, and a ‘C’ at the end.  It first matches the ‘A’s greedily in <code class="docutils literal notranslate"><span class="pre">A+</span></code>,
-but finds that it cannot match the end since ‘B’ is not the same as ‘C’.
-Then it backtracks, removing one ‘A’ from the first <code class="docutils literal notranslate"><span class="pre">A+</span></code> and trying to
-match the rest as another <code class="docutils literal notranslate"><span class="pre">(A+)*</span></code>.  This fails again, so it backtracks
-further left in the input string, etc.  In effect, it tries all combinations</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(AAAAAAAAAAAAAAAAA)
-(AAAAAAAAAAAAAAAA)(A)
-(AAAAAAAAAAAAAAA)(AA)
-(AAAAAAAAAAAAAAA)(A)(A)
-(AAAAAAAAAAAAAA)(AAA)
-(AAAAAAAAAAAAAA)(AA)(A)
-...
-</pre></div>
-</div>
-<p>Thus, the matching has exponential complexity.  In a lexer, the
-effect is that Pygments will seemingly hang when parsing invalid
-input.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(A+)*B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="o">*</span><span class="mi">50</span> <span class="o">+</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="c1"># hangs</span>
-</pre></div>
-</div>
-<p>As a more subtle and real-life example, here is a badly written
-regular expression to match strings:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#39;&quot;(</span><span class="se">\\</span><span class="s1">?.)*?&quot;&#39;</span>
-</pre></div>
-</div>
-<p>If the ending quote is missing, the regular expression engine will
-find that it cannot match at the end, and try to backtrack with less
-matches in the <code class="docutils literal notranslate"><span class="pre">*?</span></code>.  When it finds a backslash, as it has already
-tried the possibility <code class="docutils literal notranslate"><span class="pre">\\.</span></code>, it tries <code class="docutils literal notranslate"><span class="pre">.</span></code> (recognizing it as a
-simple character without meaning), which leads to the same
-exponential backtracking problem if there are lots of backslashes in
-the (invalid) input string.  A good way to write this would be
-<code class="docutils literal notranslate"><span class="pre">r'&quot;([^\\]|\\.)*?&quot;'</span></code>, where the inner group can only match in one
-way.  Better yet is to use a dedicated state, which not only
-sidesteps the issue without headaches, but allows you to highlight
-string escapes.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="o">...</span><span class="p">,</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">),</span>
-    <span class="o">...</span>
-<span class="p">],</span>
-<span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">.&#39;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^</span><span class="se">\\</span><span class="s1">&quot;]+&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p>When writing rules for patterns such as comments or strings, match as many
-characters as possible in each token.  This is an example of what <em>not</em> to
-do:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<p>This generates one token per character in the comment, which slows
-down the lexing process, and also makes the raw token output (and in
-particular the test output) hard to read.  Do this instead:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#39;#pop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^*]+&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</li>
-</ul>
 </section>
 </section>
 
