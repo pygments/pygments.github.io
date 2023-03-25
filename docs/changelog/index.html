@@ -198,14 +198,27 @@
 <li><p>AMDGPU: add support for <code class="docutils literal notranslate"><span class="pre">scratch_</span></code> instructions, the <code class="docutils literal notranslate"><span class="pre">attr*.*</span></code> argument,
 as well as the <code class="docutils literal notranslate"><span class="pre">off</span></code> modifier (<a class="reference external" href="https://github.com/pygments/pygments/issues/2327">#2327</a>).</p></li>
 <li><p>APDL: miscellaneous improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2314">#2314</a>)</p></li>
+<li><p>bash/tcsh:</p>
+<ul>
+<li><p>Move <code class="docutils literal notranslate"><span class="pre">break</span></code> to keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2377">#2377</a>)</p></li>
+<li><p>Improve bash math expansion lexing (<a class="reference external" href="https://github.com/pygments/pygments/issues/2255">#2255</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2353">#2353</a>)</p></li>
+</ul>
+</li>
+<li><p>CMake: Implement bracket style comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/2338">#2338</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2354">#2354</a>)</p></li>
 <li><p>diff: support normal diff syntax, as opposed to unified diff syntax (<a class="reference external" href="https://github.com/pygments/pygments/issues/2321">#2321</a>)</p></li>
-<li><p>GLSL, HLSL: support line continuations in preprocessor code (<a class="reference external" href="https://github.com/pygments/pygments/issues/2350">#2350</a>)</p></li>
+<li><p>GLSL, HLSL:</p>
+<ul>
+<li><p>Support line continuations in preprocessor code (<a class="reference external" href="https://github.com/pygments/pygments/issues/2350">#2350</a>)</p></li>
+<li><p>Improve preprocessor directive handling (<a class="reference external" href="https://github.com/pygments/pygments/issues/2357">#2357</a>)</p></li>
+</ul>
+</li>
 <li><p>LilyPond: minor update of builtins</p></li>
-<li><p>PHP: support attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/2347">#2347</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2360">#2360</a>), fix anonymous classes without
+<li><p>PHP: support attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/2055">#2055</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2347">#2347</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2360">#2360</a>), fix anonymous classes without
 parameters (<a class="reference external" href="https://github.com/pygments/pygments/issues/2359">#2359</a>), improve lexing of variable variable syntax (<a class="reference external" href="https://github.com/pygments/pygments/issues/2358">#2358</a>)</p></li>
 <li><p>Python: add missing builtins (<a class="reference external" href="https://github.com/pygments/pygments/issues/2334">#2334</a>)</p></li>
+<li><p>Rebol/Red: Don’t require script headers (<a class="reference external" href="https://github.com/pygments/pygments/issues/2348">#2348</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2349">#2349</a>)</p></li>
 <li><p>Spice: update keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2336">#2336</a>)</p></li>
-<li><p>SQL+Jinja (<code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> method): fix catastrophic backtracking</p></li>
+<li><p>SQL+Jinja (<code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> method): fix catastrophic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2355">#2355</a>)</p></li>
 </ul>
 </li>
 <li><p>Declare support for Python 3.11 and drop support for Python 3.6 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2324">#2324</a>).</p></li>
@@ -293,7 +306,7 @@ hexadecimal and octal number tokens (<a class="reference external" href="https:/
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">.nasm</span></code> as a recognized file type for NASM (<a class="reference external" href="https://github.com/pygments/pygments/issues/2280">#2280</a>)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">*Spec.hs</span></code> as a recognized file type for <code class="docutils literal notranslate"><span class="pre">HSpec</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2308">#2308</a>)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">*.pyi</span></code> (for typing stub files) as a recognized file type for
-Python (<a class="reference external" href="https://github.com/pygments/pygments/issues/2331">#2331</a>)</p></li>
+Python (<a class="reference external" href="https://github.com/pygments/pygments/issues/2231">#2231</a>)</p></li>
 <li><p>The HTML lexer no longer emits empty spans for whitespace (<a class="reference external" href="https://github.com/pygments/pygments/issues/2304">#2304</a>)</p></li>
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">IRCFormatter</span></code> inserting linenumbers incorrectly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2270">#2270</a>)</p></li>
 </ul>
