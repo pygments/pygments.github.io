@@ -215,7 +215,7 @@ is returned as a string.</p>
 <span class="target" id="module-pygments.lexers"></span><p>Functions from <a class="reference internal" href="#module-pygments.lexers" title="pygments.lexers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.lexers</span></code></a>:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an instance of a <cite>Lexer</cite> subclass that has <cite>alias</cite> in its
 aliases list. The lexer is given the <cite>options</cite> at its
 instantiation.</p>
@@ -225,17 +225,20 @@ found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_for_filename">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a <cite>Lexer</cite> subclass instance that has a filename pattern
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a lexer for a filename.</p>
+<p>Return a <cite>Lexer</cite> subclass instance that has a filename pattern
 matching <cite>fn</cite>. The lexer is given the <cite>options</cite> at its
 instantiation.</p>
-<p>Will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> if no lexer for that filename
+<p>Raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> if no lexer for that filename
 is found.</p>
+<p>If multiple lexers match the filename pattern, use their <code class="docutils literal notranslate"><span class="pre">analyse_text()</span></code>
+methods to figure out which one is more appropriate.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_for_mimetype">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_mimetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mime</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_mimetype" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_mimetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_mime</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_mimetype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <cite>Lexer</cite> subclass instance that has <cite>mime</cite> in its mimetype
 list. The lexer is given the <cite>options</cite> at its instantiation.</p>
 <p>Will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> if not lexer for that mimetype
@@ -245,12 +248,14 @@ is found.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.load_lexer_from_file">
 <span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">load_lexer_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomLexer'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.load_lexer_from_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a <cite>Lexer</cite> subclass instance loaded from the provided file, relative
-to the current directory. The file is expected to contain a Lexer class
-named <cite>lexername</cite> (by default, CustomLexer). Users should be very careful with
-the input, because this method is equivalent to running eval on the input file.
-The lexer is given the <cite>options</cite> at its instantiation.</p>
-<p><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> is raised if there are any errors loading the Lexer</p>
+<dd><p>Load a lexer from a file.</p>
+<p>This method expects a file located relative to the current working
+directory, which contains a Lexer class. By default, it expects the
+Lexer to be name CustomLexer; you can specify your own class name
+as the second argument to this function.</p>
+<p>Users should be very careful with the input, because this method
+is equivalent to running eval on the input file.</p>
+<p>Raises ClassNotFound if there are any problems importing the Lexer.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.2.</span></p>
 </div>
@@ -258,7 +263,7 @@ The lexer is given the <cite>options</cite> at its instantiation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.guess_lexer">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <cite>Lexer</cite> subclass instance that’s guessed from the text in
 <cite>text</cite>. For that, the <a class="reference internal" href="#pygments.lexer.Lexer.analyse_text" title="pygments.lexer.Lexer.analyse_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">analyse_text()</span></code></a> method of every known lexer
 class is called with the text as argument, and the lexer which returned the
@@ -269,7 +274,7 @@ handle the content.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.guess_lexer_for_filename">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>As <a class="reference internal" href="#pygments.lexers.guess_lexer" title="pygments.lexers.guess_lexer"><code class="xref py py-func docutils literal notranslate"><span class="pre">guess_lexer()</span></code></a>, but only lexers which have a pattern in <cite>filenames</cite>
 or <cite>alias_filenames</cite> that matches <cite>filename</cite> are taken into consideration.</p>
 <p><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> is raised if no lexer thinks it can
@@ -278,22 +283,19 @@ handle the content.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_all_lexers">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_all_lexers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_all_lexers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an iterable over all registered lexers, yielding tuples in the
-format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">longname</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">aliases</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">filename</span> <span class="n">patterns</span><span class="p">,</span> <span class="nb">tuple</span> <span class="n">of</span> <span class="n">mimetypes</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 0.6.</span></p>
-</div>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_all_lexers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_all_lexers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of tuples in the form <code class="docutils literal notranslate"><span class="pre">(name,</span> <span class="pre">aliases,</span>
+<span class="pre">filenames,</span> <span class="pre">mimetypes)</span></code> of all know lexers.</p>
+<p>If <em>plugins</em> is true (the default), plugin lexers supplied by entrypoints
+are also returned.  Otherwise, only builtin ones are considered.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.find_lexer_class_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the <cite>Lexer</cite> subclass that has <cite>alias</cite> in its aliases list, without
 instantiating it.</p>
+<p>Like <cite>get_lexer_by_name</cite>, but does not instantiate the class.</p>
 <p>Will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code> if no lexer with that alias is
 found.</p>
 <div class="versionadded">
