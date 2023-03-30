@@ -295,9 +295,9 @@ generate a pixmap from the source code.</p>
 <dd class="field-even"><p>*.html, *.htm</p>
 </dd>
 </dl>
-<p>Format tokens as HTML 4 <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags within a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag, wrapped
-in a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag. The <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>’s CSS class can be set by the <cite>cssclass</cite>
-option.</p>
+<p>Format tokens as HTML 4 <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags. By default, the content is enclosed
+in a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag, itself wrapped in a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag (but see the <cite>nowrap</cite> option).
+The <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>’s CSS class can be set by the <cite>cssclass</cite> option.</p>
 <p>If the <cite>linenos</cite> option is set to <code class="docutils literal notranslate"><span class="pre">&quot;table&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> is
 additionally wrapped inside a <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> which has one row and two
 cells: one containing the line numbers and one containing the code.
@@ -319,7 +319,6 @@ Example:</p>
 </pre></div>
 </div>
 <p>(whitespace added to improve clarity).</p>
-<p>Wrapping can be disabled using the <cite>nowrap</cite> option.</p>
 <p>A list of lines can be specified using the <cite>hl_lines</cite> option to make these
 lines highlighted (as of Pygments 0.11).</p>
 <p>With the <cite>full</cite> option, a complete HTML 4 document is output, including
@@ -355,8 +354,8 @@ would result in the following CSS classes:</p>
 </div>
 <p>Additional options accepted:</p>
 <dl>
-<dt><cite>nowrap</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, don’t wrap the tokens at all, not even inside a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code>
-tag. This disables most other options (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<dt><cite>nowrap</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, don’t add a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag
+around the tokens. This disables most other options (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 </dd>
 <dt><cite>full</cite></dt><dd><p>Tells the formatter to output a “full” document, i.e. a complete
 self-contained document (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
