@@ -647,6 +647,7 @@
 <li><a class="reference internal" href="#pygments.lexers.markup.RstLexer"><code class="docutils literal notranslate"><span class="pre">RstLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.markup.TexLexer"><code class="docutils literal notranslate"><span class="pre">TexLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.markup.TiddlyWiki5Lexer"><code class="docutils literal notranslate"><span class="pre">TiddlyWiki5Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.markup.WikitextLexer"><code class="docutils literal notranslate"><span class="pre">WikitextLexer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lexers-for-matlab-and-related-languages">Lexers for Matlab and related languages</a><ul>
@@ -7398,6 +7399,26 @@ directives with a lexer for the given language (default:
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.7.</span></p>
 </div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.markup.WikitextLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.markup.</span></span><span class="sig-name descname"><span class="pre">WikitextLexer</span></span><a class="headerlink" href="#pygments.lexers.markup.WikitextLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>wikitext, mediawiki</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text/x-wiki</p>
+</dd>
+</dl>
+<p>For MediaWiki Wikitext.</p>
+<p>Parsing Wikitext is tricky, and results vary between different MediaWiki installations,
+so we only highlight common syntaxes (built-in or from popular extensions),
+and also assume templates produce no unbalanced syntaxes.</p>
 </dd></dl>
 
 <span class="target" id="module-pygments.lexers.matlab"></span></section>
