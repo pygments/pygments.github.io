@@ -111,6 +111,7 @@
 <li><a class="reference internal" href="#pygments.lexer.Lexer.mimetypes"><code class="docutils literal notranslate"><span class="pre">Lexer.mimetypes</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexer.Lexer.priority"><code class="docutils literal notranslate"><span class="pre">Lexer.priority</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexer.Lexer.url"><code class="docutils literal notranslate"><span class="pre">Lexer.url</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexer.Lexer._example"><code class="docutils literal notranslate"><span class="pre">Lexer._example</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexer.Lexer.__init__"><code class="docutils literal notranslate"><span class="pre">Lexer.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexer.Lexer.analyse_text"><code class="docutils literal notranslate"><span class="pre">Lexer.analyse_text()</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexer.Lexer.get_tokens"><code class="docutils literal notranslate"><span class="pre">Lexer.get_tokens()</span></code></a></li>
@@ -432,6 +433,14 @@ e.g. every lexer for HTML and a template language should include
 <span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#pygments.lexer.Lexer.url" title="Permalink to this definition">¶</a></dt>
 <dd><p>URL of the language specification/definition. Used in the Pygments
 documentation.</p>
+</dd></dl>
+
+<p>Lexers included in Pygments may have additional attributes:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygments.lexer.Lexer._example">
+<span class="sig-name descname"><span class="pre">_example</span></span><a class="headerlink" href="#pygments.lexer.Lexer._example" title="Permalink to this definition">¶</a></dt>
+<dd><p>Example file name. Relative to the <code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code> directory.
+This is used by the documentation generator to show an example.</p>
 </dd></dl>
 
 <p>You can pass options to the constructor. The basic options recognized
