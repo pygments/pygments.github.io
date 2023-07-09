@@ -250,6 +250,7 @@
 <li><a class="reference internal" href="#pygments.lexers.configs.ApacheConfLexer"><code class="docutils literal notranslate"><span class="pre">ApacheConfLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.AugeasLexer"><code class="docutils literal notranslate"><span class="pre">AugeasLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.Cfengine3Lexer"><code class="docutils literal notranslate"><span class="pre">Cfengine3Lexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.DesktopLexer"><code class="docutils literal notranslate"><span class="pre">DesktopLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.DockerLexer"><code class="docutils literal notranslate"><span class="pre">DockerLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.IniLexer"><code class="docutils literal notranslate"><span class="pre">IniLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.KconfigLexer"><code class="docutils literal notranslate"><span class="pre">KconfigLexer</span></code></a></li>
@@ -262,6 +263,7 @@
 <li><a class="reference internal" href="#pygments.lexers.configs.RegeditLexer"><code class="docutils literal notranslate"><span class="pre">RegeditLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.SingularityLexer"><code class="docutils literal notranslate"><span class="pre">SingularityLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.SquidConfLexer"><code class="docutils literal notranslate"><span class="pre">SquidConfLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.configs.SystemdLexer"><code class="docutils literal notranslate"><span class="pre">SystemdLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.TOMLLexer"><code class="docutils literal notranslate"><span class="pre">TOMLLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.TermcapLexer"><code class="docutils literal notranslate"><span class="pre">TermcapLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.configs.TerminfoLexer"><code class="docutils literal notranslate"><span class="pre">TerminfoLexer</span></code></a></li>
@@ -2988,6 +2990,23 @@ format.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.configs.DesktopLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.configs.</span></span><span class="sig-name descname"><span class="pre">DesktopLexer</span></span><a class="headerlink" href="#pygments.lexers.configs.DesktopLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>desktop</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.desktop</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Lexer for .desktop files.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexers.configs.DockerLexer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.configs.</span></span><span class="sig-name descname"><span class="pre">DockerLexer</span></span><a class="headerlink" href="#pygments.lexers.configs.DockerLexer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -3015,7 +3034,7 @@ format.</p>
 <dd class="field-odd"><p>ini, cfg, dosini</p>
 </dd>
 <dt class="field-even">Filenames<span class="colon">:</span></dt>
-<dd class="field-even"><p>*.ini, *.cfg, *.inf, .editorconfig, *.service, *.socket, *.device, *.mount, *.automount, *.swap, *.target, *.path, *.timer, *.slice, *.scope</p>
+<dd class="field-even"><p>*.ini, *.cfg, *.inf, .editorconfig</p>
 </dd>
 <dt class="field-odd">MIME types<span class="colon">:</span></dt>
 <dd class="field-odd"><p>text/x-ini, text/inf</p>
@@ -3238,6 +3257,23 @@ VerbosePkgLists</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.9.</span></p>
 </div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.configs.SystemdLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.configs.</span></span><span class="sig-name descname"><span class="pre">SystemdLexer</span></span><a class="headerlink" href="#pygments.lexers.configs.SystemdLexer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>systemd</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.service, *.socket, *.device, *.mount, *.automount, *.swap, *.target, *.path, *.timer, *.slice, *.scope</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Lexer for systemd unit files.</p>
 </dd></dl>
 
 <dl class="py class">
