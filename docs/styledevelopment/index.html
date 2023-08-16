@@ -151,18 +151,13 @@ defined <code class="docutils literal notranslate"><span class="pre">'bold'</spa
 they can be used for a variety of formatters.)</p>
 <p><code class="docutils literal notranslate"><span class="pre">Token</span></code> is the default style inherited by all token types.</p>
 <p>To make the style usable for Pygments, you must</p>
-<ul>
+<ul class="simple">
 <li><p>either register it as a plugin (see <a class="reference internal" href="../plugins/"><span class="doc">the plugin docs</span></a>)</p></li>
 <li><p>or update the <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> subpackage directory. For example:</p>
-<ul class="simple">
+<ul>
 <li><p>add <code class="docutils literal notranslate"><span class="pre">your.py</span></code> file</p></li>
-<li><p>register the new style by adding a line to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file:</p></li>
+<li><p>regenerate the mappings file using <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-e</span> <span class="pre">mapfiles</span></code></p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">STYLE_MAP</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="o">...</span>
-    <span class="s1">&#39;your&#39;</span><span class="p">:</span>  <span class="s1">&#39;your::YourStyle&#39;</span><span class="p">,</span>
-</pre></div>
-</div>
 </li>
 </ul>
 <div class="admonition note">

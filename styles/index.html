@@ -549,26 +549,6 @@ result <span style="color: #2c5dcd">=</span> <span style="color: #5918bb; font-w
     </div>
     
     <div>
-    <h3 id="stata">stata</h3>
-    <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #353580; font-weight: bold">from</span> typing <span style="color: #353580; font-weight: bold">import</span> Iterator
-
-<span style="color: #008800; font-style: italic"># This is an example</span>
-<span style="color: #353580; font-weight: bold">class</span> Math:
-    @staticmethod
-    <span style="color: #353580; font-weight: bold">def</span> <span style="color: #2c2cff">fib</span>(n: int) -&gt; Iterator[int]:
-<span style="color: #bbbbbb">        </span><span style="color: #7a2424">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
-        a, b = <span style="color: #2c2cff">0</span>, <span style="color: #2c2cff">1</span>
-        <span style="color: #353580; font-weight: bold">while</span> a &lt; n:
-            <span style="color: #353580; font-weight: bold">yield</span> a
-            a, b = b, a + b
-
-result = sum(Math.fib(<span style="color: #2c2cff">42</span>))
-print(<span style="color: #7a2424">&quot;The answer is {}&quot;</span>.format(result))
-</pre></div>
-
-    </div>
-    
-    <div>
     <h3 id="stata-light">stata-light</h3>
     <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #353580; font-weight: bold">from</span> typing <span style="color: #353580; font-weight: bold">import</span> Iterator
 
