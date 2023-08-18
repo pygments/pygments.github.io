@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,9 +8,9 @@
     <title>Contributing to Pygments &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=9d3de44a"></script>
+    <script src="../../_static/documentation_options.js?v=4a290d82"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -131,17 +131,17 @@
           <div class="body" role="main">
             
   <section id="contributing-to-pygments">
-<h1>Contributing to Pygments<a class="headerlink" href="#contributing-to-pygments" title="Permalink to this heading">¶</a></h1>
+<h1>Contributing to Pygments<a class="headerlink" href="#contributing-to-pygments" title="Link to this heading">¶</a></h1>
 <p>Thanks for your interest in contributing! Please read the following
 guidelines.</p>
 <section id="licensing">
-<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this heading">¶</a></h2>
+<h2>Licensing<a class="headerlink" href="#licensing" title="Link to this heading">¶</a></h2>
 <p>The code is distributed under the BSD 2-clause license. Contributors making pull
 requests must agree that they are able and willing to put their contributions
 under that license.</p>
 </section>
 <section id="general-contribution-checklist">
-<h2>General contribution checklist<a class="headerlink" href="#general-contribution-checklist" title="Permalink to this heading">¶</a></h2>
+<h2>General contribution checklist<a class="headerlink" href="#general-contribution-checklist" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Check the documentation for how to write
 <a class="reference internal" href="../lexerdevelopment/"><span class="doc">a new lexer</span></a>,
@@ -157,7 +157,7 @@ write documentation. See below on how to test lexers.</p></li>
 </ul>
 </section>
 <section id="how-to-add-a-lexer">
-<h2>How to add a lexer<a class="headerlink" href="#how-to-add-a-lexer" title="Permalink to this heading">¶</a></h2>
+<h2>How to add a lexer<a class="headerlink" href="#how-to-add-a-lexer" title="Link to this heading">¶</a></h2>
 <p>To add a lexer, you have to perform the following steps:</p>
 <ul>
 <li><p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new
@@ -185,7 +185,7 @@ is the only class in the module).</p>
 </ul>
 </section>
 <section id="how-lexers-are-tested">
-<h2>How lexers are tested<a class="headerlink" href="#how-lexers-are-tested" title="Permalink to this heading">¶</a></h2>
+<h2>How lexers are tested<a class="headerlink" href="#how-lexers-are-tested" title="Link to this heading">¶</a></h2>
 <p>To add a new lexer test, create a file with just your code snippet
 under <code class="docutils literal notranslate"><span class="pre">tests/snippets/&lt;lexer_alias&gt;/</span></code>. Then run
 <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">--update-goldens</span> <span class="pre">&lt;filename.txt&gt;</span></code> to auto-populate the
@@ -207,9 +207,9 @@ similar to <code class="docutils literal notranslate"><span class="pre">snippets
 file.  Output can also be regenerated with <code class="docutils literal notranslate"><span class="pre">--update-goldens</span></code>.</p>
 </section>
 <section id="goals-non-goals-of-pygments">
-<h2>Goals &amp; non-goals of Pygments<a class="headerlink" href="#goals-non-goals-of-pygments" title="Permalink to this heading">¶</a></h2>
+<h2>Goals &amp; non-goals of Pygments<a class="headerlink" href="#goals-non-goals-of-pygments" title="Link to this heading">¶</a></h2>
 <section id="python-support">
-<h3>Python support<a class="headerlink" href="#python-support" title="Permalink to this heading">¶</a></h3>
+<h3>Python support<a class="headerlink" href="#python-support" title="Link to this heading">¶</a></h3>
 <p>Pygments supports all supported Python versions as per the <a class="reference external" href="devguide">Python
 Developer’s Guide</a>. Additionally, the default Python
 version of the latest stable version of RHEL, Ubuntu LTS, and Debian
@@ -217,7 +217,7 @@ are supported, even if they’re officially EOL. Supporting other
 end-of-life versions is a non-goal of Pygments.</p>
 </section>
 <section id="validation">
-<h3>Validation<a class="headerlink" href="#validation" title="Permalink to this heading">¶</a></h3>
+<h3>Validation<a class="headerlink" href="#validation" title="Link to this heading">¶</a></h3>
 <p>Pygments does not attempt to validate the input. Accepting code that
 is not legal for a given language is acceptable if it simplifies the
 codebase and does not result in surprising behavior. For instance, in
@@ -238,7 +238,7 @@ be worth it.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.1.2. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.2.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

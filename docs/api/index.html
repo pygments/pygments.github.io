@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,9 +8,9 @@
     <title>The full Pygments API &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=9d3de44a"></script>
+    <script src="../../_static/documentation_options.js?v=4a290d82"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -81,7 +81,7 @@
     <h3><a href="../../">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">The full Pygments API</a><ul>
-<li><a class="reference internal" href="#module-pygments">High-level API</a><ul>
+<li><a class="reference internal" href="#high-level-api">High-level API</a><ul>
 <li><a class="reference internal" href="#pygments.lex"><code class="docutils literal notranslate"><span class="pre">lex()</span></code></a></li>
 <li><a class="reference internal" href="#pygments.format"><code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
 <li><a class="reference internal" href="#pygments.highlight"><code class="docutils literal notranslate"><span class="pre">highlight()</span></code></a></li>
@@ -185,14 +185,14 @@
           <div class="body" role="main">
             
   <section id="the-full-pygments-api">
-<h1>The full Pygments API<a class="headerlink" href="#the-full-pygments-api" title="Permalink to this heading">¶</a></h1>
+<h1>The full Pygments API<a class="headerlink" href="#the-full-pygments-api" title="Link to this heading">¶</a></h1>
 <p>This page describes the Pygments API.</p>
-<section id="module-pygments">
-<span id="high-level-api"></span><h2>High-level API<a class="headerlink" href="#module-pygments" title="Permalink to this heading">¶</a></h2>
-<p>Functions from the <a class="reference internal" href="#module-pygments" title="pygments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments</span></code></a> module:</p>
+<section id="high-level-api">
+<h2>High-level API<a class="headerlink" href="#high-level-api" title="Link to this heading">¶</a></h2>
+<p id="module-pygments">Functions from the <a class="reference internal" href="#module-pygments" title="pygments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments</span></code></a> module:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lex">
-<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">lex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lex" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">lex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lex" title="Link to this definition">¶</a></dt>
 <dd><p>Lex <cite>code</cite> with the <cite>lexer</cite> (must be a <cite>Lexer</cite> instance)
 and return an iterable of tokens. Currently, this only calls
 <cite>lexer.get_tokens()</cite>.</p>
@@ -200,7 +200,7 @@ and return an iterable of tokens. Currently, this only calls
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.format">
-<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.format" title="Link to this definition">¶</a></dt>
 <dd><p>Format <code class="docutils literal notranslate"><span class="pre">tokens</span></code> (an iterable of tokens) with the formatter <code class="docutils literal notranslate"><span class="pre">formatter</span></code>
 (a <cite>Formatter</cite> instance).</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">outfile</span></code> is given and a valid file object (an object with a
@@ -210,15 +210,15 @@ is returned as a string.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.highlight">
-<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">highlight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.highlight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.</span></span><span class="sig-name descname"><span class="pre">highlight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.highlight" title="Link to this definition">¶</a></dt>
 <dd><p>This is the most high-level highlighting function. It combines <cite>lex</cite> and
 <cite>format</cite> in one function.</p>
 </dd></dl>
 
-<span class="target" id="module-pygments.lexers"></span><p>Functions from <a class="reference internal" href="#module-pygments.lexers" title="pygments.lexers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.lexers</span></code></a>:</p>
+<p id="module-pygments.lexers">Functions from <a class="reference internal" href="#module-pygments.lexers" title="pygments.lexers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.lexers</span></code></a>:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_by_name" title="Link to this definition">¶</a></dt>
 <dd><p>Return an instance of a <cite>Lexer</cite> subclass that has <cite>alias</cite> in its
 aliases list. The lexer is given the <cite>options</cite> at its
 instantiation.</p>
@@ -228,7 +228,7 @@ found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_for_filename">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_filename" title="Link to this definition">¶</a></dt>
 <dd><p>Get a lexer for a filename.</p>
 <p>Return a <cite>Lexer</cite> subclass instance that has a filename pattern
 matching <cite>fn</cite>. The lexer is given the <cite>options</cite> at its
@@ -241,7 +241,7 @@ methods to figure out which one is more appropriate.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_lexer_for_mimetype">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_mimetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_mime</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_mimetype" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_lexer_for_mimetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_mime</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_lexer_for_mimetype" title="Link to this definition">¶</a></dt>
 <dd><p>Return a <cite>Lexer</cite> subclass instance that has <cite>mime</cite> in its mimetype
 list. The lexer is given the <cite>options</cite> at its instantiation.</p>
 <p>Will raise <a class="reference internal" href="#pygments.util.ClassNotFound" title="pygments.util.ClassNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code></a> if not lexer for that mimetype
@@ -250,7 +250,7 @@ is found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.load_lexer_from_file">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">load_lexer_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomLexer'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.load_lexer_from_file" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">load_lexer_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lexername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomLexer'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.load_lexer_from_file" title="Link to this definition">¶</a></dt>
 <dd><p>Load a lexer from a file.</p>
 <p>This method expects a file located relative to the current working
 directory, which contains a Lexer class. By default, it expects the
@@ -266,7 +266,7 @@ is equivalent to running eval on the input file.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.guess_lexer">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer" title="Link to this definition">¶</a></dt>
 <dd><p>Return a <cite>Lexer</cite> subclass instance that’s guessed from the text in
 <cite>text</cite>. For that, the <a class="reference internal" href="#pygments.lexer.Lexer.analyse_text" title="pygments.lexer.Lexer.analyse_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">analyse_text()</span></code></a> method of every known lexer
 class is called with the text as argument, and the lexer which returned the
@@ -277,7 +277,7 @@ handle the content.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.guess_lexer_for_filename">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer_for_filename" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">guess_lexer_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.guess_lexer_for_filename" title="Link to this definition">¶</a></dt>
 <dd><p>As <a class="reference internal" href="#pygments.lexers.guess_lexer" title="pygments.lexers.guess_lexer"><code class="xref py py-func docutils literal notranslate"><span class="pre">guess_lexer()</span></code></a>, but only lexers which have a pattern in <cite>filenames</cite>
 or <cite>alias_filenames</cite> that matches <cite>filename</cite> are taken into consideration.</p>
 <p><a class="reference internal" href="#pygments.util.ClassNotFound" title="pygments.util.ClassNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code></a> is raised if no lexer thinks it can
@@ -286,7 +286,7 @@ handle the content.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.get_all_lexers">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_all_lexers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_all_lexers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">get_all_lexers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.get_all_lexers" title="Link to this definition">¶</a></dt>
 <dd><p>Return a generator of tuples in the form <code class="docutils literal notranslate"><span class="pre">(name,</span> <span class="pre">aliases,</span>
 <span class="pre">filenames,</span> <span class="pre">mimetypes)</span></code> of all know lexers.</p>
 <p>If <em>plugins</em> is true (the default), plugin lexers supplied by entrypoints
@@ -295,7 +295,7 @@ are also returned.  Otherwise, only builtin ones are considered.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.find_lexer_class_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class_by_name" title="Link to this definition">¶</a></dt>
 <dd><p>Return the <cite>Lexer</cite> subclass that has <cite>alias</cite> in its aliases list, without
 instantiating it.</p>
 <p>Like <cite>get_lexer_by_name</cite>, but does not instantiate the class.</p>
@@ -308,15 +308,15 @@ found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.lexers.find_lexer_class">
-<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.lexers.</span></span><span class="sig-name descname"><span class="pre">find_lexer_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexers.find_lexer_class" title="Link to this definition">¶</a></dt>
 <dd><p>Return the <cite>Lexer</cite> subclass that with the <em>name</em> attribute as given by
 the <em>name</em> argument.</p>
 </dd></dl>
 
-<span class="target" id="module-pygments.formatters"></span><p>Functions from <a class="reference internal" href="#module-pygments.formatters" title="pygments.formatters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.formatters</span></code></a>:</p>
+<p id="module-pygments.formatters">Functions from <a class="reference internal" href="#module-pygments.formatters" title="pygments.formatters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.formatters</span></code></a>:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.formatters.get_formatter_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">get_formatter_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.get_formatter_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">get_formatter_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_alias</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.get_formatter_by_name" title="Link to this definition">¶</a></dt>
 <dd><p>Return an instance of a <a class="reference internal" href="#pygments.formatter.Formatter" title="pygments.formatter.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> subclass that has <cite>alias</cite> in its
 aliases list. The formatter is given the <cite>options</cite> at its instantiation.</p>
 <p>Will raise <a class="reference internal" href="#pygments.util.ClassNotFound" title="pygments.util.ClassNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code></a> if no formatter with that
@@ -325,7 +325,7 @@ alias is found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.formatters.get_formatter_for_filename">
-<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">get_formatter_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.get_formatter_for_filename" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">get_formatter_for_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.get_formatter_for_filename" title="Link to this definition">¶</a></dt>
 <dd><p>Return a <a class="reference internal" href="#pygments.formatter.Formatter" title="pygments.formatter.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> subclass instance that has a filename pattern
 matching <cite>fn</cite>. The formatter is given the <cite>options</cite> at its instantiation.</p>
 <p>Will raise <a class="reference internal" href="#pygments.util.ClassNotFound" title="pygments.util.ClassNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code></a> if no formatter for that filename
@@ -334,7 +334,7 @@ is found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.formatters.load_formatter_from_file">
-<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">load_formatter_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formattername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomFormatter'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.load_formatter_from_file" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.formatters.</span></span><span class="sig-name descname"><span class="pre">load_formatter_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formattername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomFormatter'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatters.load_formatter_from_file" title="Link to this definition">¶</a></dt>
 <dd><p>Return a <cite>Formatter</cite> subclass instance loaded from the provided file, relative
 to the current directory.</p>
 <p>The file is expected to contain a Formatter class named <code class="docutils literal notranslate"><span class="pre">formattername</span></code>
@@ -348,10 +348,10 @@ the formatter.</p>
 </div>
 </dd></dl>
 
-<span class="target" id="module-pygments.styles"></span><p>Functions from <a class="reference internal" href="#module-pygments.styles" title="pygments.styles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.styles</span></code></a>:</p>
+<p id="module-pygments.styles">Functions from <a class="reference internal" href="#module-pygments.styles" title="pygments.styles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.styles</span></code></a>:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.styles.get_style_by_name">
-<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">get_style_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.styles.get_style_by_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">get_style_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.styles.get_style_by_name" title="Link to this definition">¶</a></dt>
 <dd><p>Return a style class by its short name. The names of the builtin styles
 are listed in <a class="reference internal" href="#pygments.styles.STYLE_MAP" title="pygments.styles.STYLE_MAP"><code class="xref py py-data docutils literal notranslate"><span class="pre">pygments.styles.STYLE_MAP</span></code></a>.</p>
 <p>Will raise <a class="reference internal" href="#pygments.util.ClassNotFound" title="pygments.util.ClassNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pygments.util.ClassNotFound</span></code></a> if no style of that name is
@@ -360,13 +360,13 @@ found.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.styles.get_all_styles">
-<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">get_all_styles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygments.styles.get_all_styles" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">get_all_styles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygments.styles.get_all_styles" title="Link to this definition">¶</a></dt>
 <dd><p>Return a generator for all styles by name, both builtin and plugin.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="pygments.styles.STYLE_MAP">
-<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">STYLE_MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'abap':</span> <span class="pre">'abap::AbapStyle',</span> <span class="pre">'algol':</span> <span class="pre">'algol::AlgolStyle',</span> <span class="pre">'algol_nu':</span> <span class="pre">'algol_nu::Algol_NuStyle',</span> <span class="pre">'arduino':</span> <span class="pre">'arduino::ArduinoStyle',</span> <span class="pre">'autumn':</span> <span class="pre">'autumn::AutumnStyle',</span> <span class="pre">'borland':</span> <span class="pre">'borland::BorlandStyle',</span> <span class="pre">'bw':</span> <span class="pre">'bw::BlackWhiteStyle',</span> <span class="pre">'colorful':</span> <span class="pre">'colorful::ColorfulStyle',</span> <span class="pre">'default':</span> <span class="pre">'default::DefaultStyle',</span> <span class="pre">'dracula':</span> <span class="pre">'dracula::DraculaStyle',</span> <span class="pre">'emacs':</span> <span class="pre">'emacs::EmacsStyle',</span> <span class="pre">'friendly':</span> <span class="pre">'friendly::FriendlyStyle',</span> <span class="pre">'friendly_grayscale':</span> <span class="pre">'friendly_grayscale::FriendlyGrayscaleStyle',</span> <span class="pre">'fruity':</span> <span class="pre">'fruity::FruityStyle',</span> <span class="pre">'github-dark':</span> <span class="pre">'gh_dark::GhDarkStyle',</span> <span class="pre">'gruvbox-dark':</span> <span class="pre">'gruvbox::GruvboxDarkStyle',</span> <span class="pre">'gruvbox-light':</span> <span class="pre">'gruvbox::GruvboxLightStyle',</span> <span class="pre">'igor':</span> <span class="pre">'igor::IgorStyle',</span> <span class="pre">'inkpot':</span> <span class="pre">'inkpot::InkPotStyle',</span> <span class="pre">'lightbulb':</span> <span class="pre">'lightbulb::LightbulbStyle',</span> <span class="pre">'lilypond':</span> <span class="pre">'lilypond::LilyPondStyle',</span> <span class="pre">'lovelace':</span> <span class="pre">'lovelace::LovelaceStyle',</span> <span class="pre">'manni':</span> <span class="pre">'manni::ManniStyle',</span> <span class="pre">'material':</span> <span class="pre">'material::MaterialStyle',</span> <span class="pre">'monokai':</span> <span class="pre">'monokai::MonokaiStyle',</span> <span class="pre">'murphy':</span> <span class="pre">'murphy::MurphyStyle',</span> <span class="pre">'native':</span> <span class="pre">'native::NativeStyle',</span> <span class="pre">'nord':</span> <span class="pre">'nord::NordStyle',</span> <span class="pre">'nord-darker':</span> <span class="pre">'nord::NordDarkerStyle',</span> <span class="pre">'one-dark':</span> <span class="pre">'onedark::OneDarkStyle',</span> <span class="pre">'paraiso-dark':</span> <span class="pre">'paraiso_dark::ParaisoDarkStyle',</span> <span class="pre">'paraiso-light':</span> <span class="pre">'paraiso_light::ParaisoLightStyle',</span> <span class="pre">'pastie':</span> <span class="pre">'pastie::PastieStyle',</span> <span class="pre">'perldoc':</span> <span class="pre">'perldoc::PerldocStyle',</span> <span class="pre">'rainbow_dash':</span> <span class="pre">'rainbow_dash::RainbowDashStyle',</span> <span class="pre">'rrt':</span> <span class="pre">'rrt::RrtStyle',</span> <span class="pre">'sas':</span> <span class="pre">'sas::SasStyle',</span> <span class="pre">'solarized-dark':</span> <span class="pre">'solarized::SolarizedDarkStyle',</span> <span class="pre">'solarized-light':</span> <span class="pre">'solarized::SolarizedLightStyle',</span> <span class="pre">'staroffice':</span> <span class="pre">'staroffice::StarofficeStyle',</span> <span class="pre">'stata-dark':</span> <span class="pre">'stata_dark::StataDarkStyle',</span> <span class="pre">'stata-light':</span> <span class="pre">'stata_light::StataLightStyle',</span> <span class="pre">'tango':</span> <span class="pre">'tango::TangoStyle',</span> <span class="pre">'trac':</span> <span class="pre">'trac::TracStyle',</span> <span class="pre">'vim':</span> <span class="pre">'vim::VimStyle',</span> <span class="pre">'vs':</span> <span class="pre">'vs::VisualStudioStyle',</span> <span class="pre">'xcode':</span> <span class="pre">'xcode::XcodeStyle',</span> <span class="pre">'zenburn':</span> <span class="pre">'zenburn::ZenburnStyle'}</span></em><a class="headerlink" href="#pygments.styles.STYLE_MAP" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.styles.</span></span><span class="sig-name descname"><span class="pre">STYLE_MAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'abap':</span> <span class="pre">'abap::AbapStyle',</span> <span class="pre">'algol':</span> <span class="pre">'algol::AlgolStyle',</span> <span class="pre">'algol_nu':</span> <span class="pre">'algol_nu::Algol_NuStyle',</span> <span class="pre">'arduino':</span> <span class="pre">'arduino::ArduinoStyle',</span> <span class="pre">'autumn':</span> <span class="pre">'autumn::AutumnStyle',</span> <span class="pre">'borland':</span> <span class="pre">'borland::BorlandStyle',</span> <span class="pre">'bw':</span> <span class="pre">'bw::BlackWhiteStyle',</span> <span class="pre">'colorful':</span> <span class="pre">'colorful::ColorfulStyle',</span> <span class="pre">'default':</span> <span class="pre">'default::DefaultStyle',</span> <span class="pre">'dracula':</span> <span class="pre">'dracula::DraculaStyle',</span> <span class="pre">'emacs':</span> <span class="pre">'emacs::EmacsStyle',</span> <span class="pre">'friendly':</span> <span class="pre">'friendly::FriendlyStyle',</span> <span class="pre">'friendly_grayscale':</span> <span class="pre">'friendly_grayscale::FriendlyGrayscaleStyle',</span> <span class="pre">'fruity':</span> <span class="pre">'fruity::FruityStyle',</span> <span class="pre">'github-dark':</span> <span class="pre">'gh_dark::GhDarkStyle',</span> <span class="pre">'gruvbox-dark':</span> <span class="pre">'gruvbox::GruvboxDarkStyle',</span> <span class="pre">'gruvbox-light':</span> <span class="pre">'gruvbox::GruvboxLightStyle',</span> <span class="pre">'igor':</span> <span class="pre">'igor::IgorStyle',</span> <span class="pre">'inkpot':</span> <span class="pre">'inkpot::InkPotStyle',</span> <span class="pre">'lightbulb':</span> <span class="pre">'lightbulb::LightbulbStyle',</span> <span class="pre">'lilypond':</span> <span class="pre">'lilypond::LilyPondStyle',</span> <span class="pre">'lovelace':</span> <span class="pre">'lovelace::LovelaceStyle',</span> <span class="pre">'manni':</span> <span class="pre">'manni::ManniStyle',</span> <span class="pre">'material':</span> <span class="pre">'material::MaterialStyle',</span> <span class="pre">'monokai':</span> <span class="pre">'monokai::MonokaiStyle',</span> <span class="pre">'murphy':</span> <span class="pre">'murphy::MurphyStyle',</span> <span class="pre">'native':</span> <span class="pre">'native::NativeStyle',</span> <span class="pre">'nord':</span> <span class="pre">'nord::NordStyle',</span> <span class="pre">'nord-darker':</span> <span class="pre">'nord::NordDarkerStyle',</span> <span class="pre">'one-dark':</span> <span class="pre">'onedark::OneDarkStyle',</span> <span class="pre">'paraiso-dark':</span> <span class="pre">'paraiso_dark::ParaisoDarkStyle',</span> <span class="pre">'paraiso-light':</span> <span class="pre">'paraiso_light::ParaisoLightStyle',</span> <span class="pre">'pastie':</span> <span class="pre">'pastie::PastieStyle',</span> <span class="pre">'perldoc':</span> <span class="pre">'perldoc::PerldocStyle',</span> <span class="pre">'rainbow_dash':</span> <span class="pre">'rainbow_dash::RainbowDashStyle',</span> <span class="pre">'rrt':</span> <span class="pre">'rrt::RrtStyle',</span> <span class="pre">'sas':</span> <span class="pre">'sas::SasStyle',</span> <span class="pre">'solarized-dark':</span> <span class="pre">'solarized::SolarizedDarkStyle',</span> <span class="pre">'solarized-light':</span> <span class="pre">'solarized::SolarizedLightStyle',</span> <span class="pre">'staroffice':</span> <span class="pre">'staroffice::StarofficeStyle',</span> <span class="pre">'stata-dark':</span> <span class="pre">'stata_dark::StataDarkStyle',</span> <span class="pre">'stata-light':</span> <span class="pre">'stata_light::StataLightStyle',</span> <span class="pre">'tango':</span> <span class="pre">'tango::TangoStyle',</span> <span class="pre">'trac':</span> <span class="pre">'trac::TracStyle',</span> <span class="pre">'vim':</span> <span class="pre">'vim::VimStyle',</span> <span class="pre">'vs':</span> <span class="pre">'vs::VisualStudioStyle',</span> <span class="pre">'xcode':</span> <span class="pre">'xcode::XcodeStyle',</span> <span class="pre">'zenburn':</span> <span class="pre">'zenburn::ZenburnStyle'}</span></em><a class="headerlink" href="#pygments.styles.STYLE_MAP" title="Link to this definition">¶</a></dt>
 <dd><p>dict() -&gt; new empty dictionary
 dict(mapping) -&gt; new dictionary initialized from a mapping object’s</p>
 <blockquote>
@@ -384,13 +384,13 @@ for k, v in iterable:</p>
 </dl>
 </dd></dl>
 
-<span class="target" id="module-pygments.lexer"></span></section>
+</section>
 <section id="lexers">
-<h2>Lexers<a class="headerlink" href="#lexers" title="Permalink to this heading">¶</a></h2>
+<span id="module-pygments.lexer"></span><h2>Lexers<a class="headerlink" href="#lexers" title="Link to this heading">¶</a></h2>
 <p>The base lexer class from which all lexers are derived is:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">Lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">Lexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer" title="Link to this definition">¶</a></dt>
 <dd><p>Lexer for a specific language.</p>
 <p>See also <a class="reference internal" href="../lexerdevelopment/"><span class="doc">Write your own lexer</span></a>, a high-level guide to writing
 lexers.</p>
@@ -398,20 +398,20 @@ lexers.</p>
 lexer based on various criteria.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pygments.lexer.Lexer.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pygments.lexer.Lexer.name" title="Link to this definition">¶</a></dt>
 <dd><p>Full name of the lexer, in human-readable form</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.aliases">
-<span class="sig-name descname"><span class="pre">aliases</span></span><a class="headerlink" href="#pygments.lexer.Lexer.aliases" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">aliases</span></span><a class="headerlink" href="#pygments.lexer.Lexer.aliases" title="Link to this definition">¶</a></dt>
 <dd><p>A list of short, unique identifiers that can be used to look
 up the lexer from a list, e.g., using <cite>get_lexer_by_name()</cite>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.filenames">
-<span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#pygments.lexer.Lexer.filenames" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#pygments.lexer.Lexer.filenames" title="Link to this definition">¶</a></dt>
 <dd><p>A list of <cite>fnmatch</cite> patterns that match filenames which contain
 content for this lexer. The patterns in this list should be unique among
 all lexers.</p>
@@ -419,7 +419,7 @@ all lexers.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.alias_filenames">
-<span class="sig-name descname"><span class="pre">alias_filenames</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#pygments.lexer.Lexer.alias_filenames" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alias_filenames</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#pygments.lexer.Lexer.alias_filenames" title="Link to this definition">¶</a></dt>
 <dd><p>A list of <cite>fnmatch</cite> patterns that match filenames which may or may not
 contain content for this lexer. This list is used by the
 <a class="reference internal" href="#pygments.lexers.guess_lexer_for_filename" title="pygments.lexers.guess_lexer_for_filename"><code class="xref py py-func docutils literal notranslate"><span class="pre">guess_lexer_for_filename()</span></code></a> function, to determine which lexers
@@ -430,20 +430,20 @@ e.g. every lexer for HTML and a template language should include
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.mimetypes">
-<span class="sig-name descname"><span class="pre">mimetypes</span></span><a class="headerlink" href="#pygments.lexer.Lexer.mimetypes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mimetypes</span></span><a class="headerlink" href="#pygments.lexer.Lexer.mimetypes" title="Link to this definition">¶</a></dt>
 <dd><p>A list of MIME types for content that can be lexed with this lexer.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.priority">
-<span class="sig-name descname"><span class="pre">priority</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pygments.lexer.Lexer.priority" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">priority</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pygments.lexer.Lexer.priority" title="Link to this definition">¶</a></dt>
 <dd><p>Priority, should multiple lexers match and no content is provided</p>
 </dd></dl>
 
 <p>Lexers included in Pygments should have an additional attribute:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.url">
-<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#pygments.lexer.Lexer.url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#pygments.lexer.Lexer.url" title="Link to this definition">¶</a></dt>
 <dd><p>URL of the language specification/definition. Used in the Pygments
 documentation.</p>
 </dd></dl>
@@ -451,7 +451,7 @@ documentation.</p>
 <p>Lexers included in Pygments may have additional attributes:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer._example">
-<span class="sig-name descname"><span class="pre">_example</span></span><a class="headerlink" href="#pygments.lexer.Lexer._example" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_example</span></span><a class="headerlink" href="#pygments.lexer.Lexer._example" title="Link to this definition">¶</a></dt>
 <dd><p>Example file name. Relative to the <code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code> directory.
 This is used by the documentation generator to show an example.</p>
 </dd></dl>
@@ -483,7 +483,7 @@ library, if it is installed.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>This constructor takes arbitrary options as keyword arguments.
 Every subclass must first process its own options and then call
 the <cite>Lexer</cite> constructor, since it processes the basic
@@ -501,7 +501,7 @@ available to help with that, see <a class="reference internal" href="#utilities"
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.analyse_text">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analyse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.analyse_text" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analyse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.analyse_text" title="Link to this definition">¶</a></dt>
 <dd><p>A static method which is called for lexer guessing.</p>
 <p>It should analyse the text and return a float in the range
 from <code class="docutils literal notranslate"><span class="pre">0.0</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.  If it returns <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, the lexer
@@ -517,7 +517,7 @@ it’s the same as if the return values was <code class="docutils literal notran
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.get_tokens">
-<span class="sig-name descname"><span class="pre">get_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unfiltered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.get_tokens" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unfiltered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.get_tokens" title="Link to this definition">¶</a></dt>
 <dd><p>This method is the basic interface of a lexer. It is called by
 the <cite>highlight()</cite> function. It must process the text and return an
 iterable of <code class="docutils literal notranslate"><span class="pre">(tokentype,</span> <span class="pre">value)</span></code> pairs from <cite>text</cite>.</p>
@@ -531,7 +531,7 @@ bypassed even if filters are defined.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.lexer.Lexer.get_tokens_unprocessed">
-<span class="sig-name descname"><span class="pre">get_tokens_unprocessed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.get_tokens_unprocessed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_tokens_unprocessed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.Lexer.get_tokens_unprocessed" title="Link to this definition">¶</a></dt>
 <dd><p>This method should process the text and return an iterable of
 <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">tokentype,</span> <span class="pre">value)</span></code> tuples where <code class="docutils literal notranslate"><span class="pre">index</span></code> is the starting
 position of the token within the input text.</p>
@@ -544,7 +544,7 @@ implement it as a generator to maximize effectiveness.</p>
 <p>There are several base class derived from <code class="docutils literal notranslate"><span class="pre">Lexer</span></code> you can use to build your lexer from:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexer.RegexLexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">RegexLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.RegexLexer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">RegexLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.RegexLexer" title="Link to this definition">¶</a></dt>
 <dd><p>Base for simple stateful regular expression-based lexers.
 Simplifies the lexing process so that you need only
 provide a list of states and regular expressions.</p>
@@ -552,13 +552,13 @@ provide a list of states and regular expressions.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexer.ExtendedRegexLexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">ExtendedRegexLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.ExtendedRegexLexer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">ExtendedRegexLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.ExtendedRegexLexer" title="Link to this definition">¶</a></dt>
 <dd><p>A RegexLexer that uses a context object to store its state.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexer.DelegatingLexer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">DelegatingLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_root_lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_language_lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_needle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Token.Other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.DelegatingLexer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexer.</span></span><span class="sig-name descname"><span class="pre">DelegatingLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_root_lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_language_lexer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_needle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('Other',)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.lexer.DelegatingLexer" title="Link to this definition">¶</a></dt>
 <dd><p>This lexer takes two lexer as arguments. A root lexer and
 a language lexer. First everything is scanned using the language
 lexer, afterwards all <code class="docutils literal notranslate"><span class="pre">Other</span></code> tokens are lexed using the root
@@ -566,33 +566,33 @@ lexer.</p>
 <p>The lexers from the <code class="docutils literal notranslate"><span class="pre">template</span></code> lexer package use this base lexer.</p>
 </dd></dl>
 
-<span class="target" id="module-pygments.formatter"></span></section>
+</section>
 <section id="formatters">
-<h2>Formatters<a class="headerlink" href="#formatters" title="Permalink to this heading">¶</a></h2>
+<span id="module-pygments.formatter"></span><h2>Formatters<a class="headerlink" href="#formatters" title="Link to this heading">¶</a></h2>
 <p>A formatter is derived from this class:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.formatter.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.formatter.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter" title="Link to this definition">¶</a></dt>
 <dd><p>Converts a token stream to text.</p>
 <p>Formatters should have attributes to help selecting them. These
 are similar to the corresponding <a class="reference internal" href="#pygments.lexer.Lexer" title="pygments.lexer.Lexer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lexer</span></code></a>
 attributes.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pygments.formatter.Formatter.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pygments.formatter.Formatter.name" title="Link to this definition">¶</a></dt>
 <dd><p>Full name for the formatter, in human-readable form.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.aliases">
-<span class="sig-name descname"><span class="pre">aliases</span></span><a class="headerlink" href="#pygments.formatter.Formatter.aliases" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">aliases</span></span><a class="headerlink" href="#pygments.formatter.Formatter.aliases" title="Link to this definition">¶</a></dt>
 <dd><p>A list of short, unique identifiers that can be used to lookup
 the formatter from a list, e.g. using <a class="reference internal" href="#pygments.formatters.get_formatter_by_name" title="pygments.formatters.get_formatter_by_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_formatter_by_name()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.filenames">
-<span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#pygments.formatter.Formatter.filenames" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#pygments.formatter.Formatter.filenames" title="Link to this definition">¶</a></dt>
 <dd><p>A list of fnmatch patterns that match filenames for which this
 formatter can produce output. The patterns in this list should be unique
 among all formatters.</p>
@@ -623,7 +623,7 @@ support (default: None).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>As with lexers, this constructor takes arbitrary optional arguments,
 and if you override it, you should first process your own options, then
 call the base class implementation.</p>
@@ -631,7 +631,7 @@ call the base class implementation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.format">
-<span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokensource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokensource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.format" title="Link to this definition">¶</a></dt>
 <dd><p>This method must format the tokens from the <cite>tokensource</cite> iterable and
 write the formatted version to the file object <cite>outfile</cite>.</p>
 <p>Formatter options can control how exactly the tokens are converted.</p>
@@ -639,7 +639,7 @@ write the formatted version to the file object <cite>outfile</cite>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygments.formatter.Formatter.get_style_defs">
-<span class="sig-name descname"><span class="pre">get_style_defs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.get_style_defs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_style_defs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.formatter.Formatter.get_style_defs" title="Link to this definition">¶</a></dt>
 <dd><p>This method must return statements or declarations suitable to define
 the current style for subsequent highlighted text (e.g. CSS classes
 in the <cite>HTMLFormatter</cite>).</p>
@@ -652,9 +652,9 @@ the <cite>arg</cite> is then given by the <code class="docutils literal notransl
 
 </dd></dl>
 
-<span class="target" id="module-pygments.util"></span></section>
+</section>
 <section id="utilities">
-<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading">¶</a></h2>
+<span id="module-pygments.util"></span><h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="#module-pygments.util" title="pygments.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.util</span></code></a> module has some utility functions usable for processing
 command line options. All of the following functions get values from a
 dictionary of options. If the value is already in the type expected by the
@@ -662,14 +662,14 @@ option, it is returned as-is. Otherwise, if the value is a string, it is first
 converted to the expected type if possible.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="pygments.util.OptionError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">OptionError</span></span><a class="headerlink" href="#pygments.util.OptionError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">OptionError</span></span><a class="headerlink" href="#pygments.util.OptionError" title="Link to this definition">¶</a></dt>
 <dd><p>This exception will be raised by all option processing functions if
 the type or value of the argument is not correct.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.util.get_bool_opt">
-<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_bool_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_bool_opt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_bool_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_bool_opt" title="Link to this definition">¶</a></dt>
 <dd><p>Intuitively, this is <cite>options.get(optname, default)</cite>, but restricted to
 Boolean value. The Booleans can be represented as string, in order to accept
 Boolean value from the command line arguments. If the key <cite>optname</cite> is
@@ -682,13 +682,13 @@ raise an <cite>OptionError</cite>. If it is absent, <cite>default</cite> is retu
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.util.get_int_opt">
-<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_int_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_int_opt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_int_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_int_opt" title="Link to this definition">¶</a></dt>
 <dd><p>As <a class="reference internal" href="#pygments.util.get_bool_opt" title="pygments.util.get_bool_opt"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_bool_opt()</span></code></a>, but interpret the value as an integer.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.util.get_list_opt">
-<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_list_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_list_opt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_list_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_list_opt" title="Link to this definition">¶</a></dt>
 <dd><p>If the key <cite>optname</cite> from the dictionary <cite>options</cite> is a string,
 split it at whitespace and return it. If it is already a list
 or a tuple, it is returned as a list.</p>
@@ -696,7 +696,7 @@ or a tuple, it is returned as a list.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygments.util.get_choice_opt">
-<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_choice_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normcase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_choice_opt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">get_choice_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normcase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygments.util.get_choice_opt" title="Link to this definition">¶</a></dt>
 <dd><p>If the key <cite>optname</cite> from the dictionary is not in the sequence
 <cite>allowed</cite>, raise an error, otherwise return it.</p>
 </dd></dl>
@@ -704,7 +704,7 @@ or a tuple, it is returned as a list.</p>
 <p>It also defines an exception:</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="pygments.util.ClassNotFound">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">ClassNotFound</span></span><a class="headerlink" href="#pygments.util.ClassNotFound" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.util.</span></span><span class="sig-name descname"><span class="pre">ClassNotFound</span></span><a class="headerlink" href="#pygments.util.ClassNotFound" title="Link to this definition">¶</a></dt>
 <dd><p>Raised if one of the lookup functions didn’t find a matching class.</p>
 </dd></dl>
 
@@ -721,7 +721,7 @@ or a tuple, it is returned as a list.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.1.2. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.2.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

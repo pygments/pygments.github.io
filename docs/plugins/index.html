@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,9 +8,9 @@
     <title>Plugins &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=9d3de44a"></script>
+    <script src="../../_static/documentation_options.js?v=4a290d82"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -126,7 +126,7 @@
           <div class="body" role="main">
             
   <section id="plugins">
-<h1>Plugins<a class="headerlink" href="#plugins" title="Permalink to this heading">¶</a></h1>
+<h1>Plugins<a class="headerlink" href="#plugins" title="Link to this heading">¶</a></h1>
 <p>If you want to extend Pygments without hacking the sources, but want to
 use the lexer/formatter/style/filter lookup functions (<cite>lexers.get_lexer_by_name</cite>
 et al.), you can use <a class="reference external" href="https://pypi.org/project/setuptools/">setuptools</a> entrypoints to add new lexers, formatters
@@ -134,7 +134,7 @@ or styles as if they were in the Pygments core.</p>
 <p>That means you can use your highlighter modules with the <cite>pygmentize</cite> script,
 which relies on the mentioned functions.</p>
 <section id="plugin-discovery">
-<h2>Plugin discovery<a class="headerlink" href="#plugin-discovery" title="Permalink to this heading">¶</a></h2>
+<h2>Plugin discovery<a class="headerlink" href="#plugin-discovery" title="Link to this heading">¶</a></h2>
 <p>At runtime, discovering plugins is preferentially done using Python’s
 standard library module <a class="reference external" href="https://docs.python.org/3.10/library/importlib.metadata.html">importlib.metadata</a>, available in Python 3.8
 and higher. In earlier Python versions, Pygments attempts to use the
@@ -156,7 +156,7 @@ requirement, for example, with <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="defining-plugins-through-entrypoints">
-<h2>Defining plugins through entrypoints<a class="headerlink" href="#defining-plugins-through-entrypoints" title="Permalink to this heading">¶</a></h2>
+<h2>Defining plugins through entrypoints<a class="headerlink" href="#defining-plugins-through-entrypoints" title="Link to this heading">¶</a></h2>
 <p>Here is a list of setuptools entrypoints that Pygments understands:</p>
 <p><cite>pygments.lexers</cite></p>
 <blockquote>
@@ -207,13 +207,13 @@ entrypoint is the name of the filter:</p>
 </div></blockquote>
 </section>
 <section id="how-to-use-entrypoints">
-<h2>How To Use Entrypoints<a class="headerlink" href="#how-to-use-entrypoints" title="Permalink to this heading">¶</a></h2>
+<h2>How To Use Entrypoints<a class="headerlink" href="#how-to-use-entrypoints" title="Link to this heading">¶</a></h2>
 <p>This documentation doesn’t explain how to use those entrypoints because this is
 covered in the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools documentation</a>. That page should cover everything
 you need to write a plugin.</p>
 </section>
 <section id="extending-the-core">
-<h2>Extending The Core<a class="headerlink" href="#extending-the-core" title="Permalink to this heading">¶</a></h2>
+<h2>Extending The Core<a class="headerlink" href="#extending-the-core" title="Link to this heading">¶</a></h2>
 <p>If you have written a Pygments plugin that is open source, please inform us
 about that. There is a high chance that we’ll add it to the Pygments
 distribution.</p>
@@ -230,7 +230,7 @@ distribution.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.1.2. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.2.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

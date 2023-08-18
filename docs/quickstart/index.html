@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,9 +8,9 @@
     <title>Introduction and Quickstart &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=9d3de44a"></script>
+    <script src="../../_static/documentation_options.js?v=4a290d82"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -128,11 +128,11 @@
           <div class="body" role="main">
             
   <section id="introduction-and-quickstart">
-<h1>Introduction and Quickstart<a class="headerlink" href="#introduction-and-quickstart" title="Permalink to this heading">¶</a></h1>
+<h1>Introduction and Quickstart<a class="headerlink" href="#introduction-and-quickstart" title="Link to this heading">¶</a></h1>
 <p>Welcome to Pygments! This document explains the basic concepts and terms and
 gives a few examples of how to use the library.</p>
 <section id="architecture">
-<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this heading">¶</a></h2>
+<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">¶</a></h2>
 <p>There are four types of components that work together highlighting a piece of
 code:</p>
 <ul class="simple">
@@ -149,7 +149,7 @@ different token types. It maps them to attributes like “red and bold”.</p></
 </ul>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <p>Here is a small example for highlighting Python code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
@@ -181,7 +181,7 @@ the output may look like this:</p>
 </div>
 </section>
 <section id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this heading">¶</a></h2>
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="../api/#pygments.highlight" title="pygments.highlight"><code class="xref py py-func docutils literal notranslate"><span class="pre">highlight()</span></code></a> function supports a fourth argument called <em>outfile</em>, it
 must be a file object if given. The formatted output will then be written to
 this file instead of being returned as a string.</p>
@@ -213,7 +213,7 @@ encoding will be used to convert to or from byte strings.</p>
 <p>For a documentation on filters, see <a class="reference internal" href="../filters/"><span class="doc">this page</span></a>.</p>
 </section>
 <section id="lexer-and-formatter-lookup">
-<h2>Lexer and formatter lookup<a class="headerlink" href="#lexer-and-formatter-lookup" title="Permalink to this heading">¶</a></h2>
+<h2>Lexer and formatter lookup<a class="headerlink" href="#lexer-and-formatter-lookup" title="Link to this heading">¶</a></h2>
 <p>If you want to lookup a built-in lexer by its alias or a filename, you can use
 one of the following methods:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_lexer_by_name</span><span class="p">,</span>
@@ -236,7 +236,7 @@ and <a class="reference internal" href="../api/#pygments.formatters.get_formatte
 module for this purpose.</p>
 </section>
 <section id="guessing-lexers">
-<h2>Guessing lexers<a class="headerlink" href="#guessing-lexers" title="Permalink to this heading">¶</a></h2>
+<h2>Guessing lexers<a class="headerlink" href="#guessing-lexers" title="Link to this heading">¶</a></h2>
 <p>If you don’t know the content of the file, or you want to highlight a file
 whose extension is ambiguous, such as <code class="docutils literal notranslate"><span class="pre">.html</span></code> (which could contain plain HTML
 or some template tags), use these functions:</p>
@@ -263,7 +263,7 @@ If only one lexer matches, it is returned, else the guessing mechanism of
 as options.</p>
 </section>
 <section id="command-line-usage">
-<h2>Command line usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Command line usage<a class="headerlink" href="#command-line-usage" title="Link to this heading">¶</a></h2>
 <p>You can use Pygments from the command line, using the <strong class="program">pygmentize</strong>
 script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize test.py
@@ -303,7 +303,7 @@ it can be created with:</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2022, Georg Brandl and Pygments contributors.
-      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.1.2. <br/>
+      Created using <a href="https://sphinx-doc.org/">Sphinx</a> 7.2.2. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
