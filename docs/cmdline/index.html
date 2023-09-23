@@ -139,8 +139,15 @@ print &quot;Hello World&quot;
 </div>
 <p>will print the file test.py to standard output, using the Python lexer
 (inferred from the file name extension) and the terminal formatter (because
-you didn’t give an explicit formatter name).
-<strong class="program">pygmentize</strong> attempts to
+you didn’t give an explicit formatter name).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are on Windows, an extra tool may be needed for colored output to
+work in the terminal. You can make sure Pygments is installed with
+Windows console coloring support by installing Pygments with the <code class="docutils literal notranslate"><span class="pre">windows-terminal</span></code>
+extra (e.g., <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pygments[windows-terminal]</span></code>).</p>
+</div>
+<p><strong class="program">pygmentize</strong> attempts to
 detect the maximum number of colors that the terminal supports. The difference
 between color formatters for 16 and 256 colors is immense, but there is a less
 noticeable difference between color formatters for 256 and 16 million colors.</p>
