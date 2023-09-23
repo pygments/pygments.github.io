@@ -189,9 +189,13 @@
 <h2>Version 2.17.0<a class="headerlink" href="#version-2-17-0" title="Link to this heading">¶</a></h2>
 <p>(unreleased)</p>
 <ul class="simple">
-<li><p>New lexers:
-* LDIF (<a class="reference external" href="https://github.com/pygments/pygments/issues/2489">#2489</a>)
-* Visual Prolog and Visual Prolog Grammar (<a class="reference external" href="https://github.com/pygments/pygments/issues/2480">#2480</a>)</p></li>
+<li><p>New lexers:</p>
+<ul>
+<li><p>LDIF (<a class="reference external" href="https://github.com/pygments/pygments/issues/2489">#2489</a>)</p></li>
+<li><p>PRQL (<a class="reference external" href="https://github.com/pygments/pygments/issues/2507">#2507</a>)</p></li>
+<li><p>Visual Prolog and Visual Prolog Grammar (<a class="reference external" href="https://github.com/pygments/pygments/issues/2480">#2480</a>)</p></li>
+</ul>
+</li>
 <li><p>Updated lexers:</p>
 <ul>
 <li><p>Cypher: fix comment matching, add missing keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2504">#2504</a>)</p></li>
@@ -207,6 +211,8 @@ JSON formats (<a class="reference external" href="https://github.com/pygments/py
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> module contains a new <code class="docutils literal notranslate"><span class="pre">STYLES</span></code> variable
 with a dictionary of built-in styles.  The old <code class="docutils literal notranslate"><span class="pre">STYLE_MAP</span></code> variable,
 which uses a different format, is kept for backwards compatibility.</p></li>
+<li><p>On Windows, add a new installation extra (<code class="docutils literal notranslate"><span class="pre">windows-terminal</span></code>) which pulls in
+dependencies for colored console output. See <a class="reference internal" href="../cmdline/"><span class="doc">Command Line Interface</span></a> for more details.</p></li>
 </ul>
 </section>
 <section id="version-2-16-1">
