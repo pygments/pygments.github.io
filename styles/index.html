@@ -286,12 +286,12 @@ result <span style="color: #666666">=</span> <span style="color: #008000">sum</s
     <span style="color: #dddddd">@staticmethod</span>
     <span style="color: #ff0000">def</span> <span style="color: #ffff00">fib</span><span style="color: #dddddd">(n:</span> <span style="color: #dddddd">int)</span> <span style="color: #dddddd">-&gt;</span> <span style="color: #dddddd">Iterator[int]:</span>
 <span style="color: #dddddd">        </span><span style="color: #87ceeb">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
-        <span style="color: #dddddd">a,</span> <span style="color: #dddddd">b</span> <span style="color: #dddddd">=</span> <span style="color: #dddddd">0,</span> <span style="color: #dddddd">1</span>
+        <span style="color: #dddddd">a,</span> <span style="color: #dddddd">b</span> <span style="color: #dddddd">=</span> <span style="color: #ff00ff">0</span><span style="color: #dddddd">,</span> <span style="color: #ff00ff">1</span>
         <span style="color: #ff0000">while</span> <span style="color: #dddddd">a</span> <span style="color: #dddddd">&lt;</span> <span style="color: #dddddd">n:</span>
             <span style="color: #ff0000">yield</span> <span style="color: #dddddd">a</span>
             <span style="color: #dddddd">a,</span> <span style="color: #dddddd">b</span> <span style="color: #dddddd">=</span> <span style="color: #dddddd">b,</span> <span style="color: #dddddd">a</span> <span style="color: #dddddd">+</span> <span style="color: #dddddd">b</span>
 
-<span style="color: #dddddd">result</span> <span style="color: #dddddd">=</span> <span style="color: #dddddd">sum(Math.fib(42))</span>
+<span style="color: #dddddd">result</span> <span style="color: #dddddd">=</span> <span style="color: #dddddd">sum(Math.fib(</span><span style="color: #ff00ff">42</span><span style="color: #dddddd">))</span>
 <span style="color: #dddddd">print(</span><span style="color: #87ceeb">&quot;The answer is {}&quot;</span><span style="color: #dddddd">.format(result))</span>
 </pre></div>
 
