@@ -157,8 +157,20 @@ you can subclass.</p>
 string at the <em>current position</em>.  If one of these expressions matches, a
 corresponding action is performed (such as yielding a token with a specific
 type, or changing state), the current position is set to where the last match
-ended and the matching process continues with the first regex of the current
+ended and the matching process continues with the _first_ regex of the current
 state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This means you’re always jumping back to the first entry, i.e. you cannot match states in a particular order. For example, a state with the following rules won’t work as intended:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="p">,),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">Keyword</span></code> will never be matched. To match certain token types in order, see below for the <cite>bygroups</cite> helper.</p>
+</div>
 <p>Lexer states are kept on a stack: each time a new state is entered, the new
 state is pushed onto the stack.  The most basic lexers (like the <cite>DiffLexer</cite>)
 just need one state.</p>
