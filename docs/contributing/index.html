@@ -88,6 +88,7 @@
 <li><a class="reference internal" href="#goals-non-goals-of-pygments">Goals &amp; non-goals of Pygments</a><ul>
 <li><a class="reference internal" href="#python-support">Python support</a></li>
 <li><a class="reference internal" href="#validation">Validation</a></li>
+<li><a class="reference internal" href="#language-support">Language support</a></li>
 </ul>
 </li>
 </ul>
@@ -224,6 +225,16 @@ codebase and does not result in surprising behavior. For instance, in
 C89, accepting <cite>//</cite> based comments would be fine because de-facto all
 compilers supported it, and having a separate lexer for it would not
 be worth it.</p>
+</section>
+<section id="language-support">
+<h3>Language support<a class="headerlink" href="#language-support" title="Link to this heading">¶</a></h3>
+<p>While we strive for the broadest language support possible, we can’t support
+every programming language on the planet. Our minimum bar is fairly low, but to
+avoid pet projects and other one-off languages, we expect any language that is
+proposed for inclusion to have a reasonably sized community around it. If you
+need a syntax highlighter for your in-house programming language or the brand
+new language project you kicked off, consuer writing a <a class="reference internal" href="../plugins/"><span class="doc">plugin</span></a>
+until it gains enough popularity.</p>
 </section>
 </section>
 </section>
