@@ -82,8 +82,7 @@
     <ul>
 <li><a class="reference internal" href="#">Plugins</a><ul>
 <li><a class="reference internal" href="#plugin-discovery">Plugin discovery</a></li>
-<li><a class="reference internal" href="#defining-plugins-through-entrypoints">Defining plugins through entrypoints</a></li>
-<li><a class="reference internal" href="#how-to-use-entrypoints">How To Use Entrypoints</a></li>
+<li><a class="reference internal" href="#defining-plugins-through-entry-points">Defining plugins through entry points</a></li>
 <li><a class="reference internal" href="#extending-the-core">Extending The Core</a></li>
 </ul>
 </li>
@@ -127,12 +126,15 @@
             
   <section id="plugins">
 <h1>Plugins<a class="headerlink" href="#plugins" title="Link to this heading">¶</a></h1>
-<p>If you want to extend Pygments without hacking the sources, but want to
-use the lexer/formatter/style/filter lookup functions (<cite>lexers.get_lexer_by_name</cite>
-et al.), you can use <a class="reference external" href="https://pypi.org/project/setuptools/">setuptools</a> entrypoints to add new lexers, formatters
-or styles as if they were in the Pygments core.</p>
-<p>That means you can use your highlighter modules with the <cite>pygmentize</cite> script,
-which relies on the mentioned functions.</p>
+<p>If you want to extend Pygments without hacking the sources, you can use
+package <a class="reference external" href="https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/">entry points</a> to add new lexers, formatters, styles or filters
+as if they were in the Pygments core.</p>
+<p>The idea is to create a Python package, declare how extends Pygments,
+and install it.</p>
+<p>This will allow you to use your custom lexers/… with the
+<code class="docutils literal notranslate"><span class="pre">pygmentize</span></code> command. They will also be found by the lookup functions
+(<code class="docutils literal notranslate"><span class="pre">lexers.get_lexer_by_name</span></code> et al.), which makes them available to
+tools such as Sphinx, mkdocs, …</p>
 <section id="plugin-discovery">
 <h2>Plugin discovery<a class="headerlink" href="#plugin-discovery" title="Link to this heading">¶</a></h2>
 <p>At runtime, discovering plugins is preferentially done using Python’s
@@ -141,7 +143,7 @@ and higher. In earlier Python versions, Pygments attempts to use the
 <a class="reference external" href="https://pypi.org/project/importlib-metadata">importlib_metadata</a> backport, if available. If not available, a
 fallback is attempted on the older <a class="reference external" href="https://setuptools.pypa.io/en/latest/pkg_resources.html">pkg_resources</a> module. Finally, if
 <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> is not available, no plugins will be loaded at
-all. Note that <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> is distributed with <a class="reference external" href="https://pypi.org/project/setuptools/">setuptools</a>, and
+all. Note that <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> is distributed with <a href="#id2"><span class="problematic" id="id3">`setuptools`_</span></a>, and
 thus available on most Python environments. However, <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>
 is considerably slower than <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> or its
 <code class="docutils literal notranslate"><span class="pre">importlib_metadata</span></code> backport. For this reason, if you run Pygments
@@ -155,62 +157,11 @@ requirement, for example, with <code class="docutils literal notranslate"><span 
 </pre></div>
 </div>
 </section>
-<section id="defining-plugins-through-entrypoints">
-<h2>Defining plugins through entrypoints<a class="headerlink" href="#defining-plugins-through-entrypoints" title="Link to this heading">¶</a></h2>
-<p>Here is a list of setuptools entrypoints that Pygments understands:</p>
-<p><cite>pygments.lexers</cite></p>
-<blockquote>
-<div><p>This entrypoint is used for adding new lexers to the Pygments core.
-The name of the entrypoint values doesn’t really matter, Pygments extracts
-required metadata from the class definition:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.lexers]</span>
-<span class="na">yourlexer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourLexer</span>
-</pre></div>
-</div>
-<p>Note that you have to define <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">aliases</span></code> and <code class="docutils literal notranslate"><span class="pre">filename</span></code>
-attributes so that you can use the highlighter from the command line:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">YourLexer</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Name Of Your Lexer&#39;</span>
-    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;alias&#39;</span><span class="p">]</span>
-    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.ext&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><cite>pygments.formatters</cite></p>
-<blockquote>
-<div><p>You can use this entrypoint to add new formatters to Pygments. The
-name of an entrypoint item is the name of the formatter. If you
-prefix the name with a slash it’s used as a filename pattern:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.formatters]</span>
-<span class="na">yourformatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFormatter</span>
-<span class="na">/.ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFormatter</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><cite>pygments.styles</cite></p>
-<blockquote>
-<div><p>To add a new style you can use this entrypoint. The name of the entrypoint
-is the name of the style:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.styles]</span>
-<span class="na">yourstyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourStyle</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><cite>pygments.filters</cite></p>
-<blockquote>
-<div><p>Use this entrypoint to register a new filter. The name of the
-entrypoint is the name of the filter:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pygments.filters]</span>
-<span class="na">yourfilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yourmodule:YourFilter</span>
-</pre></div>
-</div>
-</div></blockquote>
-</section>
-<section id="how-to-use-entrypoints">
-<h2>How To Use Entrypoints<a class="headerlink" href="#how-to-use-entrypoints" title="Link to this heading">¶</a></h2>
-<p>This documentation doesn’t explain how to use those entrypoints because this is
-covered in the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools documentation</a>. That page should cover everything
-you need to write a plugin.</p>
+<section id="defining-plugins-through-entry-points">
+<h2>Defining plugins through entry points<a class="headerlink" href="#defining-plugins-through-entry-points" title="Link to this heading">¶</a></h2>
+<p>We have created a repository with a project template for defining your
+own plugins.  It is available at</p>
+<p><a class="reference external" href="https://github.com/pygments/pygments-plugin-scaffolding">https://github.com/pygments/pygments-plugin-scaffolding</a></p>
 </section>
 <section id="extending-the-core">
 <h2>Extending The Core<a class="headerlink" href="#extending-the-core" title="Link to this heading">¶</a></h2>
