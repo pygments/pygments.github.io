@@ -83,8 +83,6 @@
 <li><a class="reference internal" href="#">Contributing to Pygments</a><ul>
 <li><a class="reference internal" href="#licensing">Licensing</a></li>
 <li><a class="reference internal" href="#general-contribution-checklist">General contribution checklist</a></li>
-<li><a class="reference internal" href="#how-to-add-a-lexer">How to add a lexer</a></li>
-<li><a class="reference internal" href="#how-lexers-are-tested">How lexers are tested</a></li>
 <li><a class="reference internal" href="#goals-non-goals-of-pygments">Goals &amp; non-goals of Pygments</a><ul>
 <li><a class="reference internal" href="#python-support">Python support</a></li>
 <li><a class="reference internal" href="#validation">Validation</a></li>
@@ -153,59 +151,9 @@ If adding a lexer, please make sure you have
 read <a class="reference internal" href="../lexerdevelopment/#lexer-pitfalls"><span class="std std-ref">Common pitfalls and best practices</span></a>.</p></li>
 <li><p>Run the test suite with <code class="docutils literal notranslate"><span class="pre">tox</span></code>, and ensure it passes.</p></li>
 <li><p>Make sure to add a test for your new functionality, and where applicable,
-write documentation. See below on how to test lexers.</p></li>
+write documentation.</p></li>
 <li><p>Use the standard importing convention: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">token</span> <span class="pre">import</span> <span class="pre">Punctuation</span></code></p></li>
 </ul>
-</section>
-<section id="how-to-add-a-lexer">
-<h2>How to add a lexer<a class="headerlink" href="#how-to-add-a-lexer" title="Link to this heading">¶</a></h2>
-<p>To add a lexer, you have to perform the following steps:</p>
-<ul>
-<li><p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new
-module for your lexer class.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We encourage you to put your lexer class into its own module, unless it’s a
-very small derivative of an already existing lexer.</p>
-</div>
-</li>
-<li><p>Next, make sure the lexer is known from outside the module. All modules
-in the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
-<code class="docutils literal notranslate"><span class="pre">esoteric.py</span></code> sets:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BrainfuckLexer&#39;</span><span class="p">,</span> <span class="s1">&#39;BefungeLexer&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Add the name of your lexer class to this list (or create the list if your lexer
-is the only class in the module).</p>
-</li>
-<li><p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>mapfiles
-</pre></div>
-</div>
-</li>
-</ul>
-</section>
-<section id="how-lexers-are-tested">
-<h2>How lexers are tested<a class="headerlink" href="#how-lexers-are-tested" title="Link to this heading">¶</a></h2>
-<p>To add a new lexer test, create a file with just your code snippet
-under <code class="docutils literal notranslate"><span class="pre">tests/snippets/&lt;lexer_alias&gt;/</span></code>. Then run
-<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">--update-goldens</span> <span class="pre">&lt;filename.txt&gt;</span></code> to auto-populate the
-currently expected tokens. Check that they look good and check in the
-file.</p>
-<p>Lexer tests are run with <code class="docutils literal notranslate"><span class="pre">tox</span></code>, like all other tests. While
-working on a lexer, you can also run only the tests for that lexer
-with <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/snippets/language-name/</span></code> and/or
-<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/examplefiles/language-name/</span></code>.</p>
-<p>Running the test suite with <code class="docutils literal notranslate"><span class="pre">tox</span></code> will run lexers on the test
-inputs, and check that the output matches the expected tokens. If you
-are improving a lexer, it is normal that the token output changes. To
-update the expected token output for the tests, again use
-<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">--update-goldens</span> <span class="pre">&lt;filename.txt&gt;</span></code>.  Review the changes and
-check that they are as intended, then commit them along with your
-proposed code change.</p>
-<p>Large test files should go in <code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code>.  This works
-similar to <code class="docutils literal notranslate"><span class="pre">snippets</span></code>, but the token output is stored in a separate
-file.  Output can also be regenerated with <code class="docutils literal notranslate"><span class="pre">--update-goldens</span></code>.</p>
 </section>
 <section id="goals-non-goals-of-pygments">
 <h2>Goals &amp; non-goals of Pygments<a class="headerlink" href="#goals-non-goals-of-pygments" title="Link to this heading">¶</a></h2>

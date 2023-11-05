@@ -81,6 +81,8 @@
     <h3><a href="../../">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Write your own lexer</a><ul>
+<li><a class="reference internal" href="#how-to-add-a-lexer">How to add a lexer</a></li>
+<li><a class="reference internal" href="#how-to-test-your-lexer">How to test your lexer</a></li>
 <li><a class="reference internal" href="#regexlexer">RegexLexer</a></li>
 <li><a class="reference internal" href="#using-a-lexer">Using a lexer</a></li>
 <li><a class="reference internal" href="#regex-flags">Regex Flags</a></li>
@@ -148,6 +150,61 @@ object with the data to lex.</p>
 containing tuples in the form <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">token,</span> <span class="pre">value)</span></code>.  Normally you don’t
 need to do this since there are base lexers that do most of the work and that
 you can subclass.</p>
+<section id="how-to-add-a-lexer">
+<h2>How to add a lexer<a class="headerlink" href="#how-to-add-a-lexer" title="Link to this heading">¶</a></h2>
+<p>To add a lexer, you have to perform the following steps:</p>
+<ul>
+<li><p>Select a matching module under <code class="docutils literal notranslate"><span class="pre">pygments/lexers</span></code>, or create a new
+module for your lexer class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We encourage you to put your lexer class into its own module, unless it’s a
+very small derivative of an already existing lexer.</p>
+</div>
+</li>
+<li><p>Next, make sure the lexer is known from outside the module. All modules
+in the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">automation.py</span></code> sets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AutohotkeyLexer&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoItLexer&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Add the name of your lexer class to this list (or create the list if your
+lexer   is the only class in the module).</p>
+</li>
+<li><p>Finally the lexer can be made publicly known by rebuilding the lexer mapping.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>mapfiles
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="how-to-test-your-lexer">
+<h2>How to test your lexer<a class="headerlink" href="#how-to-test-your-lexer" title="Link to this heading">¶</a></h2>
+<p>To add a new lexer test, create a file with just your code snippet
+under <code class="docutils literal notranslate"><span class="pre">tests/snippets/&lt;lexer_alias&gt;/</span></code>. Then run
+<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">--update-goldens</span> <span class="pre">&lt;filename.txt&gt;</span></code> to auto-populate the
+currently expected tokens. Check that they look good and check in the
+file.</p>
+<p>Lexer tests are run with <code class="docutils literal notranslate"><span class="pre">tox</span></code>, like all other tests. While
+working on a lexer, you can also run only the tests for that lexer
+with <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/snippets/language-name/</span></code> and/or
+<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">tests/examplefiles/language-name/</span></code>.</p>
+<p>Running the test suite with <code class="docutils literal notranslate"><span class="pre">tox</span></code> will run lexers on the test
+inputs, and check that the output matches the expected tokens. If you
+are improving a lexer, it is normal that the token output changes. To
+update the expected token output for the tests, again use
+<code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">--</span> <span class="pre">--update-goldens</span> <span class="pre">&lt;filename.txt&gt;</span></code>.  Review the changes and
+check that they are as intended, then commit them along with your
+proposed code change.</p>
+<p>Large test files should go in <code class="docutils literal notranslate"><span class="pre">tests/examplefiles</span></code>.  This works
+similar to <code class="docutils literal notranslate"><span class="pre">snippets</span></code>, but the token output is stored in a separate
+file.  Output can also be regenerated with <code class="docutils literal notranslate"><span class="pre">--update-goldens</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When contributing a new lexer, you <em>must</em> provide an example file or test
+snippet. Lexers which can’t be tested will not be accepted.</p>
+</div>
+</section>
 <section id="regexlexer">
 <h2>RegexLexer<a class="headerlink" href="#regexlexer" title="Link to this heading">¶</a></h2>
 <p>The lexer base class used by almost all of Pygments’ lexers is the
