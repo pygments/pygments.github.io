@@ -827,7 +827,7 @@ contribute a new lexer, but you might find it useful in any case.</p>
 </li>
 <li><p>Be careful with <code class="docutils literal notranslate"><span class="pre">.*</span></code>. This matches greedily as much as it can. For instance,
 a rule like <code class="docutils literal notranslate"><span class="pre">&#64;.*&#64;</span></code> will match the whole string <code class="docutils literal notranslate"><span class="pre">&#64;first&#64;</span> <span class="pre">second</span> <span class="pre">&#64;third&#64;</span></code>,
-instead of matching <code class="docutils literal notranslate"><span class="pre">&#64;first&#64;</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;second&#64;</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">&#64;.*?&#64;</span></code> in
+instead of matching <code class="docutils literal notranslate"><span class="pre">&#64;first&#64;</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;third&#64;</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">&#64;.*?&#64;</span></code> in
 this case to stop early. The <code class="docutils literal notranslate"><span class="pre">?</span></code> tries to match <em>as few times</em> as possible.</p></li>
 <li><p>Beware of so-called “catastrophic backtracking”.  As a first example, consider
 the regular expression <code class="docutils literal notranslate"><span class="pre">(A+)*B</span></code>.  This is equivalent to <code class="docutils literal notranslate"><span class="pre">A*B</span></code> regarding
