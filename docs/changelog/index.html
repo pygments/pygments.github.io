@@ -191,7 +191,7 @@
 <ul class="simple">
 <li><p>New lexers:</p>
 <ul>
-<li><p>JSX (<a class="reference external" href="https://github.com/pygments/pygments/issues/2524">#2524</a>)</p></li>
+<li><p>JSX (<a class="reference external" href="https://github.com/pygments/pygments/issues/2524">#2524</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/709">#709</a>)</p></li>
 <li><p>Kusto (<a class="reference external" href="https://github.com/pygments/pygments/issues/2552">#2552</a>)</p></li>
 <li><p>ldaprc (<a class="reference external" href="https://github.com/pygments/pygments/issues/2532">#2532</a>)</p></li>
 <li><p>LDIF (<a class="reference external" href="https://github.com/pygments/pygments/issues/2489">#2489</a>)</p></li>
@@ -208,8 +208,10 @@
 a possible switch to <code class="docutils literal notranslate"><span class="pre">lean</span></code> highlighting as Lean 4 (<a class="reference external" href="https://github.com/pygments/pygments/issues/2546">#2546</a>)</p></li>
 <li><p>JSON: add MIME types and file extensions for several line-delimited
 JSON formats (<a class="reference external" href="https://github.com/pygments/pygments/issues/2490">#2490</a>)</p></li>
-<li><p>Nix: many improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2551">#2551</a>),</p></li>
-<li><p>Python: add <code class="docutils literal notranslate"><span class="pre">starlark</span></code> and <code class="docutils literal notranslate"><span class="pre">bazel</span></code> aliases (<a class="reference external" href="https://github.com/pygments/pygments/issues/2517">#2517</a>)</p></li>
+<li><p>Nix: many improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/2551">#2551</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1800">#1800</a>)</p></li>
+<li><p>OCaml: Add <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword, remove <code class="docutils literal notranslate"><span class="pre">value</span></code> from keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/2521">#2521</a>)</p></li>
+<li><p>Python: add <code class="docutils literal notranslate"><span class="pre">starlark</span></code> and <code class="docutils literal notranslate"><span class="pre">bazel</span></code> aliases (<a class="reference external" href="https://github.com/pygments/pygments/issues/2517">#2517</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2516">#2516</a>)</p></li>
+<li><p>Snowball: Treat <code class="docutils literal notranslate"><span class="pre">len</span></code> like <code class="docutils literal notranslate"><span class="pre">size</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2508">#2508</a>)</p></li>
 <li><p>Spice: add <code class="docutils literal notranslate"><span class="pre">panic</span></code> keyword and <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> operator (<a class="reference external" href="https://github.com/pygments/pygments/issues/2510">#2510</a>)</p></li>
 <li><p>squid.conf: fix catastrophic backtracking (<a class="reference external" href="https://github.com/pygments/pygments/issues/2583">#2583</a>)</p></li>
 <li><p>TOML: rewritten, with many fixes (<a class="reference external" href="https://github.com/pygments/pygments/issues/2576">#2576</a>)</p></li>
@@ -220,25 +222,32 @@ JSON formats (<a class="reference external" href="https://github.com/pygments/py
 </ul>
 </li>
 <li><p>Fix ctags support and tests (<a class="reference external" href="https://github.com/pygments/pygments/issues/2487">#2487</a>)</p></li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">Lexer.add_filter</span></code> in the documentation (<a class="reference external" href="https://github.com/pygments/pygments/issues/2519">#2519</a>)</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">Lean3Lexer</span></code> alias (<a class="reference external" href="https://github.com/pygments/pygments/issues/2546">#2546</a>)</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pygments.styles</span></code> module contains a new <code class="docutils literal notranslate"><span class="pre">STYLES</span></code> variable
 with a dictionary of built-in styles.  The old <code class="docutils literal notranslate"><span class="pre">STYLE_MAP</span></code> variable,
 which uses a different format, is kept for backwards compatibility.</p></li>
 <li><p>On Windows, add a new installation extra (<code class="docutils literal notranslate"><span class="pre">windows-terminal</span></code>) which pulls in
-dependencies for colored console output. See <a class="reference internal" href="../cmdline/"><span class="doc">Command Line Interface</span></a> for more details.</p></li>
+dependencies for colored console output. See <a class="reference internal" href="../cmdline/"><span class="doc">Command Line Interface</span></a> for more details.
+(<a class="reference external" href="https://github.com/pygments/pygments/issues/2505">#2505</a>)</p></li>
 <li><p>Support more file types in <code class="docutils literal notranslate"><span class="pre">autopygmentize</span></code> script (<a class="reference external" href="https://github.com/pygments/pygments/issues/2513">#2513</a>)</p></li>
 <li><p>Change color of numbers in <code class="docutils literal notranslate"><span class="pre">rrt</span></code> style (<a class="reference external" href="https://github.com/pygments/pygments/issues/2526">#2526</a>)</p></li>
 <li><p>Fix error when trying to look up plugin formatters by file extension
 of the output format (<a class="reference external" href="https://github.com/pygments/pygments/issues/2563">#2563</a>)</p></li>
-<li><p>Hatchling is now used as a build backend instead of setuptools.
+<li><p>Use Hatchling as a build backend instead of setuptools.
 This change is transparent to most users. Distribution packagers
 who build without build isolation need to add hatchling as a build
 dependency and remove setuptools. People downloading source distributions
 and wheels from PyPI directly should note that they now have <code class="docutils literal notranslate"><span class="pre">pygments</span></code>
 in their file names instead of <code class="docutils literal notranslate"><span class="pre">Pygments</span></code>. (<a class="reference external" href="https://github.com/pygments/pygments/issues/2573">#2573</a>)</p></li>
+<li><p>Improve the test framework to also check for lost tokens when processing the
+snippets and example files (<a class="reference external" href="https://github.com/pygments/pygments/issues/2582">#2582</a>.)</p></li>
+<li><p>Improve the _Dracula_ style definition to make it easier to maintain (<a class="reference external" href="https://github.com/pygments/pygments/issues/2575">#2575</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-16-1">
 <h2>Version 2.16.1<a class="headerlink" href="#version-2-16-1" title="Link to this heading">¶</a></h2>
+<p>(released August 6th, 2023)</p>
 <ul class="simple">
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">native</span></code> style missing from style list (<a class="reference external" href="https://github.com/pygments/pygments/issues/2484">#2484</a>)</p></li>
 </ul>
