@@ -206,6 +206,10 @@
 <li><p>UL4: support nested <code class="docutils literal notranslate"><span class="pre">&lt;?doc?&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;?note?&gt;</span></code> tags (<a class="reference external" href="https://github.com/pygments/pygments/issues/2597">#2597</a>)</p></li>
 </ul>
 </li>
+<li><p>Require Python 3.8. As a result, the <code class="docutils literal notranslate"><span class="pre">importlib-metadata</span></code> package
+is no longer needed for fast plugin discovery on Python 3.7.
+The <code class="docutils literal notranslate"><span class="pre">plugins</span></code> extra (used as, e.g., <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pygments[plugins]</span></code>)
+is kept for backwards compatibility but now has no effect. (<a class="reference external" href="https://github.com/pygments/pygments/issues/2601">#2601</a>)</p></li>
 <li><p>Require the <code class="docutils literal notranslate"><span class="pre">url</span></code> attribute for lexers inside Pygments, add
 it to many lexers (<a class="reference external" href="https://github.com/pygments/pygments/issues/2588">#2588</a>)</p></li>
 <li><p>Replace Pyflakes linter with Ruff</p></li>
