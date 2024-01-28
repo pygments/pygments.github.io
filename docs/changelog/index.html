@@ -209,6 +209,9 @@ escape sequences (<a class="reference external" href="https://github.com/pygment
 <li><p>Python: fix highlighting of soft keywords before <code class="docutils literal notranslate"><span class="pre">None</span></code>/<code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p>reStructuredText: use <code class="docutils literal notranslate"><span class="pre">Token.Comment</span></code> for comments instead of
 <code class="docutils literal notranslate"><span class="pre">Comment.Preproc</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2598">#2598</a>)</p></li>
+<li><p>Rust: highlight <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">::</span></code> and <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> as <code class="docutils literal notranslate"><span class="pre">Punctuation</span></code>
+and whitespace as <code class="docutils literal notranslate"><span class="pre">Whitespace</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">Text</span></code>
+in both cases (<a class="reference external" href="https://github.com/pygments/pygments/issues/2631">#2631</a>)</p></li>
 <li><p>SQL Explain: allow negative numbers (<a class="reference external" href="https://github.com/pygments/pygments/issues/2610">#2610</a>)</p></li>
 <li><p>ThingsDB: add constants and new functions; support template
 strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/2624">#2624</a>)</p></li>
