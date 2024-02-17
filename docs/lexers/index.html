@@ -963,6 +963,7 @@
 <li><a class="reference internal" href="#pygments.lexers.scripting.JclLexer"><code class="docutils literal notranslate"><span class="pre">JclLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.scripting.LSLLexer"><code class="docutils literal notranslate"><span class="pre">LSLLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.scripting.LuaLexer"><code class="docutils literal notranslate"><span class="pre">LuaLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.scripting.LuauLexer"><code class="docutils literal notranslate"><span class="pre">LuauLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.scripting.MOOCodeLexer"><code class="docutils literal notranslate"><span class="pre">MOOCodeLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.scripting.MiniScriptLexer"><code class="docutils literal notranslate"><span class="pre">MiniScriptLexer</span></code></a></li>
 <li><a class="reference internal" href="#pygments.lexers.scripting.MoonScriptLexer"><code class="docutils literal notranslate"><span class="pre">MoonScriptLexer</span></code></a></li>
@@ -10542,6 +10543,39 @@ should not be highlighted. By default all modules are highlighted.</p>
 </div>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.scripting.LuauLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.scripting.</span></span><span class="sig-name descname"><span class="pre">LuauLexer</span></span><a class="headerlink" href="#pygments.lexers.scripting.LuauLexer" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>luau</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.luau</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>For Luau source code.</p>
+<p>Additional options accepted:</p>
+<dl class="simple">
+<dt><cite>include_luau_builtins</cite></dt><dd><p>If given and <code class="docutils literal notranslate"><span class="pre">True</span></code>, automatically highlight Luau builtins
+(default: <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+</dd>
+<dt><cite>include_roblox_builtins</cite></dt><dd><p>If given and <code class="docutils literal notranslate"><span class="pre">True</span></code>, automatically highlight Roblox-specific builtins
+(default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><cite>additional_builtins</cite></dt><dd><p>If given, must be a list of additional builtins to highlight.</p>
+</dd>
+<dt><cite>disabled_builtins</cite></dt><dd><p>If given, must be a list of builtins that will not be highlighted.</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.18.</span></p>
+</div>
 </dd></dl>
 
 <dl class="py class">
