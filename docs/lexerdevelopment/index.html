@@ -344,9 +344,9 @@ sections, comments and <code class="docutils literal notranslate"><span class="p
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;;.*?$&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;;.*&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[.*?\]$&#39;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.*?)(\s*)(=)(\s*)(.*?)$&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.*?)(\s*)(=)(\s*)(.*)&#39;</span><span class="p">,</span>
              <span class="n">bygroups</span><span class="p">(</span><span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">String</span><span class="p">))</span>
         <span class="p">]</span>
     <span class="p">}</span>
