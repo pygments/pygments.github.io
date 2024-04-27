@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
     <script src="../../_static/documentation_options.js?v=e221dd36"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -125,7 +125,7 @@
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search/" method="get">
@@ -133,7 +133,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -165,7 +165,7 @@ set to <code class="docutils literal notranslate"><span class="pre">None</span><
 supports Unicode arguments to <cite>write()</cite>. Using a regular file object
 wouldn’t work.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.6.</span></p>
+<p><span class="versionmodified added">Added in version 0.6.</span></p>
 </div>
 </dd>
 <dt><cite>outencoding</cite></dt><dd><p>When using Pygments from the command line, any <cite>encoding</cite> option given is
@@ -174,7 +174,7 @@ for example if you want to set the input encoding to <code class="docutils liter
 Therefore, <cite>outencoding</cite> has been introduced which overrides <cite>encoding</cite>
 for the formatter if given.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 </dd>
 </dl>
@@ -231,7 +231,7 @@ need for indentation) are removed.</p>
 <p>Create a bitmap image from source code. This uses the Python Imaging Library to
 generate a pixmap from the source code.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.0.</span></p>
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
 </dd></dl>
 
@@ -249,7 +249,7 @@ generate a pixmap from the source code.</p>
 <p>Create a GIF image from source code. This uses the Python Imaging Library to
 generate a pixmap from the source code.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.0.</span></p>
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
 </dd></dl>
 
@@ -266,7 +266,7 @@ generate a pixmap from the source code.</p>
 </dl>
 <p>Format tokens with groff escapes to change their color and font style.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.11.</span></p>
+<p><span class="versionmodified added">Added in version 2.11.</span></p>
 </div>
 <p>Additional options accepted:</p>
 <dl class="simple">
@@ -382,7 +382,7 @@ Note that this option also affects the output of <cite>get_style_defs()</cite>.<
 If you set this option, the default selector for <cite>get_style_defs()</cite>
 will be this class.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9: </span>If you select the <code class="docutils literal notranslate"><span class="pre">'table'</span></code> line numbers, the wrapping table will
+<p><span class="versionmodified added">Added in version 0.9: </span>If you select the <code class="docutils literal notranslate"><span class="pre">'table'</span></code> line numbers, the wrapping table will
 have a CSS class of this string plus <code class="docutils literal notranslate"><span class="pre">'table'</span></code>, the default is
 accordingly <code class="docutils literal notranslate"><span class="pre">'highlighttable'</span></code>.</p>
 </div>
@@ -391,7 +391,7 @@ accordingly <code class="docutils literal notranslate"><span class="pre">'highli
 </dd>
 <dt><cite>prestyles</cite></dt><dd><p>Inline CSS styles for the <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.11.</span></p>
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
 </dd>
 <dt><cite>cssfile</cite></dt><dd><p>If the <cite>full</cite> option is true and this option is given, it must be the
@@ -400,14 +400,14 @@ path, the file’s path will be assumed to be relative to the main output
 file’s path, if the latter can be found. The stylesheet is then written
 to this file instead of the HTML file.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.6.</span></p>
+<p><span class="versionmodified added">Added in version 0.6.</span></p>
 </div>
 </dd>
 <dt><cite>noclobber_cssfile</cite></dt><dd><p>If <cite>cssfile</cite> is given and the specified file exists, the css file will
 not be overwritten. This allows the use of the <cite>full</cite> option in
 combination with a user specified css file. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.1.</span></p>
+<p><span class="versionmodified added">Added in version 1.1.</span></p>
 </div>
 </dd>
 <dt><cite>linenos</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'table'</span></code>, output line numbers as a table with two cells,
@@ -430,7 +430,7 @@ CSS property (you get the default line spacing with <code class="docutils litera
 relative to the input (i.e. the first line is line 1) and are
 independent of <cite>linenostart</cite>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.11.</span></p>
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
 </dd>
 <dt><cite>linenostart</cite></dt><dd><p>The line number for the first line (default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
@@ -445,28 +445,28 @@ for the wrapping element (this automatically defaults to <code class="docutils l
 when there is no wrapping element [eg: no argument for the
 <cite>get_syntax_defs</cite> method given]) (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.6.</span></p>
+<p><span class="versionmodified added">Added in version 0.6.</span></p>
 </div>
 </dd>
 <dt><cite>lineseparator</cite></dt><dd><p>This string is output between lines of code. It defaults to <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>,
 which is enough to break a line inside <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tags, but you can
 e.g. set it to <code class="docutils literal notranslate"><span class="pre">&quot;&lt;br&gt;&quot;</span></code> to get HTML line breaks.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 </dd>
 <dt><cite>lineanchors</cite></dt><dd><p>If set to a nonempty string, e.g. <code class="docutils literal notranslate"><span class="pre">foo</span></code>, the formatter will wrap each
 output line in an anchor tag with an <code class="docutils literal notranslate"><span class="pre">id</span></code> (and <cite>name</cite>) of <code class="docutils literal notranslate"><span class="pre">foo-linenumber</span></code>.
 This allows easy linking to certain lines.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9.</span></p>
+<p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
 </dd>
 <dt><cite>linespans</cite></dt><dd><p>If set to a nonempty string, e.g. <code class="docutils literal notranslate"><span class="pre">foo</span></code>, the formatter will wrap each
 output line in a span tag with an <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">foo-linenumber</span></code>.
 This allows easy access to lines via javascript.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.6.</span></p>
+<p><span class="versionmodified added">Added in version 1.6.</span></p>
 </div>
 </dd>
 <dt><cite>anchorlinenos</cite></dt><dd><p>If set to <cite>True</cite>, will wrap line numbers in &lt;a&gt; tags. Used in
@@ -477,14 +477,14 @@ link to their definitions. <cite>lineanchors</cite> should be used, and the
 tags file should specify line numbers (see the <cite>-n</cite> option to ctags).
 The tags file is assumed to be encoded in UTF-8.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.6.</span></p>
+<p><span class="versionmodified added">Added in version 1.6.</span></p>
 </div>
 </dd>
 <dt><cite>tagurlformat</cite></dt><dd><p>A string formatting pattern used to generate links to ctags definitions.
 Available variables are <cite>%(path)s</cite>, <cite>%(fname)s</cite> and <cite>%(fext)s</cite>.
 Defaults to an empty string, resulting in just <cite>#prefix-number</cite> links.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.6.</span></p>
+<p><span class="versionmodified added">Added in version 1.6.</span></p>
 </div>
 </dd>
 <dt><cite>filename</cite></dt><dd><p>A string used to generate a filename when rendering <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> blocks,
@@ -492,25 +492,25 @@ for example if displaying source code. If <cite>linenos</cite> is set to
 <code class="docutils literal notranslate"><span class="pre">'table'</span></code> then the filename will be rendered in an initial row
 containing a single <cite>&lt;th&gt;</cite> which spans both columns.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
 </dd>
 <dt><cite>wrapcode</cite></dt><dd><p>Wrap the code inside <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> blocks using <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code>, as recommended
 by the HTML5 specification.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.4.</span></p>
+<p><span class="versionmodified added">Added in version 2.4.</span></p>
 </div>
 </dd>
 <dt><cite>debug_token_types</cite></dt><dd><p>Add <code class="docutils literal notranslate"><span class="pre">title</span></code> attributes to all token <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags that show the
 name of the token.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.10.</span></p>
+<p><span class="versionmodified added">Added in version 2.10.</span></p>
 </div>
 </dd>
 </dl>
 <p><strong>Subclassing the HTML formatter</strong></p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>The HTML formatter is now built in a way that allows easy subclassing, thus
 customizing the output HTML code. The <cite>format()</cite> method calls
@@ -592,7 +592,7 @@ no support for common styles.</p>
 <p>Create a PNG image from source code. This uses the Python Imaging Library to
 generate a pixmap from the source code.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.10.</span></p>
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
 <p>Additional options accepted:</p>
 <dl>
@@ -659,13 +659,13 @@ the source code area.</p>
 </dd>
 <dt><cite>hl_lines</cite></dt><dd><p>Specify a list of lines to be highlighted.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.2.</span></p>
+<p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
 <p>Default: empty list</p>
 </dd>
 <dt><cite>hl_color</cite></dt><dd><p>Specify the color for highlighting lines.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.2.</span></p>
+<p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
 <p>Default: highlight color of the selected style</p>
 </dd>
@@ -686,7 +686,7 @@ the source code area.</p>
 <p>Create a JPEG image from source code. This uses the Python Imaging Library to
 generate a pixmap from the source code.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.0.</span></p>
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
 </dd></dl>
 
@@ -752,7 +752,7 @@ docs for possible values) (default: <code class="docutils literal notranslate"><
 <dt><cite>commandprefix</cite></dt><dd><p>The LaTeX commands used to produce colored output are constructed
 using this prefix and some letters (default: <code class="docutils literal notranslate"><span class="pre">'PY'</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.10: </span>The default is now <code class="docutils literal notranslate"><span class="pre">'PY'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">'C'</span></code>.</p>
@@ -762,14 +762,14 @@ using this prefix and some letters (default: <code class="docutils literal notra
 in comment tokens is not escaped so that LaTeX can render it (default:
 <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.2.</span></p>
+<p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
 </dd>
 <dt><cite>mathescape</cite></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, enables LaTeX math mode escape in comments. That
 is, <code class="docutils literal notranslate"><span class="pre">'$...$'</span></code> inside a comment will trigger math mode (default:
 <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.2.</span></p>
+<p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
 </dd>
 <dt><cite>escapeinside</cite></dt><dd><p>If set to a string of length 2, enables escaping to LaTeX. Text
@@ -778,14 +778,14 @@ typeset accordingly. It has no effect in string literals. It has
 no effect in comments if <cite>texcomments</cite> or <cite>mathescape</cite> is
 set. (default: <code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.0.</span></p>
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
 </div>
 </dd>
 <dt><cite>envname</cite></dt><dd><p>Allows you to pick an alternative environment name replacing Verbatim.
 The alternate environment still has to support Verbatim’s option syntax.
 (default: <code class="docutils literal notranslate"><span class="pre">'Verbatim'</span></code>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.0.</span></p>
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
 </div>
 </dd>
 </dl>
@@ -818,7 +818,7 @@ The alternate environment still has to support Verbatim’s option syntax.
 </dl>
 <p>Format tokens as Pango Markup code. It can then be rendered to an SVG.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.9.</span></p>
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
 </div>
 </dd></dl>
 
@@ -845,7 +845,7 @@ compression algorithm after encoding (default: <code class="docutils literal not
 <dt><cite>error_color</cite></dt><dd><p>If set to a color name, highlight error tokens using that color.  If
 set but with no value, defaults to <code class="docutils literal notranslate"><span class="pre">'red'</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.11.</span></p>
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
 </dd>
 </dl>
@@ -869,7 +869,7 @@ Paste into Microsoft(R) Word(R) documents.</p>
 The RTF format is ASCII natively, but handles unicode characters correctly
 thanks to escape sequences.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.6.</span></p>
+<p><span class="versionmodified added">Added in version 0.6.</span></p>
 </div>
 <p>Additional options accepted:</p>
 <dl>
@@ -882,7 +882,7 @@ some generic font which is supposed to have fixed width.</p>
 <dt><cite>fontsize</cite></dt><dd><p>Size of the font used. Size is specified in half points. The
 default is 24 half-points, giving a size 12 font.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.0.</span></p>
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
 </div>
 </dd>
 </dl>
@@ -905,7 +905,7 @@ coordinates containing <code class="docutils literal notranslate"><span class="p
 <p>By default, this formatter outputs a full SVG document including doctype
 declaration and the <code class="docutils literal notranslate"><span class="pre">&lt;svg&gt;</span></code> root element.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9.</span></p>
+<p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
 <p>Additional options accepted:</p>
 <dl class="simple">
@@ -966,7 +966,7 @@ are terminated at newlines, so that paging the output works correctly.</p>
 and converts them to nearest ANSI 256-color escape sequences. Bold and
 underline attributes from the style are preserved (and displayed).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9.</span></p>
+<p><span class="versionmodified added">Added in version 0.9.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2.2: </span>If the used style defines foreground colors in the form <code class="docutils literal notranslate"><span class="pre">#ansi*</span></code>, then
@@ -1034,7 +1034,7 @@ no support for common styles.</p>
 terminal or console.  Like in <cite>TerminalFormatter</cite> color sequences
 are terminated at newlines, so that paging the output works correctly.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
 <p>Options accepted:</p>
 <dl class="simple">
@@ -1057,7 +1057,7 @@ are terminated at newlines, so that paging the output works correctly.</p>
 </dl>
 <p>Format tokens as appropriate for a new testcase.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.0.</span></p>
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
 </div>
 </dd></dl>
 
@@ -1074,7 +1074,7 @@ are terminated at newlines, so that paging the output works correctly.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2024, Georg Brandl and Pygments contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6. <br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>

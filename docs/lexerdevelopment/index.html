@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
     <script src="../../_static/documentation_options.js?v=e221dd36"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex/" />
@@ -119,7 +119,7 @@
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search/" method="get">
@@ -127,7 +127,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -454,7 +454,7 @@ until it finds the closing <code class="docutils literal notranslate"><span clas
 the closing <code class="docutils literal notranslate"><span class="pre">*/</span></code>.  Then, both states are popped from the stack again and
 lexing continues in the root state.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9: </span>The tuple can contain the special <code class="docutils literal notranslate"><span class="pre">'#push'</span></code> and <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code> (but not
+<p><span class="versionmodified added">Added in version 0.9: </span>The tuple can contain the special <code class="docutils literal notranslate"><span class="pre">'#push'</span></code> and <code class="docutils literal notranslate"><span class="pre">'#pop'</span></code> (but not
 <code class="docutils literal notranslate"><span class="pre">'#pop:n'</span></code>) directives.</p>
 </div>
 </li>
@@ -521,7 +521,7 @@ matched by a rule in the state.  You could use an empty regex at the end of
 the state list, but Pygments provides a more obvious way of spelling that:
 <code class="docutils literal notranslate"><span class="pre">default('#pop')</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">('',</span> <span class="pre">Text,</span> <span class="pre">'#pop')</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 2.0.</span></p>
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
 </div>
 </li>
 </ul>
@@ -529,7 +529,7 @@ the state list, but Pygments provides a more obvious way of spelling that:
 <section id="subclassing-lexers-derived-from-regexlexer">
 <h2>Subclassing lexers derived from RegexLexer<a class="headerlink" href="#subclassing-lexers-derived-from-regexlexer" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 1.6.</span></p>
+<p><span class="versionmodified added">Added in version 1.6.</span></p>
 </div>
 <p>Sometimes multiple languages are very similar, but should still be lexed by
 different lexer classes.</p>
@@ -917,7 +917,7 @@ particular the test output) hard to read.  Do this instead:</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2024, Georg Brandl and Pygments contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6. <br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
