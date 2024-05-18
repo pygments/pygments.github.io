@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Interactive terminal/shell sessions &#8212; Pygments</title>
+    <title>Terminal sessions &#8212; Pygments</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
     <link rel="stylesheet" type="text/css" href="../../_static/pygments14.css?v=597fcfb8" />
     <script src="../../_static/documentation_options.js?v=8cb0f710"></script>
@@ -77,6 +77,19 @@
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Terminal sessions</a><ul>
+<li><a class="reference internal" href="#operating-system-shells">Operating system shells</a></li>
+<li><a class="reference internal" href="#interactive-consoles">Interactive consoles</a></li>
+<li><a class="reference internal" href="#generic-output">Generic output</a></li>
+<li><a class="reference internal" href="#ansi-rendering">ANSI rendering</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
 <div>
   <h4>Previous topic</h4>
   <p class="topless"><a href="../api/"
@@ -112,47 +125,43 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="interactive-terminal-shell-sessions">
-<h1>Interactive terminal/shell sessions<a class="headerlink" href="#interactive-terminal-shell-sessions" title="Link to this heading">¶</a></h1>
-<p>To highlight an interactive terminal or shell session, prefix your code snippet
-with a specially formatted prompt.</p>
-<p>Supported shells with examples are shown below. In each example, prompt parts in
-brackets <code class="docutils literal notranslate"><span class="pre">[any]</span></code> represent optional parts of the prompt, and prompt parts
-without brackets or in parenthesis <code class="docutils literal notranslate"><span class="pre">(any)</span></code> represent required parts of the
-prompt.</p>
-<ul>
-<li><p><strong>Bash Session</strong> (console, shell-session):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[any@any]$ </span>ls<span class="w"> </span>-lh
-<span class="gp">[any@any]# </span>ls<span class="w"> </span>-lh
-<span class="gp">[any@any]% </span>ls<span class="w"> </span>-lh
-<span class="gp">$ </span>ls<span class="w"> </span>-lh
-<span class="gp"># </span>ls<span class="w"> </span>-lh
-<span class="gp">% </span>ls<span class="w"> </span>-lh
-<span class="go">&gt; ls -lh</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>MSDOS Session</strong> (doscon):</p>
-<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">[any]&gt;</span> <span class="k">dir</span>
-<span class="gp">&gt;</span> <span class="k">dir</span>
-<span class="go">More? dir</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Tcsh Session</strong> (tcshcon):</p>
-<div class="highlight-tcshcon notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(any)</span><span class="go">&gt; ls -lh</span>
-<span class="go">? ls -lh</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>PowerShell Session</strong> (ps1con):</p>
-<div class="highlight-ps1con notranslate"><div class="highlight"><pre><span></span><span class="gp">PS[any]&gt; </span><span class="nb">Get-ChildItem</span>
-<span class="gp">PS&gt; </span><span class="nb">Get-ChildItem</span>
-<span class="go">&gt;&gt; Get-ChildItem</span>
-</pre></div>
-</div>
-</li>
+  <section id="terminal-sessions">
+<h1>Terminal sessions<a class="headerlink" href="#terminal-sessions" title="Link to this heading">¶</a></h1>
+<p>Pygments support the parsing and highlighting of terminal sessions, like
+command-line shells, interactive consoles and language <a class="reference external" href="https://en.wikipedia.org/wiki/Read–eval–print_loop">REPL</a>.</p>
+<p>They are typically command lines or code, mixed with generic output.</p>
+<p>Examples for each can be found in the <a class="reference internal" href="../lexers/"><span class="doc">lexer</span></a> documentation.</p>
+<section id="operating-system-shells">
+<h2>Operating system shells<a class="headerlink" href="#operating-system-shells" title="Link to this heading">¶</a></h2>
+<p>These lexers are expecting a prompt to identify user input. So to highlight a
+shell session, prefix your code snippet with a specially formatted prompt.</p>
+<p>They are typically named <code class="docutils literal notranslate"><span class="pre">&lt;shell&gt;</span> <span class="pre">Session</span></code>.</p>
+</section>
+<section id="interactive-consoles">
+<h2>Interactive consoles<a class="headerlink" href="#interactive-consoles" title="Link to this heading">¶</a></h2>
+<p>Similarly to systems shells, Pygments recognize a variety of interactive
+language sessions.</p>
+<p>Their IDs typically follow the <code class="docutils literal notranslate"><span class="pre">&lt;language&gt;-console</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&lt;language&gt;-repl</span></code> pattern.</p>
+</section>
+<section id="generic-output">
+<h2>Generic output<a class="headerlink" href="#generic-output" title="Link to this heading">¶</a></h2>
+<p>To display standalone terminal output and keep styling consistent, you can use
+the generic <code class="docutils literal notranslate"><span class="pre">output</span></code> lexer.</p>
+</section>
+<section id="ansi-rendering">
+<h2>ANSI rendering<a class="headerlink" href="#ansi-rendering" title="Link to this heading">¶</a></h2>
+<p>In all the lexers above, the command results are parsed as generic output.
+Which means they are rendered as-is, without any styling applied, for example by ANSI codes.</p>
+<p>Here is a couple of third-party projects covering this use-case:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/chriskuehl/pygments-ansi-color">pygments-ansi-color</a>: implements
+a new lexer and formatter to parse and render pure ANSI content.</p></li>
+<li><p><a class="reference external" href="https://github.com/kdeldycke/click-extra">Click Extra</a>: adds
+<a class="reference external" href="https://kdeldycke.github.io/click-extra/pygments.html#ansi-language-lexers">ANSI-capable lexers</a>
+for each language listed above.</p></li>
 </ul>
+</section>
 </section>
 
 

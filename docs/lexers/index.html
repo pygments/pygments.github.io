@@ -1502,6 +1502,71 @@ Nested AS3 in &lt;script&gt; tags is highlighted by the appropriate lexer.</p>
 </dd>
 </dl>
 <p>For GAP console sessions. Modeled after JuliaConsoleLexer.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-gap-console notranslate"><div class="highlight"><pre><span></span><span class="go">#@local checkEuclideanRing</span>
+<span class="gp">gap&gt; </span><span class="nv">START_TEST</span><span class="p">(</span><span class="s">&quot;euclidean.tst&quot;</span><span class="p">)</span><span class="o">;</span>
+
+<span class="go"># test consistency of EuclideanDegree, EuclideanQuotient, EuclideanRemainder,</span>
+<span class="go"># and QuotientRemainder for some ring and elements of it</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span> <span class="o">:=</span>
+<span class="gp">&gt; </span><span class="k">function</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">colls</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt; </span>  <span class="k">local</span> <span class="nv">coll1</span><span class="o">,</span> <span class="nv">coll2</span><span class="o">,</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">deg_b</span><span class="o">,</span> <span class="nv">deg_r</span><span class="o">,</span> <span class="nv">q</span><span class="o">,</span> <span class="nv">r</span><span class="o">,</span> <span class="nv">qr</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">if</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">colls</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nv">1</span> <span class="k">then</span> <span class="nv">coll1</span><span class="o">:=</span><span class="nv">colls</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">elif</span> <span class="nv">Size</span><span class="p">(</span><span class="nv">R</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nv">100</span> <span class="k">then</span> <span class="nv">coll1</span> <span class="o">:=</span> <span class="nv">R</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">else</span> <span class="nv">coll1</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">([</span><span class="nv">1</span><span class="o">..</span><span class="nv">100</span><span class="p">]</span><span class="o">,</span><span class="nv">i</span><span class="o">-&gt;</span><span class="nv">Random</span><span class="p">(</span><span class="nv">R</span><span class="p">))</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">if</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">colls</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nv">2</span> <span class="k">then</span> <span class="nv">coll2</span><span class="o">:=</span><span class="nv">colls</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">elif</span> <span class="nv">Size</span><span class="p">(</span><span class="nv">R</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nv">100</span> <span class="k">then</span> <span class="nv">coll2</span> <span class="o">:=</span> <span class="nv">R</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">else</span> <span class="nv">coll2</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">([</span><span class="nv">1</span><span class="o">..</span><span class="nv">100</span><span class="p">]</span><span class="o">,</span><span class="nv">i</span><span class="o">-&gt;</span><span class="nv">Random</span><span class="p">(</span><span class="nv">R</span><span class="p">))</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">for</span> <span class="nv">b</span> <span class="ow">in</span> <span class="nv">coll1</span> <span class="k">do</span>
+<span class="gp">&gt; </span>    <span class="k">if</span> <span class="nv">IsZero</span><span class="p">(</span><span class="nv">b</span><span class="p">)</span> <span class="k">then</span> <span class="k">continue</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>    <span class="nv">deg_b</span> <span class="o">:=</span> <span class="nv">EuclideanDegree</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
+<span class="gp">&gt; </span>    <span class="k">for</span> <span class="nv">a</span> <span class="ow">in</span> <span class="nv">coll2</span> <span class="k">do</span>
+<span class="gp">&gt; </span>      <span class="nv">q</span> <span class="o">:=</span> <span class="nv">EuclideanQuotient</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span> <span class="k">Assert</span><span class="p">(</span><span class="nv">0</span><span class="o">,</span> <span class="nv">q</span> <span class="ow">in</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="nv">r</span> <span class="o">:=</span> <span class="nv">EuclideanRemainder</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span> <span class="k">Assert</span><span class="p">(</span><span class="nv">0</span><span class="o">,</span> <span class="nv">r</span> <span class="ow">in</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="k">if</span> <span class="nv">a</span> <span class="o">&lt;&gt;</span> <span class="nv">q</span><span class="o">*</span><span class="nv">b</span> <span class="o">+</span> <span class="nv">r</span> <span class="k">then</span> <span class="nv">Error</span><span class="p">(</span><span class="s">&quot;a &lt;&gt; q*b + r for &quot;</span><span class="o">,</span> <span class="p">[</span><span class="nv">R</span><span class="o">,</span><span class="nv">a</span><span class="o">,</span><span class="nv">b</span><span class="p">])</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="nv">deg_r</span> <span class="o">:=</span> <span class="nv">EuclideanDegree</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">r</span><span class="p">)</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="k">if</span> <span class="ow">not</span> <span class="nv">IsZero</span><span class="p">(</span><span class="nv">r</span><span class="p">)</span> <span class="ow">and</span> <span class="nv">deg_r</span> <span class="o">&gt;=</span> <span class="nv">deg_b</span> <span class="k">then</span> <span class="nv">Error</span><span class="p">(</span><span class="s">&quot;Euclidean degree did not decrease for &quot;</span><span class="o">,</span><span class="p">[</span><span class="nv">R</span><span class="o">,</span><span class="nv">a</span><span class="o">,</span><span class="nv">b</span><span class="p">])</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="nv">qr</span> <span class="o">:=</span> <span class="nv">QuotientRemainder</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
+<span class="gp">&gt; </span>      <span class="k">if</span> <span class="nv">qr</span> <span class="o">&lt;&gt;</span> <span class="p">[</span><span class="nv">q</span><span class="o">,</span> <span class="nv">r</span><span class="p">]</span> <span class="k">then</span> <span class="nv">Error</span><span class="p">(</span><span class="s">&quot;QuotientRemainder inconsistent for &quot;</span><span class="o">,</span> <span class="p">[</span><span class="nv">R</span><span class="o">,</span><span class="nv">a</span><span class="o">,</span><span class="nv">b</span><span class="p">])</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span>
+<span class="gp">&gt; </span>    <span class="k">od</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">od</span><span class="o">;</span>
+<span class="gp">&gt; </span>  <span class="k">return</span> <span class="no">true</span><span class="o">;</span>
+<span class="gp">&gt; </span><span class="k">end</span><span class="o">;;</span>
+
+<span class="go"># rings in characteristic 0</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span><span class="o">,</span><span class="p">[</span><span class="o">-</span><span class="nv">100</span><span class="o">..</span><span class="nv">100</span><span class="p">]</span><span class="o">,</span><span class="p">[</span><span class="o">-</span><span class="nv">100</span><span class="o">..</span><span class="nv">100</span><span class="p">])</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Rationals</span><span class="p">)</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">GaussianIntegers</span><span class="p">)</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">GaussianRationals</span><span class="p">)</span><span class="o">;</span>
+<span class="go">true</span>
+
+<span class="go"># finite fields</span>
+<span class="gp">gap&gt; </span><span class="nv">ForAll</span><span class="p">(</span><span class="nv">Filtered</span><span class="p">([</span><span class="nv">2</span><span class="o">..</span><span class="nv">50</span><span class="p">]</span><span class="o">,</span> <span class="nv">IsPrimePowerInt</span><span class="p">)</span><span class="o">,</span> <span class="nv">q</span><span class="o">-&gt;</span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">GF</span><span class="p">(</span><span class="nv">q</span><span class="p">)))</span><span class="o">;</span>
+<span class="go">true</span>
+
+<span class="go"># ZmodnZ</span>
+<span class="gp">gap&gt; </span><span class="nv">ForAll</span><span class="p">([</span><span class="nv">1</span><span class="o">..</span><span class="nv">50</span><span class="p">]</span><span class="o">,</span> <span class="nv">m</span> <span class="o">-&gt;</span> <span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span> <span class="ow">mod</span> <span class="nv">m</span><span class="p">))</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span> <span class="ow">mod</span> <span class="p">((</span><span class="nv">2</span><span class="o">*</span><span class="nv">3</span><span class="o">*</span><span class="nv">5</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="p">))</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span> <span class="ow">mod</span> <span class="p">((</span><span class="nv">2</span><span class="o">*</span><span class="nv">3</span><span class="o">*</span><span class="nv">5</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="p">))</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span> <span class="ow">mod</span> <span class="p">((</span><span class="nv">2</span><span class="o">*</span><span class="nv">3</span><span class="o">*</span><span class="nv">5</span><span class="o">*</span><span class="nv">7</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="p">))</span><span class="o">;</span>
+<span class="go">true</span>
+<span class="gp">gap&gt; </span><span class="nv">checkEuclideanRing</span><span class="p">(</span><span class="nv">Integers</span> <span class="ow">mod</span> <span class="p">((</span><span class="nv">2</span><span class="o">*</span><span class="nv">3</span><span class="o">*</span><span class="nv">5</span><span class="o">*</span><span class="nv">7</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="p">))</span><span class="o">;</span>
+<span class="go">true</span>
+
+<span class="go">#</span>
+<span class="gp">gap&gt; </span><span class="nv">STOP_TEST</span><span class="p">(</span> <span class="s">&quot;euclidean.tst&quot;</span><span class="o">,</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.14.</span></p>
 </div>
@@ -4500,7 +4565,7 @@ method.</p>
 </dd>
 </dl>
 <p>For Dylan interactive console output.</p>
-<p>This is based on a copy of the RubyConsoleLexer.</p>
+<p>This is based on a copy of the <code class="docutils literal notranslate"><span class="pre">RubyConsoleLexer</span></code>.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <div class="highlight-dylan-console notranslate"><div class="highlight"><pre><span></span><span class="gp">?</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -6765,6 +6830,33 @@ members (default: <code class="docutils literal notranslate"><span class="pre">T
 </dd>
 </dl>
 <p>For Julia console sessions. Modeled after MatlabSessionLexer.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="go">2</span>
+
+<span class="gp">julia&gt;</span><span class="w"> </span><span class="o">\</span><span class="s">&quot;</span><span class="se">\&quot;\&quot;</span>
+<span class="w">      </span><span class="s">  The factorial function.</span>
+
+<span class="go">        ```julia</span>
+<span class="go">        @assert fac(3) == 1 * 2 * 3</span>
+<span class="go">        ```</span>
+<span class="go">        \&quot;\&quot;\&quot;</span>
+<span class="go">        function fac(n)</span>
+<span class="go">            if n &lt; 2</span>
+<span class="go">                return 1</span>
+<span class="go">            else</span>
+<span class="go">                return n * fac(n - 1) # &lt;-- recursive call</span>
+<span class="go">            end</span>
+<span class="go">        end</span>
+
+
+<span class="go">        # Lets try the function out...</span>
+<span class="go">        f(x + 1)</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.6.</span></p>
 </div>
@@ -7925,6 +8017,47 @@ syntaxes.</p>
 </dl>
 <p>For Matlab sessions.  Modeled after PythonConsoleLexer.
 Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschutte&#37;&#52;&#48;csail&#46;mit&#46;edu">kschutte<span>&#64;</span>csail<span>&#46;</span>mit<span>&#46;</span>edu</a>&gt;.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-matlabsession notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt; </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;okay&#39;</span>
+
+<span class="go">a =</span>
+
+<span class="go">okay</span>
+
+<span class="gp">&gt;&gt; </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">    </span><span class="c">% a matrix</span>
+
+<span class="go">x =</span>
+
+<span class="go">    0.8147    0.9134    0.2785</span>
+<span class="go">    0.9058    0.6324    0.5469</span>
+<span class="go">    0.1270    0.0975    0.9575</span>
+
+<span class="gp">&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="go">ans =</span>
+
+<span class="go">   Inf</span>
+
+<span class="gp">&gt;&gt; </span><span class="n">foo</span>
+<span class="gt">??? Undefined function or variable &#39;foo&#39;.</span>
+
+<span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt; </span><span class="p">{</span><span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;testing&#39;</span><span class="p">}</span>
+
+<span class="go">ans =</span>
+
+<span class="go">    [1]    &#39;testing&#39;</span>
+
+<span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt;</span>
+<span class="gp">&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
@@ -9966,6 +10099,48 @@ or library</p></li>
 </dd>
 </dl>
 <p>For R console transcripts or R CMD BATCH output files.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="go">R version 2.9.2 (2009-08-24)</span>
+<span class="go">Copyright (C) 2009 The R Foundation for Statistical Computing</span>
+<span class="go">ISBN 3-900051-07-0</span>
+
+<span class="go">R is free software and comes with ABSOLUTELY NO WARRANTY.</span>
+<span class="go">You are welcome to redistribute it under certain conditions.</span>
+<span class="go">Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.</span>
+
+<span class="go">  Natural language support but running in an English locale</span>
+
+<span class="go">R is a collaborative project with many contributors.</span>
+<span class="go">Type &#39;contributors()&#39; for more information and</span>
+<span class="go">&#39;citation()&#39; on how to cite R or R packages in publications.</span>
+
+<span class="go">Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or</span>
+<span class="go">&#39;help.start()&#39; for an HTML browser interface to help.</span>
+<span class="go">Type &#39;q()&#39; to quit R.</span>
+
+<span class="go">[R.app GUI 1.29 (5464) i386-apple-darwin8.11.1]</span>
+
+<span class="gp">&gt; </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="p">{}</span>
+<span class="go">Error: syntax error</span>
+<span class="gp">&gt; </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="gp">&gt; </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="gp">+ </span><span class="nf">cat</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="gp">+ </span><span class="nf">cat</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">)</span>
+<span class="gp">+ </span><span class="p">}</span>
+<span class="gp">&gt; </span><span class="n">x</span>
+<span class="go">function() {</span>
+<span class="go">cat(&quot;hello&quot;)</span>
+<span class="go">cat(&quot;world&quot;)</span>
+<span class="go">}</span>
+<span class="gp">&gt; </span><span class="nf">x</span><span class="p">()</span>
+<span class="go">helloworld</span>
+<span class="gp">&gt; </span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span>
+<span class="go">[1] 4</span>
+<span class="gp">&gt; </span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -10777,6 +10952,29 @@ language to bind different applications together.</p>
 </dl>
 <p>Lexer for Bash shell sessions, i.e. command lines, including a
 prompt, interspersed with output.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">user@host:~/path$ </span>ls<span class="w"> </span>-a
+<span class="go">.  ..  a  b  c</span>
+<span class="gp">user@host:~/path$ </span>diff<span class="w"> </span>-u<span class="w"> </span>a<span class="w"> </span>b
+<span class="go">--- a   2008-07-26 17:10:07.000000000 -0700</span>
+<span class="go">+++ b   2008-07-26 17:10:10.000000000 -0700</span>
+<span class="go">@@ -1,3 +1,3 @@</span>
+<span class="go"> a</span>
+<span class="go">-b</span>
+<span class="go">+x</span>
+<span class="go"> c</span>
+<span class="gp">user@host:~/path$ </span><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+<span class="gp">&gt; </span>a
+<span class="go">a</span>
+<span class="gp">user@host:~/path$ </span>su
+<span class="gp">root@host:~#</span>
+<span class="gp">sh-3.1$ </span><span class="c1"># on hardy</span>
+<span class="gp">sh$ </span><span class="c1"># on etch</span>
+<span class="gp gp-VirtualEnv">(virtualenv-name)</span><span class="gp">user@host:~$ </span>ls<span class="w"> </span>-a
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.1.</span></p>
 </div>
@@ -10858,6 +11056,14 @@ prompt, interspersed with output.</p>
 </dl>
 <p>Lexer for MS DOS shell sessions, i.e. command lines, including a
 prompt, interspersed with output.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">[any]&gt;</span> <span class="k">dir</span>
+<span class="gp">&gt;</span> <span class="k">dir</span>
+<span class="go">More? dir</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
@@ -10899,6 +11105,14 @@ prompt, interspersed with output.</p>
 </dl>
 <p>Lexer for PowerShell sessions, i.e. command lines, including a
 prompt, interspersed with output.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">PS[any]&gt; </span><span class="nb">Get-ChildItem</span>
+<span class="gp">PS&gt; </span><span class="nb">Get-ChildItem</span>
+<span class="go">&gt;&gt; Get-ChildItem</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
@@ -10960,6 +11174,13 @@ prompt, interspersed with output.</p>
 </dl>
 <p>Lexer for Tcsh sessions, i.e. command lines, including a
 prompt, interspersed with output.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-tcshcon notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(any)</span><span class="go">&gt; ls -lh</span>
+<span class="go">? ls -lh</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
@@ -11214,6 +11435,39 @@ Does not require spaces around binary operators.</p>
 </dd>
 </dl>
 <p>Simple lexer that highlights everything as <code class="docutils literal notranslate"><span class="pre">Token.Generic.Output</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">        ,</span>
+<span class="go">        \\`-._           __</span>
+<span class="go">        \\\\  `-..____,.&#39;  `.</span>
+<span class="go">        :`.         /    \\`.</span>
+<span class="go">        :  )       :      : \\</span>
+<span class="go">        ;&#39;        &#39;   ;  |  :</span>
+<span class="go">        )..      .. .:.`.;  :</span>
+<span class="go">        /::...  .:::...   ` ;</span>
+<span class="go">        ; _ &#39;    __        /:\\</span>
+<span class="go">        `:o&gt;   /\\o_&gt;      ;:. `.</span>
+<span class="go">        `-`.__ ;   __..--- /:.   \\</span>
+<span class="go">        === \\_/   ;=====_.&#39;:.     ;</span>
+<span class="go">        ,/&#39;`--&#39;...`--....        ;</span>
+<span class="go">            ;                    ;</span>
+<span class="go">            .&#39;                      ;</span>
+<span class="go">        .&#39;                        ;</span>
+<span class="go">        .&#39;     ..     ,      .       ;</span>
+<span class="go">        :       ::..  /      ;::.     |</span>
+<span class="go">    /      `.;::.  |       ;:..    ;</span>
+<span class="go">    :         |:.   :       ;:.    ;</span>
+<span class="go">    :         ::     ;:..   |.    ;</span>
+<span class="go">    :       :;      :::....|     |</span>
+<span class="go">    /\\     ,/ \\      ;:::::;     ;</span>
+<span class="go">    .:. \\:..|    :     ; &#39;.--|     ;</span>
+<span class="go">    ::.  :&#39;&#39;  `-.,,;     ;&#39;   ;     ;</span>
+<span class="go">.-&#39;. _.&#39;\\      / `;      \\,__:      \\</span>
+<span class="go">`---&#39;    `----&#39;   ;      /    \\,.,,,/</span>
+<span class="go">                    `----`              fsc</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.10.</span></p>
 </div>
@@ -11341,6 +11595,133 @@ compatibility between the two is not a target for this lexer.</p>
 </dd>
 </dl>
 <p>Lexer for psql sessions.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+<span class="gs">ERROR:</span><span class="gr">  column &quot;foo&quot; does not exist</span>
+<span class="gs">CONTEXT:</span><span class="gr">  PL/pgSQL function &quot;test1&quot; while casting return value to function&#39;s return type</span>
+<span class="gs">LINE 1:</span><span class="gr"> select foo;</span>
+<span class="gr">               ^</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="kp">\q</span>
+
+<span class="gp">peter@localhost testdb=&gt;</span><span class="w"> </span><span class="kp">\a</span><span class="w"> </span><span class="kp">\t</span><span class="w"> </span><span class="kp">\x</span>
+<span class="go">Output format is aligned.</span>
+<span class="go">Tuples only is off.</span>
+<span class="go">Expanded display is on.</span>
+
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="s1">&#39;\x&#39;</span><span class="p">;</span>
+<span class="gs">WARNING:</span><span class="go">  nonstandard use of escape in a string literal</span>
+<span class="gs">LINE 1:</span><span class="go"> select &#39;\x&#39;;</span>
+<span class="go">               ^</span>
+<span class="gs">HINT:</span><span class="go">  Use the escape string syntax for escapes, e.g., E&#39;\r\n&#39;.</span>
+<span class="go"> ?column? </span>
+<span class="go">----------</span>
+<span class="go"> x</span>
+<span class="go">(1 row)</span>
+
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="sa">E</span><span class="s1">&#39;\x&#39;</span><span class="p">;</span>
+
+<span class="gp">piro=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">foo</span><span class="w"> </span><span class="ss">30;</span>
+<span class="gp">piro=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">:foo</span><span class="p">;</span>
+<span class="go"> foo | bar </span>
+<span class="go">-----+-----</span>
+<span class="go">  10 | </span>
+<span class="go">  20 | </span>
+<span class="go">(2 rows)</span>
+
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">foo</span><span class="w"> </span><span class="s1">&#39;my_table&#39;</span>
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="nv">:&quot;foo&quot;</span><span class="p">;</span>
+
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">content</span><span class="w"> </span><span class="sb">`cat my_file.txt`</span>
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="nv">:&#39;content&#39;</span><span class="p">);</span>
+
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="p">(</span>
+<span class="gp">regression(#</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="go"> ?column? </span>
+<span class="go">----------</span>
+<span class="go">        1</span>
+<span class="go">(1 row)</span>
+
+<span class="gp">piro=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="p">(</span>
+<span class="gp">piro(&gt;</span><span class="w"> </span><span class="s1">&#39;</span>
+<span class="gp">piro&#39;&gt;</span><span class="s1"> &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s">$$</span>
+<span class="gp">piro$&gt;</span><span class="s"> $$</span><span class="p">)</span>
+<span class="gp">piro-&gt;</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="s s-Name">&quot;</span>
+<span class="gp">piro&quot;&gt;</span><span class="s s-Name"> foo&quot;</span><span class="p">;</span>
+<span class="gs">ERROR:</span><span class="gr">  relation &quot;</span>
+<span class="gr">foo&quot; does not exist</span>
+<span class="gs">LINE 5:</span><span class="gr"> from &quot;</span>
+<span class="gr">             ^</span>
+
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span>
+<span class="k">first</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="k">second</span><span class="w"> </span><span class="nb">text</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- end of command</span>
+<span class="go">CREATE TABLE</span>
+
+<span class="go">-- Table output</span>
+<span class="gp">=#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;0x10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;dec&quot;</span><span class="p">,</span>
+<span class="gp">-#</span><span class="w">        </span><span class="s1">&#39;010&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">oct</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0b10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bin</span><span class="p">;</span>
+<span class="go"> hex | dec | oct | bin</span>
+<span class="go">-----+-----+-----+-----</span>
+<span class="go"> 16  | 10  | 8   | 2</span>
+<span class="go">(1 row)</span>
+
+<span class="go">-- One field output</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">schemaname</span><span class="w"> </span><span class="k">from</span><span class="w">  </span><span class="n">pg_tables</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="go"> schemaname </span>
+<span class="go">------------</span>
+<span class="go"> pg_catalog</span>
+<span class="go"> pg_catalog</span>
+<span class="go"> pg_catalog</span>
+<span class="go">(3 rows)</span>
+
+<span class="go">-- TODO: prompt in multiline comments still not handled correctly</span>
+<span class="gp">test=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="cm">/* multiline</span>
+<span class="cm">test*&gt; and 2 /* and 3 */</span>
+<span class="cm">test*&gt; end comment */</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="go"> ?column? | ?column? </span>
+<span class="go">----------+----------</span>
+<span class="go">        1 |        2</span>
+
+<span class="gp">=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="mf">1E+6</span><span class="p">;</span>
+<span class="go"> ?column? | ?column? | ?column? </span>
+<span class="go">----------+----------+----------</span>
+<span class="go">     10.0 | 0.000001 |  1000000</span>
+<span class="go">(1 row)</span>
+
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">begin</span><span class="p">;</span>
+<span class="go">BEGIN</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">asdf</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">);</span>
+<span class="gs">NOTICE:</span><span class="go">  CREATE TABLE will create implicit sequence &quot;asdf_foo_seq&quot; for serial column &quot;asdf.foo&quot;</span>
+<span class="gs">NOTICE:</span><span class="go">  CREATE TABLE / PRIMARY KEY will create implicit index &quot;asdf_pkey&quot; for table &quot;asdf&quot;</span>
+<span class="go">CREATE TABLE</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">asdf</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mf">10</span><span class="p">)</span><span class="w"> </span><span class="k">returning</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+<span class="go"> foo </span>
+<span class="go">-----</span>
+<span class="go">  10</span>
+<span class="go">(1 row)</span>
+
+<span class="go">INSERT 0 1</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="p">;</span>
+<span class="go">ROLLBACK</span>
+
+<span class="gp">=&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tenk1</span>
+<span class="gp">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">unique1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">   </span><span class="c1">-- Don&#39;t take -&gt; in the plan as a prompt</span>
+
+<span class="go">                                  QUERY PLAN</span>
+<span class="go">------------------------------------------------------------------------------</span>
+<span class="go"> Bitmap Heap Scan on tenk1  (cost=2.37..232.35 rows=106 width=244)</span>
+<span class="go">   Recheck Cond: (unique1 &lt; 100)</span>
+<span class="go">   -&gt;  Bitmap Index Scan on tenk1_unique1  (cost=0.00..2.37 rows=106 width=0)</span>
+<span class="go">         Index Cond: (unique1 &lt; 100)</span>
+
+
+<span class="go">-- don&#39;t swallow the end of a malformed line</span>
+<span class="gp">test=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="s1">&#39;this line must be emitted&#39;</span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.5.</span></p>
 </div>
@@ -11439,6 +11820,38 @@ not recognize any special syntax except ANSI SQL.</p>
 </dd>
 </dl>
 <p>Lexer for example sessions using sqlite3.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-sqlite3 notranslate"><div class="highlight"><pre><span></span><span class="go">SQLite version 3.4.2</span>
+<span class="go">Enter &quot;.help&quot; for instructions</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="p">.</span><span class="k">schema</span>
+<span class="go">CREATE TABLE paste (paste_id integer, code text, parsed_code text, pub_date</span>
+<span class="go">varchar(24), language varchar(64), parent_id integer, url varchar(128));</span>
+<span class="go">CREATE TABLE vars (key varchar(24), value varchar(128));</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s1">&#39;</span>
+<span class="gp">   ...&gt;</span><span class="w"> </span><span class="s1">&#39;</span>
+<span class="gp">   ...&gt;</span><span class="w"> </span><span class="p">;</span>
+<span class="gt">SQL error: near &quot;a&quot;: syntax error</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="o">%</span><span class="p">;</span>
+<span class="gt">SQL error: near &quot;%&quot;: syntax error</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">language</span><span class="p">),</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">paste</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">order</span>
+<span class="gp">   ...&gt;</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">language</span><span class="p">)</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span>
+<span class="go">144|python</span>
+<span class="go">76|text</span>
+<span class="go">22|pycon</span>
+<span class="go">9|ruby</span>
+<span class="go">7|c</span>
+<span class="go">7|js</span>
+<span class="go">6|html+django</span>
+<span class="go">4|html</span>
+<span class="go">4|tex</span>
+<span class="go">2|html+php</span>
+<span class="go">1|cpp</span>
+<span class="go">1|scheme</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
