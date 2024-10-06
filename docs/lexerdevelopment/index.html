@@ -243,10 +243,10 @@ the stack.</p>
 it contains some additional attributes <cite>name</cite>, <cite>aliases</cite> and <cite>filenames</cite> which
 aren’t required for a lexer.  They are used by the builtin lexer lookup
 functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">DiffLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DiffLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Diff&#39;</span>
     <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span>
     <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.diff&#39;</span><span class="p">]</span>
@@ -279,10 +279,10 @@ one.</p>
 <p>The easiest way to use a new lexer is to use Pygments’ support for loading
 the lexer from a file relative to your current directory.</p>
 <p>First, change the name of your lexer class to CustomLexer:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">CustomLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;All your lexer code goes here!&quot;&quot;&quot;</span>
 </pre></div>
 </div>
@@ -333,10 +333,10 @@ been a single token type.  Now we look at the first of several other possible
 values.</p>
 <p>Here is a more complex lexer that highlights INI files.  INI files consist of
 sections, comments and <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">value</span></code> pairs:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">IniLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">IniLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;INI&#39;</span>
     <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ini&#39;</span><span class="p">,</span> <span class="s1">&#39;cfg&#39;</span><span class="p">]</span>
     <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.ini&#39;</span><span class="p">,</span> <span class="s1">&#39;*.cfg&#39;</span><span class="p">]</span>
@@ -376,10 +376,10 @@ languages allow multiline comments to be nested.  Since this is a recursive
 pattern it’s impossible to lex just using regular expressions.</p>
 <p>Here is a lexer that recognizes C++ style comments (multi-line with <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code>
 and single-line with <code class="docutils literal notranslate"><span class="pre">//</span></code> until end of line):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">CppCommentLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CppCommentLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Example Lexer with states&#39;</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
@@ -460,10 +460,10 @@ lexing continues in the root state.</p>
 </li>
 <li><p>You can include the rules of a state in the definition of another.  This is
 done by using <cite>include</cite> from <cite>pygments.lexer</cite>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">include</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?s)/\*.*?\*/&#39;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
@@ -501,12 +501,12 @@ and state2 and if the rule matches, the lexer will enter this state.</p>
 </li>
 <li><p>If you want your lexer to start lexing in a different state you can modify the
 stack by overriding the <cite>get_tokens_unprocessed()</cite> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span>
 
-<span class="k">class</span> <span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;otherstate&#39;</span><span class="p">)):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;otherstate&#39;</span><span class="p">)):</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">RegexLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="p">):</span>
             <span class="k">yield</span> <span class="n">item</span>
 </pre></div>
@@ -535,10 +535,10 @@ the state list, but Pygments provides a more obvious way of spelling that:
 different lexer classes.</p>
 <p>When subclassing a lexer derived from RegexLexer, the <code class="docutils literal notranslate"><span class="pre">tokens</span></code> dictionaries
 defined in the parent and child class are merged.  For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">inherit</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">inherit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">BaseLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="s1">&#39;[a-z]+&#39;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
@@ -555,7 +555,7 @@ defined in the parent and child class are merged.  For example:</p>
         <span class="p">],</span>
     <span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">DerivedLexer</span><span class="p">(</span><span class="n">BaseLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DerivedLexer</span><span class="p">(</span><span class="n">BaseLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">(</span><span class="s1">&#39;[0-9]+&#39;</span><span class="p">,</span> <span class="n">Number</span><span class="p">),</span>
@@ -587,11 +587,11 @@ combination techniques is shown here: You can replace the action entry in a rule
 tuple with a lexer class.  The matched text will then be lexed with that lexer,
 and the resulting tokens will be yielded.</p>
 <p>For example, look at this stripped-down HTML lexer:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">using</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">pygments.lexers.javascript</span> <span class="kn">import</span> <span class="n">JavascriptLexer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">bygroups</span><span class="p">,</span> <span class="n">using</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers.javascript</span><span class="w"> </span><span class="kn">import</span> <span class="n">JavascriptLexer</span>
 
-<span class="k">class</span> <span class="nc">HtmlLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HtmlLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;HTML&#39;</span>
     <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
     <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.html&#39;</span><span class="p">,</span> <span class="s1">&#39;*.htm&#39;</span><span class="p">]</span>
@@ -646,11 +646,11 @@ initialisation: a <cite>root_lexer</cite> and a <cite>language_lexer</cite>.</p>
 then concatenated and given to the <cite>root_lexer</cite>.  The language tokens of the
 <cite>language_lexer</cite> are then inserted into the <cite>root_lexer</cite>’s token stream at the
 appropriate positions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">DelegatingLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.lexers.web</span> <span class="kn">import</span> <span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">DelegatingLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers.web</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span>
 
-<span class="k">class</span> <span class="nc">HtmlPhpLexer</span><span class="p">(</span><span class="n">DelegatingLexer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HtmlPhpLexer</span><span class="p">(</span><span class="n">DelegatingLexer</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">HtmlLexer</span><span class="p">,</span> <span class="n">PhpLexer</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -679,12 +679,12 @@ callbacks).  The callback must be a function taking two arguments:</p>
 the input string, <code class="docutils literal notranslate"><span class="pre">tokentype</span></code> is the normal token type (like <cite>Name.Builtin</cite>),
 and <code class="docutils literal notranslate"><span class="pre">value</span></code> the associated part of the input string.</p>
 <p>You can see an example here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Generic</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generic</span>
 
-<span class="k">class</span> <span class="nc">HypotheticLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HypotheticLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">):</span>
         <span class="n">equal_signs</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">yield</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Headline</span><span class="p">,</span> <span class="n">equal_signs</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">equal_signs</span>
@@ -730,12 +730,12 @@ creating a new one for the string argument.</p>
 it won’t be automatically be set by the caller after the callback is finished.
 For example, this is how the hypothetical lexer above would be written with the
 <cite>ExtendedRegexLexer</cite>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">ExtendedRegexLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Generic</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtendedRegexLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generic</span>
 
-<span class="k">class</span> <span class="nc">ExHypotheticLexer</span><span class="p">(</span><span class="n">ExtendedRegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExHypotheticLexer</span><span class="p">(</span><span class="n">ExtendedRegexLexer</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">headline_callback</span><span class="p">(</span><span class="n">lexer</span><span class="p">,</span> <span class="n">match</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
         <span class="n">equal_signs</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">yield</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Headline</span><span class="p">,</span> <span class="n">equal_signs</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">equal_signs</span>
@@ -761,9 +761,9 @@ alternations.  Feel free to put the lists themselves in
 <code class="docutils literal notranslate"><span class="pre">pygments/lexers/_$lang_builtins.py</span></code> (see examples there), and generated by
 code if possible.</p>
 <p>An example of using <code class="docutils literal notranslate"><span class="pre">words()</span></code> is something like:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexer</span> <span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">Name</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexLexer</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">Name</span>
 
-<span class="k">class</span> <span class="nc">MyLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">[</span>
@@ -787,13 +787,13 @@ want to put into a regular expression.</p>
 overriding the <code class="docutils literal notranslate"><span class="pre">get_tokens_unprocessed()</span></code> method.  The following lexer
 subclasses the <cite>PythonLexer</cite> so that it highlights some additional names as
 pseudo keywords:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.lexers.python</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
-<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="kn">import</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonLexer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span>
 
-<span class="k">class</span> <span class="nc">MyPythonLexer</span><span class="p">(</span><span class="n">PythonLexer</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPythonLexer</span><span class="p">(</span><span class="n">PythonLexer</span><span class="p">):</span>
     <span class="n">EXTRA_KEYWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="s1">&#39;barfoo&#39;</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">PythonLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">token</span> <span class="ow">is</span> <span class="n">Name</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXTRA_KEYWORDS</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">index</span><span class="p">,</span> <span class="n">Keyword</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">,</span> <span class="n">value</span>
@@ -850,7 +850,7 @@ further left in the input string, etc.  In effect, it tries all combinations</p>
 <p>Thus, the matching has exponential complexity.  In a lexer, the
 effect is that Pygments will seemingly hang when parsing invalid
 input.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(A+)*B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="o">*</span><span class="mi">50</span> <span class="o">+</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="c1"># hangs</span>
 </pre></div>
 </div>

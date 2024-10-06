@@ -138,10 +138,10 @@ formatter’s output format.</p>
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h2>
 <p>The most basic formatter shipped with Pygments is the <cite>NullFormatter</cite>. It just
 sends the value of a token to the output stream:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.formatter</span><span class="w"> </span><span class="kn">import</span> <span class="n">Formatter</span>
 
-<span class="k">class</span> <span class="nc">NullFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NullFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
             <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -183,11 +183,11 @@ they don’t support.</p>
 <p>For an more complex example, let’s implement a HTML 3.2 Formatter. We don’t
 use CSS but inline markup (<code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;font&gt;</span></code>, etc). Because this isn’t good
 style this formatter isn’t in the standard library ;-)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pygments.formatter</span> <span class="kn">import</span> <span class="n">Formatter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.formatter</span><span class="w"> </span><span class="kn">import</span> <span class="n">Formatter</span>
 
-<span class="k">class</span> <span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OldHtmlFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
         <span class="n">Formatter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
         <span class="c1"># create a dict of (start, end) tuples that wrap the</span>
@@ -215,7 +215,7 @@ style this formatter isn’t in the standard library ;-)</p>
                 <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/u&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
         <span class="c1"># lastval is a string we use for caching</span>
         <span class="c1"># because it&#39;s possible that an lexer yields a number</span>
         <span class="c1"># of consecutive tokens with the same token type.</span>

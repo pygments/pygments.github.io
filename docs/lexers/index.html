@@ -9573,7 +9573,7 @@ except the special <code class="docutils literal notranslate"><span class="pre">
 that are known to php but are undocumented.</p>
 <p>To get a list of allowed modules have a look into the
 <cite>_php_builtins</cite> module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._php_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers._php_builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">MODULES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;PHP Options/Info&#39;, &#39;Zip&#39;, &#39;dba&#39;, ...]</span>
 </pre></div>
@@ -10815,7 +10815,7 @@ comparable to MS DOS batch and Unix shell scripts.</p>
 should not be highlighted. By default all modules are highlighted.</p>
 <p>To get a list of allowed modules have a look into the
 <cite>_lua_builtins</cite> module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers._lua_builtins</span> <span class="kn">import</span> <span class="n">MODULES</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers._lua_builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">MODULES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;string&#39;, &#39;coroutine&#39;, &#39;modules&#39;, &#39;io&#39;, &#39;basic&#39;, ...]</span>
 </pre></div>
@@ -14622,7 +14622,7 @@ highlight xquery code.</p>
 <p>To get all lexers (both the builtin and the plugin ones), you can
 use the <cite>get_all_lexers()</cite> function from the <cite>pygments.lexers</cite>
 module:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_all_lexers</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_all_lexers</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">get_all_lexers</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="go">(&#39;Diff&#39;, (&#39;diff&#39;,), (&#39;*.diff&#39;, &#39;*.patch&#39;), (&#39;text/x-diff&#39;, &#39;text/x-patch&#39;))</span>

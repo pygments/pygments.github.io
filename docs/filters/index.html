@@ -147,13 +147,13 @@ filters are entirely unrelated to Python’s <a class="reference external" href=
 <p>An arbitrary number of filters can be applied to token streams coming from
 lexers to improve or annotate the output. To apply a filter, you can use the
 <cite>add_filter()</cite> method of a lexer:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonLexer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">PythonLexer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># add a filter given by a string and options</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">add_filter</span><span class="p">(</span><span class="s1">&#39;codetagify&#39;</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">filters</span>
 <span class="go">[&lt;pygments.filters.CodeTagFilter object at 0xb785decc&gt;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.filters</span> <span class="kn">import</span> <span class="n">KeywordCaseFilter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">KeywordCaseFilter</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># or give an instance</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">add_filter</span><span class="p">(</span><span class="n">KeywordCaseFilter</span><span class="p">(</span><span class="n">case</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">))</span>
 </pre></div>

@@ -528,12 +528,12 @@ source lines and other code makes it possible to wrap the generator multiple
 times.</p>
 <p>The default <cite>wrap()</cite> implementation adds a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> tag.</p>
 <p>A custom <cite>HtmlFormatter</cite> subclass could look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CodeHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CodeHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_div</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_div</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_code</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
         <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;code&gt;&#39;</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
