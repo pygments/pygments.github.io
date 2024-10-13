@@ -611,8 +611,9 @@
 <li><a class="reference internal" href="#pygments.lexers.jsonnet.JsonnetLexer"><code class="docutils literal notranslate"><span class="pre">JsonnetLexer</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lexers-for-jsx-react">Lexers for JSX (React)</a><ul>
+<li><a class="reference internal" href="#lexers-for-jsx-react-and-tsx-typescript-flavor">Lexers for JSX (React) and TSX (TypeScript flavor)</a><ul>
 <li><a class="reference internal" href="#pygments.lexers.jsx.JsxLexer"><code class="docutils literal notranslate"><span class="pre">JsxLexer</span></code></a></li>
+<li><a class="reference internal" href="#pygments.lexers.jsx.TsxLexer"><code class="docutils literal notranslate"><span class="pre">TsxLexer</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lexers-for-the-julia-language">Lexers for the Julia language</a><ul>
@@ -6869,8 +6870,8 @@ members (default: <code class="docutils literal notranslate"><span class="pre">T
 </dd></dl>
 
 </section>
-<section id="lexers-for-jsx-react">
-<span id="module-pygments.lexers.jsx"></span><h2>Lexers for JSX (React)<a class="headerlink" href="#lexers-for-jsx-react" title="Link to this heading">¶</a></h2>
+<section id="lexers-for-jsx-react-and-tsx-typescript-flavor">
+<span id="module-pygments.lexers.jsx"></span><h2>Lexers for JSX (React) and TSX (TypeScript flavor)<a class="headerlink" href="#lexers-for-jsx-react-and-tsx-typescript-flavor" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygments.lexers.jsx.JsxLexer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.jsx.</span></span><span class="sig-name descname"><span class="pre">JsxLexer</span></span><a class="headerlink" href="#pygments.lexers.jsx.JsxLexer" title="Link to this definition">¶</a></dt>
@@ -6888,6 +6889,26 @@ members (default: <code class="docutils literal notranslate"><span class="pre">T
 <p>For JavaScript Syntax Extension (JSX).</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.17.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygments.lexers.jsx.TsxLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygments.lexers.jsx.</span></span><span class="sig-name descname"><span class="pre">TsxLexer</span></span><a class="headerlink" href="#pygments.lexers.jsx.TsxLexer" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Short names<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tsx</p>
+</dd>
+<dt class="field-even">Filenames<span class="colon">:</span></dt>
+<dd class="field-even"><p>*.tsx</p>
+</dd>
+<dt class="field-odd">MIME types<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text/tsx, text/typescript-tsx</p>
+</dd>
+</dl>
+<p>For TypeScript with embedded JSX</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.19.</span></p>
 </div>
 </dd></dl>
 
