@@ -168,13 +168,15 @@ iterable for all known filters.</p>
 <h2>Builtin Filters<a class="headerlink" href="#builtin-filters" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="CodeTagFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CodeTagFilter</span></span><a class="headerlink" href="#CodeTagFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CodeTagFilter</span></span><a class="headerlink" href="#CodeTagFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>codetagify</p>
 </dd>
 </dl>
 <p>Highlight special code tags in comments and docstrings.</p>
+</dd></dl>
+
 <p>Options accepted:</p>
 <dl class="simple">
 <dt><cite>codetags</cite><span class="classifier">list of strings</span></dt><dd><p>A list of strings that are flagged as code tags.  The default is to
@@ -184,18 +186,18 @@ highlight <code class="docutils literal notranslate"><span class="pre">XXX</span
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2.13: </span>Now recognizes <code class="docutils literal notranslate"><span class="pre">FIXME</span></code> by default.</p>
 </div>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="KeywordCaseFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">KeywordCaseFilter</span></span><a class="headerlink" href="#KeywordCaseFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">KeywordCaseFilter</span></span><a class="headerlink" href="#KeywordCaseFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>keywordcase</p>
 </dd>
 </dl>
-<p>Convert keywords to lowercase or uppercase or capitalize them, which
-means first letter uppercase, rest lowercase.</p>
+<p>Convert keywords to lowercase or uppercase or capitalize them, which</p>
+</dd></dl>
+
+<p>means first letter uppercase, rest lowercase.</p>
 <p>This can be useful e.g. if you highlight Pascal code and want to adapt the
 code to your styleguide.</p>
 <p>Options accepted:</p>
@@ -204,17 +206,17 @@ code to your styleguide.</p>
 <code class="docutils literal notranslate"><span class="pre">'upper'</span></code> or <code class="docutils literal notranslate"><span class="pre">'capitalize'</span></code>.  The default is <code class="docutils literal notranslate"><span class="pre">'lower'</span></code>.</p>
 </dd>
 </dl>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="NameHighlightFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NameHighlightFilter</span></span><a class="headerlink" href="#NameHighlightFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NameHighlightFilter</span></span><a class="headerlink" href="#NameHighlightFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>highlight</p>
 </dd>
 </dl>
 <p>Highlight a normal Name (and Name.*) token with a different token type.</p>
+</dd></dl>
+
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="o">=</span> <span class="n">NameHighlightFilter</span><span class="p">(</span>
     <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">],</span>
@@ -234,17 +236,17 @@ used for highlighting the strings in <cite>names</cite>.  The default is
 <cite>Name.Function</cite>.</p>
 </dd>
 </dl>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="RaiseOnErrorTokenFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RaiseOnErrorTokenFilter</span></span><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RaiseOnErrorTokenFilter</span></span><a class="headerlink" href="#RaiseOnErrorTokenFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>raiseonerror</p>
 </dd>
 </dl>
 <p>Raise an exception when the lexer generates an error token.</p>
+</dd></dl>
+
 <p>Options accepted:</p>
 <dl class="simple">
 <dt><cite>excclass</cite><span class="classifier">Exception class</span></dt><dd><p>The exception class to raise.
@@ -254,17 +256,17 @@ The default is <cite>pygments.filters.ErrorToken</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.8.</span></p>
 </div>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="VisibleWhitespaceFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VisibleWhitespaceFilter</span></span><a class="headerlink" href="#VisibleWhitespaceFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VisibleWhitespaceFilter</span></span><a class="headerlink" href="#VisibleWhitespaceFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>whitespace</p>
 </dd>
 </dl>
 <p>Convert tabs, newlines and/or spaces to visible characters.</p>
+</dd></dl>
+
 <p>Options accepted:</p>
 <dl class="simple">
 <dt><cite>spaces</cite><span class="classifier">string or bool</span></dt><dd><p>If this is a one-character string, spaces will be replaces by this string.
@@ -292,17 +294,17 @@ disrupt background colors.  The default is <code class="docutils literal notrans
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.8.</span></p>
 </div>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="GobbleFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GobbleFilter</span></span><a class="headerlink" href="#GobbleFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GobbleFilter</span></span><a class="headerlink" href="#GobbleFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>gobble</p>
 </dd>
 </dl>
 <p>Gobbles source code lines (eats initial characters).</p>
+</dd></dl>
+
 <p>This filter drops the first <code class="docutils literal notranslate"><span class="pre">n</span></code> characters off every line of code.  This
 may be useful when the source code fed to the lexer is indented by a fixed
 amount of space that isn’t desired in the output.</p>
@@ -314,33 +316,33 @@ amount of space that isn’t desired in the output.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="TokenMergeFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TokenMergeFilter</span></span><a class="headerlink" href="#TokenMergeFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TokenMergeFilter</span></span><a class="headerlink" href="#TokenMergeFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tokenmerge</p>
 </dd>
 </dl>
-<p>Merges consecutive tokens with the same token type in the output
-stream of a lexer.</p>
+<p>Merges consecutive tokens with the same token type in the output</p>
+</dd></dl>
+
+<p>stream of a lexer.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="SymbolFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymbolFilter</span></span><a class="headerlink" href="#SymbolFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymbolFilter</span></span><a class="headerlink" href="#SymbolFilter" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>symbols</p>
 </dd>
 </dl>
-<p>Convert mathematical symbols such as &lt;longrightarrow&gt; in Isabelle
-or longrightarrow in LaTeX into Unicode characters.</p>
+<p>Convert mathematical symbols such as &lt;longrightarrow&gt; in Isabelle</p>
+</dd></dl>
+
+<p>or longrightarrow in LaTeX into Unicode characters.</p>
 <p>This is mostly useful for HTML or console output when you want to
 approximate the source rendering you’d see in an IDE.</p>
 <p>Options accepted:</p>
@@ -349,8 +351,6 @@ approximate the source rendering you’d see in an IDE.</p>
 <code class="docutils literal notranslate"><span class="pre">'latex'</span></code>.  The default is <code class="docutils literal notranslate"><span class="pre">'isabelle'</span></code>.</p>
 </dd>
 </dl>
-</dd></dl>
-
 </section>
 </section>
 
@@ -364,7 +364,7 @@ approximate the source rendering you’d see in an IDE.</p>
     </div> 
     <div class="footer" role="contentinfo">
       &copy; Copyright 2006-2025, Georg Brandl and Pygments contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3. <br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3. <br/>
       Pygments logo created by <a href="https://joelunger.com">Joel Unger</a>.
       Backgrounds from <a href="https://subtlepatterns.com">subtlepatterns.com</a>.
     </div>
