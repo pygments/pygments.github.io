@@ -166,10 +166,10 @@ highlight <code class="docutils literal notranslate"><span class="pre">XXX</span
 <dd class="field-odd"><p>keywordcase</p>
 </dd>
 </dl>
-<p>Convert keywords to lowercase or uppercase or capitalize them, which</p>
+<p>Convert keywords to lowercase or uppercase or capitalize them.</p>
 </dd></dl>
 
-<p>means first letter uppercase, rest lowercase.</p>
+<p>This means first letter uppercase, rest lowercase.</p>
 <p>This can be useful e.g. if you highlight Pascal code and want to adapt the
 code to your styleguide.</p>
 <p>Options accepted:</p>
@@ -274,7 +274,7 @@ disrupt background colors.  The default is <code class="docutils literal notrans
 <dd class="field-odd"><p>gobble</p>
 </dd>
 </dl>
-<p>Gobbles source code lines (eats initial characters).</p>
+<p>Gobble source code lines (eats initial characters).</p>
 </dd></dl>
 
 <p>This filter drops the first <code class="docutils literal notranslate"><span class="pre">n</span></code> characters off every line of code.  This
@@ -296,10 +296,9 @@ amount of space that isn’t desired in the output.</p>
 <dd class="field-odd"><p>tokenmerge</p>
 </dd>
 </dl>
-<p>Merges consecutive tokens with the same token type in the output</p>
+<p>Merge consecutive tokens with the same token type in the output stream.</p>
 </dd></dl>
 
-<p>stream of a lexer.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.2.</span></p>
 </div>
@@ -311,10 +310,11 @@ amount of space that isn’t desired in the output.</p>
 <dd class="field-odd"><p>symbols</p>
 </dd>
 </dl>
-<p>Convert mathematical symbols such as &lt;longrightarrow&gt; in Isabelle</p>
+<p>Convert mathematical symbols into Unicode characters.</p>
 </dd></dl>
 
-<p>or longrightarrow in LaTeX into Unicode characters.</p>
+<p>Examples are <code class="docutils literal notranslate"><span class="pre">\&lt;longrightarrow&gt;</span></code> in Isabelle or
+<code class="docutils literal notranslate"><span class="pre">\longrightarrow</span></code> in LaTeX.</p>
 <p>This is mostly useful for HTML or console output when you want to
 approximate the source rendering you’d see in an IDE.</p>
 <p>Options accepted:</p>
