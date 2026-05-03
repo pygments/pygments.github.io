@@ -103,16 +103,16 @@
 HTML and LaTeX formatter.</p>
 <p>The builtin styles can be looked up with the <cite>get_style_by_name</cite> function:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.styles</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_style_by_name</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_style_by_name</span><span class="p">(</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span>
-<span class="go">&lt;class &#39;pygments.styles.colorful.ColorfulStyle&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_style_by_name</span><span class="p">(</span><span class="s1">&#x27;colorful&#x27;</span><span class="p">)</span>
+<span class="go">&lt;class &#x27;pygments.styles.colorful.ColorfulStyle&#x27;&gt;</span>
 </pre></div>
 </div>
 <p>You can pass a instance of a <cite>Style</cite> class to a formatter as the <cite>style</cite>
 option in form of a string:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.styles</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_style_by_name</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.formatters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlFormatter</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;colorful&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span>
-<span class="go">&lt;class &#39;pygments.styles.colorful.ColorfulStyle&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#x27;colorful&#x27;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span>
+<span class="go">&lt;class &#x27;pygments.styles.colorful.ColorfulStyle&#x27;&gt;</span>
 </pre></div>
 </div>
 <p>Or you can also import your own style (which must be a subclass of
@@ -120,7 +120,7 @@ option in form of a string:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">yourapp.yourmodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">YourStyle</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.formatters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlFormatter</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">YourStyle</span><span class="p">)</span><span class="o">.</span><span class="n">style</span>
-<span class="go">&lt;class &#39;yourapp.yourmodule.YourStyle&#39;&gt;</span>
+<span class="go">&lt;class &#x27;yourapp.yourmodule.YourStyle&#x27;&gt;</span>
 </pre></div>
 </div>
 <section id="creating-own-styles">
@@ -133,7 +133,7 @@ option in form of a string:</p>
 <p>To get a list of known styles you can use this snippet:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.styles</span><span class="w"> </span><span class="kn">import</span> <span class="n">STYLE_MAP</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="go">[&#39;default&#39;, &#39;emacs&#39;, &#39;friendly&#39;, &#39;colorful&#39;]</span>
+<span class="go">[&#x27;default&#x27;, &#x27;emacs&#x27;, &#x27;friendly&#x27;, &#x27;colorful&#x27;]</span>
 </pre></div>
 </div>
 </section>
@@ -173,13 +173,13 @@ background) instead of an extended foreground &amp; background color.</p>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">MyStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
 <span class="go">        styles = {</span>
-<span class="go">            Token.String:     &#39;ansibrightblue bg:ansibrightred&#39;,</span>
+<span class="go">            Token.String:     &#x27;ansibrightblue bg:ansibrightred&#x27;,</span>
 <span class="go">        }</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;print(&quot;Hello World&quot;)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#x27;print(&quot;Hello World&quot;)&#x27;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">Python3Lexer</span><span class="p">(),</span> <span class="n">Terminal256Formatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">MyStyle</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-<span class="go">b&#39;\x1b[34;41;01m&quot;\x1b[39;49;00m\x1b[34;41;01mHello World\x1b[39;49;00m\x1b[34;41;01m&quot;\x1b[39;49;00m&#39;</span>
+<span class="go">b&#x27;\x1b[34;41;01m&quot;\x1b[39;49;00m\x1b[34;41;01mHello World\x1b[39;49;00m\x1b[34;41;01m&quot;\x1b[39;49;00m&#x27;</span>
 </pre></div>
 </div>
 <p>Colors specified using <code class="docutils literal notranslate"><span class="pre">ansi*</span></code> are converted to a default set of RGB colors

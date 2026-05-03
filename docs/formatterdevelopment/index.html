@@ -170,37 +170,37 @@ style this formatter isn’t in the standard library ;-)</p>
         <span class="c1"># we iterate over the `_styles` attribute of a style item</span>
         <span class="c1"># that contains the parsed style values.</span>
         <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">:</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#x27;&#x27;</span>
             <span class="c1"># a style item is a tuple in the following form:</span>
-            <span class="c1"># colors are readily specified in hex: &#39;RRGGBB&#39;</span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]:</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;font color=&quot;#</span><span class="si">%s</span><span class="s1">&quot;&gt;&#39;</span> <span class="o">%</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/font&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">]:</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;b&gt;&#39;</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;italic&#39;</span><span class="p">]:</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;i&gt;&#39;</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/i&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
-            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#39;underline&#39;</span><span class="p">]:</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#39;&lt;u&gt;&#39;</span>
-                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&lt;/u&gt;&#39;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="c1"># colors are readily specified in hex: &#x27;RRGGBB&#x27;</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#x27;color&#x27;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#x27;&lt;font color=&quot;#</span><span class="si">%s</span><span class="s1">&quot;&gt;&#x27;</span> <span class="o">%</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#x27;color&#x27;</span><span class="p">]</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#x27;&lt;/font&gt;&#x27;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#x27;bold&#x27;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#x27;&lt;b&gt;&#x27;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#x27;&lt;/b&gt;&#x27;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#x27;italic&#x27;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#x27;&lt;i&gt;&#x27;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#x27;&lt;/i&gt;&#x27;</span> <span class="o">+</span> <span class="n">end</span>
+            <span class="k">if</span> <span class="n">style</span><span class="p">[</span><span class="s1">&#x27;underline&#x27;</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="s1">&#x27;&lt;u&gt;&#x27;</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="s1">&#x27;&lt;/u&gt;&#x27;</span> <span class="o">+</span> <span class="n">end</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokensource</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
         <span class="c1"># lastval is a string we use for caching</span>
-        <span class="c1"># because it&#39;s possible that an lexer yields a number</span>
+        <span class="c1"># because it&#x27;s possible that an lexer yields a number</span>
         <span class="c1"># of consecutive tokens with the same token type.</span>
         <span class="c1"># to minimize the size of the generated html markup we</span>
         <span class="c1"># try to join the values of same-type tokens here</span>
-        <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">lastval</span> <span class="o">=</span> <span class="s1">&#x27;&#x27;</span>
         <span class="n">lasttype</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># wrap the whole output with &lt;pre&gt;</span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#x27;&lt;pre&gt;&#x27;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tokensource</span><span class="p">:</span>
-            <span class="c1"># if the token type doesn&#39;t exist in the stylemap</span>
+            <span class="c1"># if the token type doesn&#x27;t exist in the stylemap</span>
             <span class="c1"># we try it with the parent of the token type</span>
             <span class="c1"># eg: parent of Token.Literal.String.Double is</span>
             <span class="c1"># Token.Literal.String</span>
@@ -226,7 +226,7 @@ style this formatter isn’t in the standard library ;-)</p>
         <span class="k">if</span> <span class="n">lastval</span><span class="p">:</span>
             <span class="n">stylebegin</span><span class="p">,</span> <span class="n">styleend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">lasttype</span><span class="p">]</span>
             <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stylebegin</span> <span class="o">+</span> <span class="n">lastval</span> <span class="o">+</span> <span class="n">styleend</span><span class="p">)</span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#x27;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#x27;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The comments should explain it. Again, this formatter doesn’t override the

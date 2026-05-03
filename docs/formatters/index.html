@@ -279,7 +279,7 @@ Example:</p>
 <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;linenos&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;click to toggle&quot;</span>
     <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;with (this.firstChild.style)</span>
-<span class="s">             { display = (display == &#39;&#39;) ? &#39;none&#39; : &#39;&#39; }&quot;</span><span class="p">&gt;</span>
+<span class="s">             { display = (display == &#x27;&#x27;) ? &#x27;none&#x27; : &#x27;&#x27; }&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>1
     2<span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
@@ -314,7 +314,7 @@ would result in the following CSS classes:</p>
 </div>
 <p>If you have Pygments 0.6 or higher, you can also pass a list or tuple to the
 <cite>get_style_defs()</cite> method to request multiple prefixes for the tokens:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">([</span><span class="s1">&#39;div.syntax pre&#39;</span><span class="p">,</span> <span class="s1">&#39;pre.syntax&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">([</span><span class="s1">&#x27;div.syntax pre&#x27;</span><span class="p">,</span> <span class="s1">&#x27;pre.syntax&#x27;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The output would then look like this:</p>
@@ -508,13 +508,13 @@ times.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_code</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;code&gt;&#39;</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#x27;&lt;code&gt;&#x27;</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># it&#39;s a line of formatted code</span>
-                <span class="n">t</span> <span class="o">+=</span> <span class="s1">&#39;&lt;br&gt;&#39;</span>
+                <span class="c1"># it&#x27;s a line of formatted code</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="s1">&#x27;&lt;br&gt;&#x27;</span>
             <span class="k">yield</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span>
-        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;/code&gt;&#39;</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#x27;&lt;/code&gt;&#x27;</span>
 </pre></div>
 </div>
 <p>This results in wrapping the formatted lines with a <code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code> tag, where the

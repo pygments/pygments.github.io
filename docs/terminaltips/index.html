@@ -130,7 +130,7 @@ a dark background, so this is how you would add that option:</p>
 <p>Here is a version of <code class="docutils literal notranslate"><span class="pre">less</span></code> with syntax highlighting.  It is slightly more
 complicated, because it uses the environment variable <code class="docutils literal notranslate"><span class="pre">LESSOPEN</span></code> to preprocess
 the input file(s):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lessh</span><span class="o">=</span><span class="s1">&#39;LESSOPEN=&quot;| pygmentize -O style=monokai %s&quot; less -M -R &#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lessh</span><span class="o">=</span><span class="s1">&#x27;LESSOPEN=&quot;| pygmentize -O style=monokai %s&quot; less -M -R &#x27;</span>
 </pre></div>
 </div>
 <p>These alias commands need to be added to your configuration in order to work
@@ -157,7 +157,7 @@ fish shell is a little different.  Functions are used to make permanent aliases.
 <p>Running the <code class="docutils literal notranslate"><span class="pre">funced</span> <span class="pre">cath</span></code>, brings up the default editor, and add the
 following code in the function:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>cath
-<span class="w">        </span><span class="c1"># &#39;cath&#39; alias will highlight source code as cat does.</span>
+<span class="w">        </span><span class="c1"># &#x27;cath&#x27; alias will highlight source code as cat does.</span>
 <span class="w">        </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">&quot;pygmentize&quot;</span>
 end
 </pre></div>

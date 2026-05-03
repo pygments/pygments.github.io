@@ -7209,10 +7209,10 @@ members (default: <code class="docutils literal notranslate"><span class="pre">T
 <span class="kc">undefined</span>
 <span class="gp">&gt;</span><span class="w"> </span><span class="nx">a</span>
 <span class="mf">3</span>
-<span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;4&#39;</span>
+<span class="gp">&gt;</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#x27;4&#x27;</span>
 <span class="kc">undefined</span>
 <span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span>
-<span class="s1">&#39;4&#39;</span>
+<span class="s1">&#x27;4&#x27;</span>
 <span class="gp">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">a</span>
 <span class="kc">false</span>
 </pre></div>
@@ -8723,7 +8723,7 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 <p class="admonition-title">Example</p>
 <div class="highlight-matlabsession notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;</span>
 <span class="gp">&gt;&gt;</span>
-<span class="gp">&gt;&gt; </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;okay&#39;</span>
+<span class="gp">&gt;&gt; </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#x27;okay&#x27;</span>
 
 <span class="go">a =</span>
 
@@ -8744,15 +8744,15 @@ Contributed by Ken Schutte &lt;<a class="reference external" href="mailto:kschut
 <span class="go">   Inf</span>
 
 <span class="gp">&gt;&gt; </span><span class="n">foo</span>
-<span class="gt">??? Undefined function or variable &#39;foo&#39;.</span>
+<span class="gt">??? Undefined function or variable &#x27;foo&#x27;.</span>
 
 <span class="gp">&gt;&gt;</span>
 <span class="gp">&gt;&gt;</span>
-<span class="gp">&gt;&gt; </span><span class="p">{</span><span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;testing&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt; </span><span class="p">{</span><span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">),</span><span class="w"> </span><span class="s">&#x27;testing&#x27;</span><span class="p">}</span>
 
 <span class="go">ans =</span>
 
-<span class="go">    [1]    &#39;testing&#39;</span>
+<span class="go">    [1]    &#x27;testing&#x27;</span>
 
 <span class="gp">&gt;&gt;</span>
 <span class="gp">&gt;&gt;</span>
@@ -9272,14 +9272,14 @@ tag, a specially formatted comment that specifies a dialect option.</p>
     <span class="n">OpeningCommentDelim</span> <span class="n">Prefix</span> <span class="n">dialectOption</span> <span class="n">ClosingCommentDelim</span> <span class="p">;</span>
 
 <span class="n">dialectOption</span> <span class="p">:</span>
-    <span class="s1">&#39;m2pim&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2r10&#39;</span> <span class="o">|</span> <span class="s1">&#39;objm2&#39;</span> <span class="o">|</span>
-    <span class="s1">&#39;m2iso+aglet&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2pim+gm2&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+p1&#39;</span> <span class="o">|</span> <span class="s1">&#39;m2iso+xds&#39;</span> <span class="p">;</span>
+    <span class="s1">&#x27;m2pim&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;m2iso&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;m2r10&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;objm2&#x27;</span> <span class="o">|</span>
+    <span class="s1">&#x27;m2iso+aglet&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;m2pim+gm2&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;m2iso+p1&#x27;</span> <span class="o">|</span> <span class="s1">&#x27;m2iso+xds&#x27;</span> <span class="p">;</span>
 
-<span class="n">Prefix</span> <span class="p">:</span> <span class="s1">&#39;!&#39;</span> <span class="p">;</span>
+<span class="n">Prefix</span> <span class="p">:</span> <span class="s1">&#x27;!&#x27;</span> <span class="p">;</span>
 
-<span class="n">OpeningCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;(*&#39;</span> <span class="p">;</span>
+<span class="n">OpeningCommentDelim</span> <span class="p">:</span> <span class="s1">&#x27;(*&#x27;</span> <span class="p">;</span>
 
-<span class="n">ClosingCommentDelim</span> <span class="p">:</span> <span class="s1">&#39;*)&#39;</span> <span class="p">;</span>
+<span class="n">ClosingCommentDelim</span> <span class="p">:</span> <span class="s1">&#x27;*)&#x27;</span> <span class="p">;</span>
 </pre></div>
 </div>
 <p>No whitespace is permitted between the tokens of a dialect tag.</p>
@@ -10377,7 +10377,7 @@ that are known to php but are undocumented.</p>
 <cite>_php_builtins</cite> module:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers._php_builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">MODULES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="go">[&#39;PHP Options/Info&#39;, &#39;Zip&#39;, &#39;dba&#39;, ...]</span>
+<span class="go">[&#x27;PHP Options/Info&#x27;, &#x27;Zip&#x27;, &#x27;dba&#x27;, ...]</span>
 </pre></div>
 </div>
 <p>In fact the names of those modules match the module names from
@@ -10405,7 +10405,7 @@ the php documentation.</p>
 <span class="gp">... </span>    <span class="k">return</span> <span class="s2">&quot;Hello, </span><span class="si">{</span><span class="nv">$name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="gp">... </span><span class="p">};</span>
 <span class="go">=&gt; Closure($name): string {#2371 …3}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nv">$greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nv">$greeting</span><span class="p">(</span><span class="s1">&#x27;World&#x27;</span><span class="p">)</span>
 <span class="go">=&gt; &quot;Hello, World&quot;</span>
 
 
@@ -10790,7 +10790,7 @@ been moved to Python 3 as well.</p>
 </dd></dl>
 
 <p>For Python console output or doctests, such as:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#x27;foo&#x27;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">foo</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
@@ -10996,17 +10996,17 @@ or library</p></li>
 
 <span class="go">R is free software and comes with ABSOLUTELY NO WARRANTY.</span>
 <span class="go">You are welcome to redistribute it under certain conditions.</span>
-<span class="go">Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.</span>
+<span class="go">Type &#x27;license()&#x27; or &#x27;licence()&#x27; for distribution details.</span>
 
 <span class="go">  Natural language support but running in an English locale</span>
 
 <span class="go">R is a collaborative project with many contributors.</span>
-<span class="go">Type &#39;contributors()&#39; for more information and</span>
-<span class="go">&#39;citation()&#39; on how to cite R or R packages in publications.</span>
+<span class="go">Type &#x27;contributors()&#x27; for more information and</span>
+<span class="go">&#x27;citation()&#x27; on how to cite R or R packages in publications.</span>
 
-<span class="go">Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or</span>
-<span class="go">&#39;help.start()&#39; for an HTML browser interface to help.</span>
-<span class="go">Type &#39;q()&#39; to quit R.</span>
+<span class="go">Type &#x27;demo()&#x27; for some demos, &#x27;help()&#x27; for on-line help, or</span>
+<span class="go">&#x27;help.start()&#x27; for an HTML browser interface to help.</span>
+<span class="go">Type &#x27;q()&#x27; to quit R.</span>
 
 <span class="go">[R.app GUI 1.29 (5464) i386-apple-darwin8.11.1]</span>
 
@@ -11751,7 +11751,7 @@ should not be highlighted. By default all modules are highlighted.</p>
 <cite>_lua_builtins</cite> module:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers._lua_builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">MODULES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">MODULES</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="go">[&#39;string&#39;, &#39;coroutine&#39;, &#39;modules&#39;, &#39;io&#39;, &#39;basic&#39;, ...]</span>
+<span class="go">[&#x27;string&#x27;, &#x27;coroutine&#x27;, &#x27;modules&#x27;, &#x27;io&#x27;, &#x27;basic&#x27;, ...]</span>
 </pre></div>
 </div>
 </dd>
@@ -12476,31 +12476,31 @@ Does not require spaces around binary operators.</p>
 <p class="admonition-title">Example</p>
 <div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">        ,</span>
 <span class="go">        \\`-._           __</span>
-<span class="go">        \\\\  `-..____,.&#39;  `.</span>
+<span class="go">        \\\\  `-..____,.&#x27;  `.</span>
 <span class="go">        :`.         /    \\`.</span>
 <span class="go">        :  )       :      : \\</span>
-<span class="go">        ;&#39;        &#39;   ;  |  :</span>
+<span class="go">        ;&#x27;        &#x27;   ;  |  :</span>
 <span class="go">        )..      .. .:.`.;  :</span>
 <span class="go">        /::...  .:::...   ` ;</span>
-<span class="go">        ; _ &#39;    __        /:\\</span>
+<span class="go">        ; _ &#x27;    __        /:\\</span>
 <span class="go">        `:o&gt;   /\\o_&gt;      ;:. `.</span>
 <span class="go">        `-`.__ ;   __..--- /:.   \\</span>
-<span class="go">        === \\_/   ;=====_.&#39;:.     ;</span>
-<span class="go">        ,/&#39;`--&#39;...`--....        ;</span>
+<span class="go">        === \\_/   ;=====_.&#x27;:.     ;</span>
+<span class="go">        ,/&#x27;`--&#x27;...`--....        ;</span>
 <span class="go">            ;                    ;</span>
-<span class="go">            .&#39;                      ;</span>
-<span class="go">        .&#39;                        ;</span>
-<span class="go">        .&#39;     ..     ,      .       ;</span>
+<span class="go">            .&#x27;                      ;</span>
+<span class="go">        .&#x27;                        ;</span>
+<span class="go">        .&#x27;     ..     ,      .       ;</span>
 <span class="go">        :       ::..  /      ;::.     |</span>
 <span class="go">    /      `.;::.  |       ;:..    ;</span>
 <span class="go">    :         |:.   :       ;:.    ;</span>
 <span class="go">    :         ::     ;:..   |.    ;</span>
 <span class="go">    :       :;      :::....|     |</span>
 <span class="go">    /\\     ,/ \\      ;:::::;     ;</span>
-<span class="go">    .:. \\:..|    :     ; &#39;.--|     ;</span>
-<span class="go">    ::.  :&#39;&#39;  `-.,,;     ;&#39;   ;     ;</span>
-<span class="go">.-&#39;. _.&#39;\\      / `;      \\,__:      \\</span>
-<span class="go">`---&#39;    `----&#39;   ;      /    \\,.,,,/</span>
+<span class="go">    .:. \\:..|    :     ; &#x27;.--|     ;</span>
+<span class="go">    ::.  :&#x27;&#x27;  `-.,,;     ;&#x27;   ;     ;</span>
+<span class="go">.-&#x27;. _.&#x27;\\      / `;      \\,__:      \\</span>
+<span class="go">`---&#x27;    `----&#x27;   ;      /    \\,.,,,/</span>
 <span class="go">                    `----`              fsc</span>
 </pre></div>
 </div>
@@ -12665,7 +12665,7 @@ compatibility between the two is not a target for this lexer.</p>
 <p class="admonition-title">Example</p>
 <div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
 <span class="gs">ERROR:</span><span class="gr">  column &quot;foo&quot; does not exist</span>
-<span class="gs">CONTEXT:</span><span class="gr">  PL/pgSQL function &quot;test1&quot; while casting return value to function&#39;s return type</span>
+<span class="gs">CONTEXT:</span><span class="gr">  PL/pgSQL function &quot;test1&quot; while casting return value to function&#x27;s return type</span>
 <span class="gs">LINE 1:</span><span class="gr"> select foo;</span>
 <span class="gr">               ^</span>
 <span class="gp">regression=#</span><span class="w"> </span><span class="kp">\q</span>
@@ -12675,17 +12675,17 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">Tuples only is off.</span>
 <span class="go">Expanded display is on.</span>
 
-<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="s1">&#39;\x&#39;</span><span class="p">;</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="s1">&#x27;\x&#x27;</span><span class="p">;</span>
 <span class="gs">WARNING:</span><span class="go">  nonstandard use of escape in a string literal</span>
-<span class="gs">LINE 1:</span><span class="go"> select &#39;\x&#39;;</span>
+<span class="gs">LINE 1:</span><span class="go"> select &#x27;\x&#x27;;</span>
 <span class="go">               ^</span>
-<span class="gs">HINT:</span><span class="go">  Use the escape string syntax for escapes, e.g., E&#39;\r\n&#39;.</span>
+<span class="gs">HINT:</span><span class="go">  Use the escape string syntax for escapes, e.g., E&#x27;\r\n&#x27;.</span>
 <span class="go"> ?column? </span>
 <span class="go">----------</span>
 <span class="go"> x</span>
 <span class="go">(1 row)</span>
 
-<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="sa">E</span><span class="s1">&#39;\x&#39;</span><span class="p">;</span>
+<span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="sa">E</span><span class="s1">&#x27;\x&#x27;</span><span class="p">;</span>
 
 <span class="gp">piro=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">foo</span><span class="w"> </span><span class="ss">30;</span>
 <span class="gp">piro=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">:foo</span><span class="p">;</span>
@@ -12695,11 +12695,11 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">  20 | </span>
 <span class="go">(2 rows)</span>
 
-<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">foo</span><span class="w"> </span><span class="s1">&#39;my_table&#39;</span>
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">foo</span><span class="w"> </span><span class="s1">&#x27;my_table&#x27;</span>
 <span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="nv">:&quot;foo&quot;</span><span class="p">;</span>
 
 <span class="gp">testdb=&gt;</span><span class="w"> </span><span class="kp">\set</span><span class="w"> </span><span class="ss">content</span><span class="w"> </span><span class="sb">`cat my_file.txt`</span>
-<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="nv">:&#39;content&#39;</span><span class="p">);</span>
+<span class="gp">testdb=&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="nv">:&#x27;content&#x27;</span><span class="p">);</span>
 
 <span class="gp">regression=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="p">(</span>
 <span class="gp">regression(#</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
@@ -12709,8 +12709,8 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">(1 row)</span>
 
 <span class="gp">piro=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="p">(</span>
-<span class="gp">piro(&gt;</span><span class="w"> </span><span class="s1">&#39;</span>
-<span class="gp">piro&#39;&gt;</span><span class="s1"> &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s">$$</span>
+<span class="gp">piro(&gt;</span><span class="w"> </span><span class="s1">&#x27;</span>
+<span class="gp">piro&#x27;&gt;</span><span class="s1"> &#x27;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s">$$</span>
 <span class="gp">piro$&gt;</span><span class="s"> $$</span><span class="p">)</span>
 <span class="gp">piro-&gt;</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="s s-Name">&quot;</span>
 <span class="gp">piro&quot;&gt;</span><span class="s s-Name"> foo&quot;</span><span class="p">;</span>
@@ -12725,8 +12725,8 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">CREATE TABLE</span>
 
 <span class="go">-- Table output</span>
-<span class="gp">=#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;0x10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;dec&quot;</span><span class="p">,</span>
-<span class="gp">-#</span><span class="w">        </span><span class="s1">&#39;010&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">oct</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0b10&#39;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bin</span><span class="p">;</span>
+<span class="gp">=#</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#x27;0x10&#x27;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#x27;10&#x27;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s s-Name">&quot;dec&quot;</span><span class="p">,</span>
+<span class="gp">-#</span><span class="w">        </span><span class="s1">&#x27;010&#x27;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">oct</span><span class="p">,</span><span class="w"> </span><span class="s1">&#x27;0b10&#x27;</span><span class="o">::</span><span class="n">mpz</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bin</span><span class="p">;</span>
 <span class="go"> hex | dec | oct | bin</span>
 <span class="go">-----+-----+-----+-----</span>
 <span class="go"> 16  | 10  | 8   | 2</span>
@@ -12772,7 +12772,7 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">ROLLBACK</span>
 
 <span class="gp">=&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tenk1</span>
-<span class="gp">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">unique1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">   </span><span class="c1">-- Don&#39;t take -&gt; in the plan as a prompt</span>
+<span class="gp">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">unique1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">   </span><span class="c1">-- Don&#x27;t take -&gt; in the plan as a prompt</span>
 
 <span class="go">                                  QUERY PLAN</span>
 <span class="go">------------------------------------------------------------------------------</span>
@@ -12782,9 +12782,9 @@ compatibility between the two is not a target for this lexer.</p>
 <span class="go">         Index Cond: (unique1 &lt; 100)</span>
 
 
-<span class="go">-- don&#39;t swallow the end of a malformed line</span>
+<span class="go">-- don&#x27;t swallow the end of a malformed line</span>
 <span class="gp">test=&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="s1">&#39;this line must be emitted&#39;</span>
+<span class="s1">&#x27;this line must be emitted&#x27;</span>
 </pre></div>
 </div>
 </div>
@@ -12902,8 +12902,8 @@ not recognize any special syntax except ANSI SQL.</p>
 <span class="go">CREATE TABLE paste (paste_id integer, code text, parsed_code text, pub_date</span>
 <span class="go">varchar(24), language varchar(64), parent_id integer, url varchar(128));</span>
 <span class="go">CREATE TABLE vars (key varchar(24), value varchar(128));</span>
-<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s1">&#39;</span>
-<span class="gp">   ...&gt;</span><span class="w"> </span><span class="s1">&#39;</span>
+<span class="gp">sqlite&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s1">&#x27;</span>
+<span class="gp">   ...&gt;</span><span class="w"> </span><span class="s1">&#x27;</span>
 <span class="gp">   ...&gt;</span><span class="w"> </span><span class="p">;</span>
 <span class="gt">SQL error: near &quot;a&quot;: syntax error</span>
 <span class="gp">sqlite&gt;</span><span class="w"> </span><span class="o">%</span><span class="p">;</span>
@@ -15805,11 +15805,11 @@ module:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_all_lexers</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">get_all_lexers</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="go">(&#39;Diff&#39;, (&#39;diff&#39;,), (&#39;*.diff&#39;, &#39;*.patch&#39;), (&#39;text/x-diff&#39;, &#39;text/x-patch&#39;))</span>
+<span class="go">(&#x27;Diff&#x27;, (&#x27;diff&#x27;,), (&#x27;*.diff&#x27;, &#x27;*.patch&#x27;), (&#x27;text/x-diff&#x27;, &#x27;text/x-patch&#x27;))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="go">(&#39;Delphi&#39;, (&#39;delphi&#39;, &#39;objectpascal&#39;, &#39;pas&#39;, &#39;pascal&#39;), (&#39;*.pas&#39;,), (&#39;text/x-pascal&#39;,))</span>
+<span class="go">(&#x27;Delphi&#x27;, (&#x27;delphi&#x27;, &#x27;objectpascal&#x27;, &#x27;pas&#x27;, &#x27;pascal&#x27;), (&#x27;*.pas&#x27;,), (&#x27;text/x-pascal&#x27;,))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="go">(&#39;XML+Ruby&#39;, (&#39;xml+ruby&#39;, &#39;xml+erb&#39;), (), ())</span>
+<span class="go">(&#x27;XML+Ruby&#x27;, (&#x27;xml+ruby&#x27;, &#x27;xml+erb&#x27;), (), ())</span>
 </pre></div>
 </div>
 <p>As you can see, the return value is an iterator which yields tuples
