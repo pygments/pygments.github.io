@@ -207,7 +207,7 @@ result <span style="color: #666">=</span> <span style="color: #008000">sum</span
 <span style="color: #959077"># This is an example</span>
 <span style="color: #66D9EF">class</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">Math</span><span style="color: #F8F8F2">:</span>
     <span style="color: #A6E22E">@staticmethod</span>
-    <span style="color: #66D9EF">def</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">fib</span><span style="color: #F8F8F2">(n:</span> <span style="color: #F8F8F2">int)</span> <span style="color: #FF4689">-&gt;</span> <span style="color: #F8F8F2">Iterator[int]:</span>
+    <span style="color: #66D9EF">def</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">fib</span><span style="color: #F8F8F2">(n:</span> <span style="color: #A6E22E">int</span><span style="color: #F8F8F2">)</span> <span style="color: #FF4689">-&gt;</span> <span style="color: #F8F8F2">Iterator[</span><span style="color: #A6E22E">int</span><span style="color: #F8F8F2">]:</span>
 <span style="color: #F8F8F2">        </span><span style="color: #E6DB74">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
         <span style="color: #F8F8F2">a,</span> <span style="color: #F8F8F2">b</span> <span style="color: #FF4689">=</span> <span style="color: #AE81FF">0</span><span style="color: #F8F8F2">,</span> <span style="color: #AE81FF">1</span>
         <span style="color: #66D9EF">while</span> <span style="color: #F8F8F2">a</span> <span style="color: #FF4689">&lt;</span> <span style="color: #F8F8F2">n:</span>
@@ -215,8 +215,8 @@ result <span style="color: #666">=</span> <span style="color: #008000">sum</span
             <span style="color: #F8F8F2">a,</span> <span style="color: #F8F8F2">b</span> <span style="color: #FF4689">=</span> <span style="color: #F8F8F2">b,</span> <span style="color: #F8F8F2">a</span> <span style="color: #FF4689">+</span> <span style="color: #F8F8F2">b</span>
 
 
-<span style="color: #F8F8F2">result</span> <span style="color: #FF4689">=</span> <span style="color: #F8F8F2">sum(Math</span><span style="color: #FF4689">.</span><span style="color: #F8F8F2">fib(</span><span style="color: #AE81FF">42</span><span style="color: #F8F8F2">))</span>
-<span style="color: #F8F8F2">print(</span><span style="color: #E6DB74">f&quot;The answer is {</span><span style="color: #F8F8F2">result</span><span style="color: #E6DB74">}&quot;</span><span style="color: #F8F8F2">)</span>
+<span style="color: #F8F8F2">result</span> <span style="color: #FF4689">=</span> <span style="color: #A6E22E">sum</span><span style="color: #F8F8F2">(Math</span><span style="color: #FF4689">.</span><span style="color: #F8F8F2">fib(</span><span style="color: #AE81FF">42</span><span style="color: #F8F8F2">))</span>
+<span style="color: #A6E22E">print</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">f&quot;The answer is {</span><span style="color: #F8F8F2">result</span><span style="color: #E6DB74">}&quot;</span><span style="color: #F8F8F2">)</span>
 </pre></div>
 
     </div>
