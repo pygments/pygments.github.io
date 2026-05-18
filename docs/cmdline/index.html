@@ -109,7 +109,7 @@
 print &quot;Hello World&quot;
 </pre></div>
 </div>
-<p>will print the file test.py to standard output, using the Python lexer
+<p>will print the file <code class="docutils literal notranslate"><span class="pre">test.py</span></code> to standard output, using the Python lexer
 (inferred from the file name extension) and the terminal formatter (because
 you didn’t give an explicit formatter name).</p>
 <div class="admonition note">
@@ -123,20 +123,20 @@ extra (e.g., <code class="docutils literal notranslate"><span class="pre">pip</s
 detect the maximum number of colors that the terminal supports. The difference
 between color formatters for 16 and 256 colors is immense, but there is a less
 noticeable difference between color formatters for 256 and 16 million colors.</p>
-<p>Here’s the process of how it detects the maxiumum number of colors
+<p>Here’s the process of how it detects the maximum number of colors
 supported by your terminal. If the <code class="docutils literal notranslate"><span class="pre">COLORTERM</span></code> environment variable is set to
 either <code class="docutils literal notranslate"><span class="pre">truecolor</span></code> or <code class="docutils literal notranslate"><span class="pre">24bit</span></code>, it will use a 16 million color representation
 (like <code class="docutils literal notranslate"><span class="pre">terminal16m</span></code>). Next, it will try to find <code class="docutils literal notranslate"><span class="pre">256</span></code> is anywhere in the
-environment variable <code class="docutils literal notranslate"><span class="pre">TERM</span></code>, which it will use a 256-color representaion
+environment variable <code class="docutils literal notranslate"><span class="pre">TERM</span></code>, which it will use a 256-color representation
 (such as <code class="docutils literal notranslate"><span class="pre">terminal256</span></code>).  When neither of those are found, it falls back to a
 the 16 color representation (like <code class="docutils literal notranslate"><span class="pre">terminal</span></code>).</p>
 <p>If you want HTML output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -f html -l python -o test.html test.py
 </pre></div>
 </div>
-<p>As you can see, the -l option explicitly selects a lexer. As seen above, if you
-give an input file name and it has an extension that Pygments recognizes, you can
-omit this option.</p>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option explicitly selects a lexer. As seen above, if
+you give an input file name and it has an extension that Pygments recognizes,
+you can omit this option.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option gives an output file name. If it is not given, output is
 written to stdout.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-f</span></code> option selects a formatter (as with <code class="docutils literal notranslate"><span class="pre">-l</span></code>, it can also be omitted
@@ -216,7 +216,7 @@ follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pygmentize -g setup.py
 </pre></div>
 </div>
-<p>Note though, that this option is not very relaiable, and probably should be
+<p>Note though, that this option is not very reliable, and probably should be
 used only if Pygments is not able to guess the correct lexer from the file’s
 extension.</p>
 </section>
