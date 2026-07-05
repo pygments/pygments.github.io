@@ -90,6 +90,28 @@ For more information about styles refer to <a href="../docs/styles/">the documen
 <div class=style-gallery>
 
     <div>
+    <h3 id="default">default</h3>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">collections.abc</span><span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">import</span> Iterator
+
+
+<span style="color: #3D7B7B; font-style: italic"># This is an example</span>
+<span style="color: #008000; font-weight: bold">class</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">Math</span>:
+    <span style="color: #A2F">@staticmethod</span>
+    <span style="color: #008000; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00F">fib</span>(n: <span style="color: #008000">int</span>) <span style="color: #666">-&gt;</span> Iterator[<span style="color: #008000">int</span>]:
+<span style="color: #BBB">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
+        a, b <span style="color: #666">=</span> <span style="color: #666">0</span>, <span style="color: #666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> a <span style="color: #666">&lt;</span> n:
+            <span style="color: #008000; font-weight: bold">yield</span> a
+            a, b <span style="color: #666">=</span> b, a <span style="color: #666">+</span> b
+
+
+result <span style="color: #666">=</span> <span style="color: #008000">sum</span>(Math<span style="color: #666">.</span>fib(<span style="color: #666">42</span>))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;The answer is </span><span style="color: #A45A77; font-weight: bold">{</span>result<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
+</pre></div>
+
+    </div>
+
+    <div>
     <h3 id="bw">bw</h3>
     <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="font-weight: bold">from</span> <span style="font-weight: bold">collections.abc</span> <span style="font-weight: bold">import</span> Iterator
 
@@ -173,28 +195,6 @@ result = <span style="color: #2C2CFF">sum</span>(Math.fib(<span style="color: #2
 
 <span style="color: #000">result</span> <span style="color: #000">=</span> <span style="color: #A90D91">sum</span>(<span style="color: #000">Math.fib</span>(<span style="color: #1C01CE">42</span>))
 <span style="color: #A90D91">print</span>(<span style="color: #C41A16">f&quot;The answer is {</span><span style="color: #000">result</span><span style="color: #C41A16">}&quot;</span>)
-</pre></div>
-
-    </div>
-
-    <div>
-    <h3 id="default">default</h3>
-    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">collections.abc</span><span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">import</span> Iterator
-
-
-<span style="color: #3D7B7B; font-style: italic"># This is an example</span>
-<span style="color: #008000; font-weight: bold">class</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">Math</span>:
-    <span style="color: #A2F">@staticmethod</span>
-    <span style="color: #008000; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00F">fib</span>(n: <span style="color: #008000">int</span>) <span style="color: #666">-&gt;</span> Iterator[<span style="color: #008000">int</span>]:
-<span style="color: #BBB">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
-        a, b <span style="color: #666">=</span> <span style="color: #666">0</span>, <span style="color: #666">1</span>
-        <span style="color: #008000; font-weight: bold">while</span> a <span style="color: #666">&lt;</span> n:
-            <span style="color: #008000; font-weight: bold">yield</span> a
-            a, b <span style="color: #666">=</span> b, a <span style="color: #666">+</span> b
-
-
-result <span style="color: #666">=</span> <span style="color: #008000">sum</span>(Math<span style="color: #666">.</span>fib(<span style="color: #666">42</span>))
-<span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;The answer is </span><span style="color: #A45A77; font-weight: bold">{</span>result<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
 </pre></div>
 
     </div>
