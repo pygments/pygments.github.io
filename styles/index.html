@@ -1113,6 +1113,28 @@ result = <span style="color: #658B00">sum</span>(Math.fib(<span style="color: #B
     </div>
     
     <div>
+    <h3 id="night-owl">night-owl</h3>
+    <div class="highlight" style="background: #011627"><pre style="line-height: 125%;"><span></span><span style="color: #C792EA; font-style: italic">from</span><span style="color: #D6DEEB"> collections.abc </span><span style="color: #C792EA; font-style: italic">import</span> <span style="color: #D6DEEB">Iterator</span>
+
+
+<span style="color: #637777; font-style: italic"># This is an example</span>
+<span style="color: #C792EA; font-style: italic">class</span><span style="color: #D6DEEB"> </span><span style="color: #ECC48D">Math</span><span style="color: #D6DEEB">:</span>
+    <span style="color: #82AAFF">@staticmethod</span>
+    <span style="color: #C792EA; font-style: italic">def</span><span style="color: #D6DEEB"> </span><span style="color: #82AAFF">fib</span><span style="color: #D6DEEB">(n:</span> <span style="color: #7FDBCA">int</span><span style="color: #D6DEEB">)</span> <span style="color: #7FDBCA">-&gt;</span> <span style="color: #D6DEEB">Iterator[</span><span style="color: #7FDBCA">int</span><span style="color: #D6DEEB">]:</span>
+<span style="color: #D6DEEB">        </span><span style="color: #637777; font-style: italic">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
+        <span style="color: #D6DEEB">a,</span> <span style="color: #D6DEEB">b</span> <span style="color: #7FDBCA">=</span> <span style="color: #F78C6C">0</span><span style="color: #D6DEEB">,</span> <span style="color: #F78C6C">1</span>
+        <span style="color: #C792EA; font-style: italic">while</span> <span style="color: #D6DEEB">a</span> <span style="color: #7FDBCA">&lt;</span> <span style="color: #D6DEEB">n:</span>
+            <span style="color: #C792EA; font-style: italic">yield</span> <span style="color: #D6DEEB">a</span>
+            <span style="color: #D6DEEB">a,</span> <span style="color: #D6DEEB">b</span> <span style="color: #7FDBCA">=</span> <span style="color: #D6DEEB">b,</span> <span style="color: #D6DEEB">a</span> <span style="color: #7FDBCA">+</span> <span style="color: #D6DEEB">b</span>
+
+
+<span style="color: #D6DEEB">result</span> <span style="color: #7FDBCA">=</span> <span style="color: #7FDBCA">sum</span><span style="color: #D6DEEB">(Math</span><span style="color: #7FDBCA">.</span><span style="color: #D6DEEB">fib(</span><span style="color: #F78C6C">42</span><span style="color: #D6DEEB">))</span>
+<span style="color: #7FDBCA">print</span><span style="color: #D6DEEB">(</span><span style="color: #7FDBCA">f</span><span style="color: #ADDB67">&quot;The answer is </span><span style="color: #7FDBCA">{</span><span style="color: #D6DEEB">result</span><span style="color: #7FDBCA">}</span><span style="color: #ADDB67">&quot;</span><span style="color: #D6DEEB">)</span>
+</pre></div>
+
+    </div>
+    
+    <div>
     <h3 id="fruity">fruity</h3>
     <div class="highlight" style="background: #111111"><pre style="line-height: 125%;"><span></span><span style="color: #FB660A; font-weight: bold">from</span><span style="color: #888"> </span><span style="color: #FFF">collections.abc</span><span style="color: #888"> </span><span style="color: #FB660A; font-weight: bold">import</span> <span style="color: #FFF">Iterator</span>
 
