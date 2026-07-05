@@ -168,24 +168,27 @@
 <section id="version-2-21-0">
 <h2>Version 2.21.0<a class="headerlink" href="#version-2-21-0" title="Link to this heading">¶</a></h2>
 <p>(not released yet)</p>
-<ul class="simple">
-<li><p>New lexers:</p>
 <ul>
+<li><p>New lexers:</p>
+<ul class="simple">
 <li><p>BitBake (<a class="reference external" href="https://github.com/pygments/pygments/issues/3103">#3103</a>)</p></li>
 <li><p>CEL (<a class="reference external" href="https://github.com/pygments/pygments/issues/3048">#3048</a>)</p></li>
 <li><p>PureScript (<a class="reference external" href="https://github.com/pygments/pygments/issues/1077">#1077</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3054">#3054</a>)</p></li>
 </ul>
 </li>
-<li><p>Updated lexers:</p>
-<ul>
-<li><p>C++: Add C23/C++26 attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/3084">#3084</a>)</p></li>
-<li><p>WebAssembly: Recognize sign-extension operators (<a class="reference external" href="https://github.com/pygments/pygments/issues/2991">#2991</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3160">#3160</a>)</p></li>
-<li><p>C++: Highlight a function following a namespace body (<a class="reference external" href="https://github.com/pygments/pygments/issues/2928">#2928</a>)</p></li>
-<li><p>JavaScript: Highlight the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> object (<a class="reference external" href="https://github.com/pygments/pygments/issues/3146">#3146</a>)</p></li>
-<li><p>Tcl: Stop <code class="docutils literal notranslate"><span class="pre">$name</span></code> variable references at a dash (<a class="reference external" href="https://github.com/pygments/pygments/issues/1720">#1720</a>)</p></li>
-<li><p>TypeScript: Only treat <code class="docutils literal notranslate"><span class="pre">module</span></code> as a keyword when followed by
-whitespace, so identifiers like <code class="docutils literal notranslate"><span class="pre">modules</span></code> and <code class="docutils literal notranslate"><span class="pre">module.exports</span></code>
-are highlighted correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2823">#2823</a>)</p></li>
+<li><p>Updated lexers:
+* Boogie: Add missing Boogie and Civl Verifier keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/3156">#3156</a>)
+* C++: Add C23/C++26 attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/3084">#3084</a>)
+* WebAssembly: Recognize sign-extension operators (<a class="reference external" href="https://github.com/pygments/pygments/issues/2991">#2991</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3160">#3160</a>)
+* C++: Highlight a function following a namespace body (<a class="reference external" href="https://github.com/pygments/pygments/issues/2928">#2928</a>)
+* JavaScript: Highlight the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> object (<a class="reference external" href="https://github.com/pygments/pygments/issues/3146">#3146</a>)
+* Tcl: Stop <code class="docutils literal notranslate"><span class="pre">$name</span></code> variable references at a dash (<a class="reference external" href="https://github.com/pygments/pygments/issues/1720">#1720</a>)
+* TypeScript: Only treat <code class="docutils literal notranslate"><span class="pre">module</span></code> as a keyword when followed by</p>
+<blockquote>
+<div><p>whitespace, so identifiers like <code class="docutils literal notranslate"><span class="pre">modules</span></code> and <code class="docutils literal notranslate"><span class="pre">module.exports</span></code>
+are highlighted correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2823">#2823</a>)</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>Ruby: Don’t duplicate the body of an unterminated heredoc (<a class="reference external" href="https://github.com/pygments/pygments/issues/2998">#2998</a>)</p></li>
 <li><p>Kotlin: Don’t let a nullable type marker (<code class="docutils literal notranslate"><span class="pre">?</span></code>) consume the following
 character, so <code class="docutils literal notranslate"><span class="pre">Foo?,</span></code> and <code class="docutils literal notranslate"><span class="pre">a?:b</span></code> tokenize correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2964">#2964</a>)</p></li>
