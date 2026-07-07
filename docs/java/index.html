@@ -95,12 +95,12 @@ advanced uses.</p>
 which makes it a lot easier to create a Java project.</p>
 <p>Here is an example of a <a class="reference external" href="https://maven.apache.org/">Maven</a> <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> file for a
 project running Pygments:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 
-<span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
-<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
-<span class="s">                             http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0</span>
+<span class="s">                             http://maven.apache.org/maven-v4_0_0.xsd"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 <span class="w">  </span><span class="nt">&lt;groupId&gt;</span>example<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>example<span class="nt">&lt;/artifactId&gt;</span>
@@ -125,21 +125,21 @@ project running Pygments:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PythonInterpreter</span><span class="w"> </span><span class="n">interpreter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PythonInterpreter</span><span class="p">();</span>
 
 <span class="c1">// Set a variable with the content you want to work with</span>
-<span class="n">interpreter</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;code&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
+<span class="n">interpreter</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"code"</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
 
 <span class="c1">// Simple use Pygments as you would in Python</span>
-<span class="n">interpreter</span><span class="p">.</span><span class="na">exec</span><span class="p">(</span><span class="s">&quot;from pygments import highlight\n&quot;</span>
-<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;from pygments.lexers import PythonLexer\n&quot;</span>
-<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;from pygments.formatters import HtmlFormatter\n&quot;</span>
-<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nresult = highlight(code, PythonLexer(), HtmlFormatter())&quot;</span><span class="p">);</span>
+<span class="n">interpreter</span><span class="p">.</span><span class="na">exec</span><span class="p">(</span><span class="s">"from pygments import highlight\n"</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">"from pygments.lexers import PythonLexer\n"</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">"from pygments.formatters import HtmlFormatter\n"</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="s">"\nresult = highlight(code, PythonLexer(), HtmlFormatter())"</span><span class="p">);</span>
 
 <span class="c1">// Get the result that has been set in a variable</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">interpreter</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;result&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">interpreter</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"result"</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
 </pre></div>
 </div>
 <p>will print something like:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;k&quot;</span><span class="p">&gt;</span>print<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;s&quot;</span><span class="p">&gt;</span><span class="ni">&amp;quot;</span>Hello World<span class="ni">&amp;quot;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"highlight"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"k"</span><span class="p">&gt;</span>print<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"s"</span><span class="p">&gt;</span><span class="ni">&amp;quot;</span>Hello World<span class="ni">&amp;quot;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>

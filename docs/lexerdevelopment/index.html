@@ -137,7 +137,7 @@ very small derivative of an already existing lexer.</p>
 <li><p>Next, make sure the lexer is known from outside the module. All modules
 in the <code class="docutils literal notranslate"><span class="pre">pygments.lexers</span></code> package specify <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. For example,
 <code class="docutils literal notranslate"><span class="pre">automation.py</span></code> sets:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;AutohotkeyLexer&#x27;</span><span class="p">,</span> <span class="s1">&#x27;AutoItLexer&#x27;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'AutohotkeyLexer'</span><span class="p">,</span> <span class="s1">'AutoItLexer'</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Add the name of your lexer class to this list (or create the list if your
@@ -191,10 +191,10 @@ state.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This means you’re always jumping back to the first entry, i.e. you cannot match states in a particular order. For example, a state with the following rules won’t work as intended:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#x27;state&#x27;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\w+&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="p">,),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\s+&#x27;</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\w+&#x27;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'state'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\w+'</span><span class="p">,</span> <span class="n">Name</span><span class="p">,),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\w+'</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,)</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -219,19 +219,19 @@ functions.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">DiffLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#x27;Diff&#x27;</span>
-    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;diff&#x27;</span><span class="p">]</span>
-    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;*.diff&#x27;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Diff'</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'diff'</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'*.diff'</span><span class="p">]</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27; .*\n&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\+.*\n&#x27;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;-.*\n&#x27;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;@.*\n&#x27;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;Index.*\n&#x27;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;=.*\n&#x27;</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;.*\n&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">' .*\n'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\+.*\n'</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'-.*\n'</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'@.*\n'</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'Index.*\n'</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'=.*\n'</span><span class="p">,</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'.*\n'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -255,7 +255,7 @@ the lexer from a file relative to your current directory.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CustomLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;All your lexer code goes here!&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""All your lexer code goes here!"""</span>
 </pre></div>
 </div>
 <p>Then you can load and test the lexer from the command line with the additional
@@ -272,7 +272,7 @@ flag <code class="docutils literal notranslate"><span class="pre">-x</span></cod
 <span class="n">your_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="c1"># For a lexer named MyNewLexer</span>
-<span class="n">your_named_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;MyNewLexer&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">your_named_lexer</span> <span class="o">=</span> <span class="n">load_lexer_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"MyNewLexer"</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>When loading custom lexers and formatters, be extremely careful to use only
@@ -309,16 +309,16 @@ sections, comments and <code class="docutils literal notranslate"><span class="p
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">IniLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#x27;INI&#x27;</span>
-    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;ini&#x27;</span><span class="p">,</span> <span class="s1">&#x27;cfg&#x27;</span><span class="p">]</span>
-    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;*.ini&#x27;</span><span class="p">,</span> <span class="s1">&#x27;*.cfg&#x27;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'INI'</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ini'</span><span class="p">,</span> <span class="s1">'cfg'</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'*.ini'</span><span class="p">,</span> <span class="s1">'*.cfg'</span><span class="p">]</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\s+&#x27;</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;;.*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\[.*?\]$&#x27;</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(.*?)(\s*)(=)(\s*)(.*)&#x27;</span><span class="p">,</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">';.*'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\[.*?\]$'</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(.*?)(\s*)(=)(\s*)(.*)'</span><span class="p">,</span>
              <span class="n">bygroups</span><span class="p">(</span><span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">String</span><span class="p">))</span>
         <span class="p">]</span>
     <span class="p">}</span>
@@ -352,20 +352,20 @@ and single-line with <code class="docutils literal notranslate"><span class="pre
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CppCommentLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#x27;Example Lexer with states&#x27;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Example Lexer with states'</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^/]+&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/\*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#x27;comment&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;//.*?$&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Singleline</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">)</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'[^/]+'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'/\*'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">'comment'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'//.*?$'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Singleline</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">Text</span><span class="p">)</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;comment&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^*/]+&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/\*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#x27;#push&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*/&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[*/]&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">)</span>
+        <span class="s1">'comment'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'[^*/]+'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'/\*'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">'#push'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\*/'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'[*/]'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">)</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -404,18 +404,18 @@ match a comment containing a directive, something like:</p>
 </div>
 <p>you can use this rule:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/\* &lt;&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#x27;comment&#x27;</span><span class="p">,</span> <span class="s1">&#x27;directive&#x27;</span><span class="p">)),</span>
+    <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'/\* &lt;'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="p">(</span><span class="s1">'comment'</span><span class="p">,</span> <span class="s1">'directive'</span><span class="p">)),</span>
         <span class="o">...</span>
     <span class="p">],</span>
-    <span class="s1">&#x27;directive&#x27;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^&gt;]+&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Directive</span><span class="p">),</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&gt;&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
+    <span class="s1">'directive'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'[^&gt;]+'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Directive</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
     <span class="p">],</span>
-    <span class="s1">&#x27;comment&#x27;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^*]+&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*/&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
-        <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+    <span class="s1">'comment'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'[^*]+'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'\*/'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s1">'\*'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -437,21 +437,21 @@ done by using <cite>include</cite> from <cite>pygments.lexer</cite>:</p>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;comments&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(?s)/\*.*?\*/&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;//.*?\n&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+        <span class="s1">'comments'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(?s)/\*.*?\*/'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'//.*?\n'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">),</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="n">include</span><span class="p">(</span><span class="s1">&#x27;comments&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(function)( )(\w+)( )({)&#x27;</span><span class="p">,</span>
-             <span class="n">bygroups</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">),</span> <span class="s1">&#x27;function&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;.*\n&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">'comments'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(function)( )(\w+)( )({)'</span><span class="p">,</span>
+             <span class="n">bygroups</span><span class="p">(</span><span class="n">Keyword</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">),</span> <span class="s1">'function'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'.*\n'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;function&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^}/]+&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="n">include</span><span class="p">(</span><span class="s1">&#x27;comments&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\}&#x27;</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
+        <span class="s1">'function'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'[^}/]+'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="n">include</span><span class="p">(</span><span class="s1">'comments'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\}'</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -478,7 +478,7 @@ stack by overriding the <cite>get_tokens_unprocessed()</cite> method:</p>
 <span class="k">class</span><span class="w"> </span><span class="nc">ExampleLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="p">(</span><span class="s1">&#x27;root&#x27;</span><span class="p">,</span> <span class="s1">&#x27;otherstate&#x27;</span><span class="p">)):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="p">(</span><span class="s1">'root'</span><span class="p">,</span> <span class="s1">'otherstate'</span><span class="p">)):</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">RegexLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stack</span><span class="p">):</span>
             <span class="k">yield</span> <span class="n">item</span>
 </pre></div>
@@ -512,31 +512,31 @@ defined in the parent and child class are merged.  For example:</p>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">BaseLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="s1">&#x27;[a-z]+&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;/\*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">&#x27;comment&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#x27;&quot;&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#x27;string&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\s+&#x27;</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">'[a-z]+'</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'/\*'</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="s1">'comment'</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">'"'</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="n">Whitespace</span><span class="p">),</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;string&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="s1">&#x27;[^&quot;]+&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#x27;&quot;&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
+        <span class="s1">'string'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">'[^"]+'</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">'"'</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;comment&#x27;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">'comment'</span><span class="p">:</span> <span class="p">[</span>
             <span class="o">...</span>
         <span class="p">],</span>
     <span class="p">}</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">DerivedLexer</span><span class="p">(</span><span class="n">BaseLexer</span><span class="p">):</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="s1">&#x27;[0-9]+&#x27;</span><span class="p">,</span> <span class="n">Number</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">'[0-9]+'</span><span class="p">,</span> <span class="n">Number</span><span class="p">),</span>
             <span class="n">inherit</span><span class="p">,</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;string&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^&quot;</span><span class="se">\\</span><span class="s1">]+&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;</span><span class="se">\\</span><span class="s1">.&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#x27;&quot;&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
+        <span class="s1">'string'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'[^"</span><span class="se">\\</span><span class="s1">]+'</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'</span><span class="se">\\</span><span class="s1">.'</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">'"'</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
         <span class="p">],</span>
     <span class="p">}</span>
 </pre></div>
@@ -564,23 +564,23 @@ and the resulting tokens will be yielded.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.lexers.javascript</span><span class="w"> </span><span class="kn">import</span> <span class="n">JavascriptLexer</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">HtmlLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#x27;HTML&#x27;</span>
-    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;html&#x27;</span><span class="p">]</span>
-    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#x27;*.html&#x27;</span><span class="p">,</span> <span class="s1">&#x27;*.htm&#x27;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'HTML'</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'html'</span><span class="p">]</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'*.html'</span><span class="p">,</span> <span class="s1">'*.htm'</span><span class="p">]</span>
 
     <span class="n">flags</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="s1">&#x27;[^&lt;&amp;]+&#x27;</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#x27;&amp;.*?;&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&lt;\s*script\s*&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#x27;script-content&#x27;</span><span class="p">,</span> <span class="s1">&#x27;tag&#x27;</span><span class="p">)),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&lt;\s*[a-zA-Z0-9:]+&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="s1">&#x27;tag&#x27;</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&lt;\s*/\s*[a-zA-Z0-9:]+\s*&gt;&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">'[^&lt;&amp;]+'</span><span class="p">,</span> <span class="n">Text</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">'&amp;.*?;'</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;\s*script\s*'</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="p">(</span><span class="s1">'script-content'</span><span class="p">,</span> <span class="s1">'tag'</span><span class="p">)),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;\s*[a-zA-Z0-9:]+'</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">,</span> <span class="s1">'tag'</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;\s*/\s*[a-zA-Z0-9:]+\s*&gt;'</span><span class="p">,</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">),</span>
         <span class="p">],</span>
-        <span class="s1">&#x27;script-content&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(.+?)(&lt;\s*/\s*script\s*&gt;)&#x27;</span><span class="p">,</span>
+        <span class="s1">'script-content'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(.+?)(&lt;\s*/\s*script\s*&gt;)'</span><span class="p">,</span>
              <span class="n">bygroups</span><span class="p">(</span><span class="n">using</span><span class="p">(</span><span class="n">JavascriptLexer</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">),</span>
-             <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
+             <span class="s1">'#pop'</span><span class="p">),</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -662,8 +662,8 @@ and <code class="docutils literal notranslate"><span class="pre">value</span></c
         <span class="k">yield</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Headline</span><span class="p">,</span> <span class="n">equal_signs</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">equal_signs</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(=+)(.*?)(\1)&#x27;</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(=+)(.*?)(\1)'</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -714,8 +714,8 @@ For example, this is how the hypothetical lexer above would be written with the
         <span class="n">ctx</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;(=+)(.*?)(\1)&#x27;</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'(=+)(.*?)(\1)'</span><span class="p">,</span> <span class="n">headline_callback</span><span class="p">)</span>
         <span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -738,9 +738,9 @@ code if possible.</p>
 <span class="k">class</span><span class="w"> </span><span class="nc">MyLexer</span><span class="p">(</span><span class="n">RegexLexer</span><span class="p">):</span>
 
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">(</span><span class="n">words</span><span class="p">((</span><span class="s1">&#x27;else&#x27;</span><span class="p">,</span> <span class="s1">&#x27;elseif&#x27;</span><span class="p">),</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#x27;\b&#x27;</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">),</span>
-            <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\w+&#x27;</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
+        <span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">words</span><span class="p">((</span><span class="s1">'else'</span><span class="p">,</span> <span class="s1">'elseif'</span><span class="p">),</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">r</span><span class="s1">'\b'</span><span class="p">),</span> <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">r</span><span class="s1">'\w+'</span><span class="p">,</span> <span class="n">Name</span><span class="p">),</span>
         <span class="p">],</span>
     <span class="p">}</span>
 </pre></div>
@@ -763,7 +763,7 @@ pseudo keywords:</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.token</span><span class="w"> </span><span class="kn">import</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyPythonLexer</span><span class="p">(</span><span class="n">PythonLexer</span><span class="p">):</span>
-    <span class="n">EXTRA_KEYWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#x27;foo&#x27;</span><span class="p">,</span> <span class="s1">&#x27;bar&#x27;</span><span class="p">,</span> <span class="s1">&#x27;foobar&#x27;</span><span class="p">,</span> <span class="s1">&#x27;barfoo&#x27;</span><span class="p">,</span> <span class="s1">&#x27;spam&#x27;</span><span class="p">,</span> <span class="s1">&#x27;eggs&#x27;</span><span class="p">))</span>
+    <span class="n">EXTRA_KEYWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'foobar'</span><span class="p">,</span> <span class="s1">'barfoo'</span><span class="p">,</span> <span class="s1">'spam'</span><span class="p">,</span> <span class="s1">'eggs'</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">PythonLexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
@@ -784,16 +784,16 @@ to read and review. You are asked to read this section if you want to
 contribute a new lexer, but you might find it useful in any case.</p>
 <ul>
 <li><p>When writing rules, try to merge simple rules. For instance, combine:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\(&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\)&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\[&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\]&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="s2">&quot;{&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
-<span class="p">(</span><span class="s2">&quot;}&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">"\("</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<span class="p">(</span><span class="sa">r</span><span class="s2">"\)"</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<span class="p">(</span><span class="sa">r</span><span class="s2">"\["</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<span class="p">(</span><span class="sa">r</span><span class="s2">"\]"</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<span class="p">(</span><span class="s2">"{"</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
+<span class="p">(</span><span class="s2">"}"</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">),</span>
 </pre></div>
 </div>
 <p>into:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\(\)\[\]</span><span class="si">{}</span><span class="s2">]+&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sa">r</span><span class="s2">"[\(\)\[\]</span><span class="si">{}</span><span class="s2">]+"</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -827,12 +827,12 @@ further left in the input string, etc.  In effect, it tries all combinations</p>
 effect is that Pygments will seemingly hang when parsing invalid
 input.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#x27;(A+)*B&#x27;</span><span class="p">,</span> <span class="s1">&#x27;A&#x27;</span><span class="o">*</span><span class="mi">50</span> <span class="o">+</span> <span class="s1">&#x27;C&#x27;</span><span class="p">)</span> <span class="c1"># hangs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">'(A+)*B'</span><span class="p">,</span> <span class="s1">'A'</span><span class="o">*</span><span class="mi">50</span> <span class="o">+</span> <span class="s1">'C'</span><span class="p">)</span> <span class="c1"># hangs</span>
 </pre></div>
 </div>
 <p>As a more subtle and real-life example, here is a badly written
 regular expression to match strings:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#x27;&quot;(</span><span class="se">\\</span><span class="s1">?.)*?&quot;&#x27;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">'"(</span><span class="se">\\</span><span class="s1">?.)*?"'</span>
 </pre></div>
 </div>
 <p>If the ending quote is missing, the regular expression engine will
@@ -846,15 +846,15 @@ the (invalid) input string.  A good way to write this would be
 way.  Better yet is to use a dedicated state, which not only
 sidesteps the issue without headaches, but allows you to highlight
 string escapes.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#x27;root&#x27;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'root'</span><span class="p">:</span> <span class="p">[</span>
     <span class="o">...</span><span class="p">,</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&quot;&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#x27;string&#x27;</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'"'</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">),</span>
     <span class="o">...</span>
 <span class="p">],</span>
-<span class="s1">&#x27;string&#x27;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;</span><span class="se">\\</span><span class="s1">.&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;&quot;&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^</span><span class="se">\\</span><span class="s1">&quot;]+&#x27;</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
+<span class="s1">'string'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'</span><span class="se">\\</span><span class="s1">.'</span><span class="p">,</span> <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'"'</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'[^</span><span class="se">\\</span><span class="s1">"]+'</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -862,19 +862,19 @@ string escapes.</p>
 <li><p>When writing rules for patterns such as comments or strings, match as many
 characters as possible in each token.  This is an example of what <em>not</em> to
 do:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#x27;comment&#x27;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*/&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;.&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'comment'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\*/'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'.'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 <p>This generates one token per character in the comment, which slows
 down the lexing process, and also makes the raw token output (and in
 particular the test output) hard to read.  Do this instead:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#x27;comment&#x27;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*/&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">&#x27;#pop&#x27;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;[^*]+&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#x27;\*&#x27;</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">'comment'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\*/'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">,</span> <span class="s1">'#pop'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'[^*]+'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'\*'</span><span class="p">,</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">),</span>
 <span class="p">]</span>
 </pre></div>
 </div>

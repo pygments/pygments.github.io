@@ -116,7 +116,7 @@ utility) can  also provide that information.</p>
 <p>Aliases allow you to call a function using a different name.  In this case it
 calls <strong class="program">pygmentize</strong> by using a different name.  The simplest is to make
 an alias called <code class="docutils literal notranslate"><span class="pre">cath</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">&quot;pygmentize&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">"pygmentize"</span>
 </pre></div>
 </div>
 <p>The only thing is that <strong class="program">pygmentize</strong> does not really work like <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
@@ -124,13 +124,13 @@ It does allow you to use a command that is similar to one use for cat,
 displaying a file.</p>
 <p>Add additional flags can be added as desired.  The monokai style works well for
 a dark background, so this is how you would add that option:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">&quot;pygmentize -O style=monokai&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">"pygmentize -O style=monokai"</span>
 </pre></div>
 </div>
 <p>Here is a version of <code class="docutils literal notranslate"><span class="pre">less</span></code> with syntax highlighting.  It is slightly more
 complicated, because it uses the environment variable <code class="docutils literal notranslate"><span class="pre">LESSOPEN</span></code> to preprocess
 the input file(s):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lessh</span><span class="o">=</span><span class="s1">&#x27;LESSOPEN=&quot;| pygmentize -O style=monokai %s&quot; less -M -R &#x27;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lessh</span><span class="o">=</span><span class="s1">'LESSOPEN="| pygmentize -O style=monokai %s" less -M -R '</span>
 </pre></div>
 </div>
 <p>These alias commands need to be added to your configuration in order to work
@@ -157,14 +157,14 @@ fish shell is a little different.  Functions are used to make permanent aliases.
 <p>Running the <code class="docutils literal notranslate"><span class="pre">funced</span> <span class="pre">cath</span></code>, brings up the default editor, and add the
 following code in the function:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>cath
-<span class="w">        </span><span class="c1"># &#x27;cath&#x27; alias will highlight source code as cat does.</span>
-<span class="w">        </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">&quot;pygmentize&quot;</span>
+<span class="w">        </span><span class="c1"># 'cath' alias will highlight source code as cat does.</span>
+<span class="w">        </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">"pygmentize"</span>
 end
 </pre></div>
 </div>
 <p>Here’s what the <code class="docutils literal notranslate"><span class="pre">cath</span></code> function looks like with an additional argument:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>cath
-<span class="w">        </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">&quot;pygmentize -O style=monokai&quot;</span>
+<span class="w">        </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cath</span><span class="o">=</span><span class="s2">"pygmentize -O style=monokai"</span>
 end
 </pre></div>
 </div>
@@ -176,7 +176,7 @@ This saves the function for future sessions.</p>
 complicated, because it uses the environment variable <code class="docutils literal notranslate"><span class="pre">LESSOPEN</span></code> to preprocess
 the input file(s):</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>lessh
-<span class="w">        </span><span class="nv">LESSOPEN</span><span class="o">=</span><span class="s2">&quot;| pygmentize -O style=native %s&quot;</span><span class="w"> </span>less<span class="w"> </span>-M<span class="w"> </span>-R<span class="w"> </span><span class="nv">$argv</span>
+<span class="w">        </span><span class="nv">LESSOPEN</span><span class="o">=</span><span class="s2">"| pygmentize -O style=native %s"</span><span class="w"> </span>less<span class="w"> </span>-M<span class="w"> </span>-R<span class="w"> </span><span class="nv">$argv</span>
 end
 </pre></div>
 </div>

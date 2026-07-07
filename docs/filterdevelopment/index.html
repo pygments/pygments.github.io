@@ -116,7 +116,7 @@ to normal <cite>Name</cite> tokens to make the output less colorful.</p>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
         <span class="n">Filter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">class_too</span> <span class="o">=</span> <span class="n">get_bool_opt</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">&#x27;classtoo&#x27;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_too</span> <span class="o">=</span> <span class="n">get_bool_opt</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">'classtoo'</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
@@ -143,7 +143,7 @@ to check for that case if you access it.</p>
 
 <span class="nd">@simplefilter</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">uncolor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
-    <span class="n">class_too</span> <span class="o">=</span> <span class="n">get_bool_opt</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">&#x27;classtoo&#x27;</span><span class="p">)</span>
+    <span class="n">class_too</span> <span class="o">=</span> <span class="n">get_bool_opt</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">'classtoo'</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ttype</span> <span class="ow">is</span> <span class="n">Name</span><span class="o">.</span><span class="n">Function</span> <span class="ow">or</span> <span class="p">(</span><span class="n">class_too</span> <span class="ow">and</span>
                                       <span class="n">ttype</span> <span class="ow">is</span> <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">):</span>
