@@ -168,11 +168,11 @@
 <section id="version-2-21-0">
 <h2>Version 2.21.0<a class="headerlink" href="#version-2-21-0" title="Link to this heading">¶</a></h2>
 <p>(not released yet)</p>
-<ul class="simple">
-<li><p>New lexers:</p>
 <ul>
+<li><p>New lexers:</p>
+<ul class="simple">
 <li><p>BitBake (<a class="reference external" href="https://github.com/pygments/pygments/issues/3103">#3103</a>)</p></li>
-<li><p>Caddyfile</p></li>
+<li><p>Caddyfile (<a class="reference external" href="https://github.com/pygments/pygments/issues/3225">#3225</a>)</p></li>
 <li><p>CEL (<a class="reference external" href="https://github.com/pygments/pygments/issues/3048">#3048</a>)</p></li>
 <li><p>PureScript (<a class="reference external" href="https://github.com/pygments/pygments/issues/1077">#1077</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3054">#3054</a>)</p></li>
 </ul>
@@ -181,44 +181,85 @@
 <ul>
 <li><p>Bash: Fix coloured keyword at the beginning of a name (<a class="reference external" href="https://github.com/pygments/pygments/issues/2926">#2926</a>)</p></li>
 <li><p>Boogie: Add missing Boogie and Civl Verifier keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/3156">#3156</a>)</p></li>
+<li><p>C#:
+- Recognize interpolated verbatim strings with either <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;$</span></code></p>
+<blockquote>
+<div><p>prefixes (<a class="reference external" href="https://github.com/pygments/pygments/issues/2685">#2685</a>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Support dollar-prefixed and multi-quote raw strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/3129">#3129</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2897">#2897</a>)</p></li>
+<li><p>Recognize <code class="docutils literal notranslate"><span class="pre">union</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3182">#3182</a>)</p></li>
+</ul>
+</li>
+<li><p>C/C++:
+- Add C23/C++26 attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/3084">#3084</a>)
+- Add more C2Y keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/3092">#3092</a>)
+- Highlight a function following a namespace body (<a class="reference external" href="https://github.com/pygments/pygments/issues/2928">#2928</a>)
+- Fix C/C++ lexer support for multiline pre-processor comments (<a class="reference external" href="https://github.com/pygments/pygments/issues/3051">#3051</a>)
+- Add <code class="docutils literal notranslate"><span class="pre">.ipp</span></code> as a file extension (<a class="reference external" href="https://github.com/pygments/pygments/issues/3141">#3141</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/1008">#1008</a>)</p></li>
 <li><p>Clojure: Recognize named, octal and unicode character literals such as
 <code class="docutils literal notranslate"><span class="pre">\space</span></code> and <code class="docutils literal notranslate"><span class="pre">\o377</span></code> as a single token (<a class="reference external" href="https://github.com/pygments/pygments/issues/979">#979</a>)</p></li>
+<li><p>Csound: Add missing opcode parameter type letter (<a class="reference external" href="https://github.com/pygments/pygments/issues/3161">#3161</a>)</p></li>
 <li><p>CUDA: Derive from the C++ lexer instead of C to highlight C++
 constructs such as <code class="docutils literal notranslate"><span class="pre">template</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3127">#3127</a>)</p></li>
-<li><p>C++: Add C23/C++26 attributes (<a class="reference external" href="https://github.com/pygments/pygments/issues/3084">#3084</a>)</p></li>
-<li><p>C++: Highlight a function following a namespace body (<a class="reference external" href="https://github.com/pygments/pygments/issues/2928">#2928</a>)</p></li>
-<li><p>C#: Recognize interpolated verbatim strings with either <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;$</span></code>
-prefixes (<a class="reference external" href="https://github.com/pygments/pygments/issues/2685">#2685</a>)</p></li>
 <li><p>D: Allow non-ASCII (Unicode) identifiers (<a class="reference external" href="https://github.com/pygments/pygments/issues/1088">#1088</a>)</p></li>
+<li><p>Fish: Fix single quote backslash escape (<a class="reference external" href="https://github.com/pygments/pygments/issues/3138">#3138</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2821">#2821</a>)</p></li>
+<li><p>Go: Various lexer improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/3199">#3199</a>)</p></li>
+<li><p>GoogleSQL: Require a word break after <code class="docutils literal notranslate"><span class="pre">SET</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3167">#3167</a>)</p></li>
+<li><p>Hexdump: Only match valid digits (<a class="reference external" href="https://github.com/pygments/pygments/issues/3200">#3200</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2847">#2847</a>)</p></li>
 <li><p>JavaScript: Highlight the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> object (<a class="reference external" href="https://github.com/pygments/pygments/issues/3146">#3146</a>)</p></li>
 <li><p>Jsonnet: Recognize colons in array slice expressions (<a class="reference external" href="https://github.com/pygments/pygments/issues/2828">#2828</a>)</p></li>
 <li><p>JSX: Allow apostrophes in element text (<a class="reference external" href="https://github.com/pygments/pygments/issues/2816">#2816</a>)</p></li>
+<li><p>Julia: Fix rstrings backslash (<a class="reference external" href="https://github.com/pygments/pygments/issues/3140">#3140</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2537">#2537</a>)</p></li>
 <li><p>Kotlin: Support companion objects without an explicit name (<a class="reference external" href="https://github.com/pygments/pygments/issues/2525">#2525</a>)</p></li>
 <li><p>Kotlin: Don’t let a nullable type marker (<code class="docutils literal notranslate"><span class="pre">?</span></code>) consume the following
 character, so <code class="docutils literal notranslate"><span class="pre">Foo?,</span></code> and <code class="docutils literal notranslate"><span class="pre">a?:b</span></code> tokenize correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2964">#2964</a>)</p></li>
 <li><p>Kusto: Recognize member-access dots in dynamic objects (<a class="reference external" href="https://github.com/pygments/pygments/issues/2779">#2779</a>)</p></li>
-<li><p>Markdown: Highlight bold-italics (<code class="docutils literal notranslate"><span class="pre">***...***</span></code> and <code class="docutils literal notranslate"><span class="pre">___...___</span></code>) (<a class="reference external" href="https://github.com/pygments/pygments/issues/3067">#3067</a>)</p></li>
+<li><p>Lua: Various improvements (<a class="reference external" href="https://github.com/pygments/pygments/issues/3143">#3143</a>)</p></li>
+<li><p>Macaulay2: Update symbols to 1.26.05 (<a class="reference external" href="https://github.com/pygments/pygments/issues/3120">#3120</a>)</p></li>
+<li><p>Markdown:
+- Highlight bold-italics (<code class="docutils literal notranslate"><span class="pre">***...***</span></code> and <code class="docutils literal notranslate"><span class="pre">___...___</span></code>) (<a class="reference external" href="https://github.com/pygments/pygments/issues/3067">#3067</a>)
+- Fix mention regex to support hyphens in usernames (<a class="reference external" href="https://github.com/pygments/pygments/issues/3139">#3139</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3135">#3135</a>)</p></li>
 <li><p>Markdown, reStructuredText, TiddlyWiki5: Fix wrong token offsets for
 embedded code blocks (<a class="reference external" href="https://github.com/pygments/pygments/issues/3133">#3133</a>)</p></li>
 <li><p>Mathematica: Recognize <code class="docutils literal notranslate"><span class="pre">\[Name]</span></code> named-character escapes such as
 <code class="docutils literal notranslate"><span class="pre">\[Nu]</span></code> instead of emitting an <code class="docutils literal notranslate"><span class="pre">Error</span></code> token (<a class="reference external" href="https://github.com/pygments/pygments/issues/3097">#3097</a>)</p></li>
 <li><p>MATLAB, Octave, Scilab: Allow <code class="docutils literal notranslate"><span class="pre">...</span></code> line continuations in function
 definition signatures (<a class="reference external" href="https://github.com/pygments/pygments/issues/659">#659</a>)</p></li>
+<li><p>MySQL: Require a word break after <code class="docutils literal notranslate"><span class="pre">SET</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3110">#3110</a>)</p></li>
+<li><p>PostgreSQL: Add more keywords (<a class="reference external" href="https://github.com/pygments/pygments/issues/3066">#3066</a>)</p></li>
+<li><p>Python:
+- Recognize <code class="docutils literal notranslate"><span class="pre">sentinel</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3114">#3114</a>)
+- Recognize <code class="docutils literal notranslate"><span class="pre">frozendict</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/3119">#3119</a>)
+- Recognize lazy imports (<a class="reference external" href="https://github.com/pygments/pygments/issues/3115">#3115</a>)</p></li>
+<li><p>reStructuredText: Allow <code class="docutils literal notranslate"><span class="pre">.</span></code> and <code class="docutils literal notranslate"><span class="pre">+</span></code> in directive/role names (<a class="reference external" href="https://github.com/pygments/pygments/issues/3085">#3085</a>)</p></li>
 <li><p>Ruby: Don’t duplicate the body of an unterminated heredoc (<a class="reference external" href="https://github.com/pygments/pygments/issues/2998">#2998</a>)</p></li>
 <li><p>Ruby: Treat <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> after <code class="docutils literal notranslate"><span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">]</span></code> or <code class="docutils literal notranslate"><span class="pre">}</span></code> as the shift operator
 rather than the start of a heredoc (<a class="reference external" href="https://github.com/pygments/pygments/issues/760">#760</a>)</p></li>
 <li><p>SCSS: Recognize variable references in property values (<a class="reference external" href="https://github.com/pygments/pygments/issues/2818">#2818</a>)</p></li>
+<li><p>Shell: Recognize chevron prompts (<a class="reference external" href="https://github.com/pygments/pygments/issues/3096">#3096</a>)</p></li>
+<li><p>Smithy: Fix text blocks and add missing syntax (<a class="reference external" href="https://github.com/pygments/pygments/issues/3168">#3168</a>)</p></li>
 <li><p>Swift: Keep <code class="docutils literal notranslate"><span class="pre">func</span></code> a keyword in <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">func</span></code> type methods (<a class="reference external" href="https://github.com/pygments/pygments/issues/1125">#1125</a>)</p></li>
 <li><p>Tcl: Stop <code class="docutils literal notranslate"><span class="pre">$name</span></code> variable references at a dash (<a class="reference external" href="https://github.com/pygments/pygments/issues/1720">#1720</a>)</p></li>
 <li><p>TeX: Recognize LaTeX math environments as math (<a class="reference external" href="https://github.com/pygments/pygments/issues/3034">#3034</a>)</p></li>
+<li><p>Twig: Allow uppercase letters at the start of identifiers (<a class="reference external" href="https://github.com/pygments/pygments/issues/3159">#3159</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/2965">#2965</a>)</p></li>
 <li><p>TypeScript: Only treat <code class="docutils literal notranslate"><span class="pre">module</span></code> as a keyword when followed by
 whitespace, so identifiers like <code class="docutils literal notranslate"><span class="pre">modules</span></code> and <code class="docutils literal notranslate"><span class="pre">module.exports</span></code>
 are highlighted correctly (<a class="reference external" href="https://github.com/pygments/pygments/issues/2823">#2823</a>)</p></li>
-<li><p>YAML: Add <code class="docutils literal notranslate"><span class="pre">yml</span></code> alias (<a class="reference external" href="https://github.com/pygments/pygments/issues/3169">#3169</a>), recognize non-breaking spaces as valid
-scalar content (<a class="reference external" href="https://github.com/pygments/pygments/issues/2827">#2827</a>)</p></li>
 <li><p>Vala: Recognize verbatim strings before ordinary quoted strings (<a class="reference external" href="https://github.com/pygments/pygments/issues/2861">#2861</a>)</p></li>
 <li><p>Vala: Recognize conditional compilation directives (<a class="reference external" href="https://github.com/pygments/pygments/issues/2858">#2858</a>)</p></li>
+<li><p>Vim:
+- Bump the syntax file to vim 9.2 (<a class="reference external" href="https://github.com/pygments/pygments/issues/3183">#3183</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3174">#3174</a>)
+- Small improvements to the VimScript lexer (<a class="reference external" href="https://github.com/pygments/pygments/issues/3173">#3173</a>)</p></li>
+<li><p>YAML: Add <code class="docutils literal notranslate"><span class="pre">yml</span></code> alias (<a class="reference external" href="https://github.com/pygments/pygments/issues/3169">#3169</a>), recognize non-breaking spaces as valid
+scalar content (<a class="reference external" href="https://github.com/pygments/pygments/issues/2827">#2827</a>)</p></li>
 <li><p>WebAssembly: Recognize sign-extension operators (<a class="reference external" href="https://github.com/pygments/pygments/issues/2991">#2991</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3160">#3160</a>)</p></li>
+<li><p>XML: Mark SVG files as XML (<a class="reference external" href="https://github.com/pygments/pygments/issues/3093">#3093</a>)</p></li>
+</ul>
+</li>
+<li><p>New styles:</p>
+<ul class="simple">
+<li><p>Night Owl (<a class="reference external" href="https://github.com/pygments/pygments/issues/3132">#3132</a>)</p></li>
 </ul>
 </li>
 <li><p>Fix catastrophic backtracking in <code class="docutils literal notranslate"><span class="pre">looks_like_xml</span></code> (<a class="reference external" href="https://github.com/pygments/pygments/issues/2931">#2931</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3112">#3112</a>)</p></li>
@@ -230,6 +271,10 @@ under <code class="docutils literal notranslate"><span class="pre">stripnl=false
 <li><p>RawTokenFormatter: fix a crash when <code class="docutils literal notranslate"><span class="pre">error_color</span></code> is set (<a class="reference external" href="https://github.com/pygments/pygments/issues/3215">#3215</a>)</p></li>
 <li><p>Groff formatter: don’t duplicate a character when word-wrapping (<code class="docutils literal notranslate"><span class="pre">wrap</span></code>)
 a token that is not at the end of a line (<a class="reference external" href="https://github.com/pygments/pygments/issues/3201">#3201</a>)</p></li>
+<li><p>Add support for Python 3.15 (<a class="reference external" href="https://github.com/pygments/pygments/issues/3099">#3099</a>)</p></li>
+<li><p>Fix invalid <code class="docutils literal notranslate"><span class="pre">-L</span></code> values report success (<a class="reference external" href="https://github.com/pygments/pygments/issues/3217">#3217</a>)</p></li>
+<li><p>Allow <code class="docutils literal notranslate"><span class="pre">transparent</span></code> as a color style definition (<a class="reference external" href="https://github.com/pygments/pygments/issues/3180">#3180</a>, <a class="reference external" href="https://github.com/pygments/pygments/issues/3170">#3170</a>)</p></li>
+<li><p>HtmlFormatter: <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">'</span></code> now render literally (<a class="reference external" href="https://github.com/pygments/pygments/issues/3185">#3185</a>)</p></li>
 </ul>
 </section>
 <section id="version-2-20-0">
